@@ -7,6 +7,7 @@ Cero төсөл нь блокчэйн технологи дээр суурила
  - React
  - Typescript
  - Tailwind
+ - React-Router
  - Vite ( Faster Webpack )
  - SWC ( Faster Babel )
  - PNPM ( Faster NPM )
