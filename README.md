@@ -4,8 +4,8 @@ Cero төсөл нь блокчэйн технологи дээр суурила
 
 ### Web Stack
 ---
-React\
-Typescript\
-Vite ( Faster Webpack )\
-SWC ( Faster Babel )\
-PNPM ( Faster NPM )\
+ - React
+ - Typescript
+ - Vite ( Faster Webpack )
+ - SWC ( Faster Babel )
+ - PNPM ( Faster NPM )
