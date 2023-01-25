@@ -63,6 +63,7 @@ module.exports = {
         "base": "16px",
         "lg": "24px",
         "xl": "28px",
+        "2xl": "32px",
       },
       gap: {
         "xs": "4px",
@@ -70,6 +71,7 @@ module.exports = {
         "base": "16px",
         "lg": "24px",
         "xl": "28px",
+        "2xl": "32px",
       },
     },
   },
