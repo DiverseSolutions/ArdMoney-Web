@@ -30,20 +30,11 @@
             "@/*": [
                 "src/*"
             ],
-            "@images/*": [
-                "src/assets/images/*"
-            ],
             "@abi/*": [
                 "src/abi/*"
             ],
-            "@constants/*": [
-                "src/constants/*"
-            ],
             "@helpers/*": [
                 "src/helpers/*"
-            ],
-            "@components/*": [
-                "src/components/*"
             ],
             "@hooks/*": [
                 "src/hooks/*"
@@ -54,17 +45,20 @@
             "@locales/*": [
                 "src/locales/*"
             ],
-            "@queries/*": [
-                "src/graphql/queries/*"
-            ],
-            "@slices/*": [
-                "src/redux/slices/*"
-            ],
             "@redux/*": [
                 "src/redux/*"
             ],
+            "@components/*": [
+                "src/components/*"
+            ],
             "@graphql/*": [
                 "src/graphql/*"
+            ],
+            "@shared/*": [
+                "src/components/shared/*"
+            ],
+            "@layouts/*": [
+                "src/components/layouts/*"
             ]
         }
     },

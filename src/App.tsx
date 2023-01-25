@@ -1,17 +1,22 @@
 import './App.css'
 
 import {
-  createBrowserRouter,
-  RouterProvider,
+  BrowserRouter,
+  Routes,
+  Route,
 } from "react-router-dom";
 
 import Home from "@routes/Home"
+import HomeLayout from "@layouts/HomeLayout"
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />,
-  },
-]);
-
-export default function App() { return ( <RouterProvider router={router} />) }
+export default function App() { 
+  return ( 
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomeLayout />}>
+          <Route index element={<Home />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  ) 
+}

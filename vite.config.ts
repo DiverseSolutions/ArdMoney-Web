@@ -9,7 +9,7 @@ export default defineConfig({
     ViteAliases({
       dir: 'src',
       deep: true,
-      depth: 1,
+      depth: 2,
       prefix: '@',
       useConfig: false,
       useTypescript: false,
