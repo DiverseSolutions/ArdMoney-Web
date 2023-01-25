@@ -11,8 +11,8 @@ export default defineConfig({
       deep: true,
       depth: 1,
       prefix: '@',
-      useConfig: true,
-      useTypescript: true,
+      useConfig: false,
+      useTypescript: false,
     })
   ],
 })
