@@ -43,7 +43,7 @@ export default function Home() {
                 className='fill-transparent'
               />
             </div> */}
-          </div
+          </div>
           <div className='flex flex-col gap-6 w-full px-32 pt-32 pb-64 text-center z-10'>
             <span className='text-white/60'>First Mongolian DAO</span>
             <div className='flex flex-col text-[56px] leading-none text-white'>
