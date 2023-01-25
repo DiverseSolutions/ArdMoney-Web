@@ -7,6 +7,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        sm: '390px',
+        md: '834px',
+        lg: '1184px',
+      },
       fontFamily: {
         sans: ['PP Neue Machina', 'sans-serif'],
         serif: ['Merriweather', 'serif'],
