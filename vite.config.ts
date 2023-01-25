@@ -8,6 +8,8 @@ export default defineConfig({
     react(),
     ViteAliases({
       dir: 'src',
+      deep: true,
+      depth: 1,
       prefix: '@',
       useConfig: true,
       useTypescript: true,
