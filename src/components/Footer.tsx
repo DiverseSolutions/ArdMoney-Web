@@ -6,10 +6,10 @@ import Instagram from "@assets/social/instagram.png";
 
 export default function Footer() {
   return (
-    <div className='flex justify-center p-12 h-40 w-full'>
-      <div className='flex max-w-6xl justify-between items-center w-full'>
-        <div className='flex flex-col gap-6 w-full'>
-          <div className='flex gap-6 items-center w-full text-white'>
+    <div className='flex flex-col sm:flex-row sm:justify-center p-lg sm:h-28 w-full'>
+      <div className='flex flex-col sm:max-w-6xl justify-between sm:items-center w-full gap-6 sm:gap-0'>
+        <div className='flex flex-col sm:flex-row justify-between w-full gap-6 sm:gap-0'>
+          <div className='flex flex-col sm:flex-row gap-4 sm:items-center w-full text-white text-sm sm:text-xs lg:text-sm'>
             <span>DEX</span>
             <span>Testnet</span>
             <span>What is ARDM?</span>
@@ -18,6 +18,14 @@ export default function Footer() {
             <span>Forum</span>
             <span>Snapshot</span>
           </div>
+          <div className='flex whitespace-nowrap gap-2 text-white text-sm sm:text-xs lg:text-md'>
+            <span className="text-white/60">For inquiries: </span>
+            <span className='underline cursor-pointer'>
+              info@cero.exchange
+            </span>
+          </div>
+        </div>
+        <div className='flex flex-col sm:flex-row justify-between w-full gap-6'>
           <div className='flex items-center gap-2'>
             <img
               src={Copyright}
@@ -25,48 +33,36 @@ export default function Footer() {
               height={"16px"}
               alt='image'
             />
-            <span className='text-sm text-white/60'>
+            <span className='text-sm sm:text-xs lg:text-md text-white/60'>
               2023 Diverse Solution LLC. All rights reserved
             </span>
           </div>
-        </div>
-        <div className='flex flex-col gap-6'>
-          <div className='flex whitespace-nowrap gap-2 text-white'>
-            <span className="text-white/60">For inquiries: </span>
-            <span className='underline cursor-pointer'>
-              info@cero.exchange
-            </span>{" "}
-          </div>
-          <div className='flex justify-end gap-4 '>
-            <button>
+          <div className='flex sm:justify-end gap-4 '>
+            <button className="w-6 h-6">
               <img
                 src={Medium}
-                width={"24px"}
-                height={"24px"}
                 alt='image'
+                className="object-cover"
               />
             </button>
-            <button>
+            <button className="w-6 h-6">
               <img
                 src={Instagram}
-                width={"24px"}
-                height={"24px"}
+                className="object-cover"
                 alt='image'
               />
             </button>
-            <button>
+            <button className="w-6 h-6">
               <img
                 src={Facebook}
-                width={"24px"}
-                height={"24px"}
+                className="object-cover"
                 alt='image'
               />
             </button>
-            <button>
+            <button className="w-6 h-6">
               <img
                 src={Discord}
-                width={"24px"}
-                height={"24px"}
+                className="object-cover"
                 alt='image'
               />
             </button>
