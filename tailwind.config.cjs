@@ -7,6 +7,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['PP Neue Machina', 'sans-serif'],
+        serif: ['Merriweather', 'serif'],
+      },
       colors : {
         "primary-back": "rgba(131, 98, 253, 0.1)",
         "primary-disabled": "rgba(131, 98, 253, 0.2)",
@@ -36,6 +40,17 @@ module.exports = {
         "dark-soft": "rgba(0, 0, 0, 0.93)",
         "dark": "#000000",
 
+      },
+      fontSize: {
+        '2xs': ['10px', { lineHeight: '12px' }],
+        xs: ['12px', { lineHeight: '16px' }],
+        sm: ['14px', { lineHeight: '20px' }],
+        base: ['16px', { lineHeight: '24px' }],
+        lg: ['20px', { lineHeight: '28px' }],
+        xl: ['24px', { lineHeight: '32px' }],
+        '2xl': ['32px', { lineHeight: '36px' }],
+        '3xl': ['40px', { lineHeight: '44px' }],
+        '4xl': ['56px', { lineHeight: '60px' }],
       },
     },
   },

@@ -1,3 +1,38 @@
+@font-face {
+  font-family: PP Neue Machina;
+  src: url("PPNeueMachina.otf");
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply text-4xl;
+  }
+  h2 {
+    @apply text-3xl;
+  }
+  h3 {
+    @apply text-2xl;
+  }
+  h4 {
+    @apply text-xl;
+  }
+  h5 {
+    @apply text-lg;
+  }
+}
+
+@layer components {
+  .bg-gradient {
+    background: radial-gradient(91.39% 119.64% at 7.64% 4.23%, #8362FD 0%, #ABFC86 100%);
+  }
+  .bg-gradient-light {
+    background: radial-gradient(125.38% 119.64% at 7.64% 4.23%, #8362FD 0%, #FFFFFF 48.44%, #ABFC86 100%)
+  }
+  .bg-gradient-dark {
+    background: radial-gradient(108.58% 119.64% at 7.64% 4.23%, #8362FD 0%, #000000 48.44%, #ABFC86 100%)
+  }
+}
