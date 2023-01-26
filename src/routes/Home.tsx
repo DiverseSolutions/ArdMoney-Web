@@ -338,7 +338,7 @@ export default function Home() {
                   <div className='flex flex-col mt-10 sm:mb-16'>
                     <div className='flex flex-col sm:flex-row sm:justify-between w-full rounded-lg h-full sm:h-[363px]'>
                       <div className='flex flex-col justify-end gap-4 text-white w-full sm:w-5/12 lg:w-6/12 mb-10'>
-                        <div className='flex gap-1 cursor-pointer'>
+                        <div className='flex gap-1 lg:gap-lg cursor-pointer'>
                           <span className='text-md sm:text-xl font-extrabold uppercase'>
                             Join our community
                           </span>

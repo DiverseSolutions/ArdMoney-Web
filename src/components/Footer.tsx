@@ -9,7 +9,7 @@ export default function Footer() {
     <div className='flex flex-col sm:flex-row sm:justify-center p-lg sm:h-28 w-full'>
       <div className='flex flex-col sm:max-w-6xl justify-between sm:items-center w-full gap-6 sm:gap-0'>
         <div className='flex flex-col sm:flex-row justify-between w-full gap-6 sm:gap-0'>
-          <div className='flex flex-col sm:flex-row gap-4 sm:items-center w-full text-white text-sm sm:text-xs lg:text-sm'>
+          <div className='flex flex-col sm:flex-row gap-4 lg:gap-lg sm:items-center w-full text-white text-sm sm:text-xs lg:text-sm'>
             <span>DEX</span>
             <span>Testnet</span>
             <span>What is ARDM?</span>
@@ -18,7 +18,7 @@ export default function Footer() {
             <span>Forum</span>
             <span>Snapshot</span>
           </div>
-          <div className='flex whitespace-nowrap gap-2 text-white text-sm sm:text-xs lg:text-md'>
+          <div className='flex whitespace-nowrap gap-2 text-white text-sm sm:text-xs lg:text-sm'>
             <span className="text-white/60">For inquiries: </span>
             <span className='underline cursor-pointer'>
               info@cero.exchange
@@ -33,11 +33,11 @@ export default function Footer() {
               height={"16px"}
               alt='image'
             />
-            <span className='text-sm sm:text-xs lg:text-md text-white/60'>
+            <span className='text-sm sm:text-xs lg:text-sm text-white/60'>
               2023 Diverse Solution LLC. All rights reserved
             </span>
           </div>
-          <div className='flex sm:justify-end gap-4 '>
+          <div className='flex sm:justify-end gap-lg '>
             <button className="w-6 h-6">
               <img
                 src={Medium}

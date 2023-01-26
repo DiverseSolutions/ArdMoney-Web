@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 
 import Home from "@routes/Home"
+import Swap from "@routes/Swap"
 import HomeLayout from "@layouts/HomeLayout"
 
 export default function App() { 
@@ -15,6 +16,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomeLayout />}>
           <Route index element={<Home />} />
+          <Route path='/swap' element={<Swap />} />
         </Route>
       </Routes>
     </BrowserRouter>
