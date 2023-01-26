@@ -1,6 +1,7 @@
 import { useState } from "react";
 
-import Background from "@assets/background.png";
+import Background from "@assets/background.svg";
+import Background2 from "@assets/background2.svg";
 import Face from "@assets/face.png";
 import Persona from "@assets/persona.png";
 import Chevron from "@assets/down_chevron.png";
@@ -34,17 +35,8 @@ export default function Home() {
 
   return (
       <div className='flex flex-col w-full bg-black min-h-screen'>
-        <div className='flex flex-col items-center w-full p-6 lg:p-0'>
-          <div className='absolute top-0 w-full h-auto'>
-            {/* <div className='flex justify-center items-center relative w-full h-auto'>
-              <img
-                src={Background}
-                alt='image'
-                className='fill-transparent'
-              />
-            </div> */}
-          </div>
-
+        
+        <div className='relative flex flex-col items-center w-full p-6 lg:p-0'>
           <div className='flex flex-col gap-lg w-full lg:px-32 pt-32 pb-32 lg:pb-64 text-center z-10'>
             <span className='text-white/60 text-base sm:text-xl'>First Mongolian DAO</span>
             <div className='flex flex-col text-2xl sm:text-4xl font-extrabold leading-none text-white'>
@@ -62,8 +54,11 @@ export default function Home() {
               </button>
             </div>
           </div>
+          <img src={Background} alt="" className='absolute left-0 top-0 mt-96' />
+          <img src={Background2} alt="" className='absolute left-0 top-1/4 -mt-96' />
 
           <div className='flex w-full justify-center items-center bg-black'>
+            
             <div className='flex flex-col max-w-6xl w-full justify-between'>
               <div className='grid grid-cols-2 sm:grid-cols-4 z-30 text-white w-full pt-64 pb-32 px-0 '>
                 <div className='flex flex-col text-center p-base font-extrabold'>
@@ -102,6 +97,7 @@ export default function Home() {
                     most reliable and secure transactions service that can be
                     used by consumers and businesses.
                   </span>
+                  
                 </div>
               </div>
 
