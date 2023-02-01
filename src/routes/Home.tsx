@@ -1,23 +1,25 @@
 import { useState } from "react";
+import Iframe from 'react-iframe'
 
-import Background from "@assets/background.svg";
-import Background2 from "@assets/background2.svg";
-import Face from "@assets/face.png";
-import Persona from "@assets/persona.png";
-import Chevron from "@assets/down_chevron.png";
-import Arrow_RB from "@assets/arrow_rb.png";
-import Media1 from "@assets/media1.png";
-import Media2 from "@assets/media2.png";
-import Media3 from "@assets/media3.png";
-import Ghosts from "@assets/ghosts.svg";
-import Telegram from "@assets/telegram.png";
-import Twitter from "@assets/twitter.png";
-import Play from "@assets/play.png";
-import TextBg from "@assets/text_bg.svg";
-import Ellipse from "@assets/ellipse.svg";
-import Ellipse101 from "@assets/ellipse_101.svg";
-import Ellipse102 from "@assets/ellipse_102.svg";
-import Blog_rectangle from "@assets/blog_rectangle.svg";
+
+import Background from "@assets/home/background.svg";
+import Background2 from "@assets/home/background2.svg";
+import Face from "@assets/home/face.png";
+import Persona from "@assets/home/persona.png";
+import Chevron from "@assets/home/down_chevron.png";
+import Arrow_RB from "@assets/home/arrow_rb.png";
+import Media1 from "@assets/home/media1.png";
+import Media2 from "@assets/home/media2.png";
+import Media3 from "@assets/home/media3.png";
+import Ghosts from "@assets/home/ghosts.svg";
+import Telegram from "@assets/home/telegram.png";
+import Twitter from "@assets/home/twitter.png";
+import Play from "@assets/home/play.png";
+import TextBg from "@assets/home/text_bg.svg";
+import Ellipse from "@assets/home/ellipse.svg";
+import Ellipse101 from "@assets/home/ellipse_101.svg";
+import Ellipse102 from "@assets/home/ellipse_102.svg";
+import Blog_rectangle from "@assets/home/blog_rectangle.svg";
 
 export default function Home() {
   const [faqs, setFaqs] = useState(faqsInit);
@@ -70,7 +72,7 @@ export default function Home() {
               <div className='grid grid-cols-2 md:grid-cols-4 z-30 text-white w-full pt-64 pb-32 px-0 '>
                 <div className='flex flex-col text-center p-base font-extrabold'>
                   <span className='text-xl md:text-3xl lg:text-4xl'>0.03₮</span>
-                  <span className='text-2xs md:text-md lg:text-base'>CERO PRICE</span>
+                  <span className='text-2xs md:text-md lg:text-base'>ARDM PRICE</span>
                 </div>
                 <div className='flex flex-col text-center p-base font-extrabold'>
                 <span className='text-xl md:text-3xl lg:text-4xl'>5.58B</span>
@@ -98,7 +100,7 @@ export default function Home() {
                     Advanced protocol for managing digital assets
                   </span>
                   <span className='text-white/60 text-xs md:text-base'>
-                    Cero is revolutionising the world of financial services.
+                    Ardmoney is revolutionising the world of financial services.
                     We've created a low-cost, high-speed blockchain based
                     financial system and are dedicated to being the fastest,
                     most reliable and secure transactions service that can be
@@ -115,7 +117,7 @@ export default function Home() {
                       WHAT WE CAPABLE OF
                     </span>
                     <span className='font-normal text-md md:text-base'>
-                      Cero Protocol is a decentralized protocol providing
+                      Ardmoney is a decentralized protocol providing
                       financial services, such as Lending, Borrowing, Liquidity
                       mining, without an intermediary.
                     </span>
@@ -133,25 +135,22 @@ export default function Home() {
                     <span className="text-md md:text-base">
                       Facilitating permissionless decentralized lending.
                     </span>
-                    <span className='text-white/60 text-2xs md:text-md font-light'>
-                      ArdMoney protocol users are able to save with high
-                      interest and borrow with low interest.
+                    <span className='text-white/60 text-xs md:text-md font-light'>
+                      ArdMoney protocol users are able to save with high interest and borrow with low interest.
                     </span>
                   </div>
                   <div className='flex flex-col gap-md text-white border border-white/60 p-6 rounded-lg'>
                   <span className='text-base md:text-xl font-extrabold'>DEX</span>
                   <span className="text-md md:text-base">Your exchange in your hands.</span>
-                  <span className='text-white/60 text-2xs md:text-md font-light'>
-                      mdart Contracts allow ArdMoney to provide a
-                      permissionless, trustless, immutable platform to trade
-                      crypto assets.
-                    </span>
+                  <span className='text-white/60 text-xs md:text-md font-light'>
+                    Smart Contracts allow ArdMoney to provide a permissionless, trustless, immutable platform to trade crypto assets.
+                  </span>
                   </div>
                   <div className='flex flex-col gap-md text-white border border-white/60 p-6 rounded-lg'>
                   <span className='text-base md:text-xl font-extrabold'>DAO</span>
                   <span className="text-md md:text-base">By the people. For the people.</span>
-                  <span className='text-white/60 text-2xs md:text-md font-light'>
-                      Cero protocol is fully democratized and is governed by its
+                  <span className='text-white/60 text-xs md:text-md font-light'>
+                      Ardmoney is fully democratized and is governed by its
                       token holders which ensures the protocol serves the best
                       interest of the people.
                     </span>
@@ -172,6 +171,7 @@ export default function Home() {
 
                 <div className='flex flex-col gap-6 z-10'>
                   {faqs.map((faq, index) => {
+                    console.log("faq: ", faq)
                     return (
                       <button key={index} onClick={() => toggleItem(faq)}>
                         <div className='flex flex-col w-full border rounded-lg bg-gradient-to-r from-[#8362FD] to-[#3FE600] p-[1px] text-white'>
@@ -196,19 +196,17 @@ export default function Home() {
                           {faq.isOpen && (
                             <div className='flex flex-col md:flex-row px-6 pb-6 bg-black text-justify rounded-bl-lg rounded-br-lg w-full gap-6'>
                               <div className='flex relative w-full md:w-1/2 rounded-lg bg-white h-40 md:h-[300px]'>
-                                <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
-                                  <div className={`h-12 w-12 relative`}>
-                                    <img
-                                      src={Play}
-                                      alt='image'
-                                    />
-                                  </div>
-                                </div>
+                                <iframe
+                                  className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex w-full h-full rounded-lg'
+                                  title='YouTube video player'
+                                  allow='accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture ' 
+                                  src={faq.url}
+                                ></iframe>
                               </div>
                               <div className='flex flex-col md:w-1/2 gap-4'>
                                 <span className="text-md md:text-base">By the people. For the people.</span>
                                 <span className='text-2xs md:text-md text-white/60 font-light'>
-                                  Cero protocol is fully democratized and is
+                                  Ardmoney is fully democratized and is
                                   governed by its token holders which ensures
                                   the protocol serves the best interest of the
                                   people.
@@ -224,7 +222,7 @@ export default function Home() {
                   <div className='flex items-center justify-center w-full gap-6 rounded-lg mb-20 sm:mb-16 lg:mb-16 border'>
                     <div className='flex flex-col items-center p-6 back rounded-lg lg:h-[284px] bg-gradient-to-br from-[#000000] via-[#8362FD]/10 to-[#8362FD] text-white'>
                       <span className='flex text-center uppercase text-base md:text-xl font-extrabold mb-6'>
-                        Four Pillars of cero protocol
+                        Four Pillars of Ardmoney
                       </span>
                       <div className='grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-6'>
                         <div className='flex flex-col bg-black/40 rounded-lg p-6 gap-base'>
@@ -239,22 +237,22 @@ export default function Home() {
                         <div className='flex flex-col bg-black/40 rounded-lg p-6 gap-base'>
                           <span className='uppercase font-extrabold text-md md:text-md lg:text-base'>Multichain</span>
                           <span className='text-white/60 text-xs lg:text-md font-light'>
-                            Users will be able to use Cero on the chain that
-                            they most see fit. Cero is currently deployed on
+                            Users will be able to use Ardmoney on the chain that
+                            they most see fit. Ardmoney is currently deployed on
                             Polygon and Binance mdart Chain.
                           </span>
                         </div>
                         <div className='flex flex-col bg-black/40 rounded-lg p-6 gap-base'>
                           <span className='uppercase font-extrabold text-md md:text-md lg:text-base'>Permissionless</span>
                           <span className='text-white/60 text-xs lg:text-md font-light'>
-                            Cero will serve as a gateway for investors to have
+                            Ardmoney will serve as a gateway for investors to have
                             exposure to crypto projects in less known economies.
                           </span>
                         </div>
                         <div className='flex flex-col bg-black/40 rounded-lg p-6 gap-base'>
                           <span className='uppercase font-extrabold text-md md:text-md lg:text-base'>Decentralized</span>
                           <span className='text-white/60 text-xs lg:text-md font-light'>
-                            Cero is governed by its token holders who are able
+                            Ardmoney is governed by its token holders who are able
                             to vote on upcoming features.
                           </span>
                         </div>
@@ -359,8 +357,8 @@ export default function Home() {
                           </div>
                         </div>
                         <p className='text-white/60'>
-                          Users will be able to use Cero on the chain that they
-                          most see fit. Cero is currently deployed on Polygon
+                          Users will be able to use Ardmoney on the chain that they
+                          most see fit. Ardmoney is currently deployed on Polygon
                           and Binance mdart Chain.
                         </p>
                       </div>
@@ -409,26 +407,29 @@ export default function Home() {
 const faqsInit = [
   {
     id: 1,
-    title: "what is cero ?",
+    title: "what is ardmoney ?",
     subtitle: "By the people. For the people.",
     description:
-      "Cero protocol is fully democratized and is governed by its token holders which ensures the protocol serves the best interest of the people.",
+      "Ardmoney is fully democratized and is governed by its token holders which ensures the protocol serves the best interest of the people.",
     isOpen: false,
+    url: "https://www.youtube.com/watch?v=Wfc6AJVA8O4&t=2s"
   },
   {
     id: 2,
     title: "what is dex ?",
     subtitle: "By the people. For the people.",
     description:
-      "Cero protocol is fully democratized and is governed by its token holders which ensures the protocol serves the best interest of the people.",
+      "Ardmoney is fully democratized and is governed by its token holders which ensures the protocol serves the best interest of the people.",
     isOpen: false,
+    url: "https://www.youtube.com/watch?v=3HESogLqS2Q"
   },
   {
     id: 3,
     title: "what is dao ?",
     subtitle: "By the people. For the people.",
     description:
-      "Cero protocol is fully democratized and is governed by its token holders which ensures the protocol serves the best interest of the people.",
+      "Ardmoney is fully democratized and is governed by its token holders which ensures the protocol serves the best interest of the people.",
     isOpen: false,
+    url: "https://www.youtube.com/watch?v=0HMA_y4V_Qo"
   },
 ];

@@ -1,4 +1,4 @@
-import Copyright from "@assets/copyright.png";
+import Copyright from "@assets/home/copyright.png";
 import Discord from "@assets/social/discord.png";
 import Facebook from "@assets/social/facebook.png";
 import Medium from "@assets/social/medium.png";
@@ -8,7 +8,7 @@ const footers = [
   { text: "DEX", link: "https://app.ardmoney.com/" },
   { text: "Testnet", link: "https://faucet.dsolutions.mn/" },
   { text: "What is ARDM?", link: "https://www.youtube.com/watch?v=Wfc6AJVA8O4"},
-  { text: "Apply for Listing", link: "https://www.youtube.com/watch?v=Wfc6AJVA8O4"},
+  { text: "Apply for Listing", link: "mailto:info@ardmoney.com"},
   { text: "Buy Cero", link: "https://www.idax.exchange/mn_MN/newTrade/ARDM_MONT"},
   { text: "Forum", link: "https://forum.ardmoney.com/"},
   { text: "Snapshot", link: "https://snapshot.org/#/ardmoneydao.eth"}
@@ -31,8 +31,8 @@ export default function Footer() {
           </div>
           <div className='flex whitespace-nowrap gap-2 text-white text-sm sm:text-xs lg:text-sm'>
             <span className="text-white/60">For inquiries: </span>
-            <a href="mailto:abc@example.com" className='underline cursor-pointer'>
-              info@cero.exchange
+            <a href="mailto:info@ardmoney.com" className='underline cursor-pointer'>
+            info@ardmoney.com
             </a>
           </div>
         </div>

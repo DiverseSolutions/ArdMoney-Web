@@ -1,14 +1,14 @@
 import {useState} from 'react'
-import CeroLogo from "@assets/cero_logo.png";
-import Menu from "@assets/menu.png";
+import ArdmLogo from "@assets/home/ardm_logo.png";
+import Menu from "@assets/home/menu.png";
 import CeroMobileLogo from "@assets/cero_mobile_logo.png";
 import Cancel from "@assets/icons/cancel.svg";
-import Copyright from "@assets/dark_copyright.svg";
+import Copyright from "@assets/home/dark_copyright.svg";
 import Discord from "@assets/social/dark_discord.svg";
 import Facebook from "@assets/social/dark_facebook.svg";
 import Medium from "@assets/social/dark_medium.svg";
 import Instagram from "@assets/social/dark_instagram.svg";
-import MobileClouds from "@assets/mobile_clouds.svg";
+import MobileClouds from "@assets/home/mobile_clouds.svg";
 
 const navigations = [
   { text: "BscScan", link: "https://bscscan.com/token/0xe849188f76c0da93b5ed310a1f72127914b3a7b9" },
@@ -40,9 +40,9 @@ export default function Navbar() {
             <div className='flex items-center gap-6'>
               <a href="/">
                 <img
-                  src={CeroLogo}
-                  width={"91.14px"}
-                  height={"24px"}
+                  src={ArdmLogo}
+                  width={"45px"}
+                  height={"45px"}
                   alt='image'
                   className='cursor-pointer'
                 />
