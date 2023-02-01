@@ -75,26 +75,20 @@ export default function Home() {
                   <span className='text-2xs md:text-md lg:text-base'>ARDM PRICE</span>
                 </div>
                 <div className='flex flex-col text-center p-base font-extrabold'>
-                <span className='text-xl md:text-3xl lg:text-4xl'>5.58B</span>
+                <span className='text-xl md:text-3xl lg:text-4xl'>12.3B</span>
                   <span className='text-2xs md:text-md lg:text-base'>STAKING CONTRACT</span>
                 </div>
                 <div className='flex flex-col text-center p-base font-extrabold'>
-                  <span className='text-xl md:text-3xl lg:text-4xl'>3.18B</span>
+                  <span className='text-xl md:text-3xl lg:text-4xl'>3.29B</span>
                   <span className='text-2xs md:text-md lg:text-base'>MARKET CAP</span>
                 </div>
                 <div className='flex flex-col text-center p-base font-extrabold'>
-                  <span className='text-xl md:text-3xl lg:text-4xl'>103.3</span>
-                  <span className='text-2xs md:text-md lg:text-base'>TOTAL VOLUME</span>
+                  <span className='text-xl md:text-3xl lg:text-4xl'>133B</span>
+                  <span className='text-2xs md:text-md lg:text-base'>TOTAL SUPPLY</span>
                 </div>
               </div>
 
-              <div className='flex flex-col w-full justify-center items-center gap-5 mb-16 md:mb-32 z-10'>
-                <img
-                  src={Face}
-                  width={"61.57px"}
-                  height={"64px"}
-                  alt='image'
-                />
+              <div className='flex mt-5 flex-col w-full justify-center items-center gap-5 mb-16 md:mb-32 z-10'>
                 <div className='flex flex-col gap-base text-center max-w-lg'>
                   <span className='text-xl md:text-3xl text-white font-extrabold'>
                     Advanced protocol for managing digital assets
