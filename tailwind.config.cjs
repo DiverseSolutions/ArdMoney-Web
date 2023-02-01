@@ -8,6 +8,7 @@ module.exports = {
         sm: "390px",
         md: "834px",
         lg: "1184px",
+        xl: "1300px",
       },
       fontFamily: {
         sans: ["PP Neue Machina", "sans-serif"],

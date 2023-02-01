@@ -17,11 +17,11 @@ import Background2 from '../assets/images/swap/background2.svg'
 export default function Stake() {
   return (
     <div className="flex justify-center min-h-screen w-full ">
-      <div className='flex flex-col w-full max-w-6xl mb-4xl z-10'>
-        <span className='text-4xl text-light font-extrabold mt-[60px] mb-lg'>Cero Staking</span>
+      <div className='flex flex-col w-full max-w-6xl sm:mb-4xl md:mb-2xl z-10 p-6 lg:p-0'>
+        <span className='text-2xl lg:text-4xl text-light font-extrabold lg:mt-4xl mb-sm lg:mb-lg'>Cero Staking</span>
 
         <div className='relative flex flex-col staking-header-gradient p-lg w-full border border-primary rounded-lg mb-2xl'>
-          <div className='flex flex-col w-5/12 text-light/60 text-sm gap-lg'>
+          <div className='flex flex-col w-full z-10 lg:w-5/12 text-light/60 text-sm gap-lg'>
             <div className='flex gap-base'>
               <img src={Info} alt="" className='flex items-start'/>  
               <span>By staking CERO tokens, they will be converted into an equal amount of xCERO tokens and placed in your wallet.</span>
@@ -39,19 +39,21 @@ export default function Stake() {
               <span>By staking CERO tokens, they will be converted into an equal amount of xCERO tokens and placed in your wallet.</span>
             </div>
           </div>
-          <img src={Staking_head1} alt="" className='absolute right-1/4 bottom-0' />
-          <img src={Staking_head2} alt="" className='absolute right-0 top-0 ' />
-          <img src={Staking_head3} alt="" className='absolute right-0 bottom-0 z-20' />
-          
-          <img src={Cloud1} alt="" className='absolute right-0 bottom-0' />
-          <img src={Cloud2} alt="" className='absolute right-0 bottom-0' />
-          <img src={Cloud3} alt="" className='absolute right-0 bottom-0' />
-          <img src={Cloud4} alt="" className='absolute right-0 bottom-0' />
+          <div className='hidden lg:flex'>
+            <img src={Staking_head1} alt="" className='absolute right-1/4 bottom-0' />
+            <img src={Staking_head2} alt="" className='absolute right-0 top-0 ' />
+            <img src={Staking_head3} alt="" className='absolute right-0 bottom-0 z-20' />
+            
+            <img src={Cloud1} alt="" className='absolute right-0 bottom-0' />
+            <img src={Cloud2} alt="" className='absolute right-0 bottom-0' />
+            <img src={Cloud3} alt="" className='absolute right-0 bottom-0' />
+            <img src={Cloud4} alt="" className='absolute right-0 bottom-0' />
+          </div>
   
         </div>
 
-        <div className='flex gap-lg text-light w-full h-full'>
-          <div className='relative flex flex-col p-lg w-1/2 rounded-lg border border-[#ABFC86] h-full'>
+        <div className='flex flex-col lg:flex-row gap-lg text-light w-full h-full'>
+          <div className='relative flex flex-col p-lg w-full lg:w-1/2 rounded-lg border border-[#ABFC86] h-full'>
             <span className='text-xl mb-lg font-extrabold'>MY ASSETS</span>
             <span className='text-base mb-2xl'>Balance</span>
             <div className='flex items-center gap-xs mb-sm p-sm border border-primary/10 rounded-lg'> 
@@ -68,7 +70,7 @@ export default function Stake() {
               <span className='flex items-end text-xs text-light/60'>xCERO</span>
             </div>
             <span className='mb-lg text-base'>Penalty for early release</span>
-            <div className='flex flex-col text-sm text-light/60 border border-primary/10 rounded-lg px-3 py-2 gap-xs'>
+            <div className='flex flex-col text-sm text-light/60 border border-primary/10 rounded-lg sm:px-3 py-2 gap-xs'>
               <div className='flex justify-between w-full border-b border-primary/10 p-1'>
                 <span>Penalty rate:</span>
                 <div className='flex items-center gap-sm text-light'>
@@ -98,13 +100,15 @@ export default function Stake() {
                 </div>
               </div>
             </div>
-            <img src={Cero_staking1} alt="" className='absolute left-0 bottom-0' />
-            <img src={Cero_staking2} alt="" className='absolute right-0 bottom-0' />
-            <img src={Cero_staking3} alt="" className='absolute bottom-0 left-1/2 transform -translate-x-1/2 -translate-y-1/5' />
+            <div className='hidden lg:flex' >
+              <img src={Cero_staking1} alt="Cero_staking1" className='absolute left-0 bottom-0' />
+              <img src={Cero_staking2} alt="Cero_staking2" className='absolute right-0 bottom-0' />
+              <img src={Cero_staking3} alt="Cero_staking3" className='absolute bottom-0 left-1/2 transform -translate-x-1/2 -translate-y-1/5' />
+            </div>
             
           </div>
           
-          <div className='flex flex-col gap-lg w-1/2'>
+          <div className='flex flex-col gap-lg w-full lg:w-1/2'>
             <div className='flex flex-col border border-primary rounded-lg p-lg gap-lg'>
               <div className='flex w-full justify-between text-xl'>
                 <span className='font-extrabold'>Total CERO</span>
@@ -119,7 +123,7 @@ export default function Stake() {
               </div>
             </div>
             <div className='flex flex-col p-lg w-full border border-primary rounded-lg'>
-              <div className='flex w-full gap-sm mb-lg'>
+              <div className='flex w-full gap-sm mb-sm sm:mb-lg text-sm sm:text-md'>
                 <button className='flex py-[14px] px-[16px] w-1/2 bg-primary/10 justify-center border-b-4 border-primary rounded-tl-lg rounded-tr-lg'>
                   <span>Stake</span>
                 </button>
@@ -137,38 +141,38 @@ export default function Stake() {
               </div>
 
               <div className='flex px-base py-sm border border-primary/10 rounded-lg mb-sm'>
-                <input type="tel" placeholder='0.000 CERO' name="" id="" className='flex w-full bg-transparent outline-none text-xl appearance-none' />
+                <input type="tel" placeholder='0.000 CERO' name="" id="" className='flex w-full bg-transparent outline-none md:text-xl appearance-none' />
               </div>
 
               <div className='flex justify-between w-full mb-2xl'>
-                <span className='text-light/60 text-sm'>1 xCero = 1.000000 Cero</span>
+                <span className='text-light/60 text-xs sm:text-sm'>1 xCero = 1.000000 Cero</span>
                 <div className='flex gap-xs'>
                   <button className='flex items-center px-[12px] py-xs text-2xs border border-light/10 rounded-3xl'>
-                    <span>1/4</span>
+                    1/4
                   </button>
                   <button className='flex items-center px-[12px] py-xs text-2xs border border-light/10 rounded-3xl'>
-                    <span>1/2</span>
+                    1/2
                   </button>
                   <button className='flex items-center px-[12px] py-xs text-2xs bg-primary text-black rounded-3xl'>
-                    <span>MAX</span>
+                    MAX
                   </button>
                 </div>
               </div>
 
               <div className='flex px-base py-sm border border-primary/10 rounded-lg mb-sm'>
-                <input type="tel" placeholder='0.000 CERO' name="" id="" className='flex w-full bg-transparent outline-none text-xl appearance-none' />
+                <input type="tel" placeholder='0.000 CERO' name="" id="" className='flex w-full bg-transparent outline-none md:text-xl appearance-none' />
               </div>
               <span className='text-light/60 text-sm mb-lg'>0.00</span>
 
-              <div className='flex justify-between w-full mb-xl'>
+              <div className='flex items-center justify-between w-full mb-xl gap-1'>
                 <div className='flex items-center text-sm gap-xs'>
-                  <div className='p-2 border border-white/10 rounded-md cursor-pointer'>
+                  <div className='p-2 border border-primary/10 rounded-md cursor-pointer'>
                     <img src={Info} alt=""/>
                   </div>
-                  <span className='text-white'>1 USDT = 3,407.00 MONT</span>
+                  <span className='text-xs sm:text-sm text-white'>1 USDT = 3,407.00 MONT</span>
                   <span className='text-white/60'>(₮1.00)</span>
                 </div>
-                <div className='p-2 border border-white/10 rounded-md cursor-pointer'>
+                <div className='p-2 border border-primary/10 rounded-md cursor-pointer'>
                   <img src={Chevron_D} alt=""/>
                 </div>
               </div>
@@ -187,11 +191,9 @@ export default function Stake() {
                   <span>Please note that if staking is released before the specified time, a fee of 0.6% of your supplied tokens + bonus amount will be charged!</span>
                 </div>
               </div>
-
               <button className='bg-primary py-[14px] px-base rounded-lg'>
                 <span className='text-white text-base'>Stake</span>
               </button>
-
             </div>
           </div>
         </div>
