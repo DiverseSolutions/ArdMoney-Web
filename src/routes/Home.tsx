@@ -364,7 +364,7 @@ export default function Home() {
                     </div>
                     <div className='flex text-white w-full gap-2'>
                       <button className='flex w-1/2 justify-between items-center rounded-lg bg-gradient p-[1px]'>
-                        <a href="https://t.me/Ardcoin_ArdMoney" target={"_blank"} className='flex justify-center md:justify-between h-full w-full items-center p-3 md:p-xl bg-black back rounded-lg gap-3'>
+                        <a href="https://t.me/ArdMoney" target={"_blank"} className='flex justify-center md:justify-between h-full w-full items-center p-3 md:p-xl bg-black back rounded-lg gap-3'>
                           <span className="text-base md:text-xl font-extrabold">TELEGRAM</span>
                           <div className="w-4 h-4 md:w-8 md:h-8">
                             <img

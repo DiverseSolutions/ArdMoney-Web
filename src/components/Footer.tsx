@@ -10,7 +10,7 @@ const footers = [
   { text: "What is ARDM?", link: "https://www.youtube.com/watch?v=Wfc6AJVA8O4"},
   { text: "Apply for Listing", link: "mailto:info@ardmoney.com"},
   { text: "Buy ARDM", link: "https://www.idax.exchange/mn_MN/newTrade/ARDM_MONT"},
-  { text: "Forum", link: "https://forum.ardmoney.com/"},
+  { text: "Forum", link: "https://t.me/ArdMoney"},
   { text: "Snapshot", link: "https://snapshot.org/#/ardmoneydao.eth"}
 ];
 
