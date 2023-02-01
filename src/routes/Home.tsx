@@ -353,7 +353,7 @@ export default function Home() {
                         <p className='text-white/60'>
                           Users will be able to use Ardmoney on the chain that they
                           most see fit. Ardmoney is currently deployed on Polygon
-                          and Binance mdart Chain.
+                          and Binance Smart Chain.
                         </p>
                       </div>
                       <div className='flex justify-center md:justify-center lg:justify-end relative w-full h-full bg-transparent back rounded-lg md:w-6/12 lg:w-8/12'>
