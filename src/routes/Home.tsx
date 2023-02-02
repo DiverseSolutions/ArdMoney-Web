@@ -14,7 +14,6 @@ import Media3 from "@assets/home/media3.png";
 import Ghosts from "@assets/home/ghosts.png";
 import Telegram from "@assets/home/telegram.png";
 import Twitter from "@assets/home/twitter.png";
-// import Play from "@assets/home/play.png";
 import TextBg from "@assets/home/text_bg.svg";
 import Ellipse from "@assets/home/ellipse.svg";
 import Ellipse101 from "@assets/home/ellipse_101.svg";

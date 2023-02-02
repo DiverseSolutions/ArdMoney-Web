@@ -13,14 +13,14 @@ import MobileClouds from "@assets/home/mobile_clouds.svg";
 const navigations = [
   { text: "BscScan", link: "https://bscscan.com/token/0xe849188f76c0da93b5ed310a1f72127914b3a7b9" },
   { text: "PolygonScan", link: "https://polygonscan.com/address/0x87ee9B1D25d7fd609CAadBa5f8c14F4e219650bD" },
-  { text: "Litepaper", link: "https://ardmoney.com/assets/LitePaper.ca4f421f.pdf"},
+  { text: "Litepaper", link: "https://ardmoney.com/assets/LitePaper.pdf"},
 ];
 
 const mobileNavigations = [
   { text: "Launch App", link: "https://app.ardmoney.com/" },
   { text: "BscScan", link: "https://bscscan.com/token/0xe849188f76c0da93b5ed310a1f72127914b3a7b9" },
   { text: "PolygonScan", link: "https://polygonscan.com/address/0x87ee9B1D25d7fd609CAadBa5f8c14F4e219650bD" },
-  { text: "Litepaper", link: "https://ardmoney.com/assets/LitePaper.ca4f421f.pdf"},
+  { text: "Litepaper", link: "https://ardmoney.com/assets/LitePaper.pdf"},
 ];
 
 
