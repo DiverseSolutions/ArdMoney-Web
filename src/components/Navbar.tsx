@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import ArdmLogo from "@assets/home/ardm_logo.png";
 import Menu from "@assets/home/menu.png";
-import CeroMobileLogo from "@assets/cero_mobile_logo.png";
+import Litepaper from '@assets/Litepaper.pdf'
 import Cancel from "@assets/icons/cancel.svg";
 import Copyright from "@assets/home/dark_copyright.svg";
 import Discord from "@assets/social/dark_discord.svg";
@@ -13,14 +13,14 @@ import MobileClouds from "@assets/home/mobile_clouds.svg";
 const navigations = [
   { text: "BscScan", link: "https://bscscan.com/token/0xe849188f76c0da93b5ed310a1f72127914b3a7b9" },
   { text: "PolygonScan", link: "https://polygonscan.com/address/0x87ee9B1D25d7fd609CAadBa5f8c14F4e219650bD" },
-  { text: "Litepaper", link: "https://ardmoney.com/assets/LitePaper.pdf"},
+  { text: "Litepaper", link: Litepaper},
 ];
 
 const mobileNavigations = [
   { text: "Launch App", link: "https://app.ardmoney.com/" },
   { text: "BscScan", link: "https://bscscan.com/token/0xe849188f76c0da93b5ed310a1f72127914b3a7b9" },
   { text: "PolygonScan", link: "https://polygonscan.com/address/0x87ee9B1D25d7fd609CAadBa5f8c14F4e219650bD" },
-  { text: "Litepaper", link: "https://ardmoney.com/assets/LitePaper.pdf"},
+  { text: "Litepaper", link: Litepaper},
 ];
 
 
