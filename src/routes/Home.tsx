@@ -38,7 +38,6 @@ export default function Home() {
     setIsOpen3(!isOpen3)
   }
 
-  console.log("isOpen1: ", isOpen1)
 
 
   return (
