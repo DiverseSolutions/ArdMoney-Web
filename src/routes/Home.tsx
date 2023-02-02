@@ -22,19 +22,24 @@ import Ellipse102 from "@assets/home/ellipse_102.svg";
 import Blog_rectangle from "@assets/home/blog_rectangle.svg";
 
 export default function Home() {
-  const [faqs, setFaqs] = useState(faqsInit);
+  const [isOpen1, setIsOpen1] = useState(false);
+  const [isOpen2, setIsOpen2] = useState(false);
+  const [isOpen3, setIsOpen3] = useState(false);
 
-  function toggleItem(selectedFaqs: any) {
-    setFaqs((prev) =>
-      prev.map((item) => {
-        if (selectedFaqs.id !== item.id) return item;
-        return {
-          ...item,
-          isOpen: !item.isOpen,
-        };
-      })
-    );
+  function toggleItem1() {
+    setIsOpen1(!isOpen1)
   }
+
+  function toggleItem2() {
+    setIsOpen2(!isOpen2)
+  }
+
+  function toggleItem3() {
+    setIsOpen3(!isOpen3)
+  }
+
+  console.log("isOpen1: ", isOpen1)
+
 
   return (
       <div className='relative flex flex-col w-full bg-black min-h-screen h-full'>
@@ -50,11 +55,11 @@ export default function Home() {
               <a href="https://app.ardmoney.com/" target={"_blank"} className='flex items-center justify-center w-1/2 sm:w-1/5 bg-[#8362FD] text-white py-3 rounded-lg'>
                 <span className="text-xs lg:text-base">Launch App</span>
               </a>
-              <button className='flex items-center justify-center w-1/2 sm:w-1/5 border border-[#8362FD] text-white py-3 rounded-lg'>
+              <a href="https://docs.ardmoney.com/" target={"_blank"} className='flex items-center justify-center w-1/2 sm:w-1/5 border border-[#8362FD] text-white py-3 rounded-lg'>
                 <span className="text-xs lg:text-base">
                   Learn how to start
                 </span>
-              </button>
+              </a>
             </div>
           </div>
           <div>
@@ -164,54 +169,120 @@ export default function Home() {
                 </div>
 
                 <div className='flex flex-col gap-6 z-10'>
-                  {faqs.map((faq, index) => {
-                    console.log("faq: ", faq)
-                    return (
-                      <button key={index} onClick={() => toggleItem(faq)}>
-                        <div className='flex flex-col w-full border rounded-lg bg-gradient-to-r from-[#8362FD] to-[#3FE600] p-[1px] text-white'>
-                          <div
-                            className={`flex justify-between items-center w-full item p-6 bg-black back ${
-                              faq.isOpen
-                                ? "rounded-tl-lg rounded-tr-lg"
-                                : "rounded-lg "
-                            } `}
-                          >
-                            <span className='text-base md:text-xl font-extrabold uppercase'>
-                              {faq.title}
-                            </span>
-                            <div
-                              className={`h-4 w-4 md:h-6 md:w-6 relative transition ${
-                                faq.isOpen ? "rotate-180" : "rotate-0"
-                              }`}
-                            >
-                              <img src={Chevron} alt='image' />
-                            </div>
-                          </div>
-                          {faq.isOpen && (
-                            <div className='flex flex-col md:flex-row px-6 pb-6 bg-black text-justify rounded-bl-lg rounded-br-lg w-full gap-6'>
-                              <div className='flex relative w-full md:w-1/2 rounded-lg bg-white h-40 md:h-[300px]'>
-                                <iframe
-                                  className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex w-full h-full rounded-lg'
-                                  title='YouTube video player'
-                                  allow='accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture ' 
-                                  src={faq.url}
-                                ></iframe>
-                              </div>
-                              <div className='flex flex-col md:w-1/2 gap-4'>
-                                <span className="text-md md:text-base">By the people. For the people.</span>
-                                <span className='text-2xs md:text-md text-white/60 font-light'>
-                                  Ardmoney is fully democratized and is
-                                  governed by its token holders which ensures
-                                  the protocol serves the best interest of the
-                                  people.
-                                </span>
-                              </div>
-                            </div>
-                          )}
+                  <button key={faq1.id} onClick={() => toggleItem1()}>
+                    <div className='flex flex-col w-full border rounded-lg bg-gradient-to-r from-[#8362FD] to-[#3FE600] p-[1px] text-white'>
+                      <div
+                        className={`flex justify-between items-center w-full item p-6 bg-black back ${
+                          isOpen1
+                            ? "rounded-tl-lg rounded-tr-lg"
+                            : "rounded-lg "
+                        } `}
+                      >
+                        <span className='text-base md:text-xl font-extrabold uppercase'>
+                          {faq1.title}
+                        </span>
+                        <div
+                          className={`h-4 w-4 md:h-6 md:w-6 relative transition ${
+                            faq1.isOpen ? "rotate-180" : "rotate-0"
+                          }`}
+                        >
+                          <img src={Chevron} alt='image' />
                         </div>
-                      </button>
-                    );
-                  })}
+                      </div>
+                      {isOpen1 && (
+                        <div className='flex flex-col md:flex-row px-6 pb-6 bg-black text-justify rounded-bl-lg rounded-br-lg w-full gap-6'>
+                          <div className='flex relative w-full md:w-1/2 rounded-lg bg-white h-40 md:h-[300px]'>
+                          <iframe className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex w-full h-full rounded-lg'  src="https://www.youtube.com/embed/Wfc6AJVA8O4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                          </div>
+                          <div className='flex flex-col md:w-1/2 gap-4'>
+                            <span className="text-md md:text-base">By the people. For the people.</span>
+                            <span className='text-sm md:text-md text-white/60 font-light'>
+                              Ardmoney is fully democratized and is
+                              governed by its token holders which ensures
+                              the protocol serves the best interest of the
+                              people.
+                            </span>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </button>
+                  <button key={faq2.id} onClick={() => toggleItem2()}>
+                    <div className='flex flex-col w-full border rounded-lg bg-gradient-to-r from-[#8362FD] to-[#3FE600] p-[1px] text-white'>
+                      <div
+                        className={`flex justify-between items-center w-full item p-6 bg-black back ${
+                          isOpen2
+                            ? "rounded-tl-lg rounded-tr-lg"
+                            : "rounded-lg "
+                        } `}
+                      >
+                        <span className='text-base md:text-xl font-extrabold uppercase'>
+                          {faq2.title}
+                        </span>
+                        <div
+                          className={`h-4 w-4 md:h-6 md:w-6 relative transition ${
+                            faq2.isOpen ? "rotate-180" : "rotate-0"
+                          }`}
+                        >
+                          <img src={Chevron} alt='image' />
+                        </div>
+                      </div>
+                      {isOpen2 && (
+                        <div className='flex flex-col md:flex-row px-6 pb-6 bg-black text-justify rounded-bl-lg rounded-br-lg w-full gap-6'>
+                          <div className='flex relative w-full md:w-1/2 rounded-lg bg-white h-40 md:h-[300px]'>
+                          <iframe className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex w-full h-full rounded-lg' src="https://www.youtube.com/embed/3HESogLqS2Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                          </div>
+                          <div className='flex flex-col md:w-1/2 gap-4'>
+                            <span className="text-md md:text-base">By the people. For the people.</span>
+                            <span className='text-sm md:text-md text-white/60 font-light'>
+                              Ardmoney is fully democratized and is
+                              governed by its token holders which ensures
+                              the protocol serves the best interest of the
+                              people.
+                            </span>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </button>
+                  <button key={faq3.id} onClick={() => toggleItem3()}>
+                    <div className='flex flex-col w-full border rounded-lg bg-gradient-to-r from-[#8362FD] to-[#3FE600] p-[1px] text-white'>
+                      <div
+                        className={`flex justify-between items-center w-full item p-6 bg-black back ${
+                          isOpen3
+                            ? "rounded-tl-lg rounded-tr-lg"
+                            : "rounded-lg "
+                        } `}
+                      >
+                        <span className='text-base md:text-xl font-extrabold uppercase'>
+                          {faq3.title}
+                        </span>
+                        <div
+                          className={`h-4 w-4 md:h-6 md:w-6 relative transition ${
+                            faq3.isOpen ? "rotate-180" : "rotate-0"
+                          }`}
+                        >
+                          <img src={Chevron} alt='image' />
+                        </div>
+                      </div>
+                      {isOpen3 && (
+                        <div className='flex flex-col md:flex-row px-6 pb-6 bg-black text-justify rounded-bl-lg rounded-br-lg w-full gap-6'>
+                          <div className='flex relative w-full md:w-1/2 rounded-lg bg-white h-40 md:h-[300px]'>
+                          <iframe className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex w-full h-full rounded-lg' src="https://www.youtube.com/embed/0HMA_y4V_Qo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                          </div>
+                          <div className='flex flex-col md:w-1/2 gap-4'>
+                            <span className="text-md md:text-base">By the people. For the people.</span>
+                            <span className='text-sm md:text-md text-white/60 font-light'>
+                              Ardmoney is fully democratized and is
+                              governed by its token holders which ensures
+                              the protocol serves the best interest of the
+                              people.
+                            </span>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </button>
 
                   <div className='flex items-center justify-center w-full gap-6 rounded-lg mb-20 sm:mb-16 lg:mb-16 border'>
                     <div className='flex flex-col items-center p-6 back rounded-lg lg:h-[284px] bg-gradient-to-br from-[#000000] via-[#8362FD]/10 to-[#8362FD] text-white'>
@@ -268,7 +339,7 @@ export default function Home() {
                     </div>
                     <div className='grid grid-cols-1 md:grid-cols-3 gap-base md:gap-xl lg:gap-10 w-full text-white'>
                       <div className='flex border rounded-lg md:mb-16 bg-gradient-to-r from-[#8362FD] to-[#3FE600] p-[1px] cursor-pointer '>
-                        <div className='flex flex-col p-6 bg-black back rounded-lg text-center'>
+                        <a href="https://medium.com/@ardmoney/%D0%BC%D0%BE%D0%BD%D0%B3%D0%BE%D0%BB%D1%8B%D0%BD-%D0%B0%D0%BD%D1%85%D0%BD%D1%8B-defi-%D0%BF%D1%80%D0%BE%D1%82%D0%BE%D0%BA%D0%BE%D0%BB-%D1%85%D1%8D%D1%80%D1%8D%D0%B3%D0%BB%D1%8D%D1%8D%D0%BD%D0%B4-%D0%BE%D1%80%D0%BB%D0%BE%D0%BE-2d8479c2a737" target={"_blank"} className='flex flex-col p-6 bg-black back rounded-lg text-center'>
                           <div className="flex justify-center w-full">
                             <img
                               src={Media1}
@@ -287,10 +358,10 @@ export default function Home() {
                               asset.
                             </span>
                           </div>
-                        </div>
+                        </a>
                       </div>
                       <div className='flex border rounded-lg md:mt-16 bg-gradient-to-r from-[#8362FD] to-[#3FE600] p-[1px] cursor-pointer'>
-                        <div className='flex flex-col p-6 bg-black back rounded-lg text-center'>
+                        <a href="https://medium.com/@ardmoney/monthly-developer-report-2-c97e115ed50d" target={"_blank"} className='flex flex-col p-6 bg-black back rounded-lg text-center'>
                           <div className="flex justify-center w-full">
                             <img
                               src={Media2}
@@ -309,10 +380,10 @@ export default function Home() {
                               asset.
                             </span>
                           </div>
-                        </div>
+                        </a>
                       </div>
                       <div className='flex border rounded-lg mb-16 bg-gradient-to-r from-[#8362FD] to-[#3FE600] p-[1px] cursor-pointer'>
-                        <div className='flex flex-col p-6 bg-black back rounded-lg text-center'>
+                        <a href="https://medium.com/@ardmoney/monthly-developer-report-3-5c0e4362dae" target={"_blank"} className='flex flex-col p-6 bg-black back rounded-lg text-center'>
                           <div className="flex justify-center w-full">
                             <img
                               src={Media3}
@@ -331,7 +402,7 @@ export default function Home() {
                               asset.
                             </span>
                           </div>
-                        </div>
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -397,6 +468,38 @@ export default function Home() {
       </div>
   );
 }
+
+const faq1 = {
+  id: 1,
+  title: "what is ardmoney ?",
+  subtitle: "By the people. For the people.",
+  description:
+    "Ardmoney is fully democratized and is governed by its token holders which ensures the protocol serves the best interest of the people.",
+  isOpen: false,
+  url: "https://www.youtube.com/watch?v=Wfc6AJVA8O4&t=2s"
+}
+
+const faq2 = {
+  id: 2,
+  title: "what is dex ?",
+  subtitle: "By the people. For the people.",
+  description:
+    "Ardmoney is fully democratized and is governed by its token holders which ensures the protocol serves the best interest of the people.",
+  isOpen: false,
+  url: "https://www.youtube.com/watch?v=3HESogLqS2Q"
+}
+
+const faq3 = {
+  id: 3,
+  title: "what is dao ?",
+  subtitle: "By the people. For the people.",
+  description:
+    "Ardmoney is fully democratized and is governed by its token holders which ensures the protocol serves the best interest of the people.",
+  isOpen: false,
+  url: "https://www.youtube.com/watch?v=0HMA_y4V_Qo"
+}
+
+
 
 const faqsInit = [
   {
