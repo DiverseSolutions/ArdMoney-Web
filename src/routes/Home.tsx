@@ -192,7 +192,7 @@ export default function Home() {
                       {isOpen1 && (
                         <div className='flex flex-col md:flex-row px-6 pb-6 bg-black text-justify rounded-bl-lg rounded-br-lg w-full gap-6'>
                           <div className='flex relative w-full md:w-1/2 rounded-lg bg-white h-40 md:h-[300px]'>
-                          <iframe className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex w-full h-full rounded-lg'  src="https://www.youtube.com/embed/Wfc6AJVA8O4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                          <iframe className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex w-full h-full rounded-lg'  src="https://www.youtube.com/embed/Wfc6AJVA8O4" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
                           </div>
                           <div className='flex flex-col md:w-1/2 gap-4'>
                             <span className="text-md md:text-base">By the people. For the people.</span>
@@ -230,7 +230,7 @@ export default function Home() {
                       {isOpen2 && (
                         <div className='flex flex-col md:flex-row px-6 pb-6 bg-black text-justify rounded-bl-lg rounded-br-lg w-full gap-6'>
                           <div className='flex relative w-full md:w-1/2 rounded-lg bg-white h-40 md:h-[300px]'>
-                          <iframe className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex w-full h-full rounded-lg' src="https://www.youtube.com/embed/3HESogLqS2Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                          <iframe className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex w-full h-full rounded-lg' src="https://www.youtube.com/embed/3HESogLqS2Q" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
                           </div>
                           <div className='flex flex-col md:w-1/2 gap-4'>
                             <span className="text-md md:text-base">By the people. For the people.</span>
@@ -268,7 +268,7 @@ export default function Home() {
                       {isOpen3 && (
                         <div className='flex flex-col md:flex-row px-6 pb-6 bg-black text-justify rounded-bl-lg rounded-br-lg w-full gap-6'>
                           <div className='flex relative w-full md:w-1/2 rounded-lg bg-white h-40 md:h-[300px]'>
-                          <iframe className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex w-full h-full rounded-lg' src="https://www.youtube.com/embed/0HMA_y4V_Qo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                          <iframe className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex w-full h-full rounded-lg' src="https://www.youtube.com/embed/0HMA_y4V_Qo" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
                           </div>
                           <div className='flex flex-col md:w-1/2 gap-4'>
                             <span className="text-md md:text-base">By the people. For the people.</span>
