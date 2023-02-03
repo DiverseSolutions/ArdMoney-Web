@@ -1,6 +1,6 @@
 @font-face {
   font-family: PP Neue Machina;
-  src: url("PPNeueMachina.otf");
+  src: url("/PPNeueMachina.otf");
 }
 
 @tailwind base;
