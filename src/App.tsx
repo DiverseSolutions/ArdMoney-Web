@@ -9,6 +9,8 @@ import {
 import Home from "@routes/Home"
 import Swap from "@routes/Swap"
 import Stake from "@routes/Stake"
+import Governance from "@routes/Governance"
+import Pools from "@routes/Pools"
 import HomeLayout from "@layouts/HomeLayout"
 
 export default function App() { 
@@ -19,6 +21,8 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path='/swap' element={<Swap />} />
           <Route path='/stake' element={<Stake />} />
+          <Route path='/governance' element={<Governance />} />
+          <Route path='/pools' element={<Pools />} />
         </Route>
       </Routes>
     </BrowserRouter>

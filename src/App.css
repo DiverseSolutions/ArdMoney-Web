@@ -48,6 +48,9 @@
   .four-pillars-gradient {
     background: radial-gradient(1189.29% 10982.54% at 0% 0%, #000000 0%, #8362FD 100%)
   }
+  .governance-header-gradient {
+    background: radial-gradient(67.82% 89.65% at 50% 30.96%, #ABFC86 0%, rgba(0, 0, 0, 0) 35.94%);
+  }
   .slide-in {
     background-color: #fff;
   }

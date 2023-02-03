@@ -18,7 +18,7 @@ export default function Stake() {
   return (
     <div className="flex justify-center min-h-screen w-full ">
       <div className='flex flex-col w-full max-w-6xl sm:mb-4xl md:mb-2xl z-10 p-6 lg:p-0'>
-        <span className='text-2xl lg:text-4xl text-light font-extrabold lg:mt-4xl mb-sm lg:mb-lg'>Cero Staking</span>
+        <span className='text-2xl lg:text-4xl text-light font-extrabold lg:mt-xl mb-sm lg:mb-lg'>Cero Staking</span>
 
         <div className='relative flex flex-col staking-header-gradient p-lg w-full border border-primary rounded-lg mb-2xl'>
           <div className='flex flex-col w-full z-10 lg:w-5/12 text-light/60 text-sm gap-lg'>
