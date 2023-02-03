@@ -73,7 +73,7 @@ export default function Navbar() {
       </div>
       {open && (
         <div
-          className={`sidebar fixed top-0 bottom-0 p-5 w-full bg-primary z-50 h-screen duration-500 transition-transform ${transitionProperties}`}
+          className={`sidebar fixed top-0 bottom-0 p-5 w-full bg-primary z-50 h-screen overscroll-none duration-500 transition-transform ${transitionProperties}`}
         >
           <div className='relative flex flex-col h-full'>
             <button className='flex w-full justify-end py-sm' onClick={() => openSidebar()}> 
