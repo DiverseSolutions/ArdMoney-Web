@@ -1,3 +1,5 @@
+import {useState} from 'react'
+
 import Info from '../assets/icons/info.svg'
 import Ghosts from '../assets/governance/ghosts.svg'
 import Logo1 from '../assets/governance/logo1.svg'
@@ -7,8 +9,18 @@ import Ellipse from '../assets/governance/ellipse.svg'
 import Share from '../assets/governance/share.svg'
 import Copy from '../assets/governance/copy.svg'
 
+const tabs = [
+	{text: "All"},
+	{text: "Active"},
+	{text: "Finished"},
+]
 
 export default function Governance() {
+
+	const [selectedIndex, setSelectedIndex] = useState(0)
+	const clickTab = (index: any) => {
+		setSelectedIndex(index)
+	}
   return (
 	<div className="relative flex justify-center min-h-screen w-full">
 		<div className='flex flex-col w-full max-w-6xl sm:mb-xl md:mb-2xl z-10 p-6 lg:p-0'>
@@ -41,25 +53,21 @@ export default function Governance() {
 					<img src={Logo1} alt="" className='absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-0' />
 					<img src={Logo2} alt="" className='absolute right-0 top-0' />
 					<img src={Logo3} alt="" className='absolute right-0 bottom-0' />
-					<img src={Ellipse} alt="" className='absolute left-0 bottom-0' />
+					{/* <img src={Ellipse} alt="" className='absolute left-0 bottom-0' /> */}
 				</div>
 			</div>
 			
 			<span className='font-extrabold text-xl text-white mt-16 mb-6'>VOTES</span>
 
 			<div className='flex gap-sm text-white w-full md:w-1/2'>
-				<button className='bg-primary py-sm w-1/3 text-center rounded-lg'>
-					<span>All</span>
-				</button>
-				<button className='bg-primary/10 py-sm w-1/3 text-center rounded-lg'>
-					<span>Active</span>
-				</button>
-				<button className='bg-primary/10 py-sm w-1/3 text-center rounded-lg'>
-					<span>Finished</span>
-				</button>
+				{tabs.map((item, index) => (
+					<button onClick={() => clickTab(index)} key={index} className={`${index === selectedIndex ? "bg-primary" : "bg-primary/10"} py-sm w-1/3 text-center rounded-lg`}>
+						<span>{item.text}</span>
+					</button>
+				))}	
 			</div>
-
-			<div className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-8'>
+			{selectedIndex === 0 ? (
+				<div className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-8'>
 				<div className='flex flex-col border border-[#ABFC86] p-6 rounded-lg '>
 					<div className='flex justify-between w-full'>
 						<div className='flex justify-between gap-2 text-white items-center'>
@@ -218,6 +226,10 @@ export default function Governance() {
 					<span className='text-center text-white mt-4'>Forum Discussion</span>
 				</div>
 			</div>
+			) : <div className='text-center text-white mt-16'>
+			<span>No pairs</span>
+		</div>}
+			
 		</div>
 	</div>
   );
