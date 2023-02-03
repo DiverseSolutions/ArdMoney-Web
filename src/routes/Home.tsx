@@ -50,10 +50,10 @@ export default function Home() {
               <span>Without Boundaries</span>
             </div>
             <div className='flex items-center justify-center w-full gap-base'>
-              <a href="https://app.ardmoney.com/" target={"_blank"} className='flex items-center justify-center w-1/2 sm:w-1/5 bg-[#8362FD] text-white py-3 rounded-lg'>
+              <a href="https://app.ardmoney.com/" target={"_blank"} className='flex items-center justify-center w-[151px] md:w-[219px] bg-[#8362FD] text-white py-3 rounded-lg'>
                 <span className="text-xs lg:text-base">Launch App</span>
               </a>
-              <a href="https://docs.ardmoney.com/" target={"_blank"} className='flex items-center justify-center w-1/2 sm:w-1/5 border border-[#8362FD] text-white py-3 rounded-lg'>
+              <a href="https://docs.ardmoney.com/" target={"_blank"} className='flex items-center justify-center w-[151px] md:w-[219px] border border-[#8362FD] text-white py-3 rounded-lg'>
                 <span className="text-xs lg:text-base">
                   Learn how to start
                 </span>

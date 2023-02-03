@@ -48,5 +48,8 @@
   .four-pillars-gradient {
     background: radial-gradient(1189.29% 10982.54% at 0% 0%, #000000 0%, #8362FD 100%)
   }
+  .slide-in {
+    background-color: #fff;
+  }
 
 }

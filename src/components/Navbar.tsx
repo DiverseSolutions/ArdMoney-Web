@@ -23,18 +23,19 @@ const mobileNavigations = [
   { text: "Litepaper", link: Litepaper},
 ];
 
-
-
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  const transitionProperties = open ? "left-0": "-left-250";
 
   const openSidebar = () => {
     setOpen(!open)
+
+
   }
 
   return (
-    <div className="relative flex">
-      <div className='flex sticky justify-center bg-black h-[68px] w-full'>
+    <div className={`relative flex slide-in`}>
+      <div className='flex sticky justify-center bg-black h-[68px] w-full z-40'>
         <div className='flex max-w-6xl w-full'>
           <div className='flex items-center justify-between w-full px-3 py-4 sm:px-6 sm:py-[22px] lg:px-0 lg:py-0'>
             <div className='flex items-center gap-6'>
@@ -72,7 +73,7 @@ export default function Navbar() {
       </div>
       {open && (
         <div
-          className={`sidebar fixed top-0 bottom-0 lg:left-0 p-5 w-full overflow-y-auto bg-primary z-40 ${open ? "translate-x-0" : "translate-x-full"}`}
+          className={`sidebar fixed top-0 bottom-0 p-5 w-full bg-primary z-50 h-screen duration-500 transition-transform ${transitionProperties}`}
         >
           <div className='relative flex flex-col h-full'>
             <button className='flex w-full justify-end py-sm' onClick={() => openSidebar()}> 
@@ -80,9 +81,9 @@ export default function Navbar() {
             </button>
             <div className='flex flex-col gap-base mt-2xl p-base'>
               {mobileNavigations.map((item, index) => (
-                <div className='flex flex-col text-xl font-normal'>
+                <a href={item.link} target={"_blank"} className='flex flex-col text-xl font-normal'>
                   <span>{item.text}</span>
-                </div>
+                </a>
               ))}
             </div>
             <div className='flex sm:justify-start gap-lg p-base '>
