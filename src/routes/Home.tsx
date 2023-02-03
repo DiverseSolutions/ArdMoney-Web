@@ -11,7 +11,7 @@ import Arrow_RB from "@assets/home/arrow_rb.png";
 import Media1 from "@assets/home/media1.png";
 import Media2 from "@assets/home/media2.png";
 import Media3 from "@assets/home/media3.png";
-import Ghosts from "@assets/home/ghosts.png";
+import Ghosts from "@assets/home/cero_ghosts.png";
 import Telegram from "@assets/home/telegram.png";
 import Twitter from "@assets/home/twitter.png";
 import TextBg from "@assets/home/text_bg.svg";

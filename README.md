@@ -4,6 +4,7 @@ Cero төсөл нь блокчэйн технологи дээр суурила
 
 ### Web Stack
 ---
+
  - React
  - Typescript
  - Tailwind
