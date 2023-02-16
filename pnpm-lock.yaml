@@ -5,11 +5,13 @@ specifiers:
   '@types/react-dom': ^18.0.9
   '@vitejs/plugin-react-swc': ^3.0.0
   autoprefixer: ^10.4.13
+  i18next: ^22.4.9
   localforage: ^1.10.0
   match-sorter: ^6.3.1
   postcss: ^8.4.21
   react: ^18.2.0
   react-dom: ^18.2.0
+  react-i18next: ^12.1.5
   react-router-dom: ^6.7.0
   sort-by: ^1.2.0
   tailwindcss: ^3.2.4
@@ -18,10 +20,12 @@ specifiers:
   vite-aliases: ^0.10.0
 
 dependencies:
+  i18next: 22.4.9
   localforage: 1.10.0
   match-sorter: 6.3.1
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-i18next: 12.1.5_iakk3dtjhjpukdoa4oua5khgci
   react-router-dom: 6.7.0_biqbaboplfbrettd7655fr4n2y
   sort-by: 1.2.0
 
@@ -671,6 +675,18 @@ packages:
       function-bind: 1.1.1
     dev: true
 
+  /html-parse-stringify/3.0.1:
+    resolution: {integrity: sha512-KknJ50kTInJ7qIScF3jeaFRpMpE8/lfiTdzf/twXyPBLAGrLRTmkz3AdTnKeh40X8k9L2fdYwEp/42WGXIRGcg==}
+    dependencies:
+      void-elements: 3.1.0
+    dev: false
+
+  /i18next/22.4.9:
+    resolution: {integrity: sha512-8gWMmUz460KJDQp/ob3MNUX84cVuDRY9PLFPnV8d+Qezz/6dkjxwOaH70xjrCNDO+JrUL25iXfAIN9wUkInNZw==}
+    dependencies:
+      '@babel/runtime': 7.20.13
+    dev: false
+
   /immediate/3.0.6:
     resolution: {integrity: sha512-XXOFtyqDjNDAQxVfYxuF7g9Il/IbWmmlQg2MYKOH8ExIT1qg6xc4zyS3HaEEATgs1btfzxq15ciUiY7gjSXRGQ==}
     dev: false
@@ -894,6 +910,26 @@ packages:
       scheduler: 0.23.0
     dev: false
 
+  /react-i18next/12.1.5_iakk3dtjhjpukdoa4oua5khgci:
+    resolution: {integrity: sha512-7PQAv6DA0TcStG96fle+8RfTwxVbHVlZZJPoEszwUNvDuWpGldJmNWa3ZPesEsZQZGF6GkzwvEh6p57qpFD2gQ==}
+    peerDependencies:
+      i18next: '>= 19.0.0'
+      react: '>= 16.8.0'
+      react-dom: '*'
+      react-native: '*'
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.20.13
+      html-parse-stringify: 3.0.1
+      i18next: 22.4.9
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
   /react-router-dom/6.7.0_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-jQtXUJyhso3kFw430+0SPCbmCmY1/kJv8iRffGHwHy3CkoomGxeYzMkmeSPYo6Egzh3FKJZRAL22yg5p2tXtfg==}
     engines: {node: '>=14'}
@@ -1112,6 +1148,11 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
+
+  /void-elements/3.1.0:
+    resolution: {integrity: sha512-Dhxzh5HZuiHQhbvTW9AMetFfBHDMYpo23Uo9btPXgdYP+3T5S+p+jgNy7spra+veYhBP2dCSgxR/i2Y02h5/6w==}
+    engines: {node: '>=0.10.0'}
+    dev: false
 
   /xtend/4.0.2:
     resolution: {integrity: sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==}

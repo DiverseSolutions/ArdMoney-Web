@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from 'react-i18next';
 // import Iframe from 'react-iframe'
 
 
@@ -24,6 +25,7 @@ export default function Home() {
   const [isOpen1, setIsOpen1] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
   const [isOpen3, setIsOpen3] = useState(false);
+  const { t } = useTranslation();
 
   function toggleItem1() {
     setIsOpen1(!isOpen1)
@@ -46,7 +48,7 @@ export default function Home() {
           <div className='flex flex-col gap-lg w-full h-full lg:px-32 pt-32 pb-32 lg:pb-64 text-center z-10'>
             <span className='text-white/60 text-base md:text-xl'>First Mongolian DAO</span>
             <div className='flex flex-col text-2xl md:text-4xl font-extrabold leading-none text-white'>
-              <span>Financial System</span>
+              <span>{t('home:title')}</span>
               <span>Without Boundaries</span>
             </div>
             <div className='flex items-center justify-center w-full gap-base'>
