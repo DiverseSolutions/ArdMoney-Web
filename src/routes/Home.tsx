@@ -25,6 +25,7 @@ export default function Home() {
   const [isOpen1, setIsOpen1] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
   const [isOpen3, setIsOpen3] = useState(false);
+  const [isOpen4, setIsOpen4] = useState(false);
   const { t } = useTranslation();
 
   function toggleItem1() {
@@ -37,6 +38,10 @@ export default function Home() {
 
   function toggleItem3() {
     setIsOpen3(!isOpen3)
+  }
+
+  function toggleItem4() {
+    setIsOpen4(!isOpen4)
   }
 
 
@@ -406,6 +411,56 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
+                  <div className='flex flex-col'>
+                     <div className='flex gap-4 items-center w-full py-8 text-white'>
+                      <span className='text-base md:text-xl font-extrabold'>FAQ</span>
+                      <div className="flex items-end w-5 h-5 md:w-8 md:h-8">
+                        <img
+                          src={Arrow_RB}
+                          alt='Arrow_RB'
+                          className="object-cover"
+                        />
+                      </div>
+                    </div>
+                    <div key={faq4.id}>
+                    <div className='flex flex-col w-full border rounded-lg bg-gradient-to-r from-[#8362FD] to-[#3FE600] p-[1px] text-white'>
+                      <div
+                        className={`flex justify-between items-center w-full item p-6 bg-black back ${
+                          isOpen4
+                            ? "rounded-tl-lg rounded-tr-lg"
+                            : "rounded-lg "
+                        } `}
+                      >
+                        <span className='text-base md:text-xl font-extrabold uppercase'>
+                          →ArdMoney гэж юу вэ ?
+                        </span>
+                        <div
+                          className={`h-4 w-4 md:h-6 md:w-6 relative transition ${
+                            faq4.isOpen4 ? "rotate-180" : "rotate-0"
+                          }`}
+                        >
+                          <button onClick={() => toggleItem4()}>
+                          <img src={Chevron} alt='image' />
+                          </button>
+                        </div>
+                      </div>
+                      {isOpen4 && (
+                        <div className='duration-300 flex flex-col md:flex-row px-6 pb-6 bg-black text-justify rounded-bl-lg rounded-br-lg w-full gap-6'>
+                          
+                          <div className='flex flex-col w-full gap-4'>
+                          {faqs.map((faqs, id) => (
+                            <div key={id} className='flex flex-col'><span className='text-md md:text-base'>{faqs.q}</span>
+                            <span className='text-sm md:text-md text-white/60 font-light'>
+                              {faqs.a}
+                            </span></div>
+                          ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                      
+                  </div>
                   <div className='flex flex-col mt-10 md:mb-16 z-10'>
                     <div className='flex flex-col md:flex-row md:justify-between w-full rounded-lg h-full md:h-[363px]'>
                       <div className='flex flex-col justify-end gap-4 text-white w-full md:w-5/12 lg:w-6/12 mb-10'>
@@ -498,6 +553,53 @@ const faq3 = {
   isOpen: false,
   url: "https://www.youtube.com/watch?v=0HMA_y4V_Qo"
 }
+const faq4 = {
+  id: 4,
+  isOpen4: false,
+}
+const faqs = [
+  {
+  q: 'ArdMoney гэж юу вэ ?',
+  a: ' Ardmoney is fully democratized and is governed by its token holders which ensures the protocol serves the best interest of the people.',
+  id: 1,
+  },
+  {
+  q: 'Метамаск руу токен шилжүүлэх хаягаа хаанаас хуулах вэ?',
+  a: 'Крипто хэтэвч анхлан ашиглаж буй хүмүүст хамгийн их эргэлзээ төрүүлдэг зүйл нь токен бүр өөр өөрийн гэсэн тусдаа хаягтай гэж бодон андуурдаг. Хэтэвчийг аль нэг сүлжээнд тохируулан ашиглах ба тухайн сүлжээнд байрших ямар ч токеныг хэтэвчний нүүрэнд харагдах, ганц л хаяг руу шилжүүлдэг. (Зураг)',
+  id: 2,
+  },
+  {
+  q: 'Хослолын сан гэж юу вэ?',
+  a: 'Хослолын сан (Liquidity pool) нь хоёр токены хослолтой тэнцэх утгаас бүрдэнэ. Хослолын санд тухайн токеноо хосоор нь байршуулан тодорхой хугацаанд түгжвэл энэ хугацаанд таны токеныг DEX буюу төвлөрсөн бус биржийн арилжаанд эргэлдүүлж, тухайн арилжааны шимтгэлээс нийлүүлэгч танд нийт арилжааны шимтгэлийн 66% хувь нь таны ашиг болж хуримтлагдана. ',
+  id: 3,
+  },
+  {
+  q: 'Хослолын сан хэрхэн ажилладаг вэ?',
+  a: 'Хэрэглэгчид ухаалаг гэрээнд виртуал хөрөнгөө байршуулах үед хослолын сан үүсдэг. Дараа нь эдгээр хөрөнгийг хэрэглэгчид DEX дээр хоорондоо арилжаалах боломжтой.',
+  id: 4,
+  },
+  {
+  q: 'Хослолын сангаас эргээд токеноо суллаж авах баталгаа нь юу вэ? ',
+  a: 'Хэрэглэгч хослолын санд токен нийлүүлсний дараа тухайн хаяг руу LP токен очно. Энэ токен нь хэрэглэгч аль сан руу, хэдий хэмжээний токен нийлүүлсний баталгаа болох ба эргээд санд байршуулсан хөрөнгөө авах үед LP токеноороо буцаан авдаг.',
+  id: 5, 
+  },
+  {
+  q: 'Стейкинг',
+  a: 'Таны токеныг жилийн …%-ийн хүүтэй хадгалах ухаалаг гэрээ. Стейкинг санд токен байршуулсан хэрэглэгчдэд нөөцийн сангаас урамшуулал олгох замаар ажилладаг. Сар бүр стейкинг сан руу урамшуулал бодогддог. Энгийнээр сар бүр хүү нэмэгддэг хадгаламж гэж ойлгож болно. Хэрэглэгч токен байршуулсан хугацаанаасаа хамаарч хүүгээ авна. ',
+  id: 6,
+  },
+  {
+  q: 'Төвлөрсөн бус засаглал',
+  a: 'Энэ нь ухаалаг гэрээгээр кодлогдсон дүрмээр дамжуулан токен эзэмшигчид оролцох боломжтой үйл ажиллагааг нэрлэдэг. DAO-д төвлөрсөн удирдлага байхгүй, нийт токен эзэмшигчдийн өгсөн саналд тулгуурлан шийдвэр гаргах зарчмаар явагддаг. Үүний зорилго нь уламжлалт засаглалын системийг шинэчлэх. Шийдвэрийг удирдах албан тушаалтнууд гаргадаг мөн олон нийт тухайн байгууллагад санал өгөх эрхгүй байдаг уламжлалт засаглалаас ялгаатай нь DAO-ийн талаарх бүх саналыг хамт олны шийдвэрийн үндсэн дээр батлах эсвэл түдгэлзүүлэх зарчмаар ажиллана.',
+  id: 7,
+  },
+  {
+  q: 'Би энэ засаглалд өөрийн санаагаа дэвшүүлэх боломжтой юу?',
+  a: 'Хүн бүр өөрийн шинэ санаагаа санал болгох ба эргээд олон нийтээс нээлттэй санал хүлээн авах замаар хэрэгжих боломжтой. Эхний шатанд бусад токен эзэмшигчид үүн дээр хэлэлцэж тухайн шинэчлэлт, санаачилгыг ArdMoney Guardians батална. Батлагдсан санааг хэрэгжих үгүйг нийт токен эзэмшигчдийн өгсөн саналын дагуу шийдвэрлэх зарчмаар ажиллах юм.',
+  id: 8,
+  }
+]
+
 
 
 
