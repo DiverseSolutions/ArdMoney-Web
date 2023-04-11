@@ -26,6 +26,7 @@ export default function Home() {
   const [isOpen2, setIsOpen2] = useState(false);
   const [isOpen3, setIsOpen3] = useState(false);
   const [isOpen4, setIsOpen4] = useState(false);
+  const [isOpen5, setIsOpen5] = useState(false); 
   const { t } = useTranslation();
 
   function toggleItem1() {
@@ -42,6 +43,10 @@ export default function Home() {
 
   function toggleItem4() {
     setIsOpen4(!isOpen4)
+  }
+
+  function toggleItem5() {
+    setIsOpen5(!isOpen5)
   }
 
 
@@ -432,7 +437,7 @@ export default function Home() {
                         } `}
                       >
                         <span className='text-base md:text-xl font-extrabold uppercase'>
-                          →ArdMoney гэж юу вэ ?
+                          ArdMoney гэж юу вэ ?
                         </span>
                         <div
                           className={`h-4 w-4 md:h-6 md:w-6 relative transition ${
@@ -445,14 +450,15 @@ export default function Home() {
                         </div>
                       </div>
                       {isOpen4 && (
-                        <div className='duration-300 flex flex-col md:flex-row px-6 pb-6 bg-black text-justify rounded-bl-lg rounded-br-lg w-full gap-6'>
+                        <div className='flex flex-col md:flex-row px-6 pb-6 bg-black text-justify rounded-bl-lg rounded-br-lg w-full gap-6'>
                           
-                          <div className='flex flex-col w-full gap-4'>
+                          <div className='flex flex-col w-full gap-4 items-start'>
                           {faqs.map((faqs, id) => (
-                            <div key={id} className='flex flex-col'><span className='text-md md:text-base'>{faqs.q}</span>
-                            <span className='text-sm md:text-md text-white/60 font-light'>
+                            <div key={id} className='flex flex-col items-start'><button onClick={toggleItem5} className='text-md md:text-base hover:font-extrabold'>{faqs.q}</button>
+                            {isOpen5 && (  <span className='text-sm md:text-md text-white/60 font-light'>
                               {faqs.a}
-                            </span></div>
+                            </span>)}
+                          </div>
                           ))}
                           </div>
                         </div>
