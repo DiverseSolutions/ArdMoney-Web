@@ -77,9 +77,19 @@ export default function Home() {
             <img src={Background2} alt="" className='absolute w-full left-0 hidden md:flex bottom-4/4 md:mt-32 lg:mt-0' />
             <img src={Ellipse} alt="" className='absolute w-full left-0 mt-[1050px] md:mt-[650px] /top-1/4 /mt-24' />
             <img src={TextBg} alt="" className='absolute w-full left-0 mt-[2280px] md:mt-[1680px] /top-2/4' />
-            <img src={Blog_rectangle} alt="" className='absolute w-full left-0 bottom-0 mb-96' />
-            <img src={Ellipse101} alt="" className='absolute w-full left-0 bottom-0 -pb-96 lg:-pt-96' />
-            <img src={Ellipse102} alt="" className='absolute w-full right-0 bottom-0 -pb-96 lg:-pt-96' />
+            {isOpen4 == false ? (<>
+              <img src={Blog_rectangle} alt="" className='absolute w-full left-0 bottom-0 mb-96' />
+              <img src={Ellipse101} alt="" className='absolute w-full left-0 bottom-0 -pb-96 lg:-pt-96' />
+              <img src={Ellipse102} alt="" className='absolute w-full right-0 bottom-0 -pb-96 lg:-pt-96' />
+            </>) : (
+                        <>
+                            <img src={Blog_rectangle} alt="" className='absolute w-full left-0 bottom-0 mb-[712px]' />
+                            <img src={Ellipse101} alt="" className='absolute w-full left-0 bottom-0 pb-[331px] lg:pt-[331px]' />
+                            <img src={Ellipse102} alt="" className='absolute w-full right-0 bottom-0 pb-[331px] lg:pt-[331px]' />
+                        </>
+                        )}
+          
+           
           </div>
 
           <div className='flex w-full justify-center items-center bg-black'>
