@@ -1,5 +1,7 @@
 export type NormalSvgType = {
+  viewBox?: string,
+  fill?: string,
   size?: "small" | "normal" | "big",
-  style? : String,
+  style? : string,
   clickHandler?: () => void;
 }

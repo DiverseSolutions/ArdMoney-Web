@@ -68,10 +68,7 @@ export default function AppNavbar() {
             <div className="hidden md:flex justify-around gap-7">
               <TransactionsIcon size="normal" />
               <WalletIcon size="normal" />
-
-              <DropdownButton size={"small"} noAnimation>
-                Binance Smart Chain
-              </DropdownButton>
+              <DropdownButton size={"small"} text="Binance Smart Chain" noAnimation />
             </div>
 
             <button onClick={() => openSidebar()} className="md:hidden">

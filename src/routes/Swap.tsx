@@ -1,4 +1,3 @@
-import React from 'react'
 import Reload from '../assets/icons/reload.svg'
 import Menu from '../assets/icons/menu.svg'
 import Chevron_R from '../assets/icons/right_chevron.svg'
@@ -11,12 +10,13 @@ import clouds_left from '../assets/images/swap/clouds_left.svg'
 import gradient_left from '../assets/images/swap/gradient_left.svg'
 import clouds_right from '../assets/images/swap/clouds_right.svg'
 import gradient_right from '../assets/images/swap/gradient_right.svg'
-import persona from '../assets/images/swap/persona.svg'
+
+import DropdownButton from '@components/shared/DropdownButton'
 
 export default function Swap() {
   return (
-	<div className="flex justify-center items-center min-h-screen w-full">
-		<div className='flex flex-col p-2xl w-[423px] card-gradient-dark rounded-lg mb-16 z-10'>
+	<div className="py-16 flex justify-center w-full">
+		<div className='flex flex-col p-2xl min-h-auto w-[423px] card-gradient-dark rounded-lg z-10'>
 			<div className='flex justify-between w-full mb-lg'>
 				<div className='flex items-center text-white gap-sm'>
 					<div className='p-2 border border-white/10 rounded-md'>
@@ -38,10 +38,7 @@ export default function Swap() {
 				</div>
 			</div>
 			<div className='flex justify-between items-center w-full border border-primary/20 rounded-lg text-white p-sm mb-sm'>
-				<div className='flex justify-between items-center p-sm rounded-lg w-5/12 bg-primary/20'>
-					<span>Select Token</span>
-					<img src={Chevron_R} alt=""/>
-				</div>
+        <DropdownButton theme="secondary" text="Select Token" />
 				<span className='text-xl'>0.000</span>
 			</div>
 
@@ -61,10 +58,7 @@ export default function Swap() {
 				</div>
 			</div>
 			<div className='flex justify-between items-center w-full border border-primary/20 rounded-lg text-white p-sm mb-sm'>
-				<div className='flex justify-between items-center p-sm rounded-lg w-5/12 bg-primary/20'>
-					<span>Select Token</span>
-					<img src={Chevron_R} alt=""/>
-				</div>
+        <DropdownButton theme="secondary" text="Select Token" />
 				<span className='text-xl'>0.000</span>
 			</div>
 
@@ -87,6 +81,7 @@ export default function Swap() {
 				<span className='text-white text-base'>Connect Wallet</span>
 			</button>
 		</div>
+
 		<img src={Background1} alt="" className='absolute left-0' />
 		<img src={Background2} alt="" className='absolute right-0' />
 		<img src={clouds_left} alt="" className='absolute left-0' />
@@ -94,8 +89,6 @@ export default function Swap() {
 		
 		<img src={clouds_right} alt="" className='absolute right-0' />
 		<img src={gradient_right} alt="" className='absolute right-0' />
-		<img src={persona} alt="" className='absolute right-0' />
-		
 	</div>
   )
 }

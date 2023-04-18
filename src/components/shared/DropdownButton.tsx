@@ -8,13 +8,13 @@ const baseStyle = "flex gap-2 items-center rounded-lg cursor-pointer";
 
 export default function DropdownButton(
   {
+    text = "",
     padding = "normal",
     size = "normal",
     style = "",
     theme = "primary",
     noAnimation = false,
     clickHandler,
-    children,
   }: DropdownButtonProp,
 ) {
   const dropDownIconSizeStyle = filterDropdownIconSize(size);
@@ -23,6 +23,7 @@ export default function DropdownButton(
   return (
     <Button
       base={baseStyle}
+      weight={"bold"}
       size={size}
       padding={padding}
       theme={theme}
@@ -30,8 +31,8 @@ export default function DropdownButton(
       clickHandler={clickHandler}
       style={style}
     >
-      {children}
-      <DropdownIcon style={resultDropdownIconStyle} />
+      {text}
+      <DropdownIcon size="small" style={resultDropdownIconStyle} />
     </Button>
   );
 }

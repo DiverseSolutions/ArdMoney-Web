@@ -5,6 +5,7 @@ import {
   filterColorStyle,
   filterPaddingStyle,
   filterTextSize,
+  filterTextWeight,
 } from "@helpers/component/buttonFilters";
 
 const baseStyle = "flex items-center rounded-lg cursor-pointer";
@@ -16,6 +17,7 @@ export default function Button(
     size = "normal",
     style = "",
     theme = "primary",
+    weight = "normal",
     noAnimation = false,
     clickHandler,
     children,
@@ -25,10 +27,11 @@ export default function Button(
   const colorStyle = filterColorStyle(theme);
   const paddingStyle = filterPaddingStyle(padding);
   const textSizeStyle = filterTextSize(size);
+  const textWeightStyle = filterTextWeight(weight);
   const animationStyle = filterAnimationStyle(noAnimation);
 
   const resultStyle =
-    `${base} ${colorStyle} ${paddingStyle} ${textSizeStyle} ${animationStyle} ${style}`;
+    `${base} ${colorStyle} ${paddingStyle} ${textSizeStyle} ${animationStyle} ${textWeightStyle} ${style}`;
 
   return (
     <button onClick={clickHandler} className={resultStyle}>

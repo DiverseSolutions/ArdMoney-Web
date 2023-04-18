@@ -1,4 +1,5 @@
 import { ButtonTextSize, ButtonPaddingSize, ButtonTheme, DropdownIconSize, ButtonIconSize } from "@enums/ButtonEnums";
+import { TextWeightEnum } from "@enums/TypographyEnums";
 
 export function filterAnimationStyle(noAnimation : boolean){
   switch(noAnimation){
@@ -73,5 +74,18 @@ export function filterIconSize(size : "small" | "normal" | "big"){
       return ButtonIconSize.big
     default:
       return ButtonIconSize.normal
+  }
+}
+
+export function filterTextWeight(weight : "light" | "normal" | "bold"){
+  switch(weight){
+    case "light":
+      return TextWeightEnum.light
+    case "normal":
+      return TextWeightEnum.normal
+    case "bold":
+      return TextWeightEnum.bold
+    default:
+      return TextWeightEnum.normal
   }
 }

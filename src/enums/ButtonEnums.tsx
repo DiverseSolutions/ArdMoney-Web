@@ -1,7 +1,7 @@
 export enum ButtonTheme {
   icon = "bg-transparent text-white",
   primary = "bg-[#8362FD] text-white",
-  secondary = "",
+  secondary = "bg-primary/20 text-white",
 }
 
 export enum ButtonIconSize {

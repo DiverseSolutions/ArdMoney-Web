@@ -7,7 +7,7 @@ import {
 
 const baseStyle = "";
 
-export default function IconButton({ noAnimation = false,style,children,size = "normal",clickHandler }: IconButtonProp) {
+export default function IconButton({ viewBox = "",fill = "",noAnimation = false,style,children,size = "normal",clickHandler }: IconButtonProp) {
   const iconSizeStyle = filterIconSize(size)
 
   const resultStyle = `${baseStyle} ${iconSizeStyle} ${style}` 
@@ -17,7 +17,8 @@ export default function IconButton({ noAnimation = false,style,children,size = "
       <svg
         className={resultStyle}
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
+        viewBox={viewBox}
+        fill={fill}
       >
         {children}
       </svg>
