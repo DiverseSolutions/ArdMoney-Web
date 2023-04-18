@@ -24,6 +24,9 @@
             "types/*": [
                 "src/types/*"
             ],
+            "@enums/*": [
+                "src/enums/*"
+            ],
             "@assets/*": [
                 "src/assets/*"
             ],

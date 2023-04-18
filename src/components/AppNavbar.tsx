@@ -11,9 +11,8 @@ import MobileClouds from "@assets/home/mobile_clouds.svg";
 
 import TransactionsIcon from "@assets/icons/TransactionsIcon";
 import WalletIcon from "@assets/icons/WalletIcon";
-import DropdownIcon from "@assets/icons/DropdownIcon";
 
-import Button from "@components/shared/Button";
+import DropdownButton from "@components/shared/DropdownButton";
 
 const DesktopLinks = [
   { text: "Swap", link: "/swap" },
@@ -67,18 +66,12 @@ export default function AppNavbar() {
             </div>
 
             <div className="hidden md:flex justify-around gap-7">
-              <Button isIcon>
-                <TransactionsIcon style="text-white dark:text-white w-auto h-7 md:h-6" />
-              </Button>
+              <TransactionsIcon size="normal" />
+              <WalletIcon size="normal" />
 
-              <Button isIcon>
-                <WalletIcon style="text-white dark:text-white w-auto h-7 md:h-6" />
-              </Button>
-
-              <Button styles="text-sm gap-2 items-center">
-                <p>Binance Smart Chain</p>
-                <DropdownIcon style="h-7 md:h-6" />
-              </Button>
+              <DropdownButton size={"small"} noAnimation>
+                Binance Smart Chain
+              </DropdownButton>
             </div>
 
             <button onClick={() => openSidebar()} className="md:hidden">

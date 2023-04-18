@@ -1,24 +1,38 @@
-import React, {} from "react";
 import { NormalButtonProp } from "types/ButtonTypes";
 
+import {
+  filterAnimationStyle,
+  filterColorStyle,
+  filterPaddingStyle,
+  filterTextSize,
+} from "@helpers/component/buttonFilters";
+
+const baseStyle = "flex items-center rounded-lg cursor-pointer";
+
 export default function Button(
-  { styles = "", isIcon = false, clickHandler, children }: NormalButtonProp,
+  {
+    base = baseStyle,
+    padding = "normal",
+    size = "normal",
+    style = "",
+    theme = "primary",
+    noAnimation = false,
+    clickHandler,
+    children,
+  }: NormalButtonProp,
 ) {
-  const baseStyle =
-    "flex bg-[#8362FD] text-white px-4 py-[10px] rounded-lg text-md cursor-pointer hover:scale-75 transition-all";
-  const resultStyle = filterStyle() + " " + styles;
+
+  const colorStyle = filterColorStyle(theme);
+  const paddingStyle = filterPaddingStyle(padding);
+  const textSizeStyle = filterTextSize(size);
+  const animationStyle = filterAnimationStyle(noAnimation);
+
+  const resultStyle =
+    `${base} ${colorStyle} ${paddingStyle} ${textSizeStyle} ${animationStyle} ${style}`;
 
   return (
     <button onClick={clickHandler} className={resultStyle}>
       {children}
     </button>
   );
-
-  function filterStyle() {
-    if (isIcon) {
-      return `hover:scale-75 transition-all bg-transparent`;
-    }
-
-    return baseStyle;
-  }
 }
