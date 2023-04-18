@@ -24,14 +24,12 @@ const mobileNavigations = [
   { text: "Litepaper", link: Litepaper},
 ];
 
-export default function Navbar() {
+export default function HomeNavBar() {
   const [open, setOpen] = useState(false)
   const transitionProperties = open ? "left-0": "-left-250";
 
   const openSidebar = () => {
     setOpen(!open)
-
-
   }
 
   return (

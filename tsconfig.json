@@ -21,6 +21,9 @@
         "noEmit": true,
         "jsx": "react-jsx",
         "paths": {
+            "types/*": [
+                "src/types/*"
+            ],
             "@assets/*": [
                 "src/assets/*"
             ],
