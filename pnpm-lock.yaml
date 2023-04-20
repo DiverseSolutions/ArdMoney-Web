@@ -17,6 +17,7 @@ specifiers:
   react-redux: ^8.0.5
   react-router-dom: ^6.10.0
   sort-by: ^1.2.0
+  sweetalert2: ^11.7.3
   tailwindcss: ^3.3.1
   typescript: ^4.9.5
   vite: ^4.2.1
@@ -34,6 +35,7 @@ dependencies:
   react-redux: 8.0.5_jlpdlnmgz6kfq77dq7ypembf5a
   react-router-dom: 6.10.0_biqbaboplfbrettd7655fr4n2y
   sort-by: 1.2.0
+  sweetalert2: 11.7.3
 
 devDependencies:
   '@types/react': 18.0.35
@@ -1252,6 +1254,10 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
     dev: true
+
+  /sweetalert2/11.7.3:
+    resolution: {integrity: sha512-fUN/fyVSBZNtY4Rr/Qtxn7tNNnlRAbUhQxTQ9uOo0xVMIHBmqq4/9pau5N9dB2pvkB353XL/ywRAycscLoYU3w==}
+    dev: false
 
   /tailwindcss/3.3.1_postcss@8.4.22:
     resolution: {integrity: sha512-Vkiouc41d4CEq0ujXl6oiGFQ7bA3WEhUZdTgXAhtKxSy49OmKs8rEfQmupsfF0IGW8fv2iQkp1EVUuapCFrZ9g==}
