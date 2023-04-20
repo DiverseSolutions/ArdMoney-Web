@@ -11,16 +11,20 @@ export function intToHex(chainId: number){
 export async function setChainListener(listenerHandler : () => void){
   try {
     const provider: any = await detectEthereumProvider({timeout:500});
-    provider.on('chainChanged',listenerHandler);
+    if(provider){
+      provider.on('chainChanged',listenerHandler);
+    }
   } catch (e) {
-    console.log("Failed to addd listener")
+    console.log("Failed to add listener")
   }
 }
 
 export async function removeChainListener(listenerHandler : () => void){
   try {
     const provider: any = await detectEthereumProvider({timeout:500});
-    provider.removeListener('chainChanged',listenerHandler);
+    if(provider){
+      provider.removeListener('chainChanged',listenerHandler);
+    }
   } catch (e) {
     console.log("Failed to remove listener")
   }
