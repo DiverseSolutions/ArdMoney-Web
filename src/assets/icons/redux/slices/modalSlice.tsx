@@ -7,8 +7,8 @@ export interface ModalState {
 const modalSlice = createSlice({
   name: "modal",
   initialState: {
-    connectWalletModalState: false,
-  } as ModalState,
+    connectWalletModalState: true,
+  },
   reducers: {
     toggleConnectWalletModal: (state) => {
       state.connectWalletModalState = !state.connectWalletModalState

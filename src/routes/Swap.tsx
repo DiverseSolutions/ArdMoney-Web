@@ -1,6 +1,5 @@
 import Reload from '../assets/icons/reload.svg'
 import Menu from '../assets/icons/menu.svg'
-import Chevron_R from '../assets/icons/right_chevron.svg'
 import Switch from '../assets/icons/switch.svg'
 import Info from '../assets/icons/info.svg'
 import Chevron_D from '../assets/icons/down_chevron.svg'
@@ -14,10 +13,15 @@ import gradient_right from '../assets/images/swap/gradient_right.svg'
 import TokenSelectButton from '@components/trade/TokenSelectButton'
 import ConnectWalletButton from "@components/web3/ConnectWalletButton" 
 
+import { useSelector } from "react-redux"
+import { RootState } from "@redux/store" 
+
 export default function Swap() {
+  const { isConnected } = useSelector((state:RootState) => state.web3)
+
   return (
-	<div className="py-16 flex justify-center w-full">
-		<div className='flex flex-col p-xl min-h-auto max-w-[423px] card-gradient-dark rounded-lg z-10'>
+	<div className="py-base flex justify-center w-full">
+		<div className='flex flex-col p-xl w-full min-h-auto max-w-[423px] card-gradient-dark rounded-lg z-10'>
 			<div className='flex justify-between w-full mb-lg'>
 				<div className='flex items-center text-white gap-sm'>
 					<div className='p-2 border border-white/10 rounded-md'>
@@ -82,7 +86,7 @@ export default function Swap() {
 				</div>
 			</div>
 
-      <ConnectWalletButton style="py-sm"/>
+      {!isConnected && ( <ConnectWalletButton style="py-sm"/> )}
 		</div>
 
 		<img src={Background1} alt="" className='absolute left-0' />

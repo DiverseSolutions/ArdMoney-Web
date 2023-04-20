@@ -24,23 +24,25 @@
     @apply text-lg;
   }
   p {
-    @apply text-sm;
-  }
-  span {
     @apply text-base;
   }
+  span {
+    @apply text-sm;
+  }
+
 }
 
 @layer components {
   .bg-gradient {
-    background: radial-gradient(91.39% 119.64% at 7.64% 4.23%, #8362FD 0%, #ABFC86 100%);
+    background: radial-gradient(91.39% 119.64% at 7.64% 4.23%, #8362FD 0%, #ABFC86 100%) !important;
   }
   .bg-gradient-light {
-    background: radial-gradient(125.38% 119.64% at 7.64% 4.23%, #8362FD 0%, #FFFFFF 48.44%, #ABFC86 100%)
+    background: radial-gradient(125.38% 119.64% at 7.64% 4.23%, #8362FD 0%, #FFFFFF 48.44%, #ABFC86 100%) !important;
   }
   .bg-gradient-dark {
-    background: radial-gradient(108.58% 119.64% at 7.64% 4.23%, #8362FD 0%, #000000 48.44%, #ABFC86 100%)
+    background: radial-gradient(108.58% 119.64% at 7.64% 4.23%, #8362FD 0%, #000000 48.44%, #ABFC86 100%) !important;
   }
+
   .card-gradient-dark {
     box-shadow: 0px 10px 40px rgba(131, 98, 253, 0.2);
   }
@@ -58,11 +60,23 @@
   }
 
   .btn {
-    @apply flex items-center h-full w-full justify-center rounded-lg cursor-pointer bg-primary text-white text-base px-base py-2xs;
+    @apply flex items-center h-full w-full justify-center rounded-3xs cursor-pointer bg-primary text-white text-base px-base py-2xs;
+  }
+
+  .btn-outline {
+    @apply text-white flex items-center gap-xl p-xl border-primary border rounded-3xs;
   }
 
   .btn-animation {
     @apply transition-transform hover:scale-75;
+  }
+
+  .btn-outline-disabled {
+    @apply border-dark-disabled pointer-events-none;
+  }
+
+  .document-link {
+    @apply text-secondary underline;
   }
 
 }

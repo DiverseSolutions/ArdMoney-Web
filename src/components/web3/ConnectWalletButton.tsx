@@ -1,15 +1,16 @@
 import Button from "@components/shared/Button"  
 import { ConnectWalletButtonProp } from "types/ButtonTypes";
 import { useDispatch,useSelector } from "react-redux"
-import { toggleNetworkModal,modalState } from '@slices/modalSlice'
+import { toggleConnectWalletModal } from '@slices/modalSlice'
+import { RootState } from '@redux/store'
 
 export default function ConnectWalletButton({ style="" } : ConnectWalletButtonProp) {
-  const { networkModalState } = useSelector((state:modalState) => state)
+  const { connectWalletModalState } = useSelector((state:RootState) => state.modal)
   const dispatch = useDispatch()
 
   function connectWalletHandler() {
-    if(!networkModalState){
-      dispatch(toggleNetworkModal())
+    if(!connectWalletModalState){
+      dispatch(toggleConnectWalletModal())
       return;
     }
   }

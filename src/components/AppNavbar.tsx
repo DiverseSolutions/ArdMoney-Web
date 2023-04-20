@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import ArdmWhite from "@assets/home/logo_white.png";
 import Menu from "@assets/home/menu.png";
 import Cancel from "@assets/icons/cancel.svg";
@@ -10,6 +11,11 @@ import Instagram from "@assets/social/dark_instagram.svg";
 import MobileClouds from "@assets/home/mobile_clouds.svg";
 
 import ConnectWalletButton from "@components/web3/ConnectWalletButton" 
+
+import { useSelector } from "react-redux"
+import { RootState } from "@redux/store" 
+import AccountButton from "@components/nav/AccountButton";
+
 
 const DesktopLinks = [
   { text: "Swap", link: "/swap" },
@@ -28,6 +34,7 @@ const MobileLinks = [
 ];
 
 export default function AppNavbar() {
+  const { isConnected,account } = useSelector((state:RootState) => state.web3)
   const [open, setOpen] = useState(false);
   const transitionProperties = open ? "left-0" : "-left-250";
 
@@ -50,20 +57,16 @@ export default function AppNavbar() {
               </a>
               <div className="hidden md:flex items-center text-white/60 text-base gap-5 cursor-pointer py-sm">
                 {DesktopLinks.map((item, index) => (
-                  <a
-                    key={index}
-                    href={item.link}
-                    target={"_blank"}
-                    className="flex items-center"
-                  >
+                  <Link key={index} to={item.link}>
                     <span className="text-md">{item.text}</span>
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
 
             <div className="py-3xs">
-              <ConnectWalletButton />
+              {!isConnected && ( <ConnectWalletButton />)}
+              {isConnected && account != null && (<AccountButton />)}
             </div>
 
             <button onClick={() => openSidebar()} className="md:hidden">
