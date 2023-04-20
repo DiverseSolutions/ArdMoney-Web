@@ -13,7 +13,9 @@ export async function addingChain(chain: Chain){
             chainName: chain.name[0],
             chainId: intToHex(chain.chainId),
             nativeCurrency: {
-              name: chain.currency,
+              name: chain.name[0],
+              symbol : chain.currency,
+              decimals: 18,
             },
             rpcUrls: chain.rpc,
             blockExplorerUrls: chain.explorers,
