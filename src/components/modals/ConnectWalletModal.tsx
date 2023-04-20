@@ -1,7 +1,8 @@
 import MetamaskIcon from "@assets/icons/MetamaskIcon";
 import { useDispatch } from "react-redux";
 import { toggleConnectWalletModal } from "@slices/modalSlice";
-import { setWeb3Account, web3Connected } from "@slices/web3Slice";
+import { setWeb3Account, setWeb3Connection } from "@slices/web3Slice";
+
 import detectEthereumProvider from "@metamask/detect-provider";
 import { alertError,alertSuccess } from '@helpers/alert'
 
@@ -19,7 +20,7 @@ export default function ConnectWalletModal() {
         if (accounts.length != 0) {
           handleModalClose();
           dispatch(setWeb3Account(accounts[0]));
-          dispatch(web3Connected());
+          dispatch(setWeb3Connection(true));
           alertSuccess("Successfully Connected To Metamask")
         } else {
           alertError("No Metamask Accounts Found")

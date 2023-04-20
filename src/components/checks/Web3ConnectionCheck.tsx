@@ -4,8 +4,8 @@ import { DefaultCheckProp } from "types/CheckTypes";
 
 import detectEthereumProvider from "@metamask/detect-provider";
 import { useEffect } from "react";
-import { web3Connected,setWeb3Account } from "@slices/web3Slice" 
-import { alertError,alertSuccess,alertInfo } from '@helpers/alert'
+import { setWeb3Connection,setWeb3Account,setHasWeb3Wallet } from "@slices/web3Slice" 
+import { alertError } from '@helpers/alert'
 
 export default function Web3ConnectionCheck({ children }: DefaultCheckProp) {
   const {} = useSelector((state:RootState) => state.web3)
@@ -21,16 +21,12 @@ export default function Web3ConnectionCheck({ children }: DefaultCheckProp) {
 
         if (account != undefined && account != null && account !== "") {
           dispatch(setWeb3Account(account));
-          dispatch(web3Connected());
-          alertSuccess("Successfully Connected To Metamask")
-        } else {
-          alertInfo("No Metamask Connection Detected")
-        }
+          dispatch(setWeb3Connection(true));
+          dispatch(setHasWeb3Wallet(true))
+        } 
       } catch (e:any) {
         alertError(e.message)
       }
-    } else {
-      alertError("Install Metamask")
     }
   }
 
