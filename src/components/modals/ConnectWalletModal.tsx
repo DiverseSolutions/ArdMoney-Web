@@ -1,10 +1,11 @@
 import MetamaskIcon from "@assets/icons/MetamaskIcon";
 import { useDispatch } from "react-redux";
-import { toggleConnectWalletModal } from "@slices/modalSlice";
+import { setConnectWalletModal } from "@slices/modalSlice";
 import { setWeb3Account, setWeb3Connection } from "@slices/web3Slice";
 
 import detectEthereumProvider from "@metamask/detect-provider";
 import { alertError,alertSuccess } from '@helpers/alert'
+import CloseIcon from "@assets/icons/CloseIcon";
 
 export default function ConnectWalletModal() {
   const dispatch = useDispatch();
@@ -34,28 +35,18 @@ export default function ConnectWalletModal() {
   }
 
   function handleModalClose() {
-    dispatch(toggleConnectWalletModal());
+    dispatch(setConnectWalletModal(false));
   }
 
   return (
-    <>
+    <div className="max-w-[423px]">
       <div className="flex justify-between items-center">
         <h5>Connect Wallet</h5>
         <button
           className="btn-animation p-2xs rounded-4xs border border-light-back"
           onClick={handleModalClose}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5"
-            viewBox="0 0 24 24"
-          >
-            <path
-              fill="currentColor"
-              d="m12 13.4l-4.9 4.9q-.275.275-.7.275q-.425 0-.7-.275q-.275-.275-.275-.7q0-.425.275-.7l4.9-4.9l-4.9-4.9q-.275-.275-.275-.7q0-.425.275-.7q.275-.275.7-.275q.425 0 .7.275l4.9 4.9l4.9-4.9q.275-.275.7-.275q.425 0 .7.275q.275.275.275.7q0 .425-.275.7L13.4 12l4.9 4.9q.275.275.275.7q0 .425-.275.7q-.275.275-.7.275q-.425 0-.7-.275Z"
-            >
-            </path>
-          </svg>
+          <CloseIcon />
         </button>
       </div>
 
@@ -80,6 +71,6 @@ export default function ConnectWalletModal() {
         and consent to its{" "}
         <a className="document-link" href="#">Privacy Policy</a> .
       </p>
-    </>
+    </div>
   );
 }

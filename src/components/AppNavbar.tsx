@@ -15,6 +15,7 @@ import ConnectWalletButton from "@components/web3/ConnectWalletButton"
 import { useSelector } from "react-redux"
 import { RootState } from "@redux/store" 
 import AccountButton from "@components/nav/AccountButton";
+import NetworkButton from "@components/nav/NetworkButton";
 
 
 const DesktopLinks = [
@@ -64,9 +65,10 @@ export default function AppNavbar() {
               </div>
             </div>
 
-            <div className="py-3xs">
+            <div className="py-3xs flex gap-xs">
               {!isConnected && ( <ConnectWalletButton />)}
               {isConnected && account != null && (<AccountButton />)}
+              {isConnected && (<NetworkButton />)}
             </div>
 
             <button onClick={() => openSidebar()} className="md:hidden">

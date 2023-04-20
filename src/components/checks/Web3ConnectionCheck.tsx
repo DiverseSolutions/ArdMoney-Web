@@ -16,13 +16,14 @@ export default function Web3ConnectionCheck({ children }: DefaultCheckProp) {
   async function checkProvider(){
     const provider: any = await detectEthereumProvider();
     if (provider) {
+      dispatch(setHasWeb3Wallet(true))
+
       try {
         let account = provider.selectedAddress;
 
         if (account != undefined && account != null && account !== "") {
           dispatch(setWeb3Account(account));
           dispatch(setWeb3Connection(true));
-          dispatch(setHasWeb3Wallet(true))
         } 
       } catch (e:any) {
         alertError(e.message)

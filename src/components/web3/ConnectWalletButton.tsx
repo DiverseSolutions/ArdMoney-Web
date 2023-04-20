@@ -1,7 +1,7 @@
 import Button from "@components/shared/Button"  
 import { ConnectWalletButtonProp } from "types/ButtonTypes";
 import { useDispatch,useSelector } from "react-redux"
-import { toggleConnectWalletModal } from '@slices/modalSlice'
+import { setConnectWalletModal } from '@slices/modalSlice'
 import { RootState } from '@redux/store'
 import { alertError } from '@helpers/alert'
 
@@ -17,7 +17,7 @@ export default function ConnectWalletButton({ style="" } : ConnectWalletButtonPr
     }
 
     if(!connectWalletModalState){
-      dispatch(toggleConnectWalletModal())
+      dispatch(setConnectWalletModal(true))
       return;
     }
   }

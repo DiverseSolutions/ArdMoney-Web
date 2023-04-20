@@ -30,6 +30,9 @@
             "@slices/*": [
                 "src/redux/slices/*"
             ],
+            "@constants/*": [
+                "src/constants/*"
+            ],
             "@assets/*": [
                 "src/assets/*"
             ],
