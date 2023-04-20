@@ -9,10 +9,7 @@ import Medium from "@assets/social/dark_medium.svg";
 import Instagram from "@assets/social/dark_instagram.svg";
 import MobileClouds from "@assets/home/mobile_clouds.svg";
 
-import TransactionsIcon from "@assets/icons/TransactionsIcon";
-import WalletIcon from "@assets/icons/WalletIcon";
-
-import DropdownButton from "@components/shared/DropdownButton";
+import Button from "@components/shared/Button";
 
 const DesktopLinks = [
   { text: "Swap", link: "/swap" },
@@ -41,7 +38,7 @@ export default function AppNavbar() {
   return (
     <div className={`relative flex slide-in`}>
       <div className="flex sticky justify-center bg-black h-[68px] w-full z-40">
-        <div className="flex w-full md:px-20">
+        <div className="flex w-full md:px-2xl md:py-2xs">
           <div className="flex items-center justify-between w-full px-3 py-4 sm:px-6 sm:py-[22px] lg:px-0 lg:py-0">
             <div className="flex items-center gap-6">
               <a href="/">
@@ -51,7 +48,7 @@ export default function AppNavbar() {
                   className="h-12 cursor-pointer"
                 />
               </a>
-              <div className="hidden md:flex items-center text-white/60 text-md gap-5 cursor-pointer pt-1">
+              <div className="hidden md:flex items-center text-white/60 text-base gap-5 cursor-pointer py-sm">
                 {DesktopLinks.map((item, index) => (
                   <a
                     key={index}
@@ -65,10 +62,8 @@ export default function AppNavbar() {
               </div>
             </div>
 
-            <div className="hidden md:flex justify-around gap-7">
-              <TransactionsIcon size="normal" />
-              <WalletIcon size="normal" />
-              <DropdownButton size={"small"} text="Binance Smart Chain" noAnimation />
+            <div className="py-3xs">
+              <Button>Connect Wallet</Button>
             </div>
 
             <button onClick={() => openSidebar()} className="md:hidden">

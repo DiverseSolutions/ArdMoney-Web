@@ -8,7 +8,6 @@
 @tailwind utilities;
 
 @layer base {
-
   h1 {
     @apply text-4xl;
   }
@@ -26,6 +25,9 @@
   }
   p {
     @apply text-sm;
+  }
+  span {
+    @apply text-base;
   }
 }
 
@@ -53,6 +55,10 @@
   }
   .slide-in {
     background-color: #fff;
+  }
+
+  .btn {
+    @apply flex items-center rounded-lg cursor-pointer bg-primary text-white text-base px-base py-2xs;
   }
 
 }

@@ -1,9 +1,4 @@
 export type NormalButtonProp = {
-  base?: string,
-  weight? : "light" | "normal" | "bold",
-  padding?: "none" | "small" | "normal" | "big",
-  size?: "small" | "normal" | "big",
-  theme?: "primary" | "secondary" | "icon",
   clickHandler?: () => void,
   noAnimation?: boolean,
   children?: React.ReactNode,
