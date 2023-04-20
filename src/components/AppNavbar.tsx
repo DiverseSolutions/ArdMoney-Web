@@ -9,7 +9,7 @@ import Medium from "@assets/social/dark_medium.svg";
 import Instagram from "@assets/social/dark_instagram.svg";
 import MobileClouds from "@assets/home/mobile_clouds.svg";
 
-import Button from "@components/shared/Button";
+import ConnectWalletButton from "@components/web3/ConnectWalletButton" 
 
 const DesktopLinks = [
   { text: "Swap", link: "/swap" },
@@ -63,7 +63,7 @@ export default function AppNavbar() {
             </div>
 
             <div className="py-3xs">
-              <Button>Connect Wallet</Button>
+              <ConnectWalletButton />
             </div>
 
             <button onClick={() => openSidebar()} className="md:hidden">

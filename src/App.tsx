@@ -9,7 +9,6 @@ import {
 import { Provider } from 'react-redux'
 import store from '@redux/store'
 
-
 import Home from "@routes/Home"
 import Swap from "@routes/Swap"
 import Stake from "@routes/Stake"

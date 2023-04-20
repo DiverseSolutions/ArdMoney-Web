@@ -7,7 +7,7 @@ export default function Button(
     children,
   }: NormalButtonProp,
 ) {
-  const resultStyle = `btn ${style}`;
+  const resultStyle = `btn btn-animation ${style}`;
 
   return (
     <button onClick={clickHandler} className={resultStyle}>

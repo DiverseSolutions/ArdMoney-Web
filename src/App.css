@@ -58,7 +58,11 @@
   }
 
   .btn {
-    @apply flex items-center rounded-lg cursor-pointer bg-primary text-white text-base px-base py-2xs;
+    @apply flex items-center h-full w-full justify-center rounded-lg cursor-pointer bg-primary text-white text-base px-base py-2xs;
+  }
+
+  .btn-animation {
+    @apply transition-transform hover:scale-75;
   }
 
 }

@@ -12,6 +12,7 @@ import clouds_right from '../assets/images/swap/clouds_right.svg'
 import gradient_right from '../assets/images/swap/gradient_right.svg'
 
 import TokenSelectButton from '@components/trade/TokenSelectButton'
+import ConnectWalletButton from "@components/web3/ConnectWalletButton" 
 
 export default function Swap() {
   return (
@@ -38,7 +39,9 @@ export default function Swap() {
 				</div>
 			</div>
 			<div className='flex justify-between items-center w-full border border-primary/20 rounded-lg text-white p-sm mb-sm'>
-        <TokenSelectButton />
+        <div>
+          <TokenSelectButton />
+        </div>
 				<span className='text-xl'>0.000</span>
 			</div>
 
@@ -58,7 +61,9 @@ export default function Swap() {
 				</div>
 			</div>
 			<div className='flex justify-between items-center w-full border border-primary/20 rounded-lg text-white p-sm mb-sm'>
-        <TokenSelectButton />
+        <div>
+          <TokenSelectButton />
+        </div>
 				<span className='text-xl'>0.000</span>
 			</div>
 
@@ -77,9 +82,7 @@ export default function Swap() {
 				</div>
 			</div>
 
-			<button className='bg-primary py-[14px] px-base rounded-lg'>
-				<span className='text-white text-base'>Connect Wallet</span>
-			</button>
+      <ConnectWalletButton style="py-sm"/>
 		</div>
 
 		<img src={Background1} alt="" className='absolute left-0' />
