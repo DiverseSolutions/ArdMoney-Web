@@ -1,4 +1,4 @@
-type Chain = {
+export type Chain = {
   name: Array<string>;
   chainId: number;
   rpc: Array<string>;
@@ -8,7 +8,7 @@ type Chain = {
   logos: Array<string>;
 };
 
-const chainlist: Array<Chain> = [
+export const ChainList: Array<Chain> = [
   // Ethereum
   {
     name: ["Ethereum", "Ethereum Mainnet"],
@@ -165,6 +165,15 @@ const chainlist: Array<Chain> = [
     explorers: ["https://explorer-testnet.corexchain.io"],
     logos: ["https://tokenimg.dsolutions.mn/tokens/crx.png"],
   },
+
 ];
 
-export default chainlist;
+export const UnknownChain : Chain = {
+    name: ["Unknown Chain"],
+    chainId: -1,
+    rpc: [],
+    faucets: [],
+    currency: "",
+    explorers: [],
+    logos: [],
+}

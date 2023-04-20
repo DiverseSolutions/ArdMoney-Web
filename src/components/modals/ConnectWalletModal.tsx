@@ -11,7 +11,7 @@ export default function ConnectWalletModal() {
   const dispatch = useDispatch();
 
   async function handleMetamaskConnection() {
-    const provider: any = await detectEthereumProvider();
+    const provider: any = await detectEthereumProvider({timeout:500});
     if (provider) {
       try {
         const accounts = await provider.request({

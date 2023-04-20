@@ -14,6 +14,7 @@
     "i18next": "^22.4.14",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
+    "radash": "^10.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^12.2.0",

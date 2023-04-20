@@ -14,7 +14,7 @@ export default function Web3ConnectionCheck({ children }: DefaultCheckProp) {
   useEffect(() => { checkProvider() },[])
 
   async function checkProvider(){
-    const provider: any = await detectEthereumProvider();
+    const provider: any = await detectEthereumProvider({timeout:500});
     if (provider) {
       dispatch(setHasWeb3Wallet(true))
 
