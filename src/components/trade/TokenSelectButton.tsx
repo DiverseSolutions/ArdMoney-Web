@@ -7,6 +7,5 @@ export default function TokenSelectButton() {
       <span className="pr-sm">Select Token</span>
       <ChevronRightIcon style="w-1.5 mx-2xs" />
     </button>
-
   )
 }
