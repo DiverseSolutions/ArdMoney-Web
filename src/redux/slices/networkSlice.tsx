@@ -6,10 +6,8 @@ export type NetworkState = {
   chainId: number,
   currency: string,
   explorer: string,
-  rpc: string,
   logo: string,
   faucet: string,
-  supportedChains: Array<number>,
 };
 
 export type Network = {
@@ -18,7 +16,6 @@ export type Network = {
   chainId: number,
   currency: string,
   explorer: string,
-  rpc: string,
   logo: string,
   faucet: string,
 };
@@ -32,9 +29,7 @@ const networkSlice = createSlice({
     currency: "",
     explorer: "",
     logo: "",
-    rpc: "",
     faucet: "",
-    supportedChains: [56]
   } as NetworkState,
   reducers: {
     setNetwork: (state, action: PayloadAction<Network>) => {
@@ -42,14 +37,16 @@ const networkSlice = createSlice({
       state.name = action.payload.name;
       state.chainId = action.payload.chainId;
       state.currency = action.payload.currency;
-      state.rpc = action.payload.rpc;
       state.explorer = action.payload.explorer;
       state.logo = action.payload.logo;
       state.faucet = action.payload.faucet;
     },
+    setNetworkConfigured: (state, action: PayloadAction<boolean>) => {
+      state.isConfigured = action.payload;
+    },
   },
 });
 
-export const { setNetwork } = networkSlice.actions;
+export const { setNetwork,setNetworkConfigured } = networkSlice.actions;
 
 export const networkReducer = networkSlice.reducer;
