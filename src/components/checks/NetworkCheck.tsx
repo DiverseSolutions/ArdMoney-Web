@@ -6,7 +6,7 @@ import { SupportedChainList } from '@constants/ChainList'
 import { alert } from "@helpers/alert" 
 import { hexToInt,setChainListener,removeChainListener } from "@helpers/network" 
 
-import { setNetwork,setNetworkConfigured,Network } from '@slices/networkSlice'
+import { setNetwork,setNetworkConfigured,setNetworkUnknown,Network } from '@slices/networkSlice'
 import detectEthereumProvider from "@metamask/detect-provider";
 
 export default function NetworkCheck({ children } : DefaultCheckProp) {
@@ -38,6 +38,7 @@ export default function NetworkCheck({ children } : DefaultCheckProp) {
       if(chain){
         let c : Network = {
           isConfigured: true,
+          isTestNet: chain.isTestNet,
           name: chain.name[0],
           chainId: chain.chainId,
           currency: chain.currency,
@@ -49,6 +50,8 @@ export default function NetworkCheck({ children } : DefaultCheckProp) {
       }else{
         if(isConfigured){
           dispatch(setNetworkConfigured(false))
+        }else{
+          dispatch(setNetworkUnknown(true))
         }
       }
     } catch (e) {
