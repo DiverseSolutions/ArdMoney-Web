@@ -3,7 +3,7 @@ import { ConnectWalletButtonProp } from "types/ButtonTypes";
 import { useDispatch,useSelector } from "react-redux"
 import { setConnectWalletModal } from '@slices/modalSlice'
 import { RootState } from '@redux/store'
-import { alertError } from '@helpers/alert'
+import { alert } from '@helpers/alert'
 
 export default function ConnectWalletButton({ style="" } : ConnectWalletButtonProp) {
   const { connectWalletModalState } = useSelector((state:RootState) => state.modal)
@@ -12,7 +12,7 @@ export default function ConnectWalletButton({ style="" } : ConnectWalletButtonPr
 
   function connectWalletHandler() {
     if(!hasWallet){
-      alertError("No Web 3.0 Wallet Detected")
+      alert("error","No Web 3.0 Wallet Detected")
       return;
     }
 

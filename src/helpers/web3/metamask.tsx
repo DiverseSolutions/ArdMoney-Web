@@ -1,7 +1,7 @@
 import { Chain } from "@constants/ChainList"
 import detectEthereumProvider from "@metamask/detect-provider";
 import { intToHex } from "@helpers/network"
-import { alertError } from "@helpers/alert"
+import { alert } from "@helpers/alert"
 
 export async function addingChain(chain: Chain){
     const provider: any = await detectEthereumProvider({timeout:500});
@@ -24,7 +24,7 @@ export async function addingChain(chain: Chain){
         ],
       });
     }else{
-      alertError("No Metamask Detected")
+      alert("error","No Metamask Detected")
     }
 }
 
@@ -36,6 +36,6 @@ export async function switchToChain(chain: Chain){
         params: [{ chainId: intToHex(chain.chainId) }],
       });
     }else{
-      alertError("No Metamask Detected")
+      alert("error","No Metamask Detected")
     }
 }

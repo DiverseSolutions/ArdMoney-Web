@@ -3,7 +3,26 @@ import ReactDOMServer from "react-dom/server";
 import { SweetAlertIcon, SweetAlertPosition } from "sweetalert2";
 import AlertLayout from "@layouts/AlertLayout";
 
-export function alertSuccess(text: string) {
+type AlertType = 'success' | 'error' | 'info';
+
+export function alert(alertStyle: AlertType,content : string){
+  switch(alertStyle){
+    case 'success' :
+      alertSuccess(content)
+      break;
+    case 'error' :
+      alertError(content)
+      break;
+    case 'info' :
+      alertInfo(content)
+      break;
+    default:
+      alertInfo(content)
+      break;
+  }
+}
+
+function alertSuccess(text: string) {
   let options = getAlertDefaultOptions();
   options.customClass.popup += "border-secondary";
   let element = ReactDOMServer.renderToString(
@@ -15,7 +34,7 @@ export function alertSuccess(text: string) {
   options.html = element;
   Swal.fire(options);
 }
-export function alertError(text: string) {
+function alertError(text: string) {
   let options = getAlertDefaultOptions();
   options.customClass.popup += "border-red-700";
   let element = ReactDOMServer.renderToString(
@@ -28,7 +47,7 @@ export function alertError(text: string) {
   Swal.fire(options);
 }
 
-export function alertInfo(text: string) {
+function alertInfo(text: string) {
   let options = getAlertDefaultOptions();
   options.customClass.popup += "border-primary";
   let element = ReactDOMServer.renderToString(

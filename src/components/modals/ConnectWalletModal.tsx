@@ -4,7 +4,7 @@ import { setConnectWalletModal } from "@slices/modalSlice";
 import { setWeb3Account, setWeb3Connection } from "@slices/web3Slice";
 
 import detectEthereumProvider from "@metamask/detect-provider";
-import { alertError,alertSuccess } from '@helpers/alert'
+import { alert } from '@helpers/alert'
 import CloseIcon from "@assets/icons/CloseIcon";
 
 export default function ConnectWalletModal() {
@@ -22,15 +22,15 @@ export default function ConnectWalletModal() {
           handleModalClose();
           dispatch(setWeb3Account(accounts[0]));
           dispatch(setWeb3Connection(true));
-          alertSuccess("Successfully Connected To Metamask")
+          alert("success","Successfully Connected To Metamask")
         } else {
-          alertError("No Metamask Accounts Found")
+         alert("error","No Metamask Accounts Found")
         }
       } catch (e:any) {
-        alertError(e.message)
+        alert("error",e.message)
       }
     } else {
-        alertError("Install Metamask")
+        alert("error","Install Metamask")
     }
   }
 

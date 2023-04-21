@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 
 import { setNetworkModal } from "@slices/modalSlice" 
 import { addingChain,switchToChain } from "@helpers/web3/metamask" 
-import { alertError,alertSuccess } from "@helpers/alert" 
+import { alert } from "@helpers/alert" 
 
 export default function NetworkModal() {
   const dispatch = useDispatch();
@@ -16,15 +16,15 @@ export default function NetworkModal() {
   async function handleChainConnect(chain: Chain){
     try {
       await switchToChain(chain)
-      alertSuccess("Successfully Switched to Chain")
+      alert("success","Successfully Switched to Chain")
       handleModalClose()
     } catch (error) {
       try {
         await addingChain(chain)
-        alertSuccess("Successfully Added Chain")
+        alert("error","Successfully Added Chain")
         handleModalClose()
       } catch (e) {
-        alertError("Error Adding Chain") 
+        alert("error","Error Adding Chain") 
       }
     }
   }

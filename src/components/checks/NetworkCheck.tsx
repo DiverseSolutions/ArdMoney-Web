@@ -3,7 +3,7 @@ import { useSelector,useDispatch } from "react-redux";
 import { RootState } from "@redux/store";
 import { DefaultCheckProp } from "types/CheckTypes";
 import { SupportedChainList } from '@constants/ChainList'
-import { alertError } from "@helpers/alert" 
+import { alert } from "@helpers/alert" 
 import { hexToInt,setChainListener,removeChainListener } from "@helpers/network" 
 
 import { setNetwork,setNetworkConfigured,Network } from '@slices/networkSlice'
@@ -52,7 +52,7 @@ export default function NetworkCheck({ children } : DefaultCheckProp) {
         }
       }
     } catch (e) {
-      alertError("Failed to configure network")
+      alert("error","Failed to configure network")
     }
 
   }
