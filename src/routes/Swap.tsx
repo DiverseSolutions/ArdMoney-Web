@@ -12,12 +12,14 @@ import gradient_right from '../assets/images/swap/gradient_right.svg'
 
 import TokenSelectButton from '@components/trade/TokenSelectButton'
 import ConnectWalletButton from "@components/web3/ConnectWalletButton" 
+import ConnectToSupportedNetworkButton from "@components/web3/ConnectToSupportedNetworkButton" 
 
 import { useSelector } from "react-redux"
 import { RootState } from "@redux/store" 
 
 export default function Swap() {
   const { isConnected } = useSelector((state:RootState) => state.web3)
+  const { isUnknown } = useSelector((state:RootState) => state.network)
 
   return (
 	<div className="py-base flex justify-center w-full">
@@ -87,6 +89,7 @@ export default function Swap() {
 			</div>
 
       {!isConnected && ( <ConnectWalletButton style="py-sm"/> )}
+      {isConnected && isUnknown && ( <ConnectToSupportedNetworkButton style="py-sm"/> )}
 		</div>
 
 		<img src={Background1} alt="" className='absolute left-0' />

@@ -11,3 +11,10 @@ export type ConnectWalletButtonProp = {
   children?: React.ReactNode,
   style?: String,
 };
+
+export type DefaultButtonProp = {
+  clickHandler?: () => void,
+  noAnimation?: boolean,
+  children?: React.ReactNode,
+  style?: String,
+};
