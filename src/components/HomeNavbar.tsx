@@ -9,6 +9,7 @@ import Facebook from "@assets/social/dark_facebook.svg";
 import Medium from "@assets/social/dark_medium.svg";
 import Instagram from "@assets/social/dark_instagram.svg";
 import MobileClouds from "@assets/home/mobile_clouds.svg";
+import OutlineButton from '@components/shared/OutlineButton';
 
 const navigations = [
   { text: "BscScan", link: "https://bscscan.com/token/0xe849188f76c0da93b5ed310a1f72127914b3a7b9" },
@@ -52,8 +53,10 @@ export default function HomeNavBar() {
                 ))}
               </div>
             </div>
-            <a href="https://app.ardmoney.com/" target={"_blank"} className='hidden md:flex bg-[#8362FD] text-white px-4 py-[10px] rounded-lg text-md'>
-              Launch App
+            <a href="https://app.ardmoney.com/" target={"_blank"} className="hidden md:block">
+              <OutlineButton style="px-xl">
+                Launch App
+              </OutlineButton>
             </a>
             <button onClick={() => openSidebar()} className="md:hidden">
               <img
@@ -77,7 +80,7 @@ export default function HomeNavBar() {
             </button>
             <div className='flex flex-col gap-base mt-2xl p-base'>
               {mobileNavigations.map((item, index) => (
-                <a href={item.link} target={"_blank"} className='flex flex-col text-xl font-normal'>
+                <a href={item.link} key={index} target={"_blank"} className='flex flex-col text-xl font-normal'>
                   <span>{item.text}</span>
                 </a>
               ))}

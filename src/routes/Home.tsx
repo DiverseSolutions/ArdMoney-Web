@@ -19,8 +19,9 @@ import PurpleBigCircleBG from "@assets/home/ellipse.svg";
 import PurpleCircleRightSideBG from "@assets/home/ellipse_102.svg";
 import Blog_rectangle from "@assets/home/blog_rectangle.svg";
 import Card from "@/components/shared/Card";
-import Section from "@/components/shared/Section";
+import Section from "@/components/layouts/Section";
 import PageContainer from "@/components/layouts/PageContainer";
+import OutlineButton from "@/components/shared/OutlineButton";
 
 export default function Home() {
   const [faqAccordionState, setFaqAccordionState] = useState(1);
@@ -48,11 +49,13 @@ export default function Home() {
           <a
             href="https://docs.ardmoney.com/"
             target={"_blank"}
-            className="btn-outline w-[151px] md:w-[219px]"
+            className="w-[151px] md:w-[219px]"
           >
-            <span className="text-xs lg:text-base">
-              Learn how to start
-            </span>
+            <OutlineButton>
+              <span className="text-xs text-center lg:text-base">
+                Learn how to start
+              </span>
+            </OutlineButton>
           </a>
         </div>
         <img
@@ -426,9 +429,9 @@ export default function Home() {
       </Section>
 
       <Section>
-        <Card style="border-none px-0">
+        <Card style="border-none px-0 gap-0">
           <div className="flex flex-col md:flex-row md:justify-between w-full rounded-lg h-full md:h-[363px]">
-            <div className="flex flex-col justify-end gap-4 text-white w-full md:w-5/12 lg:w-6/12 mb-10">
+            <div className="flex flex-col justify-end gap-4 text-white w-full md:w-5/12 lg:w-6/12">
               <div className="flex gap-1 lg:gap-lg cursor-pointer">
                 <span className="text-md md:text-xl font-extrabold uppercase">
                   Join our community
@@ -441,59 +444,60 @@ export default function Home() {
                   />
                 </div>
               </div>
-              <p className="text-white/60">
+              <p className="text-white/60 pb-base">
                 Users will be able to use Ardmoney on the chain that they most
                 see fit. Ardmoney is currently deployed on Polygon and Binance
                 Smart Chain.
               </p>
             </div>
-            <div className="flex justify-center md:justify-center lg:justify-end relative w-full h-full bg-transparent back rounded-lg md:w-6/12 lg:w-8/12">
-              <div className="flex justify-end">
+            <div className="flex justify-center md:justify-center lg:justify-end relative w-full h-full bg-transparent back rounded-lg md:w-6/12 lg:w-6/12">
                 <img
                   src={Ghosts}
+                  data-aos="fade-up"
+                  data-aos-delay="800"
                   alt="image"
                   className="object-cover w-full"
                 />
-              </div>
             </div>
           </div>
-          <div className="flex text-white w-full gap-2">
-            <button className="flex w-1/2 justify-between items-center rounded-lg bg-gradient p-[1px]">
-              <a
-                href="https://t.me/ArdMoney"
-                target={"_blank"}
-                className="flex justify-center md:justify-between h-full w-full items-center p-3 md:p-xl bg-black back rounded-lg gap-3"
-              >
+          <div className="flex flex-col md:flex-row text-white w-full gap-2">
+            <a
+              href="https://t.me/ArdMoney"
+              target={"_blank"}
+              className="w-full h-full"
+            >
+              <OutlineButton style="justify-between px-xl py-xl">
                 <span className="text-base md:text-xl font-extrabold">
                   TELEGRAM
                 </span>
-                <div className="w-4 h-4 md:w-8 md:h-8">
+                <div className="w-7 h-7 md:w-8 md:h-8">
                   <img
                     src={Telegram}
                     alt="Telegram imagem"
                     className="object-contain"
                   />
                 </div>
-              </a>
-            </button>
-            <button className="flex w-1/2 justify-between items-center rounded-lg bg-gradient p-[1px]">
-              <a
-                href="https://twitter.com/AxxmLabs"
-                target={"_blank"}
-                className="flex justify-center md:justify-between h-full w-full items-center p-3 md:p-xl bg-black back rounded-lg gap-3"
-              >
+              </OutlineButton>
+            </a>
+
+            <a
+              href="https://twitter.com/AxxmLabs"
+              target={"_blank"}
+              className="w-full h-full"
+            >
+              <OutlineButton style="justify-between px-xl py-xl">
                 <span className="text-base md:text-xl font-extrabold">
                   TWITTER
                 </span>
-                <div className="w-4 h-4 md:w-8 md:h-8">
+                <div className="w-7 h-7 md:w-8 md:h-8">
                   <img
                     src={Twitter}
                     alt="Twitter image"
                     className="object-contain"
                   />
                 </div>
-              </a>
-            </button>
+              </OutlineButton>
+            </a>
           </div>
         </Card>
       </Section>
