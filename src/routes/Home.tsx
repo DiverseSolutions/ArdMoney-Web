@@ -160,7 +160,7 @@ export default function Home() {
             <span className="text-md md:text-base md:w-6/12 font-medium">
               Your exchange in your hands.
             </span>
-            <span className="text-white/60 text-xs md:text-md font-light">
+            <span className="text-white/60 text-xs md:text-sm font-light">
               Smart Contracts allow ArdMoney to provide a permissionless,
               trustless, immutable platform to trade crypto assets.
             </span>
@@ -172,7 +172,7 @@ export default function Home() {
             <span className="text-md md:text-base md:w-6/12 font-medium">
               By the people. For the people.
             </span>
-            <span className="text-white/60 text-xs md:text-md font-light">
+            <span className="text-white/60 text-xs md:text-sm font-light">
               Ardmoney is fully democratized and is governed by its token
               holders which ensures the protocol serves the best interest of the
               people.
