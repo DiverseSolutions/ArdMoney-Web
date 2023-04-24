@@ -4,8 +4,8 @@
         "useDefineForClassFields": true,
         "lib": [
           "DOM",
-            "DOM.Iterable",
-            "ESNext"
+          "DOM.Iterable",
+          "ESNext"
         ],
         "baseUrl": "./",
         "allowJs": false,
@@ -76,7 +76,8 @@
     },
     "include": [
         "src",
-        "./main.tsx"
+        "./main.tsx",
+        "declarations"
     ],
     "references": [
         {

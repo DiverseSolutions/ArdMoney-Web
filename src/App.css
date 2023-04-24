@@ -7,6 +7,17 @@
 @tailwind components;
 @tailwind utilities;
 
+.text-inherit {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.hide {
+  transition: opacity 200ms, display 200ms;
+  display: none;
+  opacity: 0;
+}
+
 @layer base {
   h1 {
     @apply text-4xl;
@@ -28,6 +39,7 @@
   }
   span {
     @apply text-sm;
+    @apply text-inherit;
   }
 
 }
@@ -60,11 +72,12 @@
   }
 
   .btn {
-    @apply flex items-center h-full w-full justify-center rounded-3xs cursor-pointer bg-primary text-white text-base px-base py-2xs;
+    @apply flex items-center h-full w-full justify-center rounded-3xs cursor-pointer bg-primary font-normal text-white text-base px-base py-sm;
+    @apply btn-animation
   }
 
   .btn-outline {
-    @apply text-white flex items-center gap-xl p-xl border-primary border rounded-3xs;
+    @apply btn bg-transparent border-primary border;
   }
 
   .btn-animation {
@@ -78,5 +91,6 @@
   .document-link {
     @apply text-secondary underline;
   }
+
 
 }

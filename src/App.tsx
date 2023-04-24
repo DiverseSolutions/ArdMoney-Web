@@ -8,6 +8,8 @@ import {
 
 import { Provider } from 'react-redux'
 import store from '@redux/store'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 import Home from "@routes/Home"
 import Swap from "@routes/Swap"
@@ -20,6 +22,8 @@ import HomeLayout from "@layouts/HomeLayout"
 import AppLayout from "@layouts/AppLayout"
 
 export default function App() { 
+  AOS.init();
+
   return ( 
     <Provider store={store}>
       <BrowserRouter>
