@@ -72,7 +72,7 @@
   }
 
   .btn {
-    @apply flex items-center h-full w-full justify-center rounded-3xs cursor-pointer bg-primary font-normal text-white text-base px-base py-sm;
+    @apply flex items-center h-full w-full justify-center rounded-3xs cursor-pointer bg-primary font-normal text-white text-3xs md:text-base px-base py-sm;
     @apply btn-animation
   }
 

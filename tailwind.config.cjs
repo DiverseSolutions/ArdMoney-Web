@@ -94,6 +94,10 @@ module.exports = {
         "2xl": "32px",
         "3xl": "48px",
         "4xl": "56px",
+
+        "layout-sm": "64px",
+        "layout-lg": "128px",
+        "layout-xl": "256px",
       },
       gap: {
         "4xs": "4px",
@@ -107,6 +111,10 @@ module.exports = {
         "2xl": "32px",
         "3xl": "48px",
         "4xl": "56px",
+
+        "layout-sm": "64px",
+        "layout-lg": "128px",
+        "layout-xl": "256px",
       },
     },
   },

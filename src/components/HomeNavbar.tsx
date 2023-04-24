@@ -1,6 +1,5 @@
 import {useState} from 'react'
-import ArdmLogo from "@assets/home/ardm_logo.png";
-import ArdmWhite from "@assets/home/logo_white.png";
+import Logo from "@assets/icons/logo.svg";
 import Menu from "@assets/home/menu.png";
 import Litepaper from '@assets/LitePaper.pdf'
 import Cancel from "@assets/icons/cancel.svg";
@@ -40,7 +39,7 @@ export default function HomeNavBar() {
             <div className='flex items-center gap-6'>
               <a href="/">
                 <img
-                  src={ArdmWhite}
+                  src={Logo}
                   alt='image'
                   className='h-12 cursor-pointer'
                 />
