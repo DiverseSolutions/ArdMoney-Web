@@ -1,10 +1,13 @@
 import { useSelector } from "react-redux"
 import { RootState } from "@redux/store" 
+import OutlineButton from "@components/shared/OutlineButton"
 
 export default function AccountButton() {
   const { account } = useSelector((state:RootState) => state.web3)
   return (
-    <button className="btn-outline rounded-full py-3xs px-sm">{accountNameShortener(account)}</button>
+    <OutlineButton>
+      {accountNameShortener(account)}
+    </OutlineButton>
   )
 }
 

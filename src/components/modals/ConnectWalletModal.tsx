@@ -1,4 +1,5 @@
 import MetamaskIcon from "@assets/icons/MetamaskIcon";
+import LogoIcon from "@assets/icons/LogoIcon";
 import { useDispatch } from "react-redux";
 import { setConnectWalletModal } from "@slices/modalSlice";
 import { setWeb3Account, setWeb3Connection } from "@slices/web3Slice";
@@ -6,6 +7,7 @@ import { setWeb3Account, setWeb3Connection } from "@slices/web3Slice";
 import detectEthereumProvider from "@metamask/detect-provider";
 import { alert } from '@helpers/alert'
 import CloseIcon from "@assets/icons/CloseIcon";
+import OutlineButton from "../shared/OutlineButton";
 
 export default function ConnectWalletModal() {
   const dispatch = useDispatch();
@@ -39,7 +41,7 @@ export default function ConnectWalletModal() {
   }
 
   return (
-    <div className="max-w-[423px]">
+    <div className="max-w-[423px] flex flex-col gap-base">
       <div className="flex justify-between items-center">
         <h5>Connect Wallet</h5>
         <button
@@ -50,21 +52,15 @@ export default function ConnectWalletModal() {
         </button>
       </div>
 
-      <div className="flex flex-col gap-3xs">
-        <span className="text-light-terteriary">Available Wallet</span>
-        <button
-          className="btn-outline btn-animation"
-          onClick={handleMetamaskConnection}
-        >
-          <MetamaskIcon style="h-2xl w-auto" />
-          <h5>Metamask</h5>
-        </button>
-        <button className="btn-outline btn-outline-disabled btn-animation">
-          <MetamaskIcon style="h-2xl w-auto" />
-          <h5>ArdMoney Wallet</h5>
-        </button>
-      </div>
-
+      <span className="text-light-terteriary">Available Wallet</span>
+      <OutlineButton clickHandler={handleMetamaskConnection} >
+        <MetamaskIcon style="h-2xl w-auto" />
+        <h5>Metamask</h5>
+      </OutlineButton>
+      <OutlineButton disabled>
+        <LogoIcon />
+        <h5>ArdMoney Wallet</h5>
+      </OutlineButton>
       <p>
         By connecting a wallet, you agree to ArdMoney Swap’s{" "}
         <a href="#" className="document-link">Terms of Service</a>{" "}

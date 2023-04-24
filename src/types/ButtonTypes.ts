@@ -18,3 +18,11 @@ export type DefaultButtonProp = {
   children?: React.ReactNode,
   style?: String,
 };
+
+export type DefaultOutlineButtonProp = {
+  disabled?: boolean,
+  clickHandler?: () => void,
+  children?: React.ReactNode,
+  style?: String,
+  parentStyle?: String,
+};

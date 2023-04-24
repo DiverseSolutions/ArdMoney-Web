@@ -11,7 +11,7 @@ export default function ModalLayout({ children,handleModalClose } : DefaultLayou
 
   return (
     <div className="px-base md:px-0 py-base flex justify-center w-full">
-      <div className='relative z-10 bg-black flex flex-col gap-xl p-xl min-h-auto card-gradient-dark rounded-lg'>
+      <div data-aos="fade-up" className='relative z-10 bg-black flex flex-col gap-xl p-xl min-h-auto card-gradient-dark rounded-lg'>
         { children }
       </div>
 

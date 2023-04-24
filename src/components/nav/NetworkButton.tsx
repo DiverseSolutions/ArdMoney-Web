@@ -1,6 +1,7 @@
 import { useSelector,useDispatch } from "react-redux"
 import { RootState } from "@redux/store" 
 import { setNetworkModal } from "@slices/modalSlice" 
+import OutlineButton from "@components/shared/OutlineButton"
 
 export default function NetworkButton() {
   const { networkModalState } = useSelector((state:RootState) => state.modal)
@@ -15,10 +16,10 @@ export default function NetworkButton() {
 
   if(network.isConfigured){
     return (
-      <button className="btn-outline btn-animation gap-3xs rounded-full py-3xs px-sm" onClick={handleModalOpen}>
-        <img src={network.logo} className="w-2xl h-auto" alt="network_logo" />
-        <span>{network.name}</span>
-      </button>
+      <OutlineButton style="gap-xs" clickHandler={handleModalOpen}>
+        <img src={network.logo} className="w-lg h-auto" alt="network_logo" />
+        <span className="text-base">{network.name}</span>
+      </OutlineButton>
     )
   }
 

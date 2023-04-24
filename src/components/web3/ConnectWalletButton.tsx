@@ -1,9 +1,9 @@
-import Button from "@components/shared/Button"  
 import { ConnectWalletButtonProp } from "types/ButtonTypes";
 import { useDispatch,useSelector } from "react-redux"
 import { setConnectWalletModal } from '@slices/modalSlice'
 import { RootState } from '@redux/store'
 import { alert } from '@helpers/alert'
+import OutlineButton from "@components/shared/OutlineButton";
 
 export default function ConnectWalletButton({ style="" } : ConnectWalletButtonProp) {
   const { connectWalletModalState } = useSelector((state:RootState) => state.modal)
@@ -23,6 +23,8 @@ export default function ConnectWalletButton({ style="" } : ConnectWalletButtonPr
   }
 
   return (
-    <Button style={style} clickHandler={connectWalletHandler}>Connect Wallet</Button>
+    <OutlineButton style={style} clickHandler={connectWalletHandler}>
+      Connect Wallet
+    </OutlineButton>
   )
 }

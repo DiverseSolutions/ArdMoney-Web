@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import ArdmWhite from "@assets/home/logo_white.png";
+import LogoIcon from "@assets/icons/LogoIcon";
 import Menu from "@assets/home/menu.png";
 import Cancel from "@assets/icons/cancel.svg";
 import Copyright from "@assets/home/dark_copyright.svg";
@@ -16,7 +16,6 @@ import { useSelector } from "react-redux"
 import { RootState } from "@redux/store" 
 import AccountButton from "@components/nav/AccountButton";
 import NetworkButton from "@components/nav/NetworkButton";
-
 
 const DesktopLinks = [
   { text: "Swap", link: "/swap" },
@@ -50,11 +49,7 @@ export default function AppNavbar() {
           <div className="flex items-center justify-between w-full px-3 py-4 sm:px-6 sm:py-[22px] lg:px-0 lg:py-0">
             <div className="flex items-center gap-6">
               <a href="/">
-                <img
-                  src={ArdmWhite}
-                  alt="image"
-                  className="h-12 cursor-pointer"
-                />
+                <LogoIcon />
               </a>
               <div className="hidden md:flex items-center text-white/60 text-base gap-5 cursor-pointer py-sm">
                 {DesktopLinks.map((item, index) => (
@@ -65,8 +60,8 @@ export default function AppNavbar() {
               </div>
             </div>
 
-            <div className="py-3xs flex gap-xs">
-              {!isConnected && ( <ConnectWalletButton />)}
+            <div className="grid grid-cols-2 gap-xs h-full">
+              {!isConnected && ( <ConnectWalletButton style="px-xl" />)}
               {isConnected && account != null && (<AccountButton />)}
               {isConnected && (<NetworkButton />)}
             </div>
