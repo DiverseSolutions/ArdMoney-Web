@@ -61,10 +61,14 @@ export default function AppNavbar() {
             </div>
 
             <div className="grid grid-cols-2 gap-xs h-full">
-              {!isConnected && ( <ConnectWalletButton style="px-xl" />)}
               {isConnected && account != null && (<AccountButton />)}
               {isConnected && (<NetworkButton />)}
             </div>
+
+            {!isConnected && ( <div>
+              <ConnectWalletButton style="px-xl" />
+            </div>)}
+
 
             <button onClick={() => openSidebar()} className="md:hidden">
               <img
