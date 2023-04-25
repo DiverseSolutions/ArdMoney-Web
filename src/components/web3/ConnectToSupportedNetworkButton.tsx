@@ -16,6 +16,6 @@ export default function ConnectToSupportedNetworkButton({ style="" } : DefaultBu
   }
 
   return (
-    <Button style={style} clickHandler={connectWalletHandler}>Connect Network</Button>
+    <Button style={style} clickHandler={connectWalletHandler}>Connect To Chain</Button>
   )
 }
