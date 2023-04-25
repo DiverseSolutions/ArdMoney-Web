@@ -1,6 +1,8 @@
-import Reload from "../assets/icons/reload.svg";
+import { useSelector } from "react-redux";
+import { RootState } from "@redux/store";
+import { useEffect, useState } from "react";
+
 import Menu from "../assets/icons/menu.svg";
-import Switch from "../assets/icons/switch.svg";
 import Info from "../assets/icons/info.svg";
 import Chevron_D from "../assets/icons/down_chevron.svg";
 import Background1 from "../assets/images/swap/background1.svg";
@@ -13,14 +15,15 @@ import gradient_right from "../assets/images/swap/gradient_right.svg";
 import TokenSelectButton from "@components/trade/TokenSelectButton";
 import ConnectWalletButton from "@components/web3/ConnectWalletButton";
 import ConnectToSupportedNetworkButton from "@components/web3/ConnectToSupportedNetworkButton";
-
-import { useSelector } from "react-redux";
-import { RootState } from "@redux/store";
-import TokenSelectionModal from "@/components/modals/TokenSelectionModal";
-import { useState } from "react";
-import { Token } from "@constants/TokenList";
-import { useGetTokensPairsQuery } from "@apis/dexApi";
 import ComponentLoader from "@/components/shared/ComponentLoader";
+import TokenSelectionModal from "@/components/modals/TokenSelectionModal";
+
+import { Token } from "@constants/TokenList";
+import { dexApi } from "@apis/dexApi";
+import { findByAddress } from "@/helpers/dex";
+import SwitchIcon from "@assets/icons/SwitchIcon";
+import ReloadIcon from "@assets/icons/ReloadIcon";
+import { alert } from "@helpers/alert";
 
 export default function Swap() {
   const [fromToken, setFromToken] = useState<Token | null>(null);
@@ -29,23 +32,49 @@ export default function Swap() {
   const [fromTokenModal, setFromTokenModal] = useState(false);
   const [toTokenModal, setToTokenModal] = useState(false);
 
-  const { data: pairs, isLoading: pairsLoading } = useGetTokensPairsQuery({})
+  const [toTokenList, setToTokenList] = useState<Array<Token>>([]);
 
-  console.log(pairs)
+  const { data: pairs, isLoading: pairsLoading, isSuccess: pairsIsSuccess , refetch : fetchPairs } =
+    dexApi.useGetTokensPairsQuery({
+      refetchOnFocus: true,
+      refetchOnReconnect: true,
+      pollingInterval: 5 * 60 * 1000,
+    });
 
   const { isConnected } = useSelector((state: RootState) => state.web3);
+  const { dexList: tokenList } = useSelector((state: RootState) => state.token);
   const { isUnknown, isConfigured } = useSelector((state: RootState) =>
     state.network
   );
+
+  useEffect(() => {
+    configurePairTokens();
+  }, [pairsIsSuccess,pairsLoading,fromToken]);
+
+  function handleSwitchTokens() {
+    if (fromToken == null || toToken == null) return;
+
+    let from = fromToken;
+    setFromToken(toToken);
+    setToToken(from);
+  }
+
+  async function handleReload(){
+    setFromToken(null)
+    setToToken(null)
+    setToTokenList([])
+    await fetchPairs()
+    alert("success","Successfully Reloaded")
+  }
 
   return (
     <div className="py-base flex justify-center w-full">
       <div className="flex flex-col p-xl w-full min-h-auto max-w-[423px] card-gradient-dark rounded-lg z-5">
         <div className="flex justify-between w-full mb-lg">
           <div className="flex items-center text-white gap-sm">
-            <div className="p-2 border border-white/10 rounded-md">
-              <img src={Reload} alt="" />
-            </div>
+            <button className="p-2 border border-white/10 rounded-md btn-animation" onClick={handleReload}>
+              <ReloadIcon />
+            </button>
             <span className="font-lg">Swap</span>
           </div>
           <div>
@@ -78,9 +107,12 @@ export default function Swap() {
         <span className="text-white/60 text-right text-sm mb-lg">0.00</span>
 
         <div className="flex w-full justify-center mb-lg">
-          <div className="flex p-base border border-white/10 rounded-md">
-            <img src={Switch} alt="" />
-          </div>
+          <button
+            className="flex p-base border border-white/10 rounded-md btn-animation"
+            onClick={handleSwitchTokens}
+          >
+            <SwitchIcon />
+          </button>
         </div>
 
         <div className="flex justify-between w-full text-white/60 text-sm mb-base">
@@ -128,6 +160,7 @@ export default function Swap() {
       {isConfigured && (
         <>
           <TokenSelectionModal
+            tokenList={tokenList}
             setToken={(token: Token) => {
               setFromToken(token);
             }}
@@ -137,6 +170,7 @@ export default function Swap() {
             }}
           />
           <TokenSelectionModal
+            tokenList={toTokenList}
             setToken={(token: Token) => {
               setToToken(token);
             }}
@@ -157,4 +191,39 @@ export default function Swap() {
       <img src={gradient_right} alt="" className="absolute right-0" />
     </div>
   );
+
+  function configurePairTokens() {
+    if (fromToken == null) return;
+    if (pairs == undefined) return;
+
+    let resultList: Array<Token> = [];
+    let foundPair = pairs.find((token) =>
+      findByAddress(token.id, fromToken.address)
+    );
+
+    if (foundPair == undefined) return;
+
+    if (foundPair.pairBase.length != 0) {
+      foundPair.pairBase.forEach((token) => {
+        let found = tokenList.find((dexToken) =>
+          findByAddress(token.token1.id, dexToken.address)
+        );
+        if (found != undefined) resultList.push(found);
+      });
+    }
+
+    if (foundPair.pairQuote.length != 0) {
+      foundPair.pairQuote.forEach((token) => {
+        let found = tokenList.find((dexToken) =>
+          findByAddress(token.token0.id, dexToken.address)
+        );
+        if (found != undefined) resultList.push(found);
+      });
+    }
+
+    if (resultList.length > 0) {
+      setToTokenList(resultList);
+      setToToken(resultList[0]);
+    }
+  }
 }

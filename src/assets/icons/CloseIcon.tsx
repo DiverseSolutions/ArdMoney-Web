@@ -1,6 +1,6 @@
-import { NormalSvgType } from "types/SvgTypes";
+import { DefaultSvgProp } from "types/SvgTypes";
 
-export default function CloseIcon({ style = "h-lg w-auto" }: NormalSvgType) {
+export default function CloseIcon({ style = "h-lg w-auto" }: DefaultSvgProp) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

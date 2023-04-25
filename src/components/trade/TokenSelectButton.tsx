@@ -1,4 +1,3 @@
-// import Button from "@components/shared/Button";
 import ChevronRightIcon from '@assets/icons/ChevronRightIcon'
 import { Token } from '@constants/TokenList'
 

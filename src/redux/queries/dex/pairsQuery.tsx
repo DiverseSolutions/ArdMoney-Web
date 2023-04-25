@@ -1,28 +1,8 @@
 import { gql } from "graphql-request"
+import { SubgraphDexPair } from "types/QueryTypes"
 
 export interface DexApiPairsResponse {
   pairs: Array<SubgraphDexPair>
-}
-
-export interface SubgraphDexPair {
-  id: string,
-  token0: SubgraphDexToken,
-  token1: SubgraphDexToken,
-  reserve0 : number,
-  reserve1 : number,
-  token0Price : number,
-  token1Price : number,
-  volumeToken0 : number,
-  volumeToken1 : number
-}
-
-export interface SubgraphDexToken {
-  id: string,
-  mnt: number,
-  name: string,
-  symbol: string,
-  totalLiquidity: number,
-  totalSupply: number,
 }
 
 export const pairsQuery = gql`

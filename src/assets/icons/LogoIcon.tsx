@@ -1,7 +1,7 @@
 import Logo from "@assets/icons/logo.svg";
-import { NormalSvgType } from "types/SvgTypes";
+import { DefaultSvgProp } from "types/SvgTypes";
 
-export default function MetamaskIcon({ style="h-3xl w-auto" } : NormalSvgType) {
+export default function MetamaskIcon({ style="h-3xl w-auto" } : DefaultSvgProp) {
   return (
     <img className={style} src={Logo} alt="ArdMoneyLogo" />
   )

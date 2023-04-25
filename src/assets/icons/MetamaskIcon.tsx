@@ -1,6 +1,6 @@
-import { NormalSvgType } from "types/SvgTypes";
+import { DefaultSvgProp } from "types/SvgTypes";
 
-export default function MetamaskIcon({ style="h-2xl w-auto" } : NormalSvgType) {
+export default function MetamaskIcon({ style="h-2xl w-auto" } : DefaultSvgProp) {
   return (
     <svg
       className={style}

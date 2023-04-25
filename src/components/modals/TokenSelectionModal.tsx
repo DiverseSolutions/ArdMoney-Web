@@ -2,13 +2,11 @@ import CloseIcon from "@assets/icons/CloseIcon"
 import ModalLayout from "@components/layouts/ModalLayout"
 import { useState } from "react"
 import Search from "../shared/Search"
-import { DexTokenList,Token } from '@constants/TokenList'
-import { useSelector } from "react-redux"
-import { RootState } from "@/redux/store"
+import { Token } from '@constants/TokenList'
+import { TokenSelectModalProp } from "types/ModalTypes"
 
-export default function TokenSelectionModal({ isOpen,setToken,handleClose } : { isOpen: boolean,handleClose: () => void,setToken: (token:Token) => void}) {
+export default function TokenSelectionModal({ tokenList,isOpen,setToken,handleClose } : TokenSelectModalProp) {
   const [searchInput,setSearchInput] = useState("")
-  const { chainId } = useSelector((state:RootState) => state.network)
 
   if(!isOpen) return (<></>)
 
@@ -43,12 +41,12 @@ export default function TokenSelectionModal({ isOpen,setToken,handleClose } : { 
         <Search input={searchInput} inputChangeHandler={onSearchInputChange} />
         <div className="h-1 bg-gradient rounded-xl"></div>
 
-        {searchInput.length != 0 && DexTokenList[chainId].filter(tokenFilter).map((token:Token) => (
+        {searchInput.length != 0 && tokenList.filter(tokenFilter).map((token:Token) => (
           <TokenRow token={token} clickHandler={() => { onTokenChoice(token) }} />
         )) }
 
-        {searchInput.length == 0 && DexTokenList[chainId].map((token:Token) => (
-          <TokenRow token={token} clickHandler={() => { onTokenChoice(token) }} />
+        {searchInput.length == 0 && tokenList.map((token:Token,index) => (
+          <TokenRow key={index} token={token} clickHandler={() => { onTokenChoice(token) }} />
         )) }
       </ModalLayout>
     </div>

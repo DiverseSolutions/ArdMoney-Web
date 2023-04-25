@@ -1,33 +1,8 @@
 import { gql } from "graphql-request"
+import { SubgraphPairTokens } from "types/QueryTypes"
 
 export interface DexApiTokenPairsResponse {
-  tokens: Array<Tokens>
-}
-
-interface Tokens {
-  id: string,
-  name : string,
-  totalSupply : string,
-  totalLiquidity : string,
-  pairBase : TokenBasePair,
-  pairQuote : TokenQuotePair,
-}
-
-interface TokenBasePair {
-  id: string,
-  token1: Token,
-}
-
-interface TokenQuotePair {
-  id: string,
-  token0: Token,
-}
-
-interface Token {
-  id: string,
-  name : string,
-  totalSupply : string,
-  totalLiquidity : string,
+  tokens: Array<SubgraphPairTokens>
 }
 
 export const tokenPairsQuery = gql`
@@ -41,18 +16,22 @@ export const tokenPairsQuery = gql`
         id
         token1 {
           id
+          mnt
           name
-          totalSupply
+          symbol
           totalLiquidity
+          totalSupply
         }
       }
       pairQuote {
         id
         token0 {
           id
+          mnt
           name
-          totalSupply
+          symbol
           totalLiquidity
+          totalSupply
         }
       }
     }
