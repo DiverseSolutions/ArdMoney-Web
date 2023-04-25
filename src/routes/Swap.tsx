@@ -43,13 +43,19 @@ export default function Swap() {
 
   const { isConnected } = useSelector((state: RootState) => state.web3);
   const { dexList: tokenList } = useSelector((state: RootState) => state.token);
-  const { isUnknown, isConfigured } = useSelector((state: RootState) =>
-    state.network
-  );
+  const { isUnknown } = useSelector((state: RootState) => state.network);
+
+  useEffect(() => {
+    if(pairsIsSuccess) setFromToken(tokenList[0])
+  }, [pairsIsSuccess]);
 
   useEffect(() => {
     configurePairTokens();
-  }, [pairsIsSuccess,pairsLoading,fromToken]);
+  }, [fromToken]);
+
+  useEffect(() => {
+    if(toTokenList.length > 0 ) setToToken(toTokenList[0])
+  }, [toTokenList]);
 
   function handleSwitchTokens() {
     if (fromToken == null || toToken == null) return;
@@ -64,6 +70,7 @@ export default function Swap() {
     setToToken(null)
     setToTokenList([])
     await fetchPairs()
+    setFromToken(tokenList[0])
     alert("success","Successfully Reloaded")
   }
 
@@ -157,30 +164,26 @@ export default function Swap() {
         )}
       </div>
 
-      {isConfigured && (
-        <>
-          <TokenSelectionModal
-            tokenList={tokenList}
-            setToken={(token: Token) => {
-              setFromToken(token);
-            }}
-            isOpen={fromTokenModal}
-            handleClose={() => {
-              setFromTokenModal(false);
-            }}
-          />
-          <TokenSelectionModal
-            tokenList={toTokenList}
-            setToken={(token: Token) => {
-              setToToken(token);
-            }}
-            isOpen={toTokenModal}
-            handleClose={() => {
-              setToTokenModal(false);
-            }}
-          />
-        </>
-      )}
+      <TokenSelectionModal
+        tokenList={tokenList}
+        setToken={(token: Token) => {
+          setFromToken(token);
+        }}
+        isOpen={fromTokenModal}
+        handleClose={() => {
+          setFromTokenModal(false);
+        }}
+      />
+      <TokenSelectionModal
+        tokenList={toTokenList}
+        setToken={(token: Token) => {
+          setToToken(token);
+        }}
+        isOpen={toTokenModal}
+        handleClose={() => {
+          setToTokenModal(false);
+        }}
+      />
 
       <img src={Background1} alt="" className="absolute left-0" />
       <img src={Background2} alt="" className="absolute right-0" />
@@ -223,7 +226,6 @@ export default function Swap() {
 
     if (resultList.length > 0) {
       setToTokenList(resultList);
-      setToToken(resultList[0]);
     }
   }
 }

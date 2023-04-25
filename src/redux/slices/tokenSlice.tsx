@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Token } from "@constants/TokenList" 
+import { WalletTokenList,Token,DexTokenList } from "@constants/TokenList" 
 
 type Web3State = {
   walletList : Array<Token>,
@@ -9,8 +9,8 @@ type Web3State = {
 const tokenSlice = createSlice({
   name: "token",
   initialState: {
-    walletList : [],
-    dexList : [],
+    walletList : WalletTokenList[56],
+    dexList : DexTokenList[56],
   } as Web3State,
   reducers: {
     setWalletList: (state, action: PayloadAction<Array<Token>>) => {
