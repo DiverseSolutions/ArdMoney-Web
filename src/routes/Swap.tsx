@@ -25,6 +25,7 @@ import ReloadIcon from "@assets/icons/ReloadIcon";
 import { alert } from "@helpers/alert";
 import SettingsIcon from "@assets/icons/SettingsIcon";
 import { isEmpty } from "radash";
+import { formatNumber } from "@/helpers/numbers";
 
 export default function Swap() {
   const [fromToken, setFromToken] = useState<Token | null>(null);
@@ -35,7 +36,7 @@ export default function Swap() {
   const [toTokenList, setToTokenList] = useState<Array<Token>>([]);
 
   const [fromInput,setFromInput] = useState<number | string>("")
-  const [toInput,setToInput] = useState<number | string>("")
+  const [toInput,_setToInput] = useState<number | string>("")
 
   const { data: pairs, isLoading: pairsLoading,isFetching: pairsFetching, isSuccess: pairsIsSuccess , refetch : fetchPairs } =
     dexApi.useGetTokensPairsQuery({
@@ -94,7 +95,7 @@ export default function Swap() {
 
   return (
     <div className="py-base flex justify-center w-full">
-      <div className="flex flex-col p-xl w-full min-h-auto max-w-[423px] card-gradient-dark rounded-lg z-5">
+      <div className="flex flex-col p-xl max-w-[500px] min-h-auto min-w-[423px] card-gradient-dark rounded-lg z-5">
         <div className="flex justify-between w-full mb-lg">
           <div className="flex items-center text-white gap-sm">
             <button className="p-2 border border-white/10 rounded-md btn-animation" onClick={handleReload}>
@@ -103,9 +104,9 @@ export default function Swap() {
             <span className="font-lg">Swap</span>
           </div>
           <div>
-            <div className="p-2 border border-white/10 rounded-md">
+            <button className="btn-animation p-2 border border-white/10 rounded-md">
               <SettingsIcon />
-            </div>
+            </button>
           </div>
         </div>
         <div className="flex justify-between w-full text-white/60 text-sm mb-base">
@@ -129,7 +130,7 @@ export default function Swap() {
           </ComponentLoader>
         </div>
 
-        <span className="text-white/60 text-sm mb-lg">0.000</span>
+        <span className="text-white/60 text-sm mb-lg">{formatNumber(fromInput)}</span>
 
         <div className="flex w-full justify-center mb-lg">
           <button
@@ -157,11 +158,11 @@ export default function Swap() {
                 }}
               />
             </div>
-            <input type="number" className="input pointer-events-none text-white/60 text-lg pl-2xs" placeholder="0" value={toInput} />
+            <input type="number" readOnly className="input pointer-events-none text-white/60 text-lg pl-2xs" placeholder="0" value={toInput} />
           </ComponentLoader>
         </div>
 
-        <span className="text-white/60 text-sm mb-lg">0.000</span>
+        <span className="text-white/60 text-sm mb-lg">{formatNumber(toInput)}</span>
 
         <div className="flex justify-between w-full mb-lg">
           <div className="flex items-center text-sm gap-xs">
