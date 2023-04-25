@@ -1,5 +1,4 @@
 import {useState} from 'react'
-import Logo from "@assets/icons/logo.svg";
 import Menu from "@assets/home/menu.png";
 import Litepaper from '@assets/LitePaper.pdf'
 import Cancel from "@assets/icons/cancel.svg";
@@ -10,6 +9,7 @@ import Medium from "@assets/social/dark_medium.svg";
 import Instagram from "@assets/social/dark_instagram.svg";
 import MobileClouds from "@assets/home/mobile_clouds.svg";
 import OutlineButton from '@components/shared/OutlineButton';
+import LogoIcon from '@assets/icons/LogoIcon';
 
 const navigations = [
   { text: "BscScan", link: "https://bscscan.com/token/0xe849188f76c0da93b5ed310a1f72127914b3a7b9" },
@@ -39,11 +39,7 @@ export default function HomeNavBar() {
           <div className='flex items-center justify-between w-full px-3 py-4 sm:px-6 sm:py-[22px] lg:px-0 lg:py-0'>
             <div className='flex items-center gap-6'>
               <a href="/">
-                <img
-                  src={Logo}
-                  alt='image'
-                  className='h-12 cursor-pointer'
-                />
+                <LogoIcon/>
               </a>
               <div className='hidden md:flex items-center text-white/60 text-md gap-5 cursor-pointer pt-1'>
                 {navigations.map((item, index) => (

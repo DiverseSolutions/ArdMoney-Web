@@ -2,7 +2,6 @@ import { useSelector } from "react-redux";
 import { RootState } from "@redux/store";
 import { useEffect, useState } from "react";
 
-import Menu from "../assets/icons/menu.svg";
 import Info from "../assets/icons/info.svg";
 import Chevron_D from "../assets/icons/down_chevron.svg";
 import Background1 from "../assets/images/swap/background1.svg";
@@ -24,6 +23,7 @@ import { findByAddress } from "@/helpers/dex";
 import SwitchIcon from "@assets/icons/SwitchIcon";
 import ReloadIcon from "@assets/icons/ReloadIcon";
 import { alert } from "@helpers/alert";
+import SettingsIcon from "@assets/icons/SettingsIcon";
 
 export default function Swap() {
   const [fromToken, setFromToken] = useState<Token | null>(null);
@@ -91,7 +91,7 @@ export default function Swap() {
           </div>
           <div>
             <div className="p-2 border border-white/10 rounded-md">
-              <img src={Menu} alt="" />
+              <SettingsIcon />
             </div>
           </div>
         </div>
