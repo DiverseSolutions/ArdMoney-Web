@@ -3,6 +3,18 @@
   src: url("/PPNeueMachina.otf");
 }
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -90,6 +102,10 @@
 
   .document-link {
     @apply text-secondary underline;
+  }
+
+  .input {
+    @apply bg-transparent text-right appearance-none outline-0 w-full;
   }
 
 

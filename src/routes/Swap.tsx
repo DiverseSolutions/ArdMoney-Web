@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { RootState } from "@redux/store";
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 
 import Info from "../assets/icons/info.svg";
 import Chevron_D from "../assets/icons/down_chevron.svg";
@@ -24,6 +24,7 @@ import SwitchIcon from "@assets/icons/SwitchIcon";
 import ReloadIcon from "@assets/icons/ReloadIcon";
 import { alert } from "@helpers/alert";
 import SettingsIcon from "@assets/icons/SettingsIcon";
+import { isEmpty } from "radash";
 
 export default function Swap() {
   const [fromToken, setFromToken] = useState<Token | null>(null);
@@ -31,8 +32,10 @@ export default function Swap() {
 
   const [fromTokenModal, setFromTokenModal] = useState(false);
   const [toTokenModal, setToTokenModal] = useState(false);
-
   const [toTokenList, setToTokenList] = useState<Array<Token>>([]);
+
+  const [fromInput,setFromInput] = useState<number | string>("")
+  const [toInput,setToInput] = useState<number | string>("")
 
   const { data: pairs, isLoading: pairsLoading,isFetching: pairsFetching, isSuccess: pairsIsSuccess , refetch : fetchPairs } =
     dexApi.useGetTokensPairsQuery({
@@ -79,6 +82,16 @@ export default function Swap() {
     }
   }
 
+  function handleFromInputChange(e:FormEvent<HTMLInputElement>){
+    const inputValue = e.currentTarget.value
+    if(isEmpty(inputValue)){
+      setFromInput("");
+      return;
+    }
+
+    setFromInput(parseFloat(inputValue))
+  }
+
   return (
     <div className="py-base flex justify-center w-full">
       <div className="flex flex-col p-xl w-full min-h-auto max-w-[423px] card-gradient-dark rounded-lg z-5">
@@ -112,11 +125,11 @@ export default function Swap() {
                 }}
               />
             </div>
-            <span className="text-xl">0.000</span>
+            <input type="number" className="input text-lg pl-2xs" placeholder="0" value={fromInput} onChange={handleFromInputChange} />
           </ComponentLoader>
         </div>
 
-        <span className="text-white/60 text-right text-sm mb-lg">0.00</span>
+        <span className="text-white/60 text-sm mb-lg">0.000</span>
 
         <div className="flex w-full justify-center mb-lg">
           <button
@@ -144,11 +157,11 @@ export default function Swap() {
                 }}
               />
             </div>
-            <span className="text-xl">0.000</span>
+            <input type="number" className="input pointer-events-none text-white/60 text-lg pl-2xs" placeholder="0" value={toInput} />
           </ComponentLoader>
         </div>
 
-        <span className="text-white/60 text-right text-sm mb-lg">0.00</span>
+        <span className="text-white/60 text-sm mb-lg">0.000</span>
 
         <div className="flex justify-between w-full mb-lg">
           <div className="flex items-center text-sm gap-xs">
