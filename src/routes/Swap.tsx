@@ -34,7 +34,7 @@ export default function Swap() {
 
   const [toTokenList, setToTokenList] = useState<Array<Token>>([]);
 
-  const { data: pairs, isLoading: pairsLoading, isSuccess: pairsIsSuccess , refetch : fetchPairs } =
+  const { data: pairs, isLoading: pairsLoading,isFetching: pairsFetching, isSuccess: pairsIsSuccess , refetch : fetchPairs } =
     dexApi.useGetTokensPairsQuery({
       refetchOnFocus: true,
       refetchOnReconnect: true,
@@ -69,9 +69,14 @@ export default function Swap() {
     setFromToken(null)
     setToToken(null)
     setToTokenList([])
-    await fetchPairs()
-    setFromToken(tokenList[0])
-    alert("success","Successfully Reloaded")
+
+    try{
+      await fetchPairs()
+      setFromToken(tokenList[0])
+      alert("success","Successfully Reloaded")
+    }catch(e){
+      alert("error","Reload Failed")
+    }
   }
 
   return (
@@ -98,7 +103,7 @@ export default function Swap() {
           </div>
         </div>
         <div className="flex justify-between items-center w-full border border-primary/20 rounded-lg text-white p-sm mb-sm">
-          <ComponentLoader isLoading={pairsLoading}>
+          <ComponentLoader isLoading={pairsLoading || pairsFetching}>
             <div>
               <TokenSelectButton
                 token={fromToken}
@@ -130,7 +135,7 @@ export default function Swap() {
           </div>
         </div>
         <div className="flex justify-between items-center w-full border border-primary/20 rounded-lg text-white p-sm mb-sm">
-          <ComponentLoader isLoading={pairsLoading}>
+          <ComponentLoader isLoading={pairsLoading || pairsFetching}>
             <div>
               <TokenSelectButton
                 token={toToken}
