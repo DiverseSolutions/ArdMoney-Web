@@ -2,7 +2,6 @@
 import ChevronRightIcon from '@assets/icons/ChevronRightIcon'
 import { Token } from '@constants/TokenList'
 
-
 export default function TokenSelectButton({token,clickHandler} : {token: Token | null, clickHandler? : () => void}) {
 
   return (
@@ -12,3 +11,4 @@ export default function TokenSelectButton({token,clickHandler} : {token: Token |
     </button>
   )
 }
+

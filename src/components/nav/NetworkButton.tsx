@@ -24,6 +24,8 @@ export default function NetworkButton() {
   }
 
   return (
-    <button className="btn-outline btn-animation rounded-full py-3xs px-sm" onClick={handleModalOpen}>Connect To Chain</button>
+    <OutlineButton style="gap-xs" clickHandler={handleModalOpen}>
+      Connect To Chain
+    </OutlineButton>
   )
 }

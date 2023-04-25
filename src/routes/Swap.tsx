@@ -20,6 +20,7 @@ import TokenSelectionModal from "@/components/modals/TokenSelectionModal";
 import { useState } from "react";
 import { Token } from "@constants/TokenList";
 import { useGetTokensPairsQuery } from "@apis/dexApi";
+import ComponentLoader from "@/components/shared/ComponentLoader";
 
 export default function Swap() {
   const [fromToken, setFromToken] = useState<Token | null>(null);
@@ -28,7 +29,7 @@ export default function Swap() {
   const [fromTokenModal, setFromTokenModal] = useState(false);
   const [toTokenModal, setToTokenModal] = useState(false);
 
-  const { data: pairs } = useGetTokensPairsQuery({})
+  const { data: pairs, isLoading: pairsLoading } = useGetTokensPairsQuery({})
 
   console.log(pairs)
 
@@ -61,18 +62,20 @@ export default function Swap() {
           </div>
         </div>
         <div className="flex justify-between items-center w-full border border-primary/20 rounded-lg text-white p-sm mb-sm">
-          <div>
-            <TokenSelectButton
-              token={fromToken}
-              clickHandler={() => {
-                setFromTokenModal(true);
-              }}
-            />
-          </div>
-          <span className="text-xl">0.000</span>
+          <ComponentLoader isLoading={pairsLoading}>
+            <div>
+              <TokenSelectButton
+                token={fromToken}
+                clickHandler={() => {
+                  setFromTokenModal(true);
+                }}
+              />
+            </div>
+            <span className="text-xl">0.000</span>
+          </ComponentLoader>
         </div>
 
-        <span className="text-white/60 text-sm mb-lg">0.00</span>
+        <span className="text-white/60 text-right text-sm mb-lg">0.00</span>
 
         <div className="flex w-full justify-center mb-lg">
           <div className="flex p-base border border-white/10 rounded-md">
@@ -88,18 +91,20 @@ export default function Swap() {
           </div>
         </div>
         <div className="flex justify-between items-center w-full border border-primary/20 rounded-lg text-white p-sm mb-sm">
-          <div>
-            <TokenSelectButton
-              token={toToken}
-              clickHandler={() => {
-                setToTokenModal(true);
-              }}
-            />
-          </div>
-          <span className="text-xl">0.000</span>
+          <ComponentLoader isLoading={pairsLoading}>
+            <div>
+              <TokenSelectButton
+                token={toToken}
+                clickHandler={() => {
+                  setToTokenModal(true);
+                }}
+              />
+            </div>
+            <span className="text-xl">0.000</span>
+          </ComponentLoader>
         </div>
 
-        <span className="text-white/60 text-sm mb-lg">0.00</span>
+        <span className="text-white/60 text-right text-sm mb-lg">0.00</span>
 
         <div className="flex justify-between w-full mb-lg">
           <div className="flex items-center text-sm gap-xs">

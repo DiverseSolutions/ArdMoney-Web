@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { setNetworkModal } from "@slices/modalSlice" 
 import { addingChain,switchToChain } from "@helpers/web3/metamask" 
 import { alert } from "@helpers/alert" 
+import { setNetworkConfigured, setNetworkUnknown } from '@slices/networkSlice';
 
 export default function NetworkModal() {
   const dispatch = useDispatch();
@@ -16,12 +17,16 @@ export default function NetworkModal() {
   async function handleChainConnect(chain: Chain){
     try {
       await switchToChain(chain)
+      dispatch(setNetworkUnknown(false))
+      dispatch(setNetworkConfigured(true))
       alert("success","Successfully Switched to Chain")
       handleModalClose()
     } catch (error) {
       try {
         await addingChain(chain)
-        alert("error","Successfully Added Chain")
+        dispatch(setNetworkUnknown(false))
+        dispatch(setNetworkConfigured(true))
+        alert("success","Successfully Added Chain")
         handleModalClose()
       } catch (e) {
         alert("error","Error Adding Chain") 
