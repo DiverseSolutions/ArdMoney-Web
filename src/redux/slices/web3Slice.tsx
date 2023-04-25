@@ -8,7 +8,7 @@ type Web3State = {
 };
 
 const web3Slice = createSlice({
-  name: "web3Slice",
+  name: "web3",
   initialState: {
     hasWallet: false,
     isConnected: false,
