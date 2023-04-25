@@ -27,6 +27,12 @@
             "@enums/*": [
                 "src/enums/*"
             ],
+            "@apis/*": [
+                "src/redux/apis/*"
+            ],
+            "@queries/*": [
+                "src/redux/queries/*"
+            ],
             "@slices/*": [
                 "src/redux/slices/*"
             ],
@@ -62,9 +68,6 @@
             ],
             "@components/*": [
                 "src/components/*"
-            ],
-            "@graphql/*": [
-                "src/graphql/*"
             ],
             "@shared/*": [
                 "src/components/shared/*"

@@ -19,6 +19,7 @@ import { RootState } from "@redux/store";
 import TokenSelectionModal from "@/components/modals/TokenSelectionModal";
 import { useState } from "react";
 import { Token } from "@constants/TokenList";
+import { useGetTokensPairsQuery } from "@apis/dexApi";
 
 export default function Swap() {
   const [fromToken, setFromToken] = useState<Token | null>(null);
@@ -26,6 +27,10 @@ export default function Swap() {
 
   const [fromTokenModal, setFromTokenModal] = useState(false);
   const [toTokenModal, setToTokenModal] = useState(false);
+
+  const { data: pairs } = useGetTokensPairsQuery({})
+
+  console.log(pairs)
 
   const { isConnected } = useSelector((state: RootState) => state.web3);
   const { isUnknown, isConfigured } = useSelector((state: RootState) =>
