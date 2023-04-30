@@ -121,7 +121,7 @@ export default function Home() {
       </Section>
 
       <Section style="relative">
-        <Card style="min-h-[500px] bg-transparent md:bg-gradient-to-r md:from-[#8362FD] md:to-[#3FE600] p-[1px]">
+        <Card style="min-h-[500px] bg-transparent md:bg-gradient-to-r md:from-[#8362FD] md:to-[#3FE600] p-1px">
           <div className="flex flex-col absolute bottom-0 justify-end gap-4 p-6 text-white w-full md:w-4/12 back rounded-tl-lg rounded-bl-lg z-10 bg-transparent">
             <span className="text-base md:text-xl font-extrabold">
               WHAT WE CAPABLE OF

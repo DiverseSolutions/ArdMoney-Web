@@ -15,10 +15,6 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 .text-inherit {
   font-size: inherit;
   line-height: inherit;
@@ -30,83 +26,28 @@ input[type=number] {
   opacity: 0;
 }
 
-@layer base {
-  h1 {
-    @apply text-4xl;
-  }
-  h2 {
-    @apply text-3xl;
-  }
-  h3 {
-    @apply text-2xl;
-  }
-  h4 {
-    @apply text-xl;
-  }
-  h5 {
-    @apply text-lg;
-  }
-  p {
-    @apply text-base;
-  }
-  span {
-    @apply text-sm;
-    @apply text-inherit;
-  }
-
+.bg-gradient {
+  background: radial-gradient(91.39% 119.64% at 7.64% 4.23%, #8362FD 0%, #ABFC86 100%) !important;
+}
+.bg-gradient-light {
+  background: radial-gradient(125.38% 119.64% at 7.64% 4.23%, #8362FD 0%, #FFFFFF 48.44%, #ABFC86 100%) !important;
+}
+.bg-gradient-dark {
+  background: radial-gradient(108.58% 119.64% at 7.64% 4.23%, #8362FD 0%, #000000 48.44%, #ABFC86 100%) !important;
 }
 
-@layer components {
-  .bg-gradient {
-    background: radial-gradient(91.39% 119.64% at 7.64% 4.23%, #8362FD 0%, #ABFC86 100%) !important;
-  }
-  .bg-gradient-light {
-    background: radial-gradient(125.38% 119.64% at 7.64% 4.23%, #8362FD 0%, #FFFFFF 48.44%, #ABFC86 100%) !important;
-  }
-  .bg-gradient-dark {
-    background: radial-gradient(108.58% 119.64% at 7.64% 4.23%, #8362FD 0%, #000000 48.44%, #ABFC86 100%) !important;
-  }
-
-  .card-gradient-dark {
-    box-shadow: 0px 10px 40px rgba(131, 98, 253, 0.2);
-  }
-  .staking-header-gradient {
-    background: radial-gradient(1189.29% 10982.54% at 0% 0%, #000000 0%, #8362FD 100%)
-  }
-  .four-pillars-gradient {
-    background: radial-gradient(1189.29% 10982.54% at 0% 0%, #000000 0%, #8362FD 100%)
-  }
-  .governance-header-gradient {
-    background: radial-gradient(67.82% 89.65% at 50% 30.96%, #ABFC86 0%, rgba(0, 0, 0, 0) 35.94%);
-  }
-  .slide-in {
-    background-color: #fff;
-  }
-
-  .btn {
-    @apply flex items-center h-full w-full justify-center rounded-3xs cursor-pointer bg-primary font-normal text-white text-3xs md:text-base px-base py-sm;
-    @apply btn-animation
-  }
-
-  .btn-outline {
-    @apply btn bg-transparent border-primary border;
-  }
-
-  .btn-animation {
-    @apply transition-transform hover:scale-75 cursor-pointer;
-  }
-
-  .btn-outline-disabled {
-    @apply border-dark-disabled pointer-events-none;
-  }
-
-  .document-link {
-    @apply text-secondary underline;
-  }
-
-  .input {
-    @apply bg-transparent text-right appearance-none outline-0 w-full;
-  }
-
-
+.card-gradient-dark {
+  box-shadow: 0px 10px 40px rgba(131, 98, 253, 0.2);
+}
+.staking-header-gradient {
+  background: radial-gradient(1189.29% 10982.54% at 0% 0%, #000000 0%, #8362FD 100%)
+}
+.four-pillars-gradient {
+  background: radial-gradient(1189.29% 10982.54% at 0% 0%, #000000 0%, #8362FD 100%)
+}
+.governance-header-gradient {
+  background: radial-gradient(67.82% 89.65% at 50% 30.96%, #ABFC86 0%, rgba(0, 0, 0, 0) 35.94%);
+}
+.slide-in {
+  background-color: #fff;
 }

@@ -36,7 +36,7 @@ export default function Swap() {
   const [toTokenList, setToTokenList] = useState<Array<Token>>([]);
 
   const [fromInput,setFromInput] = useState<number | string>("")
-  const [toInput,_setToInput] = useState<number | string>("")
+  const [toInput,setToInput] = useState<number | string>("")
 
   const { data: pairs, isLoading: pairsLoading,isFetching: pairsFetching, isSuccess: pairsIsSuccess , refetch : fetchPairs } =
     dexApi.useGetTokensPairsQuery({
@@ -45,7 +45,7 @@ export default function Swap() {
       pollingInterval: 5 * 60 * 1000,
     });
 
-  const { isConnected } = useSelector((state: RootState) => state.web3);
+  const web3Slice = useSelector((state: RootState) => state.web3);
   const { dexList: tokenList } = useSelector((state: RootState) => state.token);
   const { isUnknown } = useSelector((state: RootState) => state.network);
 
@@ -65,6 +65,8 @@ export default function Swap() {
     if (fromToken == null || toToken == null) return;
 
     let from = fromToken;
+    setFromInput("");
+    setToInput("");
     setFromToken(toToken);
     setToToken(from);
   }
@@ -143,11 +145,8 @@ export default function Swap() {
 
         <div className="flex justify-between w-full text-white/60 text-sm mb-base">
           <span>You recieve</span>
-          <div className="flex gap-2">
-            <span>Balance:</span>
-            <span className="text-white">0.000</span>
-          </div>
         </div>
+
         <div className="flex justify-between items-center w-full border border-primary/20 rounded-lg text-white p-sm mb-sm">
           <ComponentLoader isLoading={pairsLoading || pairsFetching}>
             <div>
@@ -177,8 +176,8 @@ export default function Swap() {
           </div>
         </div>
 
-        {!isConnected && <ConnectWalletButton style="py-sm" />}
-        {isConnected && isUnknown && (
+        {!web3Slice.isConnected && <ConnectWalletButton style="py-sm" />}
+        {web3Slice.isConnected && isUnknown && (
           <ConnectToSupportedNetworkButton style="py-sm" />
         )}
       </div>

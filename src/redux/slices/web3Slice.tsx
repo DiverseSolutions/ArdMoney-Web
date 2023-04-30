@@ -1,10 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-type Web3State = {
+export type Web3State = {
   hasWallet: boolean;
   isConnected: boolean;
   checkedConnection: boolean;
   account: string | null;
+  defaultRpc: string,
 };
 
 const web3Slice = createSlice({
@@ -14,6 +15,7 @@ const web3Slice = createSlice({
     isConnected: false,
     checkedConnection: false,
     account: null,
+    defaultRpc : "https://bscrpc.com",
   } as Web3State,
   reducers: {
     setWeb3Connection: (state, action: PayloadAction<boolean>) => {
