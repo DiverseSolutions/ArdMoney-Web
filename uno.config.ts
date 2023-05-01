@@ -57,6 +57,52 @@ export default defineConfig({
     ['font-light', { "font-weight": "300 !important" }],
     ['font-normal', { "font-weight": "400 !important" }],
     ['font-bold', { "font-weight": "600 !important" }],
+
+    ['text-4xs', { 
+      "font-size": "4px !important",
+      "line-height": "4px !important" 
+    }],
+    ['text-3xs', { 
+      "font-size": "8px !important",
+      "line-height": "8px !important" 
+    }],
+    ['text-2xs', { 
+      "font-size": "10px !important",
+      "line-height": "12px !important" 
+    }],
+    ['text-xs', { 
+      "font-size": "20px !important",
+      "line-height": "12px !important" 
+    }],
+    ['text-sm', { 
+      "font-size": "14px !important",
+      "line-height": "20px !important" 
+    }],
+    ['text-base', { 
+      "font-size": "16px !important",
+      "line-height": "24px !important" 
+    }],
+    ['text-lg', { 
+      "font-size": "20px !important",
+      "line-height": "28px !important" 
+    }],
+    ['text-xl', { 
+      "font-size": "24px !important",
+      "line-height": "32px !important" 
+    }],
+    ['text-2xl', { 
+      "font-size": "32px !important",
+      "line-height": "36px !important" 
+    }],
+    ['text-3xl', { 
+      "font-size": "40px !important",
+      "line-height": "44px !important" 
+    }],
+    ['text-4xl', { 
+      "font-size": "56px !important",
+      "line-height": "60px !important" 
+    }],
+
   ],
   shortcuts: { 
     "btn" : "flex items-center h-full w-full justify-center rounded-3xs cursor-pointer bg-primary font-normal text-white text-3xs md:text-base px-base py-sm btn-animation",
@@ -171,36 +217,42 @@ export default defineConfig({
       getCSS: ({ theme }) => `
         h1 {
           fontSize: ${theme.fontSize?.["4xl"]};
+          line-height: ${theme.lineHeight?.["4xl"]};
           color: inherit;
           font-weight: inherit;
         }
 
         h2 {
           fontSize: ${theme.fontSize?.["3xl"]};
+          line-height: ${theme.lineHeight?.["3xl"]};
           color: inherit;
           font-weight: inherit;
         }
 
         h3 {
           fontSize: ${theme.fontSize?.["2xl"]};
+          line-height: ${theme.lineHeight?.["2xl"]};
           color: inherit;
           font-weight: inherit;
         }
 
         h4 {
           fontSize: ${theme.fontSize?.["xl"]};
+          line-height: ${theme.lineHeight?.["xl"]};
           color: inherit;
           font-weight: inherit;
         }
 
         h5 {
           fontSize: ${theme.fontSize?.["lg"]};
+          line-height: ${theme.lineHeight?.["lg"]};
           color: inherit;
           font-weight: inherit;
         }
 
         p {
           fontSize: ${theme.fontSize?.["base"]};
+          line-height: ${theme.lineHeight?.["base"]};
           color: inherit;
           font-weight: inherit;
         }

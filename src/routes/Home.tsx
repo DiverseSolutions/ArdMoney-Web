@@ -34,7 +34,7 @@ export default function Home() {
         <div className="text-light-secondary md:text-xl">
           First Mongolian DAO
         </div>
-        <div className="flex flex-col text-xl/lg md:text-4xl/4xl font-extrabold">
+        <div className="flex flex-col text-xl md:text-4xl font-extrabold">
           <span>{t("home:title")}</span>
           <span>Without Boundaries</span>
         </div>
@@ -75,25 +75,25 @@ export default function Home() {
         >
           <div className="flex flex-col text-center p-base font-extrabold">
             <span className="text-xl md:text-3xl lg:text-4xl">0.03₮</span>
-            <span className="text-2xs md:text-sm/sm lg:text-base">
+            <span className="text-2xs md:text-sm lg:text-base">
               ARDM PRICE
             </span>
           </div>
           <div className="flex flex-col text-center p-base font-extrabold">
             <span className="text-xl md:text-3xl lg:text-4xl">12.3B</span>
-            <span className="text-2xs md:text-sm/sm lg:text-base">
+            <span className="text-2xs md:text-sm lg:text-base">
               STAKING CONTRACT
             </span>
           </div>
           <div className="flex flex-col text-center p-base font-extrabold">
             <span className="text-xl md:text-3xl lg:text-4xl">3.29B</span>
-            <span className="text-2xs md:text-sm/sm lg:text-base">
+            <span className="text-2xs md:text-sm lg:text-base">
               MARKET CAP
             </span>
           </div>
           <div className="flex flex-col text-center p-base font-extrabold">
             <span className="text-xl md:text-3xl lg:text-4xl">133B</span>
-            <span className="text-2xs md:text-sm/sm lg:text-base">
+            <span className="text-2xs md:text-sm lg:text-base">
               TOTAL SUPPLY
             </span>
           </div>
@@ -105,7 +105,7 @@ export default function Home() {
           <span className="text-xl md:text-3xl text-white font-extrabold">
             Advanced protocol for managing digital assets
           </span>
-          <span className="text-light-secondary text-sm/sm md:text-base">
+          <span className="text-light-secondary text-sm md:text-base">
             Ardmoney is revolutionising the world of financial services. We've
             created a low-cost, high-speed blockchain based financial system and
             are dedicated to being the fastest, most reliable and secure
@@ -122,17 +122,17 @@ export default function Home() {
 
       <Section style="relative">
         <Card style="min-h-[500px] bg-transparent md:bg-gradient-to-r md:from-[#8362FD] md:to-[#3FE600] p-1px">
-          <div className="flex flex-col absolute bottom-0 justify-end gap-base p-6 w-full md:w-4/12 back rounded-tl-lg rounded-bl-lg z-10 bg-transparent">
+          <div className="flex flex-col absolute bottom-0 justify-end gap-base p-6 w-full md:w-4/12 rounded-tl-lg rounded-bl-lg z-10 bg-transparent">
             <span className="text-base md:text-xl font-bold">
               WHAT WE CAPABLE OF
             </span>
-            <span className="font-light text-sm/sm md:text-base/base">
+            <span className="font-light text-sm md:text-base/base">
               Ardmoney is a decentralized protocol providing financial services,
               such as Lending, Borrowing, Liquidity mining, without an
               intermediary.
             </span>
           </div>
-          <div className="opacity-50 md:opacity-100 flex justify-end relative w-full h-full bg-black back rounded-lg">
+          <div className="opacity-50 md:opacity-100 flex justify-end relative w-full h-full bg-black rounded-lg">
             <div className="flex justify-items-end md:w-10/12">
               <img
                 src={PersonaWithTokenBG}
@@ -148,10 +148,10 @@ export default function Home() {
             <span className="text-base md:text-xl font-bold">
               DEFI
             </span>
-            <span className="text-base/base md:w-11/12">
+            <span className="text-base md:w-11/12">
               Facilitating permissionless decentralized lending.
             </span>
-            <span className="text-light-secondary text-xs/xs md:text-sm/sm font-light">
+            <span className="text-light-secondary text-xs md:text-sm font-light">
               ArdMoney protocol users are able to save with high interest and
               borrow with low interest.
             </span>
@@ -160,10 +160,10 @@ export default function Home() {
             <span className="text-base md:text-xl font-bold">
               DEX
             </span>
-            <span className="text-base/base md:w-11/12">
+            <span className="text-base md:w-11/12">
               Your exchange in your hands.
             </span>
-            <span className="text-light-secondary text-xs/xs md:text-sm/sm font-light">
+            <span className="text-light-secondary text-xs md:text-sm font-light">
               Smart Contracts allow ArdMoney to provide a permissionless,
               trustless, immutable platform to trade crypto assets.
             </span>
@@ -172,10 +172,10 @@ export default function Home() {
             <span className="text-base md:text-xl font-bold">
               DAO
             </span>
-            <span className="text-base/base md:w-11/12">
+            <span className="text-base md:w-11/12">
               By the people. For the people.
             </span>
-            <span className="text-light-secondary text-xs/xs md:text-sm/sm font-light">
+            <span className="text-light-secondary text-xs md:text-sm font-light">
               Ardmoney is fully democratized and is governed by its token
               holders which ensures the protocol serves the best interest of the
               people.
@@ -191,7 +191,7 @@ export default function Home() {
 
       <Section style="">
         <Card style="justify-center relative border-none text-center px-0 py-0 md:p-base">
-          <span className="uppercase text-xl/xl md:text-3xl/3xl font-bold text-white">
+          <span className="uppercase text-xl md:text-3xl font-bold text-white">
             getting <br /> confused is <br /> okay. <br /> we will help you{" "}
             <br /> to{" "}
             <span
@@ -230,9 +230,9 @@ export default function Home() {
             >
               <div className="flex transition-all ease-linear delay-100 bg-black flex-col w-full border rounded-lg p-[1px] text-white">
                 <div
-                  className={`flex justify-between items-center w-full item p-xl bg-black rounded-lg`}
+                  className={`flex justify-between items-center w-full p-xl bg-black rounded-lg`}
                 >
-                  <span className="text-base/base md:text-xl/xl font-bold uppercase">
+                  <span className="text-base md:text-xl font-bold uppercase">
                     {faq.title}
                   </span>
                   <div
@@ -260,10 +260,10 @@ export default function Home() {
                       </iframe>
                     </div>
                     <div className="flex flex-col md:w-1/2 gap-base">
-                      <span className="text-sm/sm md:text-base/base">
+                      <span className="text-sm md:text-base">
                         By the people. For the people.
                       </span>
-                      <span className="text-sm/sm md:text-sm/sm text-light-secondary font-light">
+                      <span className="text-sm md:text-sm text-light-secondary font-light">
                         Ardmoney is fully democratized and is governed by its
                         token holders which ensures the protocol serves the best
                         interest of the people.
@@ -275,44 +275,44 @@ export default function Home() {
             </button>
           ))}
           <div className="flex items-center justify-center w-full gap-xl rounded-lg border">
-            <div className="flex flex-col items-center gap-xl p-xl back rounded-lg bg-gradient-to-br from-[#000000] via-[#8362FD]/10 to-[#8362FD] text-white">
-              <span className="flex text-center uppercase text-base md:text-xl/xl font-bold">
+            <div className="flex flex-col items-center gap-xl p-xl rounded-lg bg-gradient-to-br from-[#000000] via-[#8362FD]/10 to-[#8362FD] text-white">
+              <span className="flex text-center uppercase text-base md:text-xl font-bold">
                 Four Pillars of Ardmoney
               </span>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-3xs md:gap-xl">
                 <div className="flex flex-col bg-dark-terteriary rounded-lg p-xl gap-base">
-                  <span className="uppercase font-bold text-base/base md:text-base/base lg:text-base/base">
+                  <span className="uppercase font-bold text-base md:text-base/base lg:text-base">
                     Dynamic Fees
                   </span>
-                  <span className="text-light-secondary text-sm/sm font-light">
+                  <span className="text-light-secondary text-sm font-light">
                     The DAO will determine the pool fee based on trust, utility,
                     and risks associated with the asset.
                   </span>
                 </div>
                 <div className="flex flex-col bg-black/40 rounded-lg p-6 gap-base">
-                  <span className="uppercase font-bold text-base/base md:text-base/base lg:text-base/base">
+                  <span className="uppercase font-bold text-base md:text-base/base lg:text-base">
                     Multichain
                   </span>
-                  <span className="text-light-secondary text-sm/sm font-light">
+                  <span className="text-light-secondary text-sm font-light">
                     Users will be able to use Ardmoney on the chain that they
                     most see fit. Ardmoney is currently deployed on Polygon and
                     Binance mdart Chain.
                   </span>
                 </div>
                 <div className="flex flex-col bg-black/40 rounded-lg p-6 gap-base">
-                  <span className="uppercase font-bold text-base/base md:text-base/base lg:text-base/base">
+                  <span className="uppercase font-bold text-base md:text-base/base lg:text-base">
                     Permissionless
                   </span>
-                  <span className="text-light-secondary text-sm/sm font-light">
+                  <span className="text-light-secondary text-sm font-light">
                     Ardmoney will serve as a gateway for investors to have
                     exposure to crypto projects in less known economies.
                   </span>
                 </div>
                 <div className="flex flex-col bg-black/40 rounded-lg p-6 gap-base">
-                  <span className="uppercase font-bold text-base/base md:text-base/base lg:text-base/base">
+                  <span className="uppercase font-bold text-base md:text-base/base lg:text-base">
                     Decentralized
                   </span>
-                  <span className="text-light-secondary text-sm/sm font-light">
+                  <span className="text-light-secondary text-sm font-light">
                     Ardmoney is governed by its token holders who are able to
                     vote on upcoming features.
                   </span>
@@ -326,7 +326,7 @@ export default function Home() {
       <Section>
         <Card style="border-none px-0">
           <div className="flex gap-sm items-center w-full py-3xs">
-            <span className="text-base/base md:text-xl/xl font-bold">
+            <span className="text-base md:text-xl font-bold">
               BLOG POST
             </span>
             <div className="flex items-end w-5 h-5 md:w-8 md:h-8">
@@ -353,10 +353,10 @@ export default function Home() {
                   />
                 </div>
                 <div className="flex flex-col mt-base gap-base">
-                  <span className="font-bold text-sm/sm md:text-base/base uppercase">
+                  <span className="font-bold text-sm md:text-base uppercase">
                     Монголын анхны DeFi протокол хэрэглээнд орлоо!
                   </span>
-                  <span className="font-light text-light-secondary text-sm/sm">
+                  <span className="font-light text-light-secondary text-sm">
                     The DAO will determine the pool fee based on trust, utility,
                     and risks associated with the asset.
                   </span>
@@ -378,10 +378,10 @@ export default function Home() {
                   />
                 </div>
                 <div className="flex flex-col mt-base gap-base">
-                  <span className="font-bold text-sm/sm md:text-base/base uppercase">
+                  <span className="font-bold text-sm md:text-base uppercase">
                     Monthly developer report #3
                   </span>
-                  <span className="font-light text-light-secondary text-sm/sm">
+                  <span className="font-light text-light-secondary text-sm">
                     The DAO will determine the pool fee based on trust, utility,
                     and risks associated with the asset.
                   </span>
@@ -392,7 +392,7 @@ export default function Home() {
               <a
                 href="https://medium.com/@ardmoney/monthly-developer-report-3-5c0e4362dae"
                 target={"_blank"}
-                className="flex flex-col p-xl bg-black back rounded-lg text-left"
+                className="flex flex-col p-xl bg-black rounded-lg text-left"
               >
                 <div className="flex justify-center w-full">
                   <img
@@ -403,10 +403,10 @@ export default function Home() {
                   />
                 </div>
                 <div className="flex flex-col mt-base gap-base">
-                  <span className="font-bold text-sm/sm md:text-base/base uppercase">
+                  <span className="font-bold text-sm md:text-base uppercase">
                     Monthly Developer Report #2
                   </span>
-                  <span className="font-light text-light-secondary text-sm/sm">
+                  <span className="font-light text-light-secondary text-sm">
                     The DAO will determine the pool fee based on trust, utility,
                     and risks associated with the asset.
                   </span>
@@ -433,7 +433,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row md:justify-between w-full rounded-lg h-full md:h-[363px]">
             <div className="flex flex-col justify-end gap-4 text-white w-full md:w-5/12 lg:w-6/12">
               <div className="flex gap-1 lg:gap-lg cursor-pointer">
-                <span className="text-sm/sm md:text-xl/xl font-bold uppercase">
+                <span className="text-sm md:text-xl font-bold uppercase">
                   Join our community
                 </span>
                 <div className="flex items-end w-5 h-5 md:w-8 md:h-8">
@@ -467,7 +467,7 @@ export default function Home() {
               className="w-full h-full"
             >
               <OutlineButton style="justify-between px-xl py-xl">
-                <span className="text-base/base md:text-xl/xl font-bold">
+                <span className="text-base md:text-xl font-bold">
                   TELEGRAM
                 </span>
                 <div className="w-7 h-7 md:w-8 md:h-8">
@@ -486,7 +486,7 @@ export default function Home() {
               className="w-full h-full"
             >
               <OutlineButton style="justify-between px-xl py-xl">
-                <span className="text-base/base md:text-xl/xl font-bold">
+                <span className="text-base md:text-xl font-bold">
                   TWITTER
                 </span>
                 <div className="w-7 h-7 md:w-8 md:h-8">
