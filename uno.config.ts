@@ -4,7 +4,59 @@ import presetWind from '@unocss/preset-wind'
 
 export default defineConfig({
   rules: [
-    ['p-1px', { padding: '1px !important' }]
+    ['p-1px', { padding: '1px !important' }],
+
+    ['text-light-secondary', { color: "rgba(255, 255, 255, 0.65) !important" }],
+    ['text-light-back', { color: "rgba(255, 255, 255, 0.1) !important" }],
+    ['text-light-disabled', { color: "rgba(255, 255, 255, 0.2) !important" }],
+    ['text-light-terteriary', { color: "rgba(255, 255, 255, 0.35) !important" }],
+    ['text-light-soft', { color: "rgba(255, 255, 255, 0.93) !important" }],
+
+    ['text-primary-back', { color: "rgba(131, 98, 253, 0.1) !important" }],
+    ['text-primary-disabled', { color: "rgba(131, 98, 253, 0.2) !important" }],
+    ['text-primary-terteriary', { color: "rgba(131, 98, 253, 0.35) !important" }],
+    ['text-primary-secondary', { color: "rgba(131, 98, 253, 0.65) !important" }],
+    ['text-primary-soft', { color: "rgba(131, 98, 253, 0.93) !important" }],
+
+    ['text-dark-back', { color: "rgba(0, 0, 0, 0.1) !important" }],
+    ['text-dark-disabled', { color: "rgba(0, 0, 0, 0.2) !important" }],
+    ['text-dark-terteriary', { color: "rgba(0, 0, 0, 0.35) !important" }],
+    ['text-dark-secondary', { color: "rgba(0, 0, 0, 0.65) !important" }],
+    ['text-dark-soft', { color: "rgba(0, 0, 0, 0.93) !important" }],
+
+    ['text-secondary-back', { color: "rgba(171, 252, 134, 0.1) !important" }],
+    ['text-secondary-disabled', { color: "rgba(171, 252, 134, 0.2) !important" }],
+    ['text-secondary-terteriary', { color: "rgba(171, 252, 134, 0.35) !important" }],
+    ['text-secondary-secondary', { color: "rgba(171, 252, 134, 0.65) !important" }],
+    ['text-secondary-soft', { color: "rgba(171, 252, 134, 0.93) !important" }],
+
+    ['bg-light-secondary', { "background-color": "rgba(255, 255, 255, 0.65) !important" }],
+    ['bg-light-back', { "background-color": "rgba(255, 255, 255, 0.1) !important" }],
+    ['bg-light-disabled', { "background-color": "rgba(255, 255, 255, 0.2) !important" }],
+    ['bg-light-terteriary', { "background-color": "rgba(255, 255, 255, 0.35) !important" }],
+    ['bg-light-soft', { "background-color": "rgba(255, 255, 255, 0.93) !important" }],
+
+    ['bg-primary-back', { "background-color": "rgba(131, 98, 253, 0.1) !important" }],
+    ['bg-primary-disabled', { "background-color": "rgba(131, 98, 253, 0.2) !important" }],
+    ['bg-primary-terteriary', { "background-color": "rgba(131, 98, 253, 0.35) !important" }],
+    ['bg-primary-secondary', { "background-color": "rgba(131, 98, 253, 0.65) !important" }],
+    ['bg-primary-soft', { "background-color": "rgba(131, 98, 253, 0.93) !important" }],
+
+    ['bg-dark-back', { "background-color": "rgba(0, 0, 0, 0.1) !important" }],
+    ['bg-dark-disabled', { "background-color": "rgba(0, 0, 0, 0.2) !important" }],
+    ['bg-dark-terteriary', { "background-color": "rgba(0, 0, 0, 0.35) !important" }],
+    ['bg-dark-secondary', { "background-color": "rgba(0, 0, 0, 0.65) !important" }],
+    ['bg-dark-soft', { "background-color": "rgba(0, 0, 0, 0.93) !important" }],
+
+    ['bg-secondary-back', { "background-color": "rgba(171, 252, 134, 0.1) !important" }],
+    ['bg-secondary-disabled', { "background-color": "rgba(171, 252, 134, 0.2) !important" }],
+    ['bg-secondary-terteriary', { "background-color": "rgba(171, 252, 134, 0.35) !important" }],
+    ['bg-secondary-secondary', { "background-color": "rgba(171, 252, 134, 0.65) !important" }],
+    ['bg-secondary-soft', { "background-color": "rgba(171, 252, 134, 0.93) !important" }],
+
+    ['font-light', { "font-weight": "300 !important" }],
+    ['font-normal', { "font-weight": "400 !important" }],
+    ['font-bold', { "font-weight": "600 !important" }],
   ],
   shortcuts: { 
     "btn" : "flex items-center h-full w-full justify-center rounded-3xs cursor-pointer bg-primary font-normal text-white text-3xs md:text-base px-base py-sm btn-animation",
@@ -26,32 +78,9 @@ export default defineConfig({
       serif: "Merriweather",
     },
     colors: {
-      "primary-back": "rgba(131, 98, 253, 0.1)",
-      "primary-disabled": "rgba(131, 98, 253, 0.2)",
-      "primary-terteriary": "rgba(131, 98, 253, 0.35)",
-      "primary-secondary": "rgba(131, 98, 253, 0.65)",
-      "primary-soft": "rgba(131, 98, 253, 0.93)",
       primary: "#8362FD",
-
-      "secondary-back": "rgba(171, 252, 134, 0.1)",
-      "secondary-disabled": "rgba(171, 252, 134, 0.2)",
-      "secondary-terteriary": "rgba(171, 252, 134, 0.35)",
-      "secondary-secondary": "rgba(171, 252, 134, 0.65)",
-      "secondary-soft": "rgba(171, 252, 134, 0.93)",
       secondary: "#ABFC86",
-
-      "light-back": "rgba(255, 255, 255, 0.1)",
-      "light-disabled": "rgba(255, 255, 255, 0.2)",
-      "light-terteriary": "rgba(255, 255, 255, 0.35)",
-      "light-secondary": "rgba(255, 255, 255, 0.65)",
-      "light-soft": "rgba(255, 255, 255, 0.93)",
       light: "#FFFFFF",
-
-      "dark-back": "rgba(0, 0, 0, 0.1)",
-      "dark-disabled": "rgba(0, 0, 0, 0.2)",
-      "dark-terteriary": "rgba(0, 0, 0, 0.35)",
-      "dark-secondary": "rgba(0, 0, 0, 0.65)",
-      "dark-soft": "rgba(0, 0, 0, 0.93)",
       dark: "#000000",
     },
     width: {
@@ -110,11 +139,11 @@ export default defineConfig({
       "4xs": "4px",
       "3xs": "8px",
       "2xs": "12px",
-      xs: "12px",
-      sm: "20px",
-      base: "24px",
-      lg: "28px",
-      xl: "32px",
+      "xs": "12px",
+      "sm": "20px",
+      "base": "24px",
+      "lg": "28px",
+      "xl": "32px",
       "2xl": "36px",
       "3xl": "44px",
       "4xl": "60px",
@@ -142,35 +171,50 @@ export default defineConfig({
       getCSS: ({ theme }) => `
         h1 {
           fontSize: ${theme.fontSize?.["4xl"]};
+          color: inherit;
+          font-weight: inherit;
         }
 
         h2 {
           fontSize: ${theme.fontSize?.["3xl"]};
+          color: inherit;
+          font-weight: inherit;
         }
 
         h3 {
           fontSize: ${theme.fontSize?.["2xl"]};
+          color: inherit;
+          font-weight: inherit;
         }
 
         h4 {
           fontSize: ${theme.fontSize?.["xl"]};
+          color: inherit;
+          font-weight: inherit;
         }
 
         h5 {
           fontSize: ${theme.fontSize?.["lg"]};
+          color: inherit;
+          font-weight: inherit;
         }
 
         p {
           fontSize: ${theme.fontSize?.["base"]};
+          color: inherit;
+          font-weight: inherit;
         }
 
         span {
           fontSize: ${theme.fontSize?.["sm"]};
-          color: inherit; 
+          color: inherit;
+          font-weight: inherit;
         }
 
         body{
           font-family: PP Neue Machina;
+          color: inherit;
+          font-weight: 400;
         }
 `
     }
