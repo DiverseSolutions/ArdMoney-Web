@@ -2,8 +2,6 @@ import { useSelector } from "react-redux";
 import { RootState } from "@redux/store";
 import { FormEvent, useEffect, useState } from "react";
 
-import Info from "../assets/icons/info.svg";
-import Chevron_D from "../assets/icons/down_chevron.svg";
 import Background1 from "../assets/images/swap/background1.svg";
 import Background2 from "../assets/images/swap/background2.svg";
 import clouds_left from "../assets/images/swap/clouds_left.svg";
@@ -20,10 +18,7 @@ import TokenSelectionModal from "@/components/modals/TokenSelectionModal";
 import { Token } from "@constants/TokenList";
 import { dexApi } from "@apis/dexApi";
 import { findByAddress } from "@/helpers/dex";
-import SwitchIcon from "@assets/icons/SwitchIcon";
-import ReloadIcon from "@assets/icons/ReloadIcon";
 import { alert } from "@helpers/alert";
-import SettingsIcon from "@assets/icons/SettingsIcon";
 import { isEmpty } from "radash";
 import { formatNumber } from "@/helpers/numbers";
 
@@ -101,21 +96,21 @@ export default function Swap() {
         <div className="flex justify-between w-full mb-lg">
           <div className="flex items-center text-white gap-sm">
             <button className="p-2 border border-white/10 rounded-md btn-animation" onClick={handleReload}>
-              <ReloadIcon />
+              <div className="i-ic-outline-refresh icon-size-5" />
             </button>
             <span className="font-lg">Swap</span>
           </div>
           <div>
             <button className="btn-animation p-2 border border-white/10 rounded-md">
-              <SettingsIcon />
+              <div className="i-ic-outline-settings icon-size-5" />
             </button>
           </div>
         </div>
         <div className="flex justify-between w-full text-white/60 text-sm mb-base">
           <span>You send</span>
-          <div className="flex gap-2">
-            <span>Balance:</span>
-            <span className="text-white">0.000</span>
+          <div className="flex gap-1 text-white items-center">
+            <div className="i-ic-outline-account-balance-wallet icon-size-4" />
+            <span className="relative top-0.5">0.000</span>
           </div>
         </div>
         <div className="flex justify-between items-center w-full border border-primary/20 rounded-lg text-white p-sm mb-sm">
@@ -139,7 +134,7 @@ export default function Swap() {
             className="flex p-base border border-white/10 rounded-md btn-animation"
             onClick={handleSwitchTokens}
           >
-            <SwitchIcon />
+            <div className="i-ic-outline-swap-vert icon-size-5" />
           </button>
         </div>
 
@@ -166,13 +161,13 @@ export default function Swap() {
         <div className="flex justify-between w-full mb-lg">
           <div className="flex items-center text-sm gap-xs">
             <div className="p-2 border border-white/10 rounded-md">
-              <img src={Info} alt="" />
+              <div className="i-ic-round-warning-amber icon-size-5" />
             </div>
             <span className="text-white">1 USDT = 3,407.00 MONT</span>
             <span className="text-white/60">(₮1.00)</span>
           </div>
           <div className="p-2 border border-white/10 rounded-md">
-            <img src={Chevron_D} alt="" />
+            <div className="i-ic-round-keyboard-arrow-down icon-size-5" />
           </div>
         </div>
 

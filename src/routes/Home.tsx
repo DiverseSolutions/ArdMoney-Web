@@ -12,8 +12,6 @@ import Media1 from "@assets/home/media1.png";
 import Media2 from "@assets/home/media2.png";
 import Media3 from "@assets/home/media3.png";
 import Ghosts from "@assets/home/cero_ghosts.png";
-import Telegram from "@assets/home/telegram.png";
-import Twitter from "@assets/home/twitter.png";
 import TextBg from "@assets/home/text_bg.svg";
 import PurpleBigCircleBG from "@assets/home/ellipse.svg";
 import PurpleCircleRightSideBG from "@assets/home/ellipse_102.svg";
@@ -470,13 +468,7 @@ export default function Home() {
                 <span className="text-base md:text-xl font-bold">
                   TELEGRAM
                 </span>
-                <div className="w-7 h-7 md:w-8 md:h-8">
-                  <img
-                    src={Telegram}
-                    alt="Telegram imagem"
-                    className="object-contain"
-                  />
-                </div>
+                <div className="i-fa-brands-telegram-plane icon-size-7" />
               </OutlineButton>
             </a>
 
@@ -489,13 +481,7 @@ export default function Home() {
                 <span className="text-base md:text-xl font-bold">
                   TWITTER
                 </span>
-                <div className="w-7 h-7 md:w-8 md:h-8">
-                  <img
-                    src={Twitter}
-                    alt="Twitter image"
-                    className="object-contain"
-                  />
-                </div>
+                <div className="i-fa-brands-twitter icon-size-5" />
               </OutlineButton>
             </a>
           </div>

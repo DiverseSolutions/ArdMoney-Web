@@ -1,9 +1,3 @@
-import Copyright from "@assets/home/copyright.png";
-import Discord from "@assets/social/discord.png";
-import Facebook from "@assets/social/facebook.png";
-import Medium from "@assets/social/medium.png";
-import Instagram from "@assets/social/instagram.png";
-
 const footers = [
   { text: "DEX", link: "https://app.ardmoney.com/" },
   { text: "Testnet", link: "https://faucet.dsolutions.mn/" },
@@ -30,52 +24,31 @@ export default function Footer() {
 
           </div>
           <div className='flex whitespace-nowrap gap-2 text-white text-sm sm:text-xs lg:text-sm'>
-            <span className="text-white/60">For inquiries: </span>
+            <span className="text-light-secondary">For inquiries: </span>
             <a href="mailto:info@ardmoney.com" className='underline cursor-pointer'>
             info@ardmoney.com
             </a>
           </div>
         </div>
         <div className='flex flex-col sm:flex-row justify-between w-full gap-6'>
-          <div className='flex items-center gap-2'>
-            <img
-              src={Copyright}
-              width={"16px"}
-              height={"16px"}
-              alt='image'
-            />
-            <span className='text-sm sm:text-xs lg:text-sm text-white/60'>
+          <div className='flex items-center gap-2 text-light-secondary'>
+            <div className="i-ic-round-copyright icon-size-4 relative bottom-0.5" />
+            <span className='sm:text-xs lg:text-sm'>
               2023 Diverse Solution LLC. All rights reserved
             </span>
           </div>
-          <div className='flex sm:justify-end gap-lg '>
-            <a href="https://medium.com/@ardmoney/monthly-developer-report-3-5c0e4362dae" target={"_blank"} className="w-6 h-6">
-              <img
-                src={Medium}
-                alt='image'
-                className="object-cover"
-              />
+          <div className='flex sm:justify-end items-center gap-lg text-white'>
+            <a href="https://medium.com/@ardmoney/monthly-developer-report-3-5c0e4362dae" target={"_blank"}>
+              <div className="i-fa-brands-medium icon-size-6" />
             </a>
-            <a href="https://www.instagram.com/ard.money/?next=%2F" target={"_blank"} className="w-6 h-6">
-              <img
-                src={Instagram}
-                className="object-cover"
-                alt='image'
-              />
+            <a href="https://www.instagram.com/ard.money/?next=%2F" target={"_blank"}>
+              <div className="i-fa-brands-instagram icon-size-6" />
             </a>
-            <a href="https://www.facebook.com/search/top?q=ardmoney" target={"_blank"} className="w-6 h-6">
-              <img
-                src={Facebook}
-                className="object-cover"
-                alt='image'
-              />
+            <a href="https://www.facebook.com/search/top?q=ardmoney" target={"_blank"}>
+              <div className="i-fa-brands-facebook icon-size-6" />
             </a>
-            <a href="https://discord.com/invite/xNWX76eg" target={"_blank"} className="w-6 h-6">
-              <img
-                src={Discord}
-                className="object-cover"
-                alt='image'
-              />
+            <a href="https://discord.com/invite/xNWX76eg" target={"_blank"}>
+              <div className="i-fa-brands-discord icon-size-7" />
             </a>
           </div>
         </div>

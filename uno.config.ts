@@ -1,10 +1,17 @@
 // uno.config.ts
 import { defineConfig } from 'unocss'
 import presetWind from '@unocss/preset-wind'
+import presetIcons from '@unocss/preset-icons'
 
 export default defineConfig({
   rules: [
     ['p-1px', { padding: '1px !important' }],
+
+    [/^icon-size-(\d+)$/, (match:any) => ({ 
+      height: `${match[1]/4}rem`,
+      width: `${match[1]/4}rem`,
+    })],
+
 
     ['text-light-secondary', { color: "rgba(255, 255, 255, 0.65) !important" }],
     ['text-light-back', { color: "rgba(255, 255, 255, 0.1) !important" }],
@@ -259,19 +266,28 @@ export default defineConfig({
 
         span {
           fontSize: ${theme.fontSize?.["sm"]};
+          line-height: inherit;
           color: inherit;
           font-weight: inherit;
         }
 
-        body{
+        body {
           font-family: PP Neue Machina;
           color: inherit;
           font-weight: 400;
+        }
+
+        a {
+          color: inherit;
         }
 `
     }
   ],
   presets: [
     presetWind(),
+    presetIcons({
+      extraProperties: {
+      },
+    }),
   ],
 })

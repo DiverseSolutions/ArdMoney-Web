@@ -1,4 +1,3 @@
-import ChevronRightIcon from '@assets/icons/ChevronRightIcon'
 import { Token } from '@constants/TokenList'
 
 export default function TokenSelectButton({token,clickHandler} : {token: Token | null, clickHandler? : () => void}) {
@@ -11,7 +10,7 @@ export default function TokenSelectButton({token,clickHandler} : {token: Token |
         )}
         <span className="text-base pt-[2px]">{token == null ? "Select Token" : token.symbol}</span>
       </div>
-      <ChevronRightIcon style="w-1.5" />
+      <div className="i-ic-round-chevron-right icon-size-5" />
     </button>
   )
 }

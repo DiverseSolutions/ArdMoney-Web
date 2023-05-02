@@ -1,6 +1,5 @@
 import {useState} from 'react'
 
-import Info from '../assets/icons/info.svg'
 import Ghosts from '../assets/governance/ghosts.svg'
 import Logo1 from '../assets/governance/logo1.svg'
 import Logo2 from '../assets/governance/logo2.svg'
@@ -29,23 +28,23 @@ export default function Governance() {
 				<div className='relative flex flex-col staking-header-gradient p-lg w-full h-full bg-black rounded-lg'>
 					<div className='flex flex-col w-full z-10 lg:w-5/12 text-light/60 text-sm gap-lg'>
 						<div className='flex gap-base'>
-						<img src={Info} alt="" className='flex self-start pt-[1px] items-start'/>  
+            <div className="i-ic-round-warning-amber icon-size-5" />
 						<span>In CERO governance, the xCERO token you hold is itself a voting right.</span>
 						</div>
 						<div className='flex gap-base'>
-						<img src={Info} alt="" className='flex self-start pt-[1px] items-start'/>  
+            <div className="i-ic-round-warning-amber icon-size-5" />
 						<span>CERO DAO uses Snapshot to store data in a decentralized way, making it easy to verify user votes. And you don't have to pay any fees to participate in the discussion, it's enough to be a token holder.</span>
 						</div>
 						<div className='flex gap-base'>
-						<img src={Info} alt="" className='flex self-start pt-[1px] items-start'/>  
+            <div className="i-ic-round-warning-amber icon-size-5" />
 						<span>There are 2 steps to submitting an issue to CERO DAO. First, CERO will discuss the open discussion section, and if the problem or solution is considered by the public or the CERO team needs to be put forward for governance, the DAO vote will officially begin.</span>
 						</div>
 						<div className='flex gap-base'>
-						<img src={Info} alt="" className='flex self-start pt-[1px] items-start'/>  
+            <div className="i-ic-round-warning-amber icon-size-5" />
 						<span>Dear CERO token holder, if you have a great idea for the development of CERO, please post it on the CERO forum and share your ideas with others. Your new ideas can bring wnoderful changes</span>
 						</div>
 						<div className='flex gap-base'>
-						<img src={Info} alt="" className='flex self-start pt-[1px] items-start'/>  
+            <div className="i-ic-round-warning-amber icon-size-5" />
 						<span>YOU MUST HAVE YOUR xCERO TOKENS PLACED IN YOUR WALLET BEFORE YOU START VOTING. Snapshot will register your wallet before voting starts, and if you deposit tokens after voting starts, you will not be eligible to vote.</span>
 						</div>
 					</div>

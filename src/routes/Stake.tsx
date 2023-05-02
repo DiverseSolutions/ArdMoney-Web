@@ -1,6 +1,4 @@
 import React from 'react'
-import Info from '../assets/icons/info.svg'
-import Chevron_D from '../assets/icons/down_chevron.svg'
 import Cero_staking1 from '../assets/images/staking/Cero_staking1.svg'
 import Cero_staking2 from '../assets/images/staking/Cero_staking2.svg'
 import Cero_staking3 from '../assets/images/staking/Cero_staking3.svg'
@@ -23,19 +21,19 @@ export default function Stake() {
         <div className='relative flex flex-col staking-header-gradient p-lg w-full border border-primary rounded-lg mb-2xl'>
           <div className='flex flex-col w-full z-10 lg:w-5/12 text-light/60 text-sm gap-lg'>
             <div className='flex gap-base'>
-              <img src={Info} alt="" className='flex items-start'/>  
+              <div className="i-ic-round-warning-amber icon-size-5" />
               <span>By staking CERO tokens, they will be converted into an equal amount of xCERO tokens and placed in your wallet.</span>
             </div>
             <div className='flex gap-base'>
-              <img src={Info} alt="" className='flex items-start'/>  
+              <div className="i-ic-round-warning-amber icon-size-5" />
               <span>By staking CERO tokens, they will be converted into an equal amount of xCERO tokens and placed in your wallet.</span>
             </div>
             <div className='flex gap-base'>
-              <img src={Info} alt="" className='flex items-start'/>  
+              <div className="i-ic-round-warning-amber icon-size-5" />
               <span>By staking CERO tokens, they will be converted into an equal amount of xCERO tokens and placed in your wallet.</span>
             </div>
             <div className='flex gap-base'>
-              <img src={Info} alt="" className='flex items-start'/>  
+              <div className="i-ic-round-warning-amber icon-size-5" />
               <span>By staking CERO tokens, they will be converted into an equal amount of xCERO tokens and placed in your wallet.</span>
             </div>
           </div>
@@ -75,28 +73,28 @@ export default function Stake() {
                 <span>Penalty rate:</span>
                 <div className='flex items-center gap-sm text-light'>
                   <span>5.0%</span>
-                  <img src={Info} alt="" className='flex cursor-pointer'/>  
+                  <div className="i-ic-round-warning-amber icon-size-5" />
                 </div>
               </div>
               <div className='flex justify-between w-full border-b border-primary/10 p-1'>
                 <span>Penalty period:</span>
                 <div className='flex items-center gap-sm text-light'>
                   <span>within 1hrs</span>
-                  <img src={Info} alt="" className='flex cursor-pointer'/>  
+                  <div className="i-ic-round-warning-amber icon-size-5" />
                 </div>
               </div>
               <div className='flex justify-between w-full border-b border-primary/10 p-1'>
                 <span>Date of staking:</span>
                 <div className='flex items-center gap-sm text-light'>
                   <span>2023.01.25</span>
-                  <img src={Info} alt="" className='flex cursor-pointer'/>  
+                  <div className="i-ic-round-warning-amber icon-size-5" />
                 </div>
               </div>
               <div className='flex justify-between w-full p-1'>
                 <span>Penalty expiry date:</span>
                 <div className='flex items-center gap-sm text-light'>
                   <span>2023.01.26</span>
-                  <img src={Info} alt="" className='flex cursor-pointer'/>  
+                  <div className="i-ic-round-warning-amber icon-size-5" />
                 </div>
               </div>
             </div>
@@ -167,13 +165,13 @@ export default function Stake() {
               <div className='flex items-center justify-between w-full mb-xl gap-1'>
                 <div className='flex items-center text-sm gap-xs'>
                   <div className='p-2 border border-primary/10 rounded-md cursor-pointer'>
-                    <img src={Info} alt=""/>
+                    <div className="i-ic-round-warning-amber icon-size-5" />
                   </div>
                   <span className='text-xs sm:text-sm text-white'>1 USDT = 3,407.00 MONT</span>
                   <span className='text-white/60'>(₮1.00)</span>
                 </div>
                 <div className='p-2 border border-primary/10 rounded-md cursor-pointer'>
-                  <img src={Chevron_D} alt=""/>
+                  <div className="i-ic-round-keyboard-arrow-down icon-size-5" />
                 </div>
               </div>
 

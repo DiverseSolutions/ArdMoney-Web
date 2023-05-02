@@ -1,10 +1,13 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@iconify-json/fa-brands': ^1.1.4
+  '@iconify-json/ic': ^1.1.13
   '@metamask/detect-provider': ^2.0.0
   '@reduxjs/toolkit': ^1.9.5
   '@types/react': ^18.0.35
   '@types/react-dom': ^18.0.11
+  '@unocss/preset-icons': ^0.51.8
   '@unocss/preset-wind': ^0.51.8
   '@unocss/reset': ^0.51.8
   '@vitejs/plugin-react-swc': ^3.3.0
@@ -50,8 +53,11 @@ dependencies:
   sweetalert2: 11.7.3
 
 devDependencies:
+  '@iconify-json/fa-brands': 1.1.4
+  '@iconify-json/ic': 1.1.13
   '@types/react': 18.0.35
   '@types/react-dom': 18.0.11
+  '@unocss/preset-icons': 0.51.8
   '@unocss/preset-wind': 0.51.8
   '@vitejs/plugin-react-swc': 3.3.0_vite@4.2.1
   aos: 3.0.0-beta.6
@@ -305,6 +311,18 @@ packages:
     dependencies:
       graphql: 16.6.0
     dev: false
+
+  /@iconify-json/fa-brands/1.1.4:
+    resolution: {integrity: sha512-JT9BgOFT17qgwctdjGbIKENcW2jEOzo22/SPTAT2T4ygQPtG4niBFnjkDZNcqk9JHSyc6sYvgb9NFKoJ8eGkHQ==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify-json/ic/1.1.13:
+    resolution: {integrity: sha512-5i5zal/VRwTrs99iMTnG1Zu97bgX9Mkiu9TzR1U1rHBylUnBW+HkOweoQVEPgQITGG024/lNbZxU+3Aa2xuDww==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
 
   /@iconify/types/2.0.0:
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
