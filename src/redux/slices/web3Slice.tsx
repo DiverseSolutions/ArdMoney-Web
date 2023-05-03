@@ -5,7 +5,6 @@ export type ProviderType = "metamask" | "web" | undefined;
 export type Web3State = {
   hasWallet: boolean;
   isConnected: boolean;
-  checkedConnection: boolean;
   account: string | undefined;
   defaultRpc: string,
 
@@ -17,7 +16,6 @@ const web3Slice = createSlice({
   initialState: {
     hasWallet: false,
     isConnected: false,
-    checkedConnection: false,
     account: undefined,
     defaultRpc : "https://bscrpc.com",
     providerType: undefined,

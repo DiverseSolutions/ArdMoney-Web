@@ -13,7 +13,9 @@ export default function useProvider() {
   const web3Slice = useSelector((state: RootState) => state.web3);
 
   useEffect(()=>{
-    setUpProvider()
+    if(web3Slice.isConnected){
+      setUpProvider()
+    }
   },[web3Slice.isConnected,web3Slice.providerType])
 
   function setUpProvider(){
