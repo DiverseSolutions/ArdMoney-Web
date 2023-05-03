@@ -11,8 +11,8 @@ export default function AccountButton() {
   )
 }
 
-function accountNameShortener(account: string | null){
-  if (account == null) return "";
+function accountNameShortener(account: string | undefined){
+  if (!account) return "";
 
   return `${account.substring(0,6)}...${account.substring(account.length-5,account.length)}` 
 }

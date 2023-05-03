@@ -27,6 +27,12 @@
             "@enums/*": [
                 "src/enums/*"
             ],
+            "@contexts/*": [
+                "src/contexts/*"
+            ],
+            "@sections/*": [
+                "src/sections/*"
+            ],
             "@apis/*": [
                 "src/redux/apis/*"
             ],
@@ -48,8 +54,8 @@
             "@/*": [
                 "src/*"
             ],
-            "@abi/*": [
-                "src/abi/*"
+            "@abis/*": [
+                "src/abis/*"
             ],
             "@helpers/*": [
                 "src/helpers/*"

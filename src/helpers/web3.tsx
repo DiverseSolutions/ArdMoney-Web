@@ -15,3 +15,7 @@ export function parse18(amount: bigint) {
 export function format18(amount : bigint) {
   return ethers.formatUnits(amount.toString(), 18)
 }
+
+export function formatAndParse18(amount : bigint) {
+  return parseFloat(ethers.formatUnits(amount.toString(), 18))
+}

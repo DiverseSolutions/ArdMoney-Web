@@ -78,7 +78,7 @@ export default defineConfig({
       "line-height": "12px !important" 
     }],
     ['text-xs', { 
-      "font-size": "20px !important",
+      "font-size": "12px !important",
       "line-height": "12px !important" 
     }],
     ['text-sm', { 

@@ -4,7 +4,7 @@ import { DefaultCheckProp } from "types/CheckTypes";
 
 import detectEthereumProvider from "@metamask/detect-provider";
 import { useEffect } from "react";
-import { setWeb3Connection,setWeb3Account,setHasWeb3Wallet } from "@slices/web3Slice" 
+import { setWeb3Connection,setWeb3Account,setHasWeb3Wallet, setProviderType } from "@slices/web3Slice" 
 import { alert } from '@helpers/alert'
 
 export default function Web3ConnectionCheck({ children }: DefaultCheckProp) {
@@ -24,6 +24,7 @@ export default function Web3ConnectionCheck({ children }: DefaultCheckProp) {
         if (account != undefined && account != null && account !== "") {
           dispatch(setWeb3Account(account));
           dispatch(setWeb3Connection(true));
+          dispatch(setProviderType("metamask"));
         } 
       } catch (e:any) {
         alert("error",e.message)

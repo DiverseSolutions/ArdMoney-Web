@@ -21,10 +21,14 @@ import { findByAddress } from "@/helpers/dex";
 import { alert } from "@helpers/alert";
 import { isEmpty } from "radash";
 import { formatNumber } from "@/helpers/numbers";
+import BalanceSection from "@sections/swap/BalanceSection";
+import useProvider from "@/hooks/useProvider";
+import { ProviderContext } from "@contexts/ProviderContext";
 
 export default function Swap() {
-  const [fromToken, setFromToken] = useState<Token | null>(null);
-  const [toToken, setToToken] = useState<Token | null>(null);
+  const web3 = useProvider()
+  const [fromToken, setFromToken] = useState<Token | undefined>(undefined);
+  const [toToken, setToToken] = useState<Token | undefined>(undefined);
 
   const [fromTokenModal, setFromTokenModal] = useState(false);
   const [toTokenModal, setToTokenModal] = useState(false);
@@ -57,7 +61,7 @@ export default function Swap() {
   }, [toTokenList]);
 
   function handleSwitchTokens() {
-    if (fromToken == null || toToken == null) return;
+    if (!fromToken || !toToken) return;
 
     let from = fromToken;
     setFromInput("");
@@ -67,8 +71,8 @@ export default function Swap() {
   }
 
   async function handleReload(){
-    setFromToken(null)
-    setToToken(null)
+    setFromToken(undefined)
+    setToToken(undefined)
     setToTokenList([])
 
     try{
@@ -91,126 +95,125 @@ export default function Swap() {
   }
 
   return (
-    <div className="py-base flex justify-center w-full">
-      <div className="flex flex-col p-xl max-w-[500px] min-h-auto min-w-[423px] card-gradient-dark rounded-lg z-5">
-        <div className="flex justify-between w-full mb-lg">
-          <div className="flex items-center text-white gap-sm">
-            <button className="p-2 border border-white/10 rounded-md btn-animation" onClick={handleReload}>
-              <div className="i-ic-outline-refresh icon-size-5" />
-            </button>
-            <span className="font-lg">Swap</span>
-          </div>
-          <div>
-            <button className="btn-animation p-2 border border-white/10 rounded-md">
-              <div className="i-ic-outline-settings icon-size-5" />
-            </button>
-          </div>
-        </div>
-        <div className="flex justify-between w-full text-white/60 text-sm mb-base">
-          <span>You send</span>
-          <div className="flex gap-1 text-white items-center">
-            <div className="i-ic-outline-account-balance-wallet icon-size-4" />
-            <span className="relative top-0.5">0.000</span>
-          </div>
-        </div>
-        <div className="flex justify-between items-center w-full border border-primary/20 rounded-lg text-white p-sm mb-sm">
-          <ComponentLoader isLoading={pairsLoading || pairsFetching}>
-            <div>
-              <TokenSelectButton
-                token={fromToken}
-                clickHandler={() => {
-                  setFromTokenModal(true);
-                }}
-              />
+    <ProviderContext.Provider value={web3} >
+      <div className="py-base flex justify-center w-full">
+        <div className="flex flex-col p-xl max-w-[500px] min-h-auto min-w-[423px] card-gradient-dark rounded-lg z-5">
+          <div className="flex justify-between w-full mb-lg">
+            <div className="flex items-center text-white gap-sm">
+              <button className="p-2 border border-white/10 rounded-md btn-animation" onClick={handleReload}>
+                <div className="i-ic-outline-refresh icon-size-5" />
+              </button>
+              <span className="font-lg">Swap</span>
             </div>
-            <input type="number" className="input text-lg pl-2xs" placeholder="0" value={fromInput} onChange={handleFromInputChange} />
-          </ComponentLoader>
-        </div>
-
-        <span className="text-white/60 text-sm mb-lg">{formatNumber(fromInput)}</span>
-
-        <div className="flex w-full justify-center mb-lg">
-          <button
-            className="flex p-base border border-white/10 rounded-md btn-animation"
-            onClick={handleSwitchTokens}
-          >
-            <div className="i-ic-outline-swap-vert icon-size-5" />
-          </button>
-        </div>
-
-        <div className="flex justify-between w-full text-white/60 text-sm mb-base">
-          <span>You recieve</span>
-        </div>
-
-        <div className="flex justify-between items-center w-full border border-primary/20 rounded-lg text-white p-sm mb-sm">
-          <ComponentLoader isLoading={pairsLoading || pairsFetching}>
             <div>
-              <TokenSelectButton
-                token={toToken}
-                clickHandler={() => {
-                  setToTokenModal(true);
-                }}
-              />
+              <button className="btn-animation p-2 border border-white/10 rounded-md">
+                <div className="i-ic-outline-settings icon-size-5" />
+              </button>
             </div>
-            <input type="number" readOnly className="input pointer-events-none text-white/60 text-lg pl-2xs" placeholder="0" value={toInput} />
-          </ComponentLoader>
-        </div>
+          </div>
+          <div className="flex justify-between w-full text-white/60 text-sm mb-base">
+            <span>You send</span>
+            <BalanceSection token={fromToken} />
+          </div>
+          <div className="flex justify-between items-center w-full border border-primary/20 rounded-lg text-white p-sm mb-sm">
+            <ComponentLoader isLoading={pairsLoading || pairsFetching}>
+              <div>
+                <TokenSelectButton
+                  token={fromToken}
+                  clickHandler={() => {
+                    setFromTokenModal(true);
+                  }}
+                />
+              </div>
+              <input type="number" className="input text-lg pl-2xs" placeholder="0" value={fromInput} onChange={handleFromInputChange} />
+            </ComponentLoader>
+          </div>
 
-        <span className="text-white/60 text-sm mb-lg">{formatNumber(toInput)}</span>
+          <span className="text-white/60 text-sm mb-lg">{formatNumber(fromInput)}</span>
 
-        <div className="flex justify-between w-full mb-lg">
-          <div className="flex items-center text-sm gap-xs">
+          <div className="flex w-full justify-center mb-lg">
+            <button
+              className="flex p-base border border-white/10 rounded-md btn-animation"
+              onClick={handleSwitchTokens}
+            >
+              <div className="i-ic-outline-swap-vert icon-size-5" />
+            </button>
+          </div>
+
+          <div className="flex justify-between w-full text-white/60 text-sm mb-base">
+            <span>You recieve</span>
+          </div>
+
+          <div className="flex justify-between items-center w-full border border-primary/20 rounded-lg text-white p-sm mb-sm">
+            <ComponentLoader isLoading={pairsLoading || pairsFetching}>
+              <div>
+                <TokenSelectButton
+                  token={toToken}
+                  clickHandler={() => {
+                    setToTokenModal(true);
+                  }}
+                />
+              </div>
+              <input type="number" readOnly className="input pointer-events-none text-white/60 text-lg pl-2xs" placeholder="0" value={toInput} />
+            </ComponentLoader>
+          </div>
+
+          <span className="text-white/60 text-sm mb-lg">{formatNumber(toInput)}</span>
+
+          <div className="flex justify-between w-full mb-lg">
+            <div className="flex items-center text-sm gap-xs">
+              <div className="p-2 border border-white/10 rounded-md">
+                <div className="i-ic-round-warning-amber icon-size-5" />
+              </div>
+              <span className="text-white">1 USDT = 3,407.00 MONT</span>
+              <span className="text-white/60">(₮1.00)</span>
+            </div>
             <div className="p-2 border border-white/10 rounded-md">
-              <div className="i-ic-round-warning-amber icon-size-5" />
+              <div className="i-ic-round-keyboard-arrow-down icon-size-5" />
             </div>
-            <span className="text-white">1 USDT = 3,407.00 MONT</span>
-            <span className="text-white/60">(₮1.00)</span>
           </div>
-          <div className="p-2 border border-white/10 rounded-md">
-            <div className="i-ic-round-keyboard-arrow-down icon-size-5" />
-          </div>
+
+          {!web3Slice.isConnected && <ConnectWalletButton style="py-sm" />}
+          {web3Slice.isConnected && isUnknown && (
+            <ConnectToSupportedNetworkButton style="py-sm" />
+          )}
         </div>
 
-        {!web3Slice.isConnected && <ConnectWalletButton style="py-sm" />}
-        {web3Slice.isConnected && isUnknown && (
-          <ConnectToSupportedNetworkButton style="py-sm" />
-        )}
+        <TokenSelectionModal
+          tokenList={tokenList}
+          setToken={(token: Token) => {
+            setFromToken(token);
+          }}
+          isOpen={fromTokenModal}
+          handleClose={() => {
+            setFromTokenModal(false);
+          }}
+        />
+        <TokenSelectionModal
+          tokenList={toTokenList}
+          setToken={(token: Token) => {
+            setToToken(token);
+          }}
+          isOpen={toTokenModal}
+          handleClose={() => {
+            setToTokenModal(false);
+          }}
+        />
+
+        <img src={Background1} alt="" className="absolute left-0" />
+        <img src={Background2} alt="" className="absolute right-0" />
+        <img src={clouds_left} alt="" className="absolute left-0" />
+        <img src={gradient_left} alt="" className="absolute left-0" />
+
+        <img src={clouds_right} alt="" className="absolute right-0" />
+        <img src={gradient_right} alt="" className="absolute right-0" />
       </div>
-
-      <TokenSelectionModal
-        tokenList={tokenList}
-        setToken={(token: Token) => {
-          setFromToken(token);
-        }}
-        isOpen={fromTokenModal}
-        handleClose={() => {
-          setFromTokenModal(false);
-        }}
-      />
-      <TokenSelectionModal
-        tokenList={toTokenList}
-        setToken={(token: Token) => {
-          setToToken(token);
-        }}
-        isOpen={toTokenModal}
-        handleClose={() => {
-          setToTokenModal(false);
-        }}
-      />
-
-      <img src={Background1} alt="" className="absolute left-0" />
-      <img src={Background2} alt="" className="absolute right-0" />
-      <img src={clouds_left} alt="" className="absolute left-0" />
-      <img src={gradient_left} alt="" className="absolute left-0" />
-
-      <img src={clouds_right} alt="" className="absolute right-0" />
-      <img src={gradient_right} alt="" className="absolute right-0" />
-    </div>
+    </ProviderContext.Provider>
   );
 
   function configurePairTokens() {
-    if (fromToken == null) return;
-    if (pairs == undefined) return;
+    if (!fromToken) return;
+    if (!pairs) return;
 
     let resultList: Array<Token> = [];
     let foundPair = pairs.find((token) =>
