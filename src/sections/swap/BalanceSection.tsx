@@ -1,39 +1,32 @@
 import { Token } from "@constants/TokenList"
-import { ProviderContext } from "@contexts/ProviderContext";
-import { Contract } from "ethers";
-import { useContext, useEffect, useState } from "react";
-import TokenABI from '@abis/ERC20.json'
-import { RootState } from "@/redux/store";
-import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 import { formatAndParse18 } from "@/helpers/web3";
 import { formatNumber } from "@/helpers/numbers";
-import TextLoader from "@/components/shared/TextLoader";
+import TextLoader from "@components/shared/TextLoader";
+import useTokenContract from "@hooks/contracts/useTokenContract";
 
 type SectionProp = {
   token: Token | undefined
 }
 
 export default function BalanceSection({ token }: SectionProp) {
-  const web3Slice = useSelector((state: RootState) => state.web3);
+  const { isSuccess,getUserTokenBalance } = useTokenContract({ token })
 
-  const web3 = useContext(ProviderContext);
   const [balance,setBalance] = useState(0)
   const [balanceLoading,setBalanceLoading] = useState(false)
 
-  useEffect(()=>{ fetchBalance() },[token])
+  useEffect(()=>{ fetchBalance() },[token,isSuccess])
   useEffect(()=>{ fetchBalance() },[])
 
   async function fetchBalance(){
-    if(!token || !web3){
+    if(!token || !isSuccess){
       setBalance(0)
       return;
     }
 
     setBalanceLoading(true)
     try {
-      let tokenContract = new Contract(token.address, TokenABI,web3.provider)
-      let balanceBN = await tokenContract.balanceOf(web3Slice.account)
-
+      let balanceBN = await getUserTokenBalance()
       setBalance(formatAndParse18(balanceBN))
     } catch (e) {
       console.log(e) 
