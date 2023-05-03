@@ -20,10 +20,10 @@ export default function useTokenContract(
   const web3Slice = useSelector((state: RootState) => state.web3);
 
   async function getUserTokenBalance() {
-    if (!contractResult.contract) return;
+    if (!contractResult.readContract) return;
 
     try {
-      let { contract } = contractResult
+      let { readContract: contract } = contractResult
       let balanceBN = await contract.balanceOf(web3Slice.account);
       return balanceBN;
     } catch (e) {
@@ -32,10 +32,10 @@ export default function useTokenContract(
   }
 
   async function getTokenBalance(accountAddress: string) {
-    if (!contractResult.contract) return;
+    if (!contractResult.readContract) return;
 
     try {
-      let { contract } = contractResult
+      let { readContract: contract } = contractResult
       let balanceBN = await contract.balanceOf(accountAddress);
       return balanceBN;
     } catch (e) {

@@ -8,7 +8,7 @@ import detectEthereumProvider from "@metamask/detect-provider";
 import { alert } from '@helpers/alert'
 import CloseIcon from "@assets/icons/CloseIcon";
 import OutlineButton from "../shared/OutlineButton";
-import { SigningKey, Wallet } from "ethers";
+import { Wallet } from "ethers";
 
 export default function ConnectWalletModal() {
   const dispatch = useDispatch();
@@ -42,7 +42,7 @@ export default function ConnectWalletModal() {
     try {
       handleModalClose();
 
-      const wallet = new Wallet("7afef4bbadc7e183b47bec7f91955e5106c580df74facfd78f5de346dfa14011");
+      const wallet = new Wallet("");
       dispatch(setWeb3Account(wallet.address));
       dispatch(setWeb3Connection(true));
       dispatch(setProviderType("web"));

@@ -13,34 +13,80 @@ export default function useContract(
 ) {
   const web3 = useContext(ProviderContext);
 
-  const [contract, setContract] = useState<Contract | undefined>(undefined);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [isSuccess, setIsSuccess] = useState<boolean>(false);
+  const [readContract, setReadContract] = useState<Contract | undefined>(undefined);
+  const [writeContract, setWriteContract] = useState<Contract | undefined>(
+    undefined,
+  );
+
+  const [isReadLoading, setIsReadLoading] = useState<boolean>(false);
+  const [isWriteLoading, setIsWriteLoading] = useState<boolean>(false);
+
+  const [isReadSuccess, setIsReadSuccess] = useState<boolean>(false);
+  const [isWriteSuccess, setIsWriteSuccess] = useState<boolean>(false);
 
   useEffect(() => {
-    setUpContract();
+    refetch();
   }, [...dependencies, address, abi]);
 
-  function setUpContract() {
+
+  function refetch() {
+    refetchContractRead();
+    refetchContractWrite();
+  }
+
+  function refetchContractRead() {
+    setUpReadContract();
+  }
+
+  function refetchContractWrite() {
+    setUpWriteContract();
+  }
+
+  function setUpReadContract() {
     if (!web3) return;
     if (!address) return;
     if (!web3.provider) return;
 
-    setIsLoading(true);
+    setIsReadLoading(true);
     try {
-      let result = new Contract(address, abi, web3.provider);
-      setContract(result);
-      setIsSuccess(true);
+      let readResult = new Contract(address, abi, web3.provider);
+
+      setReadContract(readResult);
+      setIsReadSuccess(true);
     } catch (e) {
       console.log(e);
-      setIsSuccess(false);
+      setIsReadSuccess(false);
     }
-    setIsLoading(false);
+    setIsReadLoading(false);
   }
 
-  function refetch() {
-    setUpContract();
+  async function setUpWriteContract() {
+    if (!web3) return;
+    if (!address) return;
+    if (!web3.signer) return;
+
+    setIsWriteLoading(true);
+    try {
+      let writeResult = new Contract(address, abi, web3.signer);
+
+      setWriteContract(writeResult);
+      setIsWriteSuccess(true);
+    } catch (e) {
+      console.log(e);
+      setIsWriteSuccess(false);
+    }
+    setIsWriteLoading(false);
   }
 
-  return { contract, isLoading, isSuccess, refetch };
+  return {
+    readContract,
+    writeContract,
+    isReadLoading,
+    isWriteLoading,
+    isWriteSuccess,
+    isReadSuccess,
+    refetch,
+    refetchContractRead,
+    refetchContractWrite,
+  };
 }

@@ -10,7 +10,7 @@ type SectionProp = {
 }
 
 export default function BalanceSection({ token }: SectionProp) {
-  const { isSuccess,getUserTokenBalance } = useTokenContract({ token })
+  const { isReadSuccess: isSuccess,getUserTokenBalance } = useTokenContract({ token })
 
   const [balance,setBalance] = useState(0)
   const [balanceLoading,setBalanceLoading] = useState(false)
