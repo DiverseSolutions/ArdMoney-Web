@@ -11,9 +11,11 @@
     "check": "tsc"
   },
   "dependencies": {
+    "@ethersproject/experimental": "^5.7.0",
     "@metamask/detect-provider": "^2.0.0",
     "@reduxjs/toolkit": "^1.9.5",
     "@unocss/reset": "^0.51.8",
+    "crypto-js": "^4.1.1",
     "graphql": "^16.6.0",
     "graphql-request": "^6.0.0",
     "i18next": "^22.4.14",
@@ -32,6 +34,7 @@
     "@iconify-json/fa-brands": "^1.1.4",
     "@iconify-json/ic": "^1.1.13",
     "@iconify-json/svg-spinners": "^1.1.1",
+    "@types/crypto-js": "^4.1.1",
     "@types/react": "^18.0.35",
     "@types/react-dom": "^18.0.11",
     "@unocss/preset-icons": "^0.51.8",

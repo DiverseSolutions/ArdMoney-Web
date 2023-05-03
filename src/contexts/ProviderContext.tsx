@@ -1,9 +1,9 @@
-import { BrowserProvider,JsonRpcSigner } from 'ethers';
+import { BrowserProvider,JsonRpcProvider,JsonRpcSigner, Wallet } from 'ethers';
 import { createContext } from 'react';
 
 export type ProviderContextType = {
-  provider : BrowserProvider | undefined,
-  signer : JsonRpcSigner | undefined,
+  provider : BrowserProvider | JsonRpcProvider | undefined,
+  signer : JsonRpcSigner | Wallet | undefined,
 }
 
 export const ProviderContext = createContext({

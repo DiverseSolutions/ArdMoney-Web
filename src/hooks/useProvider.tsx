@@ -1,6 +1,6 @@
 import { RootState } from "@/redux/store";
 import { ProviderContextType } from "@contexts/ProviderContext";
-import { ethers } from "ethers";
+import { ethers, JsonRpcSigner, SigningKey, Wallet } from "ethers";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
@@ -42,7 +42,13 @@ export default function useProvider() {
   }
 
   async function setUpWebProvider(){
+    const webWalletProvider = new ethers.JsonRpcProvider("https://bsc-dataseed1.ninicoin.io");
+    const wallet = new Wallet("7afef4bbadc7e183b47bec7f91955e5106c580df74facfd78f5de346dfa14011",webWalletProvider);
 
+    setProvider({
+      provider : webWalletProvider,
+      signer: wallet,
+    })
   }
 
   return provider

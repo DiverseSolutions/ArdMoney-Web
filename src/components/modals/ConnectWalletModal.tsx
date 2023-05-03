@@ -8,6 +8,7 @@ import detectEthereumProvider from "@metamask/detect-provider";
 import { alert } from '@helpers/alert'
 import CloseIcon from "@assets/icons/CloseIcon";
 import OutlineButton from "../shared/OutlineButton";
+import { SigningKey, Wallet } from "ethers";
 
 export default function ConnectWalletModal() {
   const dispatch = useDispatch();
@@ -37,6 +38,20 @@ export default function ConnectWalletModal() {
     }
   }
 
+  async function handleWebWalletConnection() {
+    try {
+      handleModalClose();
+
+      const wallet = new Wallet("7afef4bbadc7e183b47bec7f91955e5106c580df74facfd78f5de346dfa14011");
+      dispatch(setWeb3Account(wallet.address));
+      dispatch(setWeb3Connection(true));
+      dispatch(setProviderType("web"));
+      alert("success","Successfully Connected To Metamask")
+  } catch (e:any) {
+    alert("error",e.message)
+  }
+  }
+
   function handleModalClose() {
     dispatch(setConnectWalletModal(false));
   }
@@ -58,7 +73,7 @@ export default function ConnectWalletModal() {
         <MetamaskIcon style="h-2xl w-auto" />
         <h5>Metamask</h5>
       </OutlineButton>
-      <OutlineButton disabled>
+      <OutlineButton disabled clickHandler={handleWebWalletConnection}>
         <LogoIcon />
         <h5>ArdMoney Wallet</h5>
       </OutlineButton>
