@@ -42,7 +42,7 @@ export default function useProvider() {
   }
 
   async function setUpWebProvider(){
-    const webWalletProvider = new ethers.JsonRpcProvider("https://bsc-dataseed1.ninicoin.io");
+    const webWalletProvider = new ethers.JsonRpcProvider(web3Slice.defaultRpc);
     const wallet = new Wallet("",webWalletProvider);
 
     setProvider({
@@ -52,7 +52,7 @@ export default function useProvider() {
   }
 
   async function setUpDefaultProvider(){
-    const webWalletProvider = new ethers.JsonRpcProvider("https://bsc-dataseed1.ninicoin.io");
+    const webWalletProvider = new ethers.JsonRpcProvider(web3Slice.defaultRpc);
 
     setProvider({
       provider : webWalletProvider,
