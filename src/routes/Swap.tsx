@@ -24,6 +24,7 @@ import { formatNumber } from "@/helpers/numbers";
 import BalanceSection from "@sections/swap/BalanceSection";
 import useProvider from "@/hooks/useProvider";
 import { ProviderContext } from "@contexts/ProviderContext";
+import RateSection from "@sections/swap/RateSection";
 
 export default function Swap() {
   const web3 = useProvider()
@@ -165,8 +166,7 @@ export default function Swap() {
               <div className="p-2 border border-white/10 rounded-md">
                 <div className="i-ic-round-warning-amber icon-size-5" />
               </div>
-              <span className="text-white">1 USDT = 3,407.00 MONT</span>
-              <span className="text-white/60">(₮1.00)</span>
+              <RateSection fromToken={fromToken} toToken={toToken} />
             </div>
             <div className="p-2 border border-white/10 rounded-md">
               <div className="i-ic-round-keyboard-arrow-down icon-size-5" />

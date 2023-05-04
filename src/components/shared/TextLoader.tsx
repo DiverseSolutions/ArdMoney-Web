@@ -1,14 +1,16 @@
-export default function ComponentLoader({ 
+export default function TextLoader({ 
   children,
+  style = "icon-size-5",
   isLoading = false,
 } : {
   children? : React.ReactNode,
+  style? : string,
   isLoading : boolean,
 }) {
 
   if(isLoading){
     return (
-      <div className="i-svg-spinners-3-dots-scale-middle icon-size-5 mr-2 text-white" />
+      <div className={`i-svg-spinners-3-dots-scale-middle text-white ${style}` }/>
     )
   }
 

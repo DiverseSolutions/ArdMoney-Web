@@ -1,11 +1,15 @@
 import { ethers } from "ethers";
 
-export function parse(amount:bigint, decimal:number) {
+export function parse(amount:bigint | number, decimal:number) {
   return ethers.parseUnits(amount.toString(), decimal)
 }
 
-export function format(amount : bigint, decimal : number) {
+export function format(amount : bigint | number, decimal : number) {
   return ethers.formatUnits(amount.toString(), decimal)
+}
+
+export function formatAndParse(amount : bigint,decimal : number) {
+  return parseFloat(ethers.formatUnits(amount.toString(), decimal))
 }
 
 export function parse18(amount: bigint) {

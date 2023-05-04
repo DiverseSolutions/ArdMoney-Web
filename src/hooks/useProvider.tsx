@@ -1,6 +1,6 @@
 import { RootState } from "@/redux/store";
 import { ProviderContextType } from "@contexts/ProviderContext";
-import { ethers, JsonRpcSigner, SigningKey, Wallet } from "ethers";
+import { ethers, Wallet } from "ethers";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
@@ -12,11 +12,8 @@ export default function useProvider() {
 
   const web3Slice = useSelector((state: RootState) => state.web3);
 
-  useEffect(()=>{
-    if(web3Slice.isConnected){
-      setUpProvider()
-    }
-  },[web3Slice.isConnected,web3Slice.providerType])
+  useEffect(()=>{ setUpProvider() },[web3Slice.isConnected,web3Slice.providerType])
+  useEffect(()=>{ setUpProvider() },[])
 
   function setUpProvider(){
     switch(web3Slice.providerType){
@@ -25,6 +22,9 @@ export default function useProvider() {
         break;
       case "web":
         setUpWebProvider()
+        break;
+      case "default":
+        setUpDefaultProvider()
         break;
       default:
         setUpMetamaskProvider()
@@ -50,6 +50,16 @@ export default function useProvider() {
       signer: wallet,
     })
   }
+
+  async function setUpDefaultProvider(){
+    const webWalletProvider = new ethers.JsonRpcProvider("https://bsc-dataseed1.ninicoin.io");
+
+    setProvider({
+      provider : webWalletProvider,
+      signer: undefined,
+    })
+  }
+
 
   return provider
 }
