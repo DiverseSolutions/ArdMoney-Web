@@ -68,12 +68,12 @@ function getAlertDefaultOptions() {
     timer: 3000,
     customClass: {
       popup:
-        "flex items-center bg-black w-2/12 border-2 rounded-3xs border-solid py-0 m-0 px-xl mb-5" +
+        "flex! items-center! bg-black! w-2/12! border-2! rounded-3xs! border-solid! py-0! m-0! px-xl! mb-5!" +
         " ",
-      icon: "hidden",
-      title: "hidden",
-      closeButton: "hidden",
-      htmlContainer: "w-full py-xl m-0 ",
+      icon: "hidden!",
+      title: "hidden!",
+      closeButton: "hidden!",
+      htmlContainer: "w-full! py-xl! m-0! ",
     },
     html: "",
   };
