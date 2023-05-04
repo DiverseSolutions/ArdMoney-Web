@@ -1,12 +1,12 @@
 import { isEmpty, isString } from "radash";
 
-export function formatNumber(value : number | string) : string {
-  if(isEmpty(value)) return "0.000"
-  if(isString(value)) return toNumberFormat(parseFloat(value))
+export function formatNumber(value : number | string,decimals = 3) : string {
+  if(isEmpty(value)) return ""
+  if(isString(value)) return toNumberFormat(parseFloat(value),decimals)
 
-  return toNumberFormat(value)
+  return toNumberFormat(value,decimals)
 }
 
-function toNumberFormat(value:number){
-  return new Intl.NumberFormat('en',{minimumFractionDigits:3}).format(value)
+function toNumberFormat(value:number,decimals : number){
+  return new Intl.NumberFormat('en',{minimumFractionDigits:decimals}).format(value)
 }

@@ -15,9 +15,6 @@ export async function getTokenRate(
 
   let { web3: web3Slice, network: networkSlice }: RootState = store.getState();
 
-  if (web3Slice.providerType == "default") return;
-  if (!web3Slice.account) return;
-
   try {
     let contract = await getReadContract(
       web3,

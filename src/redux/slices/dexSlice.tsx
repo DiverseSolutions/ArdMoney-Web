@@ -12,8 +12,8 @@ const dexSlice = createSlice({
   name: "dex",
   initialState: {
     subgraph: {
-      97: "https://api.thegraph.com/subgraphs/name/mnkhod/ardmoney-bnb-v1-subgraph",
-      56: "https://api.thegraph.com/subgraphs/name/mnkhod/ardmoney-chapel-v4-subgraph",
+      56: "https://api.thegraph.com/subgraphs/name/mnkhod/ardmoney-bnb-v1-subgraph",
+      97: "https://api.thegraph.com/subgraphs/name/mnkhod/ardmoney-chapel-v4-subgraph",
     },
   } as DexState,
   reducers: {},

@@ -19,7 +19,7 @@ import { Token } from "@constants/TokenList";
 import { dexApi } from "@apis/dexApi";
 import { findByAddress } from "@/helpers/dex";
 import { alert } from "@helpers/alert";
-import { isEmpty } from "radash";
+import { isEmpty, isNumber } from "radash";
 import { formatNumber } from "@/helpers/numbers";
 import BalanceSection from "@sections/swap/BalanceSection";
 import useProvider from "@/hooks/useProvider";
@@ -37,6 +37,8 @@ export default function Swap() {
 
   const [fromInput,setFromInput] = useState<number | string>("")
   const [toInput,setToInput] = useState<number | string>("")
+
+  const [rate,setRate] = useState(0);
 
   const { data: pairs, isLoading: pairsLoading,isFetching: pairsFetching, isSuccess: pairsIsSuccess , refetch : fetchPairs } =
     dexApi.useGetTokensPairsQuery({
@@ -60,6 +62,19 @@ export default function Swap() {
   useEffect(() => {
     if(toTokenList.length > 0 ) setToToken(toTokenList[0])
   }, [toTokenList]);
+
+  useEffect(()=>{
+    configureReceiveAmount()
+  },[fromInput])
+
+  function configureReceiveAmount(){
+    if(!fromInput || !isNumber(fromInput) || rate == 0) {
+      setToInput("")
+      return;
+    }
+
+    setToInput(fromInput * rate)
+  }
 
   function handleSwitchTokens() {
     if (!fromToken || !toToken) return;
@@ -126,13 +141,14 @@ export default function Swap() {
                   }}
                 />
               </div>
-              <input type="number" className="input text-lg pl-2xs" placeholder="0" value={fromInput} onChange={handleFromInputChange} />
+              <div className="flex flex-col">
+                <input type="number" className="input text-lg pl-2xs" placeholder="0" value={fromInput} onChange={handleFromInputChange} />
+                <span className="text-right text-light-secondary text-2xs">{formatNumber(fromInput,0)}</span>
+              </div>
             </ComponentLoader>
           </div>
 
-          <span className="text-white/60 text-sm mb-lg">{formatNumber(fromInput)}</span>
-
-          <div className="flex w-full justify-center mb-lg">
+          <div className="flex w-full justify-center my-lg">
             <button
               className="flex p-base border border-white/10 rounded-md btn-animation"
               onClick={handleSwitchTokens}
@@ -155,18 +171,16 @@ export default function Swap() {
                   }}
                 />
               </div>
-              <input type="number" readOnly className="input pointer-events-none text-white/60 text-lg pl-2xs" placeholder="0" value={toInput} />
+              <input type="text" readOnly className="input pointer-events-none text-white/60 text-lg pl-2xs" placeholder="0" value={formatNumber(toInput)} />
             </ComponentLoader>
           </div>
-
-          <span className="text-white/60 text-sm mb-lg">{formatNumber(toInput)}</span>
 
           <div className="flex justify-between w-full mb-lg">
             <div className="flex items-center text-sm gap-xs">
               <div className="p-2 border border-white/10 rounded-md">
                 <div className="i-ic-round-warning-amber icon-size-5" />
               </div>
-              <RateSection fromToken={fromToken} toToken={toToken} />
+              <RateSection fromToken={fromToken} toToken={toToken} setRate={setRate} />
             </div>
             <div className="p-2 border border-white/10 rounded-md">
               <div className="i-ic-round-keyboard-arrow-down icon-size-5" />

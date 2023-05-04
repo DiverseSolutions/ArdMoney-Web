@@ -30,7 +30,7 @@ const networkSlice = createSlice({
     isUnknown: false,
     isTestNet: false,
     name: "",
-    chainId: 97,
+    chainId: 56,
     currency: "",
     explorer: "",
     logo: "",

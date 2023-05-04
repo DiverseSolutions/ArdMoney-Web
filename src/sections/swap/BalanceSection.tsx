@@ -5,6 +5,8 @@ import { formatNumber } from "@/helpers/numbers";
 import TextLoader from "@components/shared/TextLoader";
 import { getUserTokenBalance } from "@/helpers/contracts/token";
 import { ProviderContext } from "@contexts/ProviderContext";
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
 
 type SectionProp = {
   token: Token | undefined
@@ -12,6 +14,7 @@ type SectionProp = {
 
 export default function BalanceSection({ token }: SectionProp) {
   const web3 = useContext(ProviderContext);
+  const web3Slice = useSelector((state: RootState) => state.web3);
   const [balance,setBalance] = useState(0)
   const [balanceLoading,setBalanceLoading] = useState(false)
 
@@ -37,10 +40,12 @@ export default function BalanceSection({ token }: SectionProp) {
 
   return (
     <TextLoader isLoading={balanceLoading} style="icon-size-5 mr-2" >
-      <div className="flex gap-1 text-white items-center">
-        <div className="i-ic-outline-account-balance-wallet icon-size-4" />
-        <span className="relative top-0.5">{formatNumber(balance)}</span>
-      </div>
+      { web3Slice.providerType != "default" && (
+        <div className="flex gap-1 text-white items-center mr-2">
+          <div className="i-ic-outline-account-balance-wallet icon-size-4" />
+          <span className="relative top-0.5">{formatNumber(balance)}</span>
+        </div>
+      )}
     </TextLoader>
   )
 }
