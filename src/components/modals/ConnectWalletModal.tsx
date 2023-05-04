@@ -9,6 +9,7 @@ import { alert } from '@helpers/alert'
 import CloseIcon from "@assets/icons/CloseIcon";
 import OutlineButton from "../shared/OutlineButton";
 import { Wallet } from "ethers";
+import ModalLayout from "../layouts/ModalLayout";
 
 export default function ConnectWalletModal() {
   const dispatch = useDispatch();
@@ -57,32 +58,34 @@ export default function ConnectWalletModal() {
   }
 
   return (
-    <div className="max-w-[423px] flex flex-col gap-base">
-      <div className="flex justify-between items-center">
-        <h5>Connect Wallet</h5>
-        <button
-          className="btn-animation p-2xs rounded-4xs border border-light-back"
-          onClick={handleModalClose}
-        >
-          <CloseIcon />
-        </button>
-      </div>
+    <ModalLayout handleModalClose={handleModalClose} >
+      <div className="mt-xl max-w-[423px] flex flex-col gap-base">
+        <div className="flex justify-between items-center">
+          <h5>Connect Wallet</h5>
+          <button
+            className="btn-animation p-2xs rounded-4xs border border-light-back"
+            onClick={handleModalClose}
+          >
+            <CloseIcon />
+          </button>
+        </div>
 
-      <span className="text-light-terteriary">Available Wallet</span>
-      <OutlineButton clickHandler={handleMetamaskConnection} >
-        <MetamaskIcon style="h-2xl w-auto" />
-        <h5>Metamask</h5>
-      </OutlineButton>
-      <OutlineButton disabled clickHandler={handleWebWalletConnection}>
-        <LogoIcon />
-        <h5>ArdMoney Wallet</h5>
-      </OutlineButton>
-      <p>
-        By connecting a wallet, you agree to ArdMoney Swap’s{" "}
-        <a href="#" className="document-link">Terms of Service</a>{" "}
-        and consent to its{" "}
-        <a className="document-link" href="#">Privacy Policy</a> .
-      </p>
-    </div>
+        <span className="text-light-terteriary">Available Wallet</span>
+        <OutlineButton clickHandler={handleMetamaskConnection} >
+          <MetamaskIcon style="h-2xl w-auto" />
+          <h5>Metamask</h5>
+        </OutlineButton>
+        <OutlineButton disabled clickHandler={handleWebWalletConnection}>
+          <LogoIcon />
+          <h5>ArdMoney Wallet</h5>
+        </OutlineButton>
+        <p>
+          By connecting a wallet, you agree to ArdMoney Swap’s{" "}
+          <a href="#" className="document-link">Terms of Service</a>{" "}
+          and consent to its{" "}
+          <a className="document-link" href="#">Privacy Policy</a> .
+        </p>
+      </div>
+    </ModalLayout>
   );
 }

@@ -1,5 +1,9 @@
+export type LayoutAlignmentType = "left" | "center" | "right"
+
 export type DefaultLayoutProp = {
-  hideBackgroundAssets? : boolean,
+  fullHeight? : boolean;
+  width? : string;
+  alignment?: LayoutAlignmentType;
   children?: React.ReactNode;
   handleModalClose?: () => void;
 };

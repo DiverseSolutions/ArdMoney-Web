@@ -1,32 +1,19 @@
-import { useSelector,useDispatch } from "react-redux"
-import { DefaultCheckProp } from 'types/CheckTypes'
-import { RootState } from '@redux/store'
-import { setConnectWalletModal,setNetworkModal } from "@slices/modalSlice" 
+import { useSelector } from "react-redux";
+import { DefaultCheckProp } from "types/CheckTypes";
+import { RootState } from "@redux/store";
 
-import ConnectWalletModal from '@components/modals/ConnectWalletModal'
-import NetworkModal from '@components/modals/NetworkModal'
-import ModalLayout from "@components/layouts/ModalLayout" 
+import ConnectWalletModal from "@components/modals/ConnectWalletModal";
+import NetworkModal from "@components/modals/NetworkModal";
 
-export default function ModalCheck({ children } : DefaultCheckProp) {
-  const { connectWalletModalState,networkModalState } = useSelector((state:RootState) => state.modal)
-  const dispatch = useDispatch()
+export default function ModalCheck({ children }: DefaultCheckProp) {
+  const { connectWalletModalState, networkModalState } = useSelector(( state: RootState,) => state.modal);
 
-  if(connectWalletModalState){
-    return ( 
-      <ModalLayout handleModalClose={() => { dispatch(setConnectWalletModal(false))}}>
-        <ConnectWalletModal />
-      </ModalLayout>
-    )
-  }
+  return (
+    <>
+      {networkModalState && <NetworkModal />}
+      {connectWalletModalState && <ConnectWalletModal />}
 
-  if(networkModalState){
-    return ( 
-      <ModalLayout handleModalClose={() => { dispatch(setNetworkModal(false))}}>
-        <NetworkModal />
-      </ModalLayout>
-    )
-  }
-
-  return (<>{children}</>)
-
+      {children}
+    </>
+  );
 }

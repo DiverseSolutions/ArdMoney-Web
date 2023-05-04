@@ -28,8 +28,8 @@ export default function TokenSelectionModal({ tokenList,isOpen,setToken,handleCl
   return (
     <div className="absolute z-5 w-full h-full">
       <div className="absolute top-0 w-full h-full bg-black opacity-50"></div>
-      <ModalLayout hideBackgroundAssets={true} handleModalClose={onModalClose}>
-        <div className="flex justify-between items-center">
+      <ModalLayout handleModalClose={onModalClose}>
+        <div className="mt-xl flex justify-between items-center">
           <h5>Select Token</h5>
           <button
             className="btn-animation p-2xs rounded-4xs border border-light-back"
