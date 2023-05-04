@@ -29,7 +29,6 @@ export default function RateSection({ fromToken, toToken,setRate }: SectionProp)
       <span className="text-white">
         1 {fromToken?.symbol} = ${formatNumber(fromTokenRate)} {toToken?.symbol}
       </span>
-      <span className="text-white/60">(₮1.00)</span>
     </TextLoader>
   );
 
