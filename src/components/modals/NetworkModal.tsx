@@ -1,4 +1,3 @@
-import CloseIcon from "@assets/icons/CloseIcon";
 import { Chain, SupportedChainList } from "@constants/ChainList";
 import { useDispatch } from "react-redux";
 
@@ -7,6 +6,7 @@ import { addingChain, switchToChain } from "@helpers/web3/metamask";
 import { alert } from "@helpers/alert";
 import { setNetworkConfigured, setNetworkUnknown } from "@slices/networkSlice";
 import ModalLayout from "../layouts/ModalLayout";
+import Divider from "@components/shared/Divider";
 
 export default function NetworkModal() {
   const dispatch = useDispatch();
@@ -37,17 +37,13 @@ export default function NetworkModal() {
 
   return (
     <ModalLayout alignment="right" handleModalClose={handleModalClose} >
-      <div className="mt-xl w-full">
-        <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-xl w-full">
+        <div className="flex items-center justify-between gap-0">
           <h5>Choose Chain</h5>
-          <button
-            className="btn-animation p-2xs rounded-4xs border border-light-back"
-            onClick={handleModalClose}
-          >
-            <CloseIcon />
-          </button>
+          <div className="i-ic-outline-close icon-size-5 btn-animation" onClick={handleModalClose} />
         </div>
-        <div className="my-xl grid gap-3 grid-cols-1">
+        <Divider />
+        <div className="grid gap-3xs grid-cols-1">
           {SupportedChainList.map((chain, index) => (
             <button
               key={index}

@@ -1,11 +1,14 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "@redux/store" 
 import OutlineButton from "@components/shared/OutlineButton"
+import { setWalletModal } from "@slices/modalSlice"
 
 export default function AccountButton() {
   const { account } = useSelector((state:RootState) => state.web3)
+  const dispatch = useDispatch()
+
   return (
-    <OutlineButton>
+    <OutlineButton clickHandler={() => { dispatch(setWalletModal(true)) }}>
       {accountNameShortener(account)}
     </OutlineButton>
   )

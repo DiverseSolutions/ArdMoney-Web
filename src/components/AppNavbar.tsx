@@ -16,6 +16,7 @@ import { useSelector } from "react-redux"
 import { RootState } from "@redux/store" 
 import AccountButton from "@components/nav/AccountButton";
 import NetworkButton from "@components/nav/NetworkButton";
+import OutlineButton from "./shared/OutlineButton";
 
 const DesktopLinks = [
   { text: "Swap", link: "/swap" },
@@ -46,7 +47,8 @@ export default function AppNavbar() {
     <div className={`relative flex slide-in`}>
       <div className="flex sticky justify-center bg-black h-[68px] w-full z-40">
         <div className="flex w-full md:px-2xl md:py-2xs">
-          <div className="flex items-center justify-between w-full px-3 py-4 sm:px-6 sm:py-[22px] lg:px-0 lg:py-0">
+          <div className="flex justify-between items-center w-full px-3 py-4 sm:px-6 sm:py-[22px] lg:px-0 lg:py-0">
+
             <div className="flex items-center gap-6">
               <a href="/">
                 <LogoIcon />
@@ -60,9 +62,9 @@ export default function AppNavbar() {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-xs h-full">
+            <div className="flex items-center gap-xs h-full">
+              {isConnected && ( <NetworkButton />)}
               {isConnected && account != null && (<AccountButton />)}
-              {isConnected && (<NetworkButton />)}
             </div>
 
             {!isConnected && ( <div>

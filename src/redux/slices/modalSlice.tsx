@@ -3,6 +3,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 export interface ModalState {
   connectWalletModalState: boolean,
   networkModalState: boolean,
+  walletModalState: boolean,
 }
 
 const modalSlice = createSlice({
@@ -10,6 +11,7 @@ const modalSlice = createSlice({
   initialState: {
     connectWalletModalState: false,
     networkModalState: false,
+    walletModalState: false,
   } as ModalState,
   reducers: {
     setConnectWalletModal: (state, action: PayloadAction<boolean>) => {
@@ -17,6 +19,9 @@ const modalSlice = createSlice({
     },
     setNetworkModal: (state, action: PayloadAction<boolean>) => {
       state.networkModalState = action.payload
+    },
+    setWalletModal: (state, action: PayloadAction<boolean>) => {
+      state.walletModalState = action.payload
     }
   },
 })
@@ -25,6 +30,7 @@ const modalSlice = createSlice({
 export const {
   setConnectWalletModal,
   setNetworkModal,
+  setWalletModal,
 } = modalSlice.actions
 
 export const modalReducer = modalSlice.reducer
