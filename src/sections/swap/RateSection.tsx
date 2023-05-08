@@ -27,7 +27,7 @@ export default function RateSection({ fromToken, toToken,setRate }: SectionProp)
       style="icon-size-6"
     >
       <span className="text-white">
-        1 {fromToken?.symbol} = {formatNumber(fromTokenRate)} {toToken?.symbol}
+        1 {fromToken?.symbol} = {formatNumber(fromTokenRate,6)} {toToken?.symbol}
       </span>
     </TextLoader>
   );
