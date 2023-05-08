@@ -11,11 +11,16 @@ export default function useProvider() {
   const [provider,setProvider] = useState<ProviderContextType | undefined>(undefined)
 
   const web3Slice = useSelector((state: RootState) => state.web3);
+  const networkSlice = useSelector((state: RootState) => state.network);
 
   useEffect(()=>{ setUpProvider() },[web3Slice.isConnected,web3Slice.providerType])
-  useEffect(()=>{ setUpProvider() },[])
 
   function setUpProvider(){
+    if(!networkSlice.isConfigured){
+      setUpDefaultProvider()
+      return;
+    };
+
     switch(web3Slice.providerType){
       case "metamask":
         setUpMetamaskProvider()

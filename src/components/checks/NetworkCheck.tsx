@@ -8,6 +8,7 @@ import { hexToInt,setChainListener,removeChainListener } from "@helpers/network"
 
 import { setNetwork,setNetworkConfigured,setNetworkUnknown,Network } from '@slices/networkSlice'
 import detectEthereumProvider from "@metamask/detect-provider";
+import { setProviderType } from "@slices/web3Slice";
 
 export default function NetworkCheck({ children } : DefaultCheckProp) {
   const { isConnected } = useSelector((state:RootState) => state.web3)
@@ -52,6 +53,7 @@ export default function NetworkCheck({ children } : DefaultCheckProp) {
           dispatch(setNetworkConfigured(false))
         }else{
           dispatch(setNetworkUnknown(true))
+          dispatch(setProviderType("default"));
         }
       }
     } catch (e) {
