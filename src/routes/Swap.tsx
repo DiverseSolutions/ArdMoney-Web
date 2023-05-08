@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { RootState } from "@redux/store";
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useReducer } from "react";
 
 import Background1 from "../assets/images/swap/background1.svg";
 import Background2 from "../assets/images/swap/background2.svg";
@@ -25,76 +25,94 @@ import BalanceSection from "@sections/swap/BalanceSection";
 import useProvider from "@/hooks/useProvider";
 import { ProviderContext } from "@contexts/ProviderContext";
 import RateSection from "@sections/swap/RateSection";
+import {
+  pageDispatcher,
+  reducer,
+  SwapPageActions,
+  SwapPageState,
+} from "@/reducers/swapReducer";
 
 export default function Swap() {
-  const web3 = useProvider()
-  const { data: pairs, isLoading: pairsLoading,isFetching: pairsFetching, isSuccess: pairsIsSuccess , refetch : fetchPairs } =
-    dexApi.useGetTokensPairsQuery({
-      refetchOnFocus: true,
-      refetchOnReconnect: true,
-      pollingInterval: 5 * 60 * 1000,
-    });
+  const {
+    data: pairs,
+    isLoading: pairsLoading,
+    isFetching: pairsFetching,
+    isSuccess: pairsIsSuccess,
+    refetch: fetchPairs,
+  } = dexApi.useGetTokensPairsQuery({
+    refetchOnFocus: true,
+    refetchOnReconnect: true,
+    pollingInterval: 5 * 60 * 1000,
+  });
 
-  const [fromToken, setFromToken] = useState<Token | undefined>(undefined);
-  const [toToken, setToToken] = useState<Token | undefined>(undefined);
-
-  const [fromTokenModal, setFromTokenModal] = useState(false);
-  const [toTokenModal, setToTokenModal] = useState(false);
-
-  const [rate,setRate] = useState(0);
-
-  const [fromInput,setFromInput] = useState<number | string>("")
-
+  const web3 = useProvider();
   const web3Slice = useSelector((state: RootState) => state.web3);
   const { dexList: tokenList } = useSelector((state: RootState) => state.token);
   const { isUnknown } = useSelector((state: RootState) => state.network);
 
-  const toInput = useMemo<number | string>(configureReceiveAmount, [fromInput])
-  const toTokenList = useMemo<Array<Token>>(configurePairTokens, [fromToken])
+  const [
+    { fromToken, fromInput, toToken, fromModal, toModal, rate },
+    reactDispatch,
+  ] = useReducer(reducer, {
+    fromToken: undefined,
+    toToken: undefined,
+    fromModal: false,
+    toModal: false,
+    fromInput: "",
+    rate: 0,
+  } as SwapPageState);
+
+  const dispatcher = pageDispatcher(reactDispatch);
+
+  const toInput = useMemo<number | string>(configureReceiveAmount, [fromInput]);
+  const toTokenList = useMemo<Array<Token>>(configurePairTokens, [fromToken]);
 
   useEffect(() => {
-    if(pairsIsSuccess) setFromToken(tokenList[0])
+    if (pairsIsSuccess) dispatcher(SwapPageActions.fromToken, tokenList[0]);
   }, [pairsIsSuccess]);
 
   function handleSwitchTokens() {
     if (!fromToken || !toToken) return;
 
     let from = fromToken;
-    setFromInput("");
-    setFromToken(toToken);
-    setToToken(from);
+    dispatcher(SwapPageActions.fromInput, "");
+    dispatcher(SwapPageActions.toToken, toToken);
+    dispatcher(SwapPageActions.fromToken, from);
   }
 
-  async function handleReload(){
-    setFromToken(undefined)
-    setToToken(undefined)
+  async function handleReload() {
+    dispatcher(SwapPageActions.fromToken, undefined);
+    dispatcher(SwapPageActions.toToken, undefined);
 
-    try{
-      await fetchPairs()
-      setFromToken(tokenList[0])
-      alert("success","Successfully Reloaded")
-    }catch(e){
-      alert("error","Reload Failed")
+    try {
+      await fetchPairs();
+      dispatcher(SwapPageActions.fromToken, tokenList[0]);
+      alert("success", "Successfully Reloaded");
+    } catch (e) {
+      alert("error", "Reload Failed");
     }
   }
 
-  function handleFromInputChange(e:FormEvent<HTMLInputElement>){
-    const inputValue = e.currentTarget.value
-    if(isEmpty(inputValue)){
-      setFromInput("");
+  function handleFromInputChange(e: FormEvent<HTMLInputElement>) {
+    const inputValue = e.currentTarget.value;
+    if (isEmpty(inputValue)) {
+      dispatcher(SwapPageActions.fromInput, "");
       return;
     }
 
-    setFromInput(parseFloat(inputValue))
+    dispatcher(SwapPageActions.fromInput, parseFloat(inputValue));
   }
 
   return (
-    <ProviderContext.Provider value={web3} >
+    <ProviderContext.Provider value={web3}>
       <div className="py-base flex justify-center w-full">
         <div className="flex flex-col p-xl max-w-[500px] min-h-auto min-w-[423px] card-gradient-dark rounded-lg z-5">
           <div className="flex justify-between w-full mb-lg">
             <div className="flex items-center text-white gap-sm">
-              <button className="p-2 border border-white/10 rounded-md btn-animation" onClick={handleReload}>
+              <button
+                className="p-2 border border-white/10 rounded-md btn-animation"
+                onClick={handleReload}
+              >
                 <div className="i-ic-outline-refresh icon-size-5" />
               </button>
               <span className="font-lg">Swap</span>
@@ -115,13 +133,21 @@ export default function Swap() {
                 <TokenSelectButton
                   token={fromToken}
                   clickHandler={() => {
-                    setFromTokenModal(true);
+                    dispatcher(SwapPageActions.fromModal, true);
                   }}
                 />
               </div>
               <div className="flex flex-col">
-                <input type="number" className="input text-lg pl-2xs" placeholder="0" value={fromInput} onChange={handleFromInputChange} />
-                <span className="text-right text-light-secondary text-2xs">{formatNumber(fromInput,0)}</span>
+                <input
+                  type="number"
+                  className="input text-lg pl-2xs"
+                  placeholder="0"
+                  value={fromInput}
+                  onChange={handleFromInputChange}
+                />
+                <span className="text-right text-light-secondary text-2xs">
+                  {formatNumber(fromInput, 0)}
+                </span>
               </div>
             </ComponentLoader>
           </div>
@@ -145,11 +171,17 @@ export default function Swap() {
                 <TokenSelectButton
                   token={toToken}
                   clickHandler={() => {
-                    setToTokenModal(true);
+                    dispatcher(SwapPageActions.toModal, true);
                   }}
                 />
               </div>
-              <input type="text" readOnly className="input pointer-events-none text-white/60 text-lg pl-2xs" placeholder="0" value={formatNumber(toInput)} />
+              <input
+                type="text"
+                readOnly
+                className="input pointer-events-none text-white/60 text-lg pl-2xs"
+                placeholder="0"
+                value={formatNumber(toInput)}
+              />
             </ComponentLoader>
           </div>
 
@@ -158,14 +190,20 @@ export default function Swap() {
               <div className="p-2 border border-white/10 rounded-md">
                 <div className="i-ic-round-warning-amber icon-size-5" />
               </div>
-              <RateSection fromToken={fromToken} toToken={toToken} setRate={setRate} />
+              <RateSection
+                fromToken={fromToken}
+                toToken={toToken}
+                setRate={(value: number) => {
+                  dispatcher(SwapPageActions.rate, value);
+                }}
+              />
             </div>
             <div className="p-2 border border-white/10 rounded-md">
               <div className="i-ic-round-keyboard-arrow-down icon-size-5" />
             </div>
           </div>
 
-          {!web3Slice.isConnected && <ConnectWalletButton style="py-sm"  />}
+          {!web3Slice.isConnected && <ConnectWalletButton style="py-sm" />}
           {web3Slice.isConnected && isUnknown && (
             <ConnectToSupportedNetworkButton style="py-sm" />
           )}
@@ -174,21 +212,21 @@ export default function Swap() {
         <TokenSelectionModal
           tokenList={tokenList}
           setToken={(token: Token) => {
-            setFromToken(token);
+            dispatcher(SwapPageActions.fromToken, token);
           }}
-          isOpen={fromTokenModal}
+          isOpen={fromModal}
           handleClose={() => {
-            setFromTokenModal(false);
+            dispatcher(SwapPageActions.fromModal, false);
           }}
         />
         <TokenSelectionModal
           tokenList={toTokenList}
           setToken={(token: Token) => {
-            setToToken(token);
+            dispatcher(SwapPageActions.toToken, token);
           }}
-          isOpen={toTokenModal}
+          isOpen={toModal}
           handleClose={() => {
-            setToTokenModal(false);
+            dispatcher(SwapPageActions.toModal, false);
           }}
         />
 
@@ -232,18 +270,18 @@ export default function Swap() {
       });
     }
 
-    if (resultList.length > 0){
-      setToToken(resultList[0])
-      return resultList
-    } 
-    return []
+    if (resultList.length > 0) {
+      dispatcher(SwapPageActions.toToken, resultList[0]);
+      return resultList;
+    }
+    return [];
   }
 
-  function configureReceiveAmount(){
-    if(!fromInput || !isNumber(fromInput) || rate == 0) {
+  function configureReceiveAmount() {
+    if (!fromInput || !isNumber(fromInput) || rate == 0) {
       return "";
     }
 
-    return fromInput * rate
+    return fromInput * rate;
   }
 }
