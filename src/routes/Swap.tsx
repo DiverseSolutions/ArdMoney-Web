@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { RootState } from "@redux/store";
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useMemo, useState } from "react";
 
 import Background1 from "../assets/images/swap/background1.svg";
 import Background2 from "../assets/images/swap/background2.svg";
@@ -28,18 +28,6 @@ import RateSection from "@sections/swap/RateSection";
 
 export default function Swap() {
   const web3 = useProvider()
-  const [fromToken, setFromToken] = useState<Token | undefined>(undefined);
-  const [toToken, setToToken] = useState<Token | undefined>(undefined);
-
-  const [fromTokenModal, setFromTokenModal] = useState(false);
-  const [toTokenModal, setToTokenModal] = useState(false);
-  const [toTokenList, setToTokenList] = useState<Array<Token>>([]);
-
-  const [fromInput,setFromInput] = useState<number | string>("")
-  const [toInput,setToInput] = useState<number | string>("")
-
-  const [rate,setRate] = useState(0);
-
   const { data: pairs, isLoading: pairsLoading,isFetching: pairsFetching, isSuccess: pairsIsSuccess , refetch : fetchPairs } =
     dexApi.useGetTokensPairsQuery({
       refetchOnFocus: true,
@@ -47,41 +35,32 @@ export default function Swap() {
       pollingInterval: 5 * 60 * 1000,
     });
 
+  const [fromToken, setFromToken] = useState<Token | undefined>(undefined);
+  const [toToken, setToToken] = useState<Token | undefined>(undefined);
+
+  const [fromTokenModal, setFromTokenModal] = useState(false);
+  const [toTokenModal, setToTokenModal] = useState(false);
+
+  const [rate,setRate] = useState(0);
+
+  const [fromInput,setFromInput] = useState<number | string>("")
+
   const web3Slice = useSelector((state: RootState) => state.web3);
   const { dexList: tokenList } = useSelector((state: RootState) => state.token);
   const { isUnknown } = useSelector((state: RootState) => state.network);
 
+  const toInput = useMemo<number | string>(configureReceiveAmount, [fromInput])
+  const toTokenList = useMemo<Array<Token>>(configurePairTokens, [fromToken])
+
   useEffect(() => {
     if(pairsIsSuccess) setFromToken(tokenList[0])
   }, [pairsIsSuccess]);
-
-  useEffect(() => {
-    configurePairTokens();
-  }, [fromToken]);
-
-  useEffect(() => {
-    if(toTokenList.length > 0 ) setToToken(toTokenList[0])
-  }, [toTokenList]);
-
-  useEffect(()=>{
-    configureReceiveAmount()
-  },[fromInput])
-
-  function configureReceiveAmount(){
-    if(!fromInput || !isNumber(fromInput) || rate == 0) {
-      setToInput("")
-      return;
-    }
-
-    setToInput(fromInput * rate)
-  }
 
   function handleSwitchTokens() {
     if (!fromToken || !toToken) return;
 
     let from = fromToken;
     setFromInput("");
-    setToInput("");
     setFromToken(toToken);
     setToToken(from);
   }
@@ -89,7 +68,6 @@ export default function Swap() {
   async function handleReload(){
     setFromToken(undefined)
     setToToken(undefined)
-    setToTokenList([])
 
     try{
       await fetchPairs()
@@ -226,15 +204,15 @@ export default function Swap() {
   );
 
   function configurePairTokens() {
-    if (!fromToken) return;
-    if (!pairs) return;
+    if (!fromToken) return [];
+    if (!pairs) return [];
 
     let resultList: Array<Token> = [];
     let foundPair = pairs.find((token) =>
       findByAddress(token.id, fromToken.address)
     );
 
-    if (foundPair == undefined) return;
+    if (foundPair == undefined) return [];
 
     if (foundPair.pairBase.length != 0) {
       foundPair.pairBase.forEach((token) => {
@@ -254,8 +232,18 @@ export default function Swap() {
       });
     }
 
-    if (resultList.length > 0) {
-      setToTokenList(resultList);
+    if (resultList.length > 0){
+      setToToken(resultList[0])
+      return resultList
+    } 
+    return []
+  }
+
+  function configureReceiveAmount(){
+    if(!fromInput || !isNumber(fromInput) || rate == 0) {
+      return "";
     }
+
+    return fromInput * rate
   }
 }
