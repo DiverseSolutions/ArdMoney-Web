@@ -28,7 +28,7 @@ import RateSection from "@sections/swap/RateSection";
 import {
   pageDispatcher,
   reducer,
-  SwapPageActions,
+  SwapPageActions as Actions,
   SwapPageState,
 } from "@/reducers/swapReducer";
 
@@ -68,25 +68,25 @@ export default function Swap() {
   const toTokenList = useMemo<Array<Token>>(configurePairTokens, [fromToken]);
 
   useEffect(() => {
-    if (pairsIsSuccess) dispatcher(SwapPageActions.fromToken, tokenList[0]);
+    if (pairsIsSuccess) dispatcher(Actions.fromToken, tokenList[0]);
   }, [pairsIsSuccess]);
 
   function handleSwitchTokens() {
     if (!fromToken || !toToken) return;
 
     let from = fromToken;
-    dispatcher(SwapPageActions.fromInput, "");
-    dispatcher(SwapPageActions.toToken, toToken);
-    dispatcher(SwapPageActions.fromToken, from);
+    dispatcher(Actions.fromInput, "");
+    dispatcher(Actions.toToken, toToken);
+    dispatcher(Actions.fromToken, from);
   }
 
   async function handleReload() {
-    dispatcher(SwapPageActions.fromToken, undefined);
-    dispatcher(SwapPageActions.toToken, undefined);
+    dispatcher(Actions.fromToken, undefined);
+    dispatcher(Actions.toToken, undefined);
 
     try {
       await fetchPairs();
-      dispatcher(SwapPageActions.fromToken, tokenList[0]);
+      dispatcher(Actions.fromToken, tokenList[0]);
       alert("success", "Successfully Reloaded");
     } catch (e) {
       alert("error", "Reload Failed");
@@ -96,11 +96,11 @@ export default function Swap() {
   function handleFromInputChange(e: FormEvent<HTMLInputElement>) {
     const inputValue = e.currentTarget.value;
     if (isEmpty(inputValue)) {
-      dispatcher(SwapPageActions.fromInput, "");
+      dispatcher(Actions.fromInput, "");
       return;
     }
 
-    dispatcher(SwapPageActions.fromInput, parseFloat(inputValue));
+    dispatcher(Actions.fromInput, parseFloat(inputValue));
   }
 
   return (
@@ -133,7 +133,7 @@ export default function Swap() {
                 <TokenSelectButton
                   token={fromToken}
                   clickHandler={() => {
-                    dispatcher(SwapPageActions.fromModal, true);
+                    dispatcher(Actions.fromModal, true);
                   }}
                 />
               </div>
@@ -171,7 +171,7 @@ export default function Swap() {
                 <TokenSelectButton
                   token={toToken}
                   clickHandler={() => {
-                    dispatcher(SwapPageActions.toModal, true);
+                    dispatcher(Actions.toModal, true);
                   }}
                 />
               </div>
@@ -194,7 +194,7 @@ export default function Swap() {
                 fromToken={fromToken}
                 toToken={toToken}
                 setRate={(value: number) => {
-                  dispatcher(SwapPageActions.rate, value);
+                  dispatcher(Actions.rate, value);
                 }}
               />
             </div>
@@ -212,21 +212,21 @@ export default function Swap() {
         <TokenSelectionModal
           tokenList={tokenList}
           setToken={(token: Token) => {
-            dispatcher(SwapPageActions.fromToken, token);
+            dispatcher(Actions.fromToken, token);
           }}
           isOpen={fromModal}
           handleClose={() => {
-            dispatcher(SwapPageActions.fromModal, false);
+            dispatcher(Actions.fromModal, false);
           }}
         />
         <TokenSelectionModal
           tokenList={toTokenList}
           setToken={(token: Token) => {
-            dispatcher(SwapPageActions.toToken, token);
+            dispatcher(Actions.toToken, token);
           }}
           isOpen={toModal}
           handleClose={() => {
-            dispatcher(SwapPageActions.toModal, false);
+            dispatcher(Actions.toModal, false);
           }}
         />
 
@@ -271,7 +271,7 @@ export default function Swap() {
     }
 
     if (resultList.length > 0) {
-      dispatcher(SwapPageActions.toToken, resultList[0]);
+      dispatcher(Actions.toToken, resultList[0]);
       return resultList;
     }
     return [];
