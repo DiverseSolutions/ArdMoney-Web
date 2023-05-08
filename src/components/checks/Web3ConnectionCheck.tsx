@@ -9,11 +9,18 @@ import { alert } from '@helpers/alert'
 
 export default function Web3ConnectionCheck({ children }: DefaultCheckProp) {
   const {} = useSelector((state:RootState) => state.web3)
+  const { isConfigured,isUnknown } = useSelector((state:RootState) => state.network)
   const dispatch = useDispatch()
 
-  useEffect(() => { checkProvider() },[])
+  useEffect(() => { checkProvider() },[isConfigured,isUnknown])
 
   async function checkProvider(){
+    if(isUnknown){
+      dispatch(setWeb3Connection(true));
+      dispatch(setProviderType("default"));
+      return
+    }
+
     const provider: any = await detectEthereumProvider({timeout:500});
     if (provider) {
       dispatch(setHasWeb3Wallet(true))
