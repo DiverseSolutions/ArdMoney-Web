@@ -76,8 +76,9 @@ export default function Swap() {
 
     let from = fromToken;
     dispatcher(Actions.fromInput, "");
-    dispatcher(Actions.toToken, toToken);
-    dispatcher(Actions.fromToken, from);
+
+    dispatcher(Actions.fromToken, toToken);
+    dispatcher(Actions.toToken, from);
   }
 
   async function handleReload() {
