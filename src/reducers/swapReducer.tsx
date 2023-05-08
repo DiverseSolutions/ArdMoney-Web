@@ -1,28 +1,5 @@
 import { Token } from "@constants/TokenList";
-import { Dispatch } from "react";
-
-export function reducer(state: SwapPageState, action: ActionType) {
-  switch (action.type) {
-    case SwapPageActions.fromToken:
-      return { ...state, fromToken: action.payload };
-    case SwapPageActions.toToken:
-      return { ...state, toToken: action.payload };
-
-    case SwapPageActions.fromModal:
-      return { ...state, fromModal: action.payload };
-    case SwapPageActions.toModal:
-      return { ...state, toModal: action.payload };
-
-    case SwapPageActions.fromInput:
-      return { ...state, fromInput: action.payload };
-
-    case SwapPageActions.rate:
-      return { ...state, rate: action.payload };
-
-    default:
-      throw Error("Unknown action: " + action.type);
-  }
-}
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export type SwapPageState = {
   fromToken: Token | undefined;
@@ -36,25 +13,37 @@ export type SwapPageState = {
   rate: number;
 };
 
-export enum SwapPageActions {
-  fromToken = "fromTokenAction",
-  toToken = "toTokenAction",
+const swapPageSlice = createSlice({
+  name: "SwapPage",
+  initialState: {
+    fromToken: undefined,
+    toToken: undefined,
+    fromModal: false,
+    toModal: false,
+    fromInput: "",
+    rate: 0,
+  } as SwapPageState,
+  reducers: {
+    setFromToken: (state, action: PayloadAction<Token | undefined>) => {
+      state.fromToken = action.payload
+    },
+    setToToken: (state, action: PayloadAction<Token | undefined>) => {
+      state.toToken = action.payload
+    },
+    setFromModal: (state, action: PayloadAction<boolean>) => {
+      state.fromModal = action.payload
+    },
+    setToModal: (state, action: PayloadAction<boolean>) => {
+      state.toModal = action.payload
+    },
+    setFromInput: (state, action: PayloadAction<string | number>) => {
+      state.fromInput = action.payload
+    },
+    setRate: (state, action: PayloadAction<number>) => {
+      state.rate = action.payload
+    },
+  },
+})
 
-  fromModal = "fromModalAction",
-  toModal = "toModalAction",
-
-  fromInput = "fromInputAction",
-
-  rate = "rateAction",
-}
-
-export function pageDispatcher(dispatch: Dispatch<ActionType>){
-  return (type: SwapPageActions,payload:any) => {
-    dispatch({ type , payload})
-  }
-}
-
-export type ActionType = {
-  type: SwapPageActions;
-  payload: any;
-};
+export const reducer = swapPageSlice.reducer
+export const SwapPageActions = { ...swapPageSlice.actions }

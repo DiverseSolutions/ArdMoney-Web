@@ -26,7 +26,6 @@ import useProvider from "@/hooks/useProvider";
 import { ProviderContext } from "@contexts/ProviderContext";
 import RateSection from "@sections/swap/RateSection";
 import {
-  pageDispatcher,
   reducer,
   SwapPageActions as Actions,
   SwapPageState,
@@ -52,7 +51,7 @@ export default function Swap() {
 
   const [
     { fromToken, fromInput, toToken, fromModal, toModal, rate },
-    reactDispatch,
+    dispatcher,
   ] = useReducer(reducer, {
     fromToken: undefined,
     toToken: undefined,
@@ -62,32 +61,30 @@ export default function Swap() {
     rate: 0,
   } as SwapPageState);
 
-  const dispatcher = pageDispatcher(reactDispatch);
-
   const toInput = useMemo<number | string>(configureReceiveAmount, [fromInput]);
   const toTokenList = useMemo<Array<Token>>(configurePairTokens, [fromToken]);
 
   useEffect(() => {
-    if (pairsIsSuccess) dispatcher(Actions.fromToken, tokenList[0]);
+    if (pairsIsSuccess) dispatcher(Actions.setFromToken(tokenList[0]));
   }, [pairsIsSuccess]);
 
   function handleSwitchTokens() {
     if (!fromToken || !toToken) return;
 
     let from = fromToken;
-    dispatcher(Actions.fromInput, "");
+    dispatcher(Actions.setFromInput(""));
 
-    dispatcher(Actions.fromToken, toToken);
-    dispatcher(Actions.toToken, from);
+    dispatcher(Actions.setFromToken(toToken));
+    dispatcher(Actions.setToToken(from));
   }
 
   async function handleReload() {
-    dispatcher(Actions.fromToken, undefined);
-    dispatcher(Actions.toToken, undefined);
+    dispatcher(Actions.setFromToken(undefined));
+    dispatcher(Actions.setToToken(undefined));
 
     try {
       await fetchPairs();
-      dispatcher(Actions.fromToken, tokenList[0]);
+      dispatcher(Actions.setFromToken(tokenList[0]));
       alert("success", "Successfully Reloaded");
     } catch (e) {
       alert("error", "Reload Failed");
@@ -97,11 +94,11 @@ export default function Swap() {
   function handleFromInputChange(e: FormEvent<HTMLInputElement>) {
     const inputValue = e.currentTarget.value;
     if (isEmpty(inputValue)) {
-      dispatcher(Actions.fromInput, "");
+      dispatcher(Actions.setFromInput(""));
       return;
     }
 
-    dispatcher(Actions.fromInput, parseFloat(inputValue));
+    dispatcher(Actions.setFromInput(parseFloat(inputValue)));
   }
 
   return (
@@ -134,7 +131,7 @@ export default function Swap() {
                 <TokenSelectButton
                   token={fromToken}
                   clickHandler={() => {
-                    dispatcher(Actions.fromModal, true);
+                    dispatcher(Actions.setFromModal(true));
                   }}
                 />
               </div>
@@ -172,7 +169,7 @@ export default function Swap() {
                 <TokenSelectButton
                   token={toToken}
                   clickHandler={() => {
-                    dispatcher(Actions.toModal, true);
+                    dispatcher(Actions.setToModal(true));
                   }}
                 />
               </div>
@@ -195,7 +192,7 @@ export default function Swap() {
                 fromToken={fromToken}
                 toToken={toToken}
                 setRate={(value: number) => {
-                  dispatcher(Actions.rate, value);
+                  dispatcher(Actions.setRate(value));
                 }}
               />
             </div>
@@ -213,21 +210,21 @@ export default function Swap() {
         <TokenSelectionModal
           tokenList={tokenList}
           setToken={(token: Token) => {
-            dispatcher(Actions.fromToken, token);
+            dispatcher(Actions.setFromToken(token));
           }}
           isOpen={fromModal}
           handleClose={() => {
-            dispatcher(Actions.fromModal, false);
+            dispatcher(Actions.setFromModal(false));
           }}
         />
         <TokenSelectionModal
           tokenList={toTokenList}
           setToken={(token: Token) => {
-            dispatcher(Actions.toToken, token);
+            dispatcher(Actions.setToToken(token));
           }}
           isOpen={toModal}
           handleClose={() => {
-            dispatcher(Actions.toModal, false);
+            dispatcher(Actions.setToModal(false));
           }}
         />
 
@@ -272,7 +269,7 @@ export default function Swap() {
     }
 
     if (resultList.length > 0) {
-      dispatcher(Actions.toToken, resultList[0]);
+      dispatcher(Actions.setToToken(resultList[0]));
       return resultList;
     }
     return [];
