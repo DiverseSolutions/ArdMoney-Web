@@ -24,12 +24,14 @@ import OutlineButton from "@/components/shared/OutlineButton";
 export default function Home() {
   const [faqAccordionState, setFaqAccordionState] = useState(1);
 
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <PageContainer>
       <Section style="mb-layout-xl text-center">
-        <div className="text-light-secondary md:text-xl">{t("home:miniTitle")}</div>
+        <div className="text-light-secondary md:text-xl">
+          {t("home:miniTitle")}
+        </div>
         <div className="flex flex-col text-xl md:text-4xl font-extrabold">
           <span>{t("home:title")}</span>
           {/* <span>Without Boundaries</span> */}
@@ -40,7 +42,9 @@ export default function Home() {
             target={"_blank"}
             className="btn w-[151px] md:w-[219px]"
           >
-            <span className="text-xs lg:text-base font-light">{t("home:launchApp")}</span>
+            <span className="text-xs lg:text-base font-light">
+              {t("home:launchApp")}
+            </span>
           </a>
           <a
             href="https://docs.ardmoney.com/"
@@ -69,27 +73,39 @@ export default function Home() {
         >
           <div className="flex flex-col text-center p-base font-extrabold">
             <span className="text-xl md:text-3xl lg:text-4xl">0.03₮</span>
-            <span className="text-2xs md:text-sm lg:text-base">{t("home:price")}</span>
+            <span className="text-2xs md:text-sm lg:text-base">
+              {t("home:price")}
+            </span>
           </div>
           <div className="flex flex-col text-center p-base font-extrabold">
             <span className="text-xl md:text-3xl lg:text-4xl">12.3B</span>
-            <span className="text-2xs md:text-sm lg:text-base">{t("home:stakingContract")}</span>
+            <span className="text-2xs md:text-sm lg:text-base">
+              {t("home:stakingContract")}
+            </span>
           </div>
           <div className="flex flex-col text-center p-base font-extrabold">
             <span className="text-xl md:text-3xl lg:text-4xl">3.29B</span>
-            <span className="text-2xs md:text-sm lg:text-base">{t("home:marketCap")}</span>
+            <span className="text-2xs md:text-sm lg:text-base">
+              {t("home:marketCap")}
+            </span>
           </div>
           <div className="flex flex-col text-center p-base font-extrabold">
             <span className="text-xl md:text-3xl lg:text-4xl">133B</span>
-            <span className="text-2xs md:text-sm lg:text-base">{t("home:totalSupply")}</span>
+            <span className="text-2xs md:text-sm lg:text-base">
+              {t("home:totalSupply")}
+            </span>
           </div>
         </div>
       </Section>
 
       <Section style="items-center">
         <div className="md:w-7/12 flex flex-col gap-base text-center border-none p-0">
-          <span className="text-xl md:text-3xl text-white font-extrabold">{t("home:sectionTwoTitle")}</span>
-          <span className="text-light-secondary text-sm md:text-base">{t("home:sectionTwoParagraph")}</span>
+          <span className="text-xl md:text-3xl text-white font-extrabold">
+            {t("home:sectionTwoTitle")}
+          </span>
+          <span className="text-light-secondary text-sm md:text-base">
+            {t("home:sectionTwoParagraph")}
+          </span>
         </div>
 
         <img
@@ -102,8 +118,12 @@ export default function Home() {
       <Section style="relative">
         <Card style="min-h-[500px] bg-transparent md:bg-gradient-to-r md:from-[#8362FD] md:to-[#3FE600] p-1px">
           <div className="flex flex-col absolute bottom-0 justify-end gap-base p-6 w-full md:w-5/12 md:bottom-40 rounded-tl-lg rounded-bl-lg z-10 bg-transparent">
-            <span className="text-base md:text-xl font-bold">{t("home:sectionThreeTitle")}</span>
-            <span className="font-light text-sm md:text-base/base">{t("home:sectionThreeParagraph")}</span>
+            <span className="text-base md:text-xl font-bold">
+              {t("home:sectionThreeTitle")}
+            </span>
+            <span className="font-light text-sm md:text-base/base">
+              {t("home:sectionThreeParagraph")}
+            </span>
           </div>
           <div className="opacity-50 md:opacity-100 flex justify-end relative w-full h-full bg-black rounded-lg">
             <div className="flex justify-items-end md:w-10/12">
@@ -118,19 +138,37 @@ export default function Home() {
 
         <div className="z-10 grid grid-cols-1 md:grid-cols-3 gap-6 ">
           <Card>
-            <span className="text-base md:text-xl font-bold">{t("home:cardOneTitle")}</span>
-            <span className="text-base md:w-11/12">{t("home:cardOneTitle2")}</span>
-            <span className="text-light-secondary text-xs md:text-sm font-light">{t("home:cardOneParagraph")}</span>
+            <span className="text-base md:text-xl font-bold">
+              {t("home:cardOneTitle")}
+            </span>
+            <span className="text-base md:w-11/12">
+              {t("home:cardOneTitle2")}
+            </span>
+            <span className="text-light-secondary text-xs md:text-sm font-light">
+              {t("home:cardOneParagraph")}
+            </span>
           </Card>
           <Card>
-            <span className="text-base md:text-xl font-bold">{t("home:cardTwoTitle")}</span>
-            <span className="text-base md:w-11/12">{t("home:cardTwoTitle2")}</span>
-            <span className="text-light-secondary text-xs md:text-sm font-light">{t("home:cardTwoParagraph")}</span>
+            <span className="text-base md:text-xl font-bold">
+              {t("home:cardTwoTitle")}
+            </span>
+            <span className="text-base md:w-11/12">
+              {t("home:cardTwoTitle2")}
+            </span>
+            <span className="text-light-secondary text-xs md:text-sm font-light">
+              {t("home:cardTwoParagraph")}
+            </span>
           </Card>
           <Card>
-            <span className="text-base md:text-xl font-bold">{t("home:cardThreeTitle")}</span>
-            <span className="text-base md:w-11/12">{t("home:cardThreeTitle2")}</span>
-            <span className="text-light-secondary text-xs md:text-sm font-light">{t("home:cardThreeParagraph")}</span>
+            <span className="text-base md:text-xl font-bold">
+              {t("home:cardThreeTitle")}
+            </span>
+            <span className="text-base md:w-11/12">
+              {t("home:cardThreeTitle2")}
+            </span>
+            <span className="text-light-secondary text-xs md:text-sm font-light">
+              {t("home:cardThreeParagraph")}
+            </span>
           </Card>
         </div>
         <img
@@ -141,28 +179,51 @@ export default function Home() {
       </Section>
 
       <Section style="">
-        <Card style="justify-center relative border-none text-center px-0 py-0 md:p-base">
-          <span className="uppercase text-xl md:text-3xl font-bold text-white">
-            getting <br /> confused is <br /> okay. <br /> we will help you{" "}
-            <br /> to{" "}
-            <span
-              data-aos="fade-up"
-              data-aos-delay="300"
-              className="text-[#3FE600] "
-            >
-              understand
-            </span>{" "}
-            <br />
-            these{" "}
-            <span
-              data-aos="fade-up"
-              data-aos-delay="800"
-              className="text-[#8362FD]"
-            >
-              concepts
+        {i18n.language === "en" ? (
+          <Card style="justify-center relative border-none text-center px-0 py-0 md:p-base">
+            <span className="uppercase text-xl md:text-3xl font-bold text-white">
+              embraced <br /> confusion? <br /> we will{" "}
+              <span
+                data-aos="fade-up"
+                data-aos-delay="300"
+                className="text-[#3FE600] "
+              >
+                guide
+              </span>
+              <br />
+              you to{" "}
+              <span
+                data-aos="fade-up"
+                data-aos-delay="800"
+                className="text-[#8362FD]"
+              >
+                clarity
+              </span>
             </span>
-          </span>
-        </Card>
+          </Card>
+        ) : (
+          <Card style="justify-center relative border-none text-center px-0 py-0 md:p-base">
+            <span className="uppercase text-xl md:text-3xl font-bold text-white">
+              танд ойлгомжгүй <br /> зүйлс тулгарч <br /> байна уу? <br />
+              <span
+                data-aos="fade-up"
+                data-aos-delay="300"
+                className="text-[#3FE600] "
+              >
+                бид{" "}
+              </span>
+              таныг
+              <br />
+              <span
+                data-aos="fade-up"
+                data-aos-delay="800"
+                className="text-[#8362FD]"
+              >
+                чиглүүлнэ
+              </span>
+            </span>
+          </Card>
+        )}
         <img
           src={TextBg}
           alt=""
@@ -229,11 +290,17 @@ export default function Home() {
           ))}
           <div className="flex items-center justify-center w-full gap-xl rounded-lg border">
             <div className="flex flex-col items-center gap-xl p-xl rounded-lg bg-gradient-to-br from-[#000000] via-[#8362FD]/10 to-[#8362FD] text-white">
-              <span className="flex text-center uppercase text-base md:text-xl font-bold">{t("home:pillarsTitle")}</span>
+              <span className="flex text-center uppercase text-base md:text-xl font-bold">
+                {t("home:pillarsTitle")}
+              </span>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-3xs md:gap-xl">
                 <div className="flex flex-col bg-dark-terteriary rounded-lg p-xl gap-base">
-                  <span className="uppercase font-bold text-base md:text-base/base lg:text-base">{t("home:pillarOneTitle")}</span>
-                  <span className="text-light-secondary text-sm font-light">{t("home:pillarOneParagraph")}</span>
+                  <span className="uppercase font-bold text-base md:text-base/base lg:text-base">
+                    {t("home:pillarOneTitle")}
+                  </span>
+                  <span className="text-light-secondary text-sm font-light">
+                    {t("home:pillarOneParagraph")}
+                  </span>
                 </div>
                 <div className="flex flex-col bg-black/40 rounded-lg p-6 gap-base">
                   <span className="uppercase font-bold text-base md:text-base/base lg:text-base">
@@ -268,7 +335,9 @@ export default function Home() {
       <Section>
         <Card style="border-none px-0">
           <div className="flex gap-sm items-center w-full py-3xs">
-            <span className="text-base md:text-xl font-bold">{t("home:blogTitle")}</span>
+            <span className="text-base md:text-xl font-bold">
+              {t("home:blogTitle")}
+            </span>
             <div className="flex items-end w-5 h-5 md:w-8 md:h-8">
               <img src={Arrow_RB} alt="Arrow_RB" className="object-cover" />
             </div>
@@ -289,8 +358,12 @@ export default function Home() {
                   />
                 </div>
                 <div className="flex flex-col mt-base gap-base">
-                  <span className="font-bold text-sm md:text-base uppercase">{t("home:blogOneTitle")}</span>
-                  <span className="font-light text-light-secondary text-sm">{t("home:blogOneParagraph")}</span>
+                  <span className="font-bold text-sm md:text-base uppercase">
+                    {t("home:blogOneTitle")}
+                  </span>
+                  <span className="font-light text-light-secondary text-sm">
+                    {t("home:blogOneParagraph")}
+                  </span>
                 </div>
               </a>
             </div>
@@ -362,12 +435,16 @@ export default function Home() {
           <div className="flex flex-col md:flex-row md:justify-between w-full rounded-lg h-full md:h-[363px]">
             <div className="flex flex-col justify-end gap-4 text-white w-full md:w-5/12 lg:w-6/12">
               <div className="flex gap-1 lg:gap-lg cursor-pointer">
-                <span className="text-sm md:text-xl font-bold uppercase">{t("home:joinCommunity")}</span>
+                <span className="text-sm md:text-xl font-bold uppercase">
+                  {t("home:joinCommunity")}
+                </span>
                 <div className="flex items-end w-5 h-5 md:w-8 md:h-8">
                   <img src={Arrow_RB} alt="Arrow_RB" className="object-cover" />
                 </div>
               </div>
-              <p className="text-light-secondary font-light">{t("home:joinCommunityParagraph")}</p>
+              <p className="text-light-secondary font-light">
+                {t("home:joinCommunityParagraph")}
+              </p>
             </div>
             <div className="flex relative top-4 justify-center md:justify-center lg:justify-end relative w-full h-full bg-transparent rounded-lg md:w-6/12 lg:w-6/12">
               <img
