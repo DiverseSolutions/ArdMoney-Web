@@ -29,12 +29,10 @@ export default function Home() {
   return (
     <PageContainer>
       <Section style="mb-layout-xl text-center">
-        <div className="text-light-secondary md:text-xl">
-          First Mongolian DAO
-        </div>
+        <div className="text-light-secondary md:text-xl">{t("home:miniTitle")}</div>
         <div className="flex flex-col text-xl md:text-4xl font-extrabold">
           <span>{t("home:title")}</span>
-          <span>Without Boundaries</span>
+          {/* <span>Without Boundaries</span> */}
         </div>
         <div className="flex items-center justify-center w-full gap-base">
           <a
@@ -42,7 +40,7 @@ export default function Home() {
             target={"_blank"}
             className="btn w-[151px] md:w-[219px]"
           >
-            <span className="text-xs lg:text-base font-light">Launch App</span>
+            <span className="text-xs lg:text-base font-light">{t("home:launchApp")}</span>
           </a>
           <a
             href="https://docs.ardmoney.com/"
@@ -50,9 +48,7 @@ export default function Home() {
             className="w-[151px] md:w-[219px]"
           >
             <OutlineButton>
-              <span className="text-xs lg:text-base">
-                Learn how to start
-              </span>
+              <span className="text-xs lg:text-base">{t("home:learn")}</span>
             </OutlineButton>
           </a>
         </div>
@@ -73,42 +69,27 @@ export default function Home() {
         >
           <div className="flex flex-col text-center p-base font-extrabold">
             <span className="text-xl md:text-3xl lg:text-4xl">0.03₮</span>
-            <span className="text-2xs md:text-sm lg:text-base">
-              ARDM PRICE
-            </span>
+            <span className="text-2xs md:text-sm lg:text-base">{t("home:price")}</span>
           </div>
           <div className="flex flex-col text-center p-base font-extrabold">
             <span className="text-xl md:text-3xl lg:text-4xl">12.3B</span>
-            <span className="text-2xs md:text-sm lg:text-base">
-              STAKING CONTRACT
-            </span>
+            <span className="text-2xs md:text-sm lg:text-base">{t("home:stakingContract")}</span>
           </div>
           <div className="flex flex-col text-center p-base font-extrabold">
             <span className="text-xl md:text-3xl lg:text-4xl">3.29B</span>
-            <span className="text-2xs md:text-sm lg:text-base">
-              MARKET CAP
-            </span>
+            <span className="text-2xs md:text-sm lg:text-base">{t("home:marketCap")}</span>
           </div>
           <div className="flex flex-col text-center p-base font-extrabold">
             <span className="text-xl md:text-3xl lg:text-4xl">133B</span>
-            <span className="text-2xs md:text-sm lg:text-base">
-              TOTAL SUPPLY
-            </span>
+            <span className="text-2xs md:text-sm lg:text-base">{t("home:totalSupply")}</span>
           </div>
         </div>
       </Section>
 
       <Section style="items-center">
         <div className="md:w-7/12 flex flex-col gap-base text-center border-none p-0">
-          <span className="text-xl md:text-3xl text-white font-extrabold">
-            Advanced protocol for managing digital assets
-          </span>
-          <span className="text-light-secondary text-sm md:text-base">
-            Ardmoney is revolutionising the world of financial services. We've
-            created a low-cost, high-speed blockchain based financial system and
-            are dedicated to being the fastest, most reliable and secure
-            transactions service that can be used by consumers and businesses.
-          </span>
+          <span className="text-xl md:text-3xl text-white font-extrabold">{t("home:sectionTwoTitle")}</span>
+          <span className="text-light-secondary text-sm md:text-base">{t("home:sectionTwoParagraph")}</span>
         </div>
 
         <img
@@ -120,15 +101,9 @@ export default function Home() {
 
       <Section style="relative">
         <Card style="min-h-[500px] bg-transparent md:bg-gradient-to-r md:from-[#8362FD] md:to-[#3FE600] p-1px">
-          <div className="flex flex-col absolute bottom-0 justify-end gap-base p-6 w-full md:w-4/12 rounded-tl-lg rounded-bl-lg z-10 bg-transparent">
-            <span className="text-base md:text-xl font-bold">
-              WHAT WE CAPABLE OF
-            </span>
-            <span className="font-light text-sm md:text-base/base">
-              Ardmoney is a decentralized protocol providing financial services,
-              such as Lending, Borrowing, Liquidity mining, without an
-              intermediary.
-            </span>
+          <div className="flex flex-col absolute bottom-0 justify-end gap-base p-6 w-full md:w-5/12 md:bottom-40 rounded-tl-lg rounded-bl-lg z-10 bg-transparent">
+            <span className="text-base md:text-xl font-bold">{t("home:sectionThreeTitle")}</span>
+            <span className="font-light text-sm md:text-base/base">{t("home:sectionThreeParagraph")}</span>
           </div>
           <div className="opacity-50 md:opacity-100 flex justify-end relative w-full h-full bg-black rounded-lg">
             <div className="flex justify-items-end md:w-10/12">
@@ -143,41 +118,19 @@ export default function Home() {
 
         <div className="z-10 grid grid-cols-1 md:grid-cols-3 gap-6 ">
           <Card>
-            <span className="text-base md:text-xl font-bold">
-              DEFI
-            </span>
-            <span className="text-base md:w-11/12">
-              Facilitating permissionless decentralized lending.
-            </span>
-            <span className="text-light-secondary text-xs md:text-sm font-light">
-              ArdMoney protocol users are able to save with high interest and
-              borrow with low interest.
-            </span>
+            <span className="text-base md:text-xl font-bold">{t("home:cardOneTitle")}</span>
+            <span className="text-base md:w-11/12">{t("home:cardOneTitle2")}</span>
+            <span className="text-light-secondary text-xs md:text-sm font-light">{t("home:cardOneParagraph")}</span>
           </Card>
           <Card>
-            <span className="text-base md:text-xl font-bold">
-              DEX
-            </span>
-            <span className="text-base md:w-11/12">
-              Your exchange in your hands.
-            </span>
-            <span className="text-light-secondary text-xs md:text-sm font-light">
-              Smart Contracts allow ArdMoney to provide a permissionless,
-              trustless, immutable platform to trade crypto assets.
-            </span>
+            <span className="text-base md:text-xl font-bold">{t("home:cardTwoTitle")}</span>
+            <span className="text-base md:w-11/12">{t("home:cardTwoTitle2")}</span>
+            <span className="text-light-secondary text-xs md:text-sm font-light">{t("home:cardTwoParagraph")}</span>
           </Card>
           <Card>
-            <span className="text-base md:text-xl font-bold">
-              DAO
-            </span>
-            <span className="text-base md:w-11/12">
-              By the people. For the people.
-            </span>
-            <span className="text-light-secondary text-xs md:text-sm font-light">
-              Ardmoney is fully democratized and is governed by its token
-              holders which ensures the protocol serves the best interest of the
-              people.
-            </span>
+            <span className="text-base md:text-xl font-bold">{t("home:cardThreeTitle")}</span>
+            <span className="text-base md:w-11/12">{t("home:cardThreeTitle2")}</span>
+            <span className="text-light-secondary text-xs md:text-sm font-light">{t("home:cardThreeParagraph")}</span>
           </Card>
         </div>
         <img
@@ -210,12 +163,16 @@ export default function Home() {
             </span>
           </span>
         </Card>
-        <img src={TextBg} alt="" className="hidden md:block absolute w-full left-0" />
+        <img
+          src={TextBg}
+          alt=""
+          className="hidden md:block absolute w-full left-0"
+        />
       </Section>
 
       <Section style="md:mt-layout-lg">
         <Card style="border-none px-0">
-          {faqs.map((faq) => (
+          {faqs.map((faq, index) => (
             <button
               key={faq.id}
               onClick={() => {
@@ -231,11 +188,12 @@ export default function Home() {
                   className={`flex justify-between items-center w-full p-xl bg-black rounded-lg`}
                 >
                   <span className="text-base md:text-xl font-bold uppercase">
-                    {faq.title}
+                    {t(`home:faq${index + 1}Title`)}
                   </span>
                   <div
-                    className={`h-4 w-4 md:h-6 md:w-6 relative transition ${faqAccordionState == faq.id ? "rotate-180" : "rotate-0"
-                      }`}
+                    className={`h-4 w-4 md:h-6 md:w-6 relative transition ${
+                      faqAccordionState == faq.id ? "rotate-180" : "rotate-0"
+                    }`}
                   >
                     <img src={Chevron} alt="image" />
                   </div>
@@ -254,17 +212,14 @@ export default function Home() {
                         title="YouTube video player"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowFullScreen
-                      >
-                      </iframe>
+                      ></iframe>
                     </div>
                     <div className="flex flex-col md:w-1/2 gap-base">
                       <span className="text-sm md:text-base">
-                        By the people. For the people.
+                        {t(`home:faq${index + 1}Title2`)}
                       </span>
                       <span className="text-sm md:text-sm text-light-secondary font-light">
-                        Ardmoney is fully democratized and is governed by its
-                        token holders which ensures the protocol serves the best
-                        interest of the people.
+                        {t(`home:faq${index + 1}Paragraph`)}
                       </span>
                     </div>
                   </div>
@@ -274,45 +229,34 @@ export default function Home() {
           ))}
           <div className="flex items-center justify-center w-full gap-xl rounded-lg border">
             <div className="flex flex-col items-center gap-xl p-xl rounded-lg bg-gradient-to-br from-[#000000] via-[#8362FD]/10 to-[#8362FD] text-white">
-              <span className="flex text-center uppercase text-base md:text-xl font-bold">
-                Four Pillars of Ardmoney
-              </span>
+              <span className="flex text-center uppercase text-base md:text-xl font-bold">{t("home:pillarsTitle")}</span>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-3xs md:gap-xl">
                 <div className="flex flex-col bg-dark-terteriary rounded-lg p-xl gap-base">
+                  <span className="uppercase font-bold text-base md:text-base/base lg:text-base">{t("home:pillarOneTitle")}</span>
+                  <span className="text-light-secondary text-sm font-light">{t("home:pillarOneParagraph")}</span>
+                </div>
+                <div className="flex flex-col bg-black/40 rounded-lg p-6 gap-base">
                   <span className="uppercase font-bold text-base md:text-base/base lg:text-base">
-                    Dynamic Fees
+                    {t("home:pillarTwoTitle")}
                   </span>
                   <span className="text-light-secondary text-sm font-light">
-                    The DAO will determine the pool fee based on trust, utility,
-                    and risks associated with the asset.
+                    {t("home:pillarTwoParagraph")}
                   </span>
                 </div>
                 <div className="flex flex-col bg-black/40 rounded-lg p-6 gap-base">
                   <span className="uppercase font-bold text-base md:text-base/base lg:text-base">
-                    Multichain
+                    {t("home:pillarThreeTitle")}
                   </span>
                   <span className="text-light-secondary text-sm font-light">
-                    Users will be able to use Ardmoney on the chain that they
-                    most see fit. Ardmoney is currently deployed on Polygon and
-                    Binance mdart Chain.
+                    {t("home:pillarThreeParagraph")}
                   </span>
                 </div>
                 <div className="flex flex-col bg-black/40 rounded-lg p-6 gap-base">
                   <span className="uppercase font-bold text-base md:text-base/base lg:text-base">
-                    Permissionless
+                    {t("home:pillarFourTitle")}
                   </span>
                   <span className="text-light-secondary text-sm font-light">
-                    Ardmoney will serve as a gateway for investors to have
-                    exposure to crypto projects in less known economies.
-                  </span>
-                </div>
-                <div className="flex flex-col bg-black/40 rounded-lg p-6 gap-base">
-                  <span className="uppercase font-bold text-base md:text-base/base lg:text-base">
-                    Decentralized
-                  </span>
-                  <span className="text-light-secondary text-sm font-light">
-                    Ardmoney is governed by its token holders who are able to
-                    vote on upcoming features.
+                    {t("home:pillarFourParagraph")}
                   </span>
                 </div>
               </div>
@@ -324,15 +268,9 @@ export default function Home() {
       <Section>
         <Card style="border-none px-0">
           <div className="flex gap-sm items-center w-full py-3xs">
-            <span className="text-base md:text-xl font-bold">
-              BLOG POST
-            </span>
+            <span className="text-base md:text-xl font-bold">{t("home:blogTitle")}</span>
             <div className="flex items-end w-5 h-5 md:w-8 md:h-8">
-              <img
-                src={Arrow_RB}
-                alt="Arrow_RB"
-                className="object-cover"
-              />
+              <img src={Arrow_RB} alt="Arrow_RB" className="object-cover" />
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-base md:gap-xl lg:gap-lg w-full">
@@ -351,13 +289,8 @@ export default function Home() {
                   />
                 </div>
                 <div className="flex flex-col mt-base gap-base">
-                  <span className="font-bold text-sm md:text-base uppercase">
-                    Монголын анхны DeFi протокол хэрэглээнд орлоо!
-                  </span>
-                  <span className="font-light text-light-secondary text-sm">
-                    The DAO will determine the pool fee based on trust, utility,
-                    and risks associated with the asset.
-                  </span>
+                  <span className="font-bold text-sm md:text-base uppercase">{t("home:blogOneTitle")}</span>
+                  <span className="font-light text-light-secondary text-sm">{t("home:blogOneParagraph")}</span>
                 </div>
               </a>
             </div>
@@ -377,11 +310,10 @@ export default function Home() {
                 </div>
                 <div className="flex flex-col mt-base gap-base">
                   <span className="font-bold text-sm md:text-base uppercase">
-                    Monthly developer report #3
+                    {t("home:blogTwoTitle")}
                   </span>
                   <span className="font-light text-light-secondary text-sm">
-                    The DAO will determine the pool fee based on trust, utility,
-                    and risks associated with the asset.
+                    {t("home:blogTwoParagraph")}
                   </span>
                 </div>
               </a>
@@ -402,11 +334,10 @@ export default function Home() {
                 </div>
                 <div className="flex flex-col mt-base gap-base">
                   <span className="font-bold text-sm md:text-base uppercase">
-                    Monthly Developer Report #2
+                    {t("home:blogThreeTitle")}
                   </span>
                   <span className="font-light text-light-secondary text-sm">
-                    The DAO will determine the pool fee based on trust, utility,
-                    and risks associated with the asset.
+                    {t("home:blogThreeParagraph")}
                   </span>
                 </div>
               </a>
@@ -431,31 +362,21 @@ export default function Home() {
           <div className="flex flex-col md:flex-row md:justify-between w-full rounded-lg h-full md:h-[363px]">
             <div className="flex flex-col justify-end gap-4 text-white w-full md:w-5/12 lg:w-6/12">
               <div className="flex gap-1 lg:gap-lg cursor-pointer">
-                <span className="text-sm md:text-xl font-bold uppercase">
-                  Join our community
-                </span>
+                <span className="text-sm md:text-xl font-bold uppercase">{t("home:joinCommunity")}</span>
                 <div className="flex items-end w-5 h-5 md:w-8 md:h-8">
-                  <img
-                    src={Arrow_RB}
-                    alt="Arrow_RB"
-                    className="object-cover"
-                  />
+                  <img src={Arrow_RB} alt="Arrow_RB" className="object-cover" />
                 </div>
               </div>
-              <p className="text-light-secondary font-light">
-                Users will be able to use Ardmoney on the chain that they most
-                see fit. Ardmoney is currently deployed on Polygon and Binance
-                Smart Chain.
-              </p>
+              <p className="text-light-secondary font-light">{t("home:joinCommunityParagraph")}</p>
             </div>
             <div className="flex relative top-4 justify-center md:justify-center lg:justify-end relative w-full h-full bg-transparent rounded-lg md:w-6/12 lg:w-6/12">
-                <img
-                  src={Ghosts}
-                  data-aos="fade-up"
-                  data-aos-delay="800"
-                  alt="image"
-                  className="object-cover w-full"
-                />
+              <img
+                src={Ghosts}
+                data-aos="fade-up"
+                data-aos-delay="800"
+                alt="image"
+                className="object-cover w-full"
+              />
             </div>
           </div>
           <div className="flex flex-col md:flex-row text-white w-full gap-xs">
@@ -465,9 +386,7 @@ export default function Home() {
               className="w-full h-full"
             >
               <OutlineButton style="justify-between px-xl py-xl">
-                <span className="text-base md:text-xl font-bold">
-                  TELEGRAM
-                </span>
+                <span className="text-base md:text-xl font-bold">TELEGRAM</span>
                 <div className="i-fa-brands-telegram-plane icon-size-7" />
               </OutlineButton>
             </a>
@@ -478,9 +397,7 @@ export default function Home() {
               className="w-full h-full"
             >
               <OutlineButton style="justify-between px-xl py-xl">
-                <span className="text-base md:text-xl font-bold">
-                  TWITTER
-                </span>
+                <span className="text-base md:text-xl font-bold">TWITTER</span>
                 <div className="i-fa-brands-twitter icon-size-5" />
               </OutlineButton>
             </a>
