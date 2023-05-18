@@ -24,10 +24,17 @@ const swapPageSlice = createSlice({
     toToken: undefined,
     fromModal: false,
     toModal: false,
-    isMoreInfoOpen: true,
     fromInput: "",
     rate: 0,
     pair: undefined,
+
+    isMoreInfoOpen: false,
+
+    isApproveDisabled: false,
+    isSwapDisabled: true,
+
+    isApproveLoading: false,
+    isSwapLoading: false,
   } as SwapPageState,
   reducers: {
     setFromToken: (state, action: PayloadAction<Token | undefined>) => {

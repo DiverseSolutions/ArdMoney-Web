@@ -12,7 +12,7 @@ export function formatAndParse(amount : bigint,decimal : number) {
   return parseFloat(ethers.formatUnits(amount.toString(), decimal))
 }
 
-export function parse18(amount: bigint) {
+export function parse18(amount: bigint | number) {
   return ethers.parseUnits(amount.toString(), 18)
 }
 

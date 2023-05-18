@@ -114,6 +114,7 @@ export default defineConfig({
   shortcuts: { 
     "btn" : "flex items-center h-full w-full justify-center rounded-3xs cursor-pointer bg-primary font-normal text-white text-3xs md:text-base px-base py-sm btn-animation",
     "btn-animation" : "transition-transform hover:scale-75 cursor-pointer",
+    "btn-disabled" : "bg-primary-disabled text-light-disabled",
     "btn-outline" : "btn bg-transparent border-primary border",
     "document-link" : "text-secondary underline",
     "input" : "bg-transparent text-right appearance-none outline-0 w-full",
