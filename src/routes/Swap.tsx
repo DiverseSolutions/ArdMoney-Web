@@ -216,12 +216,12 @@ export default function Swap() {
                   {isMoreInfoOpen
                     ? (
                       <div
-                        className={`i-ic-outline-keyboard-arrow-down text-white icon-size-5`}
+                        className={`i-ic-outline-keyboard-arrow-up text-white icon-size-5`}
                       />
                     )
                     : (
                       <div
-                        className={`i-ic-outline-keyboard-arrow-up text-white icon-size-5`}
+                        className={`i-ic-outline-keyboard-arrow-down text-white icon-size-5`}
                       />
                     )}
                 </div>
