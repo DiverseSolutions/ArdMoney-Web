@@ -1,7 +1,7 @@
 import { isEmpty, isString } from "radash";
 
-export function formatNumber(value : number | string,decimals = 3) : string {
-  if(isEmpty(value)) return ""
+export function formatNumber(value : number | string,decimals = 3,returnValue : number | string = "") : string {
+  if(isEmpty(value)) return returnValue.toString()
   if(isString(value)) return toNumberFormat(parseFloat(value),decimals)
 
   return toNumberFormat(value,decimals)

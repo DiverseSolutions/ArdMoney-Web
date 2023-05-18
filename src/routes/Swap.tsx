@@ -19,17 +19,24 @@ import { Token } from "@constants/TokenList";
 import { dexApi } from "@apis/dexApi";
 import { findByAddress } from "@/helpers/dex";
 import { alert } from "@helpers/alert";
-import { isEmpty, isNumber } from "radash";
+import { isEmpty, isNumber, isString } from "radash";
 import { formatNumber } from "@/helpers/numbers";
 import BalanceSection from "@sections/swap/BalanceSection";
 import useProvider from "@/hooks/useProvider";
 import { ProviderContext } from "@contexts/ProviderContext";
 import RateSection from "@sections/swap/RateSection";
 import {
-  reducer,
+  swapInitialState,
   SwapPageActions as Actions,
-  SwapPageState,
+  swapReducer,
 } from "@/reducers/swapReducer";
+
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@radix-ui/react-collapsible"
+import PriceImpactSection from "@sections/swap/PriceImpactSection";
 
 export default function Swap() {
   const {
@@ -50,19 +57,13 @@ export default function Swap() {
   const { isUnknown } = useSelector((state: RootState) => state.network);
 
   const [
-    { fromToken, fromInput, toToken, fromModal, toModal, rate },
+    { fromToken, fromInput, toToken, fromModal, toModal, rate,isMoreInfoOpen },
     dispatcher,
-  ] = useReducer(reducer, {
-    fromToken: undefined,
-    toToken: undefined,
-    fromModal: false,
-    toModal: false,
-    fromInput: "",
-    rate: 0,
-  } as SwapPageState);
+  ] = useReducer(swapReducer,swapInitialState);
 
   const toInput = useMemo<number | string>(configureReceiveAmount, [fromInput]);
   const toTokenList = useMemo<Array<Token>>(configurePairTokens, [fromToken]);
+  const minAmount = useMemo<number>(calculateMinReceiveAmount, [toInput]);
 
   useEffect(() => {
     if (pairsIsSuccess) dispatcher(Actions.setFromToken(tokenList[0]));
@@ -183,23 +184,56 @@ export default function Swap() {
             </ComponentLoader>
           </div>
 
-          <div className="flex justify-between w-full mb-lg">
-            <div className="flex items-center text-sm gap-xs">
-              <div className="p-2 border border-white/10 rounded-md">
-                <div className="i-ic-round-warning-amber icon-size-5" />
+          <Collapsible open={isMoreInfoOpen} onOpenChange={(state) => dispatcher(Actions.setSwapMoreInfoCollapsible(state))}>
+            <div className="flex justify-between w-full mb-lg">
+              <div className="flex items-center text-sm gap-xs">
+                <div className="p-2 border border-white/10 rounded-md">
+                  <div className="i-ic-round-warning-amber icon-size-5" />
+                </div>
+                <RateSection
+                  fromToken={fromToken}
+                  toToken={toToken}
+                  setRate={(value: number) => {
+                    dispatcher(Actions.setRate(value));
+                  }}
+                />
               </div>
-              <RateSection
-                fromToken={fromToken}
-                toToken={toToken}
-                setRate={(value: number) => {
-                  dispatcher(Actions.setRate(value));
-                }}
-              />
+              <CollapsibleTrigger>
+                <div className="btn-animation p-2 border border-white/10 rounded-md">
+                  {isMoreInfoOpen ? (
+                    <div className={`i-ic-outline-keyboard-arrow-down text-white icon-size-5`} />
+                  ) : (
+                    <div className={`i-ic-outline-keyboard-arrow-up text-white icon-size-5`} />
+                  )}
+                </div>
+              </CollapsibleTrigger>
             </div>
-            <div className="p-2 border border-white/10 rounded-md">
-              <div className="i-ic-round-keyboard-arrow-down icon-size-5" />
-            </div>
-          </div>
+
+            <CollapsibleContent>
+              <div className="border border-primary/20 rounded-2xs">
+                <div className="flex gap-3xs py-3xs px-base items-center text-sm border-b border-primary/20">
+                  <div className="i-ic-outline-info icon-size-4 text-light-secondary" />
+                  <p className="grow text-xs text-light-secondary">Minimum Receive</p>
+                  <span>{formatNumber(minAmount ?? 0,3,0)}</span>
+                </div>
+                <div className="flex gap-3xs py-3xs px-base items-center text-sm border-b border-primary/20">
+                  <div className="i-ic-outline-info icon-size-4 text-light-secondary" />
+                  <p className="grow text-xs text-light-secondary">Price Impact</p>
+                  <PriceImpactSection fromInput={fromInput} toInput={toInput} fromToken={fromToken} toToken={toToken} />
+                </div>
+                <div className="flex gap-3xs py-3xs px-base items-center text-sm border-b border-primary/20">
+                  <div className="i-ic-outline-info icon-size-4 text-light-secondary" />
+                  <p className="grow text-xs text-light-secondary">Slippage Tolerance</p>
+                  <span>10<span className="text-2xs pl-1 relative top-0.5">%</span></span>
+                </div>
+                <div className="flex gap-3xs py-3xs px-base items-center text-sm">
+                  <div className="i-ic-outline-info icon-size-4 text-light-secondary" />
+                  <p className="grow text-xs text-light-secondary">Swap Fee</p>
+                  <span>0.3<span className="text-2xs pl-1 relative top-0.5">%</span></span>
+                </div>
+              </div>
+            </CollapsibleContent>
+          </Collapsible>
 
           {!web3Slice.isConnected && <ConnectWalletButton style="py-sm" />}
           {web3Slice.isConnected && isUnknown && (
@@ -282,4 +316,18 @@ export default function Swap() {
 
     return fromInput * rate;
   }
+
+  function calculateMinReceiveAmount() {
+    if (fromInput != "" && toInput != "") {
+      let amountOut = parseFloat(toInput.toString())
+      let slippageTolerancePercentage = 10
+      let result = amountOut - ((amountOut * slippageTolerancePercentage) / 100) 
+      return result
+    }
+
+    return 0
+  }
+
+
+
 }

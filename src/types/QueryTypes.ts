@@ -11,12 +11,12 @@ export interface SubgraphDexPair {
   id: string,
   token0: SubgraphDexToken,
   token1: SubgraphDexToken,
-  reserve0 : number,
-  reserve1 : number,
-  token0Price : number,
-  token1Price : number,
-  volumeToken0 : number,
-  volumeToken1 : number
+  reserve0 : string,
+  reserve1 : string,
+  token0Price : string,
+  token1Price : string,
+  volumeToken0 : string,
+  volumeToken1 : string
 }
 
 export interface SubgraphPairTokens {
