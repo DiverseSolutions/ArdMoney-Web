@@ -1,5 +1,6 @@
 import { Token } from "@constants/TokenList";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { SubgraphDexPair } from "types/QueryTypes";
 
 export type SwapPageState = {
   fromToken: Token | undefined;
@@ -11,6 +12,9 @@ export type SwapPageState = {
   fromInput: number | string;
 
   rate: number;
+  pair: SubgraphDexPair | undefined,
+
+  isMoreInfoOpen: boolean;
 };
 
 const swapPageSlice = createSlice({
@@ -22,6 +26,15 @@ const swapPageSlice = createSlice({
     toModal: false,
     fromInput: "",
     rate: 0,
+    pair: undefined,
+
+    isMoreInfoOpen: false,
+
+    isApproveDisabled: false,
+    isSwapDisabled: true,
+
+    isApproveLoading: false,
+    isSwapLoading: false,
   } as SwapPageState,
   reducers: {
     setFromToken: (state, action: PayloadAction<Token | undefined>) => {
@@ -42,8 +55,15 @@ const swapPageSlice = createSlice({
     setRate: (state, action: PayloadAction<number>) => {
       state.rate = action.payload
     },
+    setSwapMoreInfoCollapsible: (state, action: PayloadAction<boolean>) => {
+      state.isMoreInfoOpen = action.payload
+    },
+    setPair: (state, action: PayloadAction<SubgraphDexPair | undefined>) => {
+      state.pair = action.payload
+    },
   },
 })
 
-export const reducer = swapPageSlice.reducer
+export const swapReducer = swapPageSlice.reducer
+export const swapInitialState = swapPageSlice.getInitialState()
 export const SwapPageActions = { ...swapPageSlice.actions }
