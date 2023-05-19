@@ -62,7 +62,7 @@ export async function swapTokens(
   if (!web3) return;
   if (!web3.provider) return;
 
-  let { web3: web3Slice, network: networkSlice }: RootState = store.getState();
+  let { web3: web3Slice, network: networkSlice, dex: dexSlice }: RootState = store.getState();
 
   let routerAddress = web3Slice.contracts.router[networkSlice.chainId]
   let router = await getWriteContract(web3,routerAddress,RouterABI)
@@ -71,7 +71,7 @@ export async function swapTokens(
   let providerTx = await web3.provider.getBlock(currentBlock)
 
   let currentBlockTimeStamp = providerTx?.timestamp ?? 0
-  let deadlineBlockTime = moment.unix(currentBlockTimeStamp).add("30", "m")
+  let deadlineBlockTime = moment.unix(currentBlockTimeStamp).add(dexSlice.deadline.toString(), "m")
   let deadline = deadlineBlockTime.unix()
 
   let minAmountWei = parse18(minAmount)

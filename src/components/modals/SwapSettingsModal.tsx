@@ -7,6 +7,7 @@ import { FormEvent, useState } from "react";
 import { RootState } from "@/redux/store";
 import { isEmpty } from "radash";
 import { setDeadline, setSlippage } from "@slices/dexSlice";
+import { alert } from "@helpers/alert";
 
 export default function SwapSettingsModal() {
   const { slippage,deadline } = useSelector((state:RootState) => state.dex)
@@ -26,6 +27,12 @@ export default function SwapSettingsModal() {
     }
 
     let amount = parseFloat(inputValue)
+
+    if(amount > 100){ 
+      alert("error","Tolerance percentage can't be above 100%") 
+      return;
+    }
+
     dispatch(setSlippage(amount))
     setLocalSlippage(amount)
   }
@@ -38,6 +45,12 @@ export default function SwapSettingsModal() {
     }
 
     let amount = parseFloat(inputValue)
+
+    if(amount > 60 * 2){ 
+      alert("error","Swap transaction deadline can't be above 2 hours") 
+      return;
+    }
+
     dispatch(setDeadline(amount))
     setLocalDeadline(amount)
   }

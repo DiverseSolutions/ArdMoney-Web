@@ -57,6 +57,7 @@ export default function Swap() {
 
   const web3 = useProvider();
   const web3Slice = useSelector((state: RootState) => state.web3);
+  const { slippage } = useSelector((state: RootState) => state.dex);
   const { dexList: tokenList } = useSelector((state: RootState) => state.token);
   const { isUnknown } = useSelector((state: RootState) => state.network);
 
@@ -366,7 +367,7 @@ export default function Swap() {
   function calculateMinReceiveAmount() {
     if (fromInput != "" && toInput != "") {
       let amountOut = parseFloat(toInput.toString());
-      let slippageTolerancePercentage = 10;
+      let slippageTolerancePercentage = slippage;
       let result = amountOut -
         ((amountOut * slippageTolerancePercentage) / 100);
       return result;
