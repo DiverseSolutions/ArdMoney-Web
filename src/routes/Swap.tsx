@@ -114,7 +114,7 @@ export default function Swap() {
   return (
     <ProviderContext.Provider value={web3}>
       <div className="py-base flex justify-center w-full">
-        <div className="flex flex-col p-xl max-w-[500px] min-h-auto min-w-[423px] card-gradient-dark rounded-lg z-5">
+        <div className="flex flex-col p-xl max-w-[500px] min-h-auto min-w-[300px] md:min-w-[423px] card-gradient-dark rounded-lg z-5">
           <div className="flex justify-between w-full mb-lg">
             <div className="flex items-center text-white gap-sm">
               <button

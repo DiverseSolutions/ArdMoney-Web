@@ -1,7 +1,7 @@
 import { DefaultLayoutProp } from "types/LayoutTypes";
 
 export default function ModalLayout(
-  { width = "min-w-[423px]",fullHeight = false,alignment = "center" , children, handleModalClose }: DefaultLayoutProp,
+  { width = "min-w-[300px]",fullHeight = false,alignment = "center" , children, handleModalClose }: DefaultLayoutProp,
 ) {
   return (
     <div className={`absolute top-0 left-0 px-base md:px-0 flex ${configFullHeight()} ${configAlignment()} w-full h-full`}>

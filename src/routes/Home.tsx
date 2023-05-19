@@ -117,7 +117,7 @@ export default function Home() {
 
       <Section style="relative">
         <Card style="min-h-[500px] bg-transparent md:bg-gradient-to-r md:from-[#8362FD] md:to-[#3FE600] p-1px">
-          <div className="flex flex-col absolute bottom-0 justify-end gap-base p-6 w-full md:w-5/12 md:bottom-40 rounded-tl-lg rounded-bl-lg z-10 bg-transparent">
+          <div className="flex flex-col absolute bottom-0 justify-end gap-base p-6 w-full md:w-5/12  rounded-tl-lg rounded-bl-lg z-10 bg-transparent">
             <span className="text-base md:text-xl font-bold">
               {t("home:sectionThreeTitle")}
             </span>
