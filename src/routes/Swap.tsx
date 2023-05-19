@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@redux/store";
 import { FormEvent, useEffect, useMemo, useReducer } from "react";
 
@@ -38,8 +38,11 @@ import {
 } from "@radix-ui/react-collapsible";
 import PriceImpactSection from "@sections/swap/PriceImpactSection";
 import ButtonsSection from "@sections/swap/ButtonsSection";
+import { setSwapSettingsModal } from "@slices/modalSlice";
 
 export default function Swap() {
+  const dispatch = useDispatch()
+
   const {
     data: pairs,
     isLoading: pairsLoading,
@@ -54,6 +57,7 @@ export default function Swap() {
 
   const web3 = useProvider();
   const web3Slice = useSelector((state: RootState) => state.web3);
+  const { slippage } = useSelector((state: RootState) => state.dex);
   const { dexList: tokenList } = useSelector((state: RootState) => state.token);
   const { isUnknown } = useSelector((state: RootState) => state.network);
 
@@ -126,7 +130,7 @@ export default function Swap() {
               <span className="font-lg">Swap</span>
             </div>
             <div>
-              <button className="btn-animation p-2 border border-white/10 rounded-md">
+              <button className="btn-animation p-2 border border-white/10 rounded-md" onClick={() => { dispatch(setSwapSettingsModal(true)) }}>
                 <div className="i-ic-outline-settings icon-size-5" />
               </button>
             </div>
@@ -363,7 +367,7 @@ export default function Swap() {
   function calculateMinReceiveAmount() {
     if (fromInput != "" && toInput != "") {
       let amountOut = parseFloat(toInput.toString());
-      let slippageTolerancePercentage = 10;
+      let slippageTolerancePercentage = slippage;
       let result = amountOut -
         ((amountOut * slippageTolerancePercentage) / 100);
       return result;
