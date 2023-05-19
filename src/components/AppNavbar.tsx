@@ -10,10 +10,10 @@ import Medium from "@assets/social/dark_medium.svg";
 import Instagram from "@assets/social/dark_instagram.svg";
 import MobileClouds from "@assets/home/mobile_clouds.svg";
 
-import ConnectWalletButton from "@components/web3/ConnectWalletButton" 
+import ConnectWalletButton from "@components/web3/ConnectWalletButton";
 
-import { useSelector } from "react-redux"
-import { RootState } from "@redux/store" 
+import { useSelector } from "react-redux";
+import { RootState } from "@redux/store";
 import AccountButton from "@components/nav/AccountButton";
 import NetworkButton from "@components/nav/NetworkButton";
 import OutlineButton from "./shared/OutlineButton";
@@ -35,7 +35,9 @@ const MobileLinks = [
 ];
 
 export default function AppNavbar() {
-  const { isConnected,account } = useSelector((state:RootState) => state.web3)
+  const { isConnected, account } = useSelector(
+    (state: RootState) => state.web3
+  );
   const [open, setOpen] = useState(false);
   const transitionProperties = open ? "left-0" : "-left-250";
 
@@ -47,8 +49,7 @@ export default function AppNavbar() {
     <div className={`relative flex slide-in`}>
       <div className="flex sticky justify-center bg-black h-[68px] w-full z-40">
         <div className="flex w-full md:px-2xl md:py-2xs">
-          <div className="flex justify-between items-center w-full px-3 py-4 sm:px-6 sm:py-[22px] lg:px-0 lg:py-0">
-
+          <div className="flex justify-between items-center w-full px-3 py-4 md:py-0 sm:px-6  lg:px-0 lg:py-0">
             <div className="flex items-center gap-6">
               <a href="/">
                 <LogoIcon />
@@ -63,14 +64,15 @@ export default function AppNavbar() {
             </div>
 
             <div className="flex items-center gap-xs h-full">
-              {isConnected && ( <NetworkButton />)}
-              {isConnected && account != null && (<AccountButton />)}
+              <div className='hidden lg:block w-[12rem]'>{isConnected && <NetworkButton />}</div>
+              <div className='w-[12rem]'>{isConnected && account != null && <AccountButton />}</div>
             </div>
 
-            {!isConnected && ( <div>
-              <ConnectWalletButton style="px-xl" />
-            </div>)}
-
+            {!isConnected && (
+              <div>
+                <ConnectWalletButton style="px-xl" />
+              </div>
+            )}
 
             <button onClick={() => openSidebar()} className="md:hidden">
               <img
@@ -112,52 +114,32 @@ export default function AppNavbar() {
                 target={"_blank"}
                 className="w-6 h-6"
               >
-                <img
-                  src={Medium}
-                  alt="image"
-                  className="object-cover"
-                />
+                <img src={Medium} alt="image" className="object-cover" />
               </a>
               <a
                 href="https://www.instagram.com/ard.money/?next=%2F"
                 target={"_blank"}
                 className="w-6 h-6"
               >
-                <img
-                  src={Instagram}
-                  className="object-cover"
-                  alt="image"
-                />
+                <img src={Instagram} className="object-cover" alt="image" />
               </a>
               <a
                 href="https://www.facebook.com/search/top?q=ardmoney"
                 target={"_blank"}
                 className="w-6 h-6"
               >
-                <img
-                  src={Facebook}
-                  className="object-cover"
-                  alt="image"
-                />
+                <img src={Facebook} className="object-cover" alt="image" />
               </a>
               <a
                 href="https://discord.com/invite/xNWX76eg"
                 target={"_blank"}
                 className="w-6 h-6"
               >
-                <img
-                  src={Discord}
-                  className="object-cover"
-                  alt="image"
-                />
+                <img src={Discord} className="object-cover" alt="image" />
               </a>
             </div>
             <div className="flex gap-sm p-base w-full">
-              <img
-                src={Copyright}
-                className=""
-                alt="image"
-              />
+              <img src={Copyright} className="" alt="image" />
               <span>2023 Diverse Solution LLC. All rights reserved</span>
             </div>
           </div>

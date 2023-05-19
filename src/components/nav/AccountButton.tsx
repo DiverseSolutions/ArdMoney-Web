@@ -5,10 +5,13 @@ import { setWalletModal } from "@slices/modalSlice"
 
 export default function AccountButton() {
   const { account } = useSelector((state:RootState) => state.web3)
+  const network = useSelector((state:RootState) => state.network)
+
   const dispatch = useDispatch()
 
   return (
     <OutlineButton clickHandler={() => { dispatch(setWalletModal(true)) }}>
+      <img src={network.logo} className="w-lg h-auto lg:hidden" alt="network_logo" />
       {accountNameShortener(account)}
     </OutlineButton>
   )
