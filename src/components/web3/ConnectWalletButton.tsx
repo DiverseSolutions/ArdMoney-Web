@@ -1,23 +1,27 @@
 import { ConnectWalletButtonProp } from "types/ButtonTypes";
-import { useDispatch,useSelector } from "react-redux"
-import { setConnectWalletModal } from '@slices/modalSlice'
-import { RootState } from '@redux/store'
-import { alert } from '@helpers/alert'
+import { useDispatch, useSelector } from "react-redux";
+import { setConnectWalletModal } from "@slices/modalSlice";
+import { RootState } from "@redux/store";
+import { alert } from "@helpers/alert";
 import OutlineButton from "@components/shared/OutlineButton";
 
-export default function ConnectWalletButton({ style="" } : ConnectWalletButtonProp) {
-  const { connectWalletModalState } = useSelector((state:RootState) => state.modal)
-  const { hasWallet } = useSelector((state:RootState) => state.web3)
-  const dispatch = useDispatch()
+export default function ConnectWalletButton({
+  style = "",
+}: ConnectWalletButtonProp) {
+  const { connectWalletModalState } = useSelector(
+    (state: RootState) => state.modal
+  );
+  const { hasWallet } = useSelector((state: RootState) => state.web3);
+  const dispatch = useDispatch();
 
   function connectWalletHandler() {
-    if(!hasWallet){
-      alert("error","No Web 3.0 Wallet Detected")
+    if (!hasWallet) {
+      alert("error", "No Web 3.0 Wallet Detected");
       return;
     }
 
-    if(!connectWalletModalState){
-      dispatch(setConnectWalletModal(true))
+    if (!connectWalletModalState) {
+      dispatch(setConnectWalletModal(true));
       return;
     }
   }
@@ -26,5 +30,5 @@ export default function ConnectWalletButton({ style="" } : ConnectWalletButtonPr
     <OutlineButton style={style} clickHandler={connectWalletHandler}>
       Connect Wallet
     </OutlineButton>
-  )
+  );
 }

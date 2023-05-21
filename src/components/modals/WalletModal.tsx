@@ -16,27 +16,34 @@ import Divider from "@components/shared/Divider";
 
 export default function WalletModal() {
   const { account } = useSelector((state: RootState) => state.web3);
-  const { chainId,explorer } = useSelector((state: RootState) => state.network);
-  const [isRefreshing,setIsRefreshing] = useState(false)
+  const { chainId, explorer } = useSelector(
+    (state: RootState) => state.network
+  );
+  const [isRefreshing, setIsRefreshing] = useState(false);
   const dispatch = useDispatch();
   const web3 = useProvider();
 
-  useEffect(()=>{ if(isRefreshing) setTimeout(() => { setIsRefreshing(false) }, 250); },[isRefreshing])
+  useEffect(() => {
+    if (isRefreshing)
+      setTimeout(() => {
+        setIsRefreshing(false);
+      }, 250);
+  }, [isRefreshing]);
 
   function handleModalClose() {
     dispatch(setWalletModal(false));
   }
 
-  function handleRefresh(){
-    setIsRefreshing(true)
+  function handleRefresh() {
+    setIsRefreshing(true);
   }
 
-  function handleExplorer(){
-    if(!account || !window || !window.open) return
+  function handleExplorer() {
+    if (!account || !window || !window.open) return;
 
-    let explorerLink = `${explorer}/address/${account}`
+    let explorerLink = `${explorer}/address/${account}`;
 
-    window.open(explorerLink, '_blank')?.focus();
+    window.open(explorerLink, "_blank")?.focus();
   }
 
   return (
@@ -49,14 +56,25 @@ export default function WalletModal() {
       <ProviderContext.Provider value={web3}>
         <div className="w-full flex flex-col gap-xl">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3xs btn-animation" onClick={handleExplorer}>
-              <div className="i-ic-outline-person icon-size-7 text-secondary"/>
-              <h5 className="relative top-0.5 text-secondary">{accountNameShortener(account)}</h5>
+            <div
+              className="flex items-center gap-3xs btn-animation"
+              onClick={handleExplorer}
+            >
+              <div className="i-ic-outline-person icon-size-7 text-secondary" />
+              <h5 className="relative top-0.5 text-secondary">
+                {accountNameShortener(account)}
+              </h5>
             </div>
             <div className="flex gap-3xs">
               <div className="i-ic-outline-settings icon-size-5 btn-animation" />
-              <div className="i-ic-outline-refresh icon-size-5 btn-animation" onClick={handleRefresh} />
-              <div className="i-ic-outline-close icon-size-5 btn-animation" onClick={handleModalClose} />
+              <div
+                className="i-ic-outline-refresh icon-size-5 btn-animation"
+                onClick={handleRefresh}
+              />
+              <div
+                className="i-ic-outline-close icon-size-5 btn-animation"
+                onClick={handleModalClose}
+              />
             </div>
           </div>
           <Divider />
@@ -67,7 +85,7 @@ export default function WalletModal() {
           </div>
           <ComponentLoader isLoading={isRefreshing}>
             <div className="flex flex-col gap-3xs">
-              {WalletTokenList[chainId].map((token,index) => (
+              {WalletTokenList[chainId].map((token, index) => (
                 <WalletToken key={index} token={token} />
               ))}
             </div>
@@ -80,19 +98,21 @@ export default function WalletModal() {
   function accountNameShortener(account: string | undefined) {
     if (!account) return "";
 
-    return `${account.substring(0, 6)}...${account.substring(account.length - 5, account.length)
-      }`;
+    return `${account.substring(0, 6)}...${account.substring(
+      account.length - 5,
+      account.length
+    )}`;
   }
 }
 
 function WalletToken({ token }: { token: Token }) {
   const web3 = useContext(ProviderContext);
   const [balance, setBalance] = useState(0);
-  const [balanceLoading,setBalanceLoading] = useState(false)
+  const [balanceLoading, setBalanceLoading] = useState(false);
 
-  useEffect(()=>{ 
-    fetchBalance() 
-  },[token,web3])
+  useEffect(() => {
+    fetchBalance();
+  }, [token, web3]);
 
   return (
     <div className="flex gap-3xs items-center">
@@ -100,26 +120,26 @@ function WalletToken({ token }: { token: Token }) {
       <span className="text-sm grow">{token.name}</span>
       <TextLoader isLoading={balanceLoading}>
         <div className="flex items-center gap-3xs">
-          <span className="text-lg">{formatNumber(balance,0)}</span>
+          <span className="text-lg">{formatNumber(balance, 0)}</span>
           <span className="text-2xs self-end">({token.symbol})</span>
         </div>
       </TextLoader>
     </div>
   );
 
-  async function fetchBalance(){
-    if(!web3){
-      setBalance(0)
+  async function fetchBalance() {
+    if (!web3) {
+      setBalance(0);
       return;
     }
 
-    setBalanceLoading(true)
+    setBalanceLoading(true);
     try {
-      let balanceBN = await getUserTokenBalance(web3,token.address)
-      if(balanceBN) setBalance(formatAndParse18(balanceBN))
+      let balanceBN = await getUserTokenBalance(web3, token.address);
+      if (balanceBN) setBalance(formatAndParse18(balanceBN));
     } catch (e) {
-      console.log(e) 
+      console.log(e);
     }
-    setBalanceLoading(false)
+    setBalanceLoading(false);
   }
 }

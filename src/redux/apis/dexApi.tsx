@@ -31,7 +31,7 @@ export const dexApi = createApi({
 
     findPair: builder.query({
       query: ({ fromTokenSymbol, toTokenSymbol }: DexApiFindPairParameter) => ({
-        body: findPairQuery(fromTokenSymbol,toTokenSymbol),
+        body: findPairQuery(fromTokenSymbol, toTokenSymbol),
       }),
       transformResponse: (response: DexApiFindPairResponse) =>
         response.pairs[0] ?? undefined,
@@ -39,8 +39,5 @@ export const dexApi = createApi({
   }),
 });
 
-export const {
-  useGetPairsQuery,
-  useGetTokensPairsQuery,
-  useFindPairQuery,
-} = dexApi;
+export const { useGetPairsQuery, useGetTokensPairsQuery, useFindPairQuery } =
+  dexApi;

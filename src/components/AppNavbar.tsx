@@ -64,8 +64,12 @@ export default function AppNavbar() {
             </div>
 
             <div className="flex items-center gap-xs h-full">
-              <div className='hidden lg:block w-[12rem]'>{isConnected && <NetworkButton />}</div>
-              <div className='w-[12rem]'>{isConnected && account != null && <AccountButton />}</div>
+              <div className="hidden lg:block w-[12rem]">
+                {isConnected && <NetworkButton />}
+              </div>
+              <div className="w-[12rem]">
+                {isConnected && account != null && <AccountButton />}
+              </div>
             </div>
 
             {!isConnected && (

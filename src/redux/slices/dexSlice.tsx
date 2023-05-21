@@ -1,13 +1,13 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit"
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface SubgraphIndexType<TValue> {
-    [id: number]: TValue;
+  [id: number]: TValue;
 }
 
 export interface DexState {
-  subgraph : SubgraphIndexType<string>;
-  slippage: number,
-  deadline: number,
+  subgraph: SubgraphIndexType<string>;
+  slippage: number;
+  deadline: number;
 }
 
 const dexSlice = createSlice({
@@ -28,9 +28,8 @@ const dexSlice = createSlice({
       state.deadline = action.payload;
     },
   },
-})
+});
 
-export const { setSlippage,setDeadline } = dexSlice.actions;
+export const { setSlippage, setDeadline } = dexSlice.actions;
 
-export const dexReducer = dexSlice.reducer
-
+export const dexReducer = dexSlice.reducer;

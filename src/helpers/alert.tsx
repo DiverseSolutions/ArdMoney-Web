@@ -3,21 +3,21 @@ import ReactDOMServer from "react-dom/server";
 import { SweetAlertIcon, SweetAlertPosition } from "sweetalert2";
 import AlertLayout from "@layouts/AlertLayout";
 
-type AlertType = 'success' | 'error' | 'info';
+type AlertType = "success" | "error" | "info";
 
-export function alert(alertStyle: AlertType,content : string){
-  switch(alertStyle){
-    case 'success' :
-      alertSuccess(content)
+export function alert(alertStyle: AlertType, content: string) {
+  switch (alertStyle) {
+    case "success":
+      alertSuccess(content);
       break;
-    case 'error' :
-      alertError(content)
+    case "error":
+      alertError(content);
       break;
-    case 'info' :
-      alertInfo(content)
+    case "info":
+      alertInfo(content);
       break;
     default:
-      alertInfo(content)
+      alertInfo(content);
       break;
   }
 }
@@ -28,7 +28,7 @@ function alertSuccess(text: string) {
   let element = ReactDOMServer.renderToString(
     <AlertLayout>
       <div className="w-full text-secondary">{text}</div>
-    </AlertLayout>,
+    </AlertLayout>
   );
 
   options.html = element;
@@ -40,7 +40,7 @@ function alertError(text: string) {
   let element = ReactDOMServer.renderToString(
     <AlertLayout>
       <div className="w-full text-red-500">{text}</div>
-    </AlertLayout>,
+    </AlertLayout>
   );
 
   options.html = element;
@@ -53,7 +53,7 @@ function alertInfo(text: string) {
   let element = ReactDOMServer.renderToString(
     <AlertLayout>
       <div className="w-full text-primary">{text}</div>
-    </AlertLayout>,
+    </AlertLayout>
   );
 
   options.html = element;

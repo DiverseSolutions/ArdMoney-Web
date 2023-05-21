@@ -3,7 +3,7 @@ export interface window {
 }
 
 declare global {
-  interface Window{
+  interface Window {
     ethereum?: any;
   }
 }

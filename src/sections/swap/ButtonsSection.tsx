@@ -7,18 +7,16 @@ import { useSelector } from "react-redux";
 import { alert } from "@helpers/alert";
 import { approveSwapToken, swapTokens } from "@/helpers/contracts/router";
 import { Token } from "@constants/TokenList";
-import {
-  SwapPageActions as Actions,
-} from "@/reducers/swapReducer";
+import { SwapPageActions as Actions } from "@/reducers/swapReducer";
 
 type ButtonsSectionProp = {
-  fromToken: Token | undefined,
+  fromToken: Token | undefined;
   toToken: Token | undefined;
-  fromInput: number | string,
-  toInput: number | string,
-  minAmount: number,
-  dispatcher: any
-}
+  fromInput: number | string;
+  toInput: number | string;
+  minAmount: number;
+  dispatcher: any;
+};
 
 export default function ButtonsSection({
   fromToken,
@@ -27,64 +25,68 @@ export default function ButtonsSection({
   toInput,
   minAmount,
   dispatcher,
-} : ButtonsSectionProp) {
+}: ButtonsSectionProp) {
   const web3 = useContext(ProviderContext);
   const { isConnected } = useSelector((state: RootState) => state.web3);
   const { isConfigured } = useSelector((state: RootState) => state.network);
 
-  const [isApproveDisabled,setIsApproveDisabled] = useState(true)
-  const [isSwapDisabled,setIsSwapDisabled] = useState(true)
+  const [isApproveDisabled, setIsApproveDisabled] = useState(true);
+  const [isSwapDisabled, setIsSwapDisabled] = useState(true);
 
-  const [isApproveLoading,setIsApproveLoading] = useState(false)
-  const [isSwapLoading,setIsSwapLoading] = useState(false)
+  const [isApproveLoading, setIsApproveLoading] = useState(false);
+  const [isSwapLoading, setIsSwapLoading] = useState(false);
 
-  useEffect(()=>{
-    if(isEmpty(fromInput) && isEmpty(toInput)){
-      setIsApproveDisabled(true)
-      setIsSwapDisabled(true)
-    }else{
-      setIsApproveDisabled(false)
+  useEffect(() => {
+    if (isEmpty(fromInput) && isEmpty(toInput)) {
+      setIsApproveDisabled(true);
+      setIsSwapDisabled(true);
+    } else {
+      setIsApproveDisabled(false);
     }
-  },[fromInput,toInput])
+  }, [fromInput, toInput]);
 
   async function handleApprove() {
     if (isApproveDisabled || isApproveLoading || !fromToken) return;
 
-    setIsApproveLoading(true)
+    setIsApproveLoading(true);
     try {
-      const transaction = await approveSwapToken(web3,fromToken.address,parseFloat(fromInput.toString()))
-      await transaction.wait()
-      setIsApproveDisabled(true)
-      setIsSwapDisabled(false)
+      const transaction = await approveSwapToken(
+        web3,
+        fromToken.address,
+        parseFloat(fromInput.toString())
+      );
+      await transaction.wait();
+      setIsApproveDisabled(true);
+      setIsSwapDisabled(false);
       alert("success", "Successfully Approved");
-    } catch (e : any) {
+    } catch (e: any) {
       alert("error", e.message);
     }
-    setIsApproveLoading(false)
+    setIsApproveLoading(false);
   }
 
   async function handleSwap() {
     if (isSwapDisabled || isSwapLoading) return;
     if (!fromToken || !toToken) return;
 
-    setIsSwapLoading(true)
+    setIsSwapLoading(true);
     try {
-      let path = [fromToken.address,toToken.address]
-      let amount = parseFloat(fromInput.toString())
-      let tx = await swapTokens(web3,amount,minAmount,path)
-      await tx.wait()
+      let path = [fromToken.address, toToken.address];
+      let amount = parseFloat(fromInput.toString());
+      let tx = await swapTokens(web3, amount, minAmount, path);
+      await tx.wait();
 
-      setIsApproveDisabled(false)
-      setIsSwapDisabled(true)
+      setIsApproveDisabled(false);
+      setIsSwapDisabled(true);
       alert("success", "Successfully Swapped");
-      dispatcher(Actions.setFromInput(""))
-    } catch (e : any) {
+      dispatcher(Actions.setFromInput(""));
+    } catch (e: any) {
       alert("error", e.message);
     }
-    setIsSwapLoading(false)
+    setIsSwapLoading(false);
   }
 
-  if(!isConnected || !isConfigured) return (<></>)
+  if (!isConnected || !isConfigured) return <></>;
 
   return (
     <div className="flex flex-col gap-3xs">
@@ -92,18 +94,14 @@ export default function ButtonsSection({
         className={`btn ${isApproveDisabled && "btn-disabled"}`}
         onClick={handleApprove}
       >
-        <TextLoader isLoading={isApproveLoading}>
-          Approve
-        </TextLoader>
+        <TextLoader isLoading={isApproveLoading}>Approve</TextLoader>
       </div>
       <div
         className={`btn ${isSwapDisabled && "btn-disabled"}`}
         onClick={handleSwap}
       >
-        <TextLoader isLoading={isSwapLoading}>
-          Swap
-        </TextLoader>
+        <TextLoader isLoading={isSwapLoading}>Swap</TextLoader>
       </div>
     </div>
-  )
+  );
 }

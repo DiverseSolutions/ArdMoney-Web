@@ -1,16 +1,16 @@
-import { gql } from "graphql-request"
-import { SubgraphDexPair } from "types/QueryTypes"
+import { gql } from "graphql-request";
+import { SubgraphDexPair } from "types/QueryTypes";
 
 export interface DexApiFindPairResponse {
-  pairs: Array<SubgraphDexPair>
+  pairs: Array<SubgraphDexPair>;
 }
 
 export type DexApiFindPairParameter = {
-  fromTokenSymbol:string,
-  toTokenSymbol: string
-}
+  fromTokenSymbol: string;
+  toTokenSymbol: string;
+};
 
-export function findPairQuery(fromTokenSymbol:string,toTokenSymbol:string){
+export function findPairQuery(fromTokenSymbol: string, toTokenSymbol: string) {
   return gql`
     query {
         pairs(
@@ -45,6 +45,5 @@ export function findPairQuery(fromTokenSymbol:string,toTokenSymbol:string){
         volumeToken1
       }
     }
-  `
+  `;
 }
-

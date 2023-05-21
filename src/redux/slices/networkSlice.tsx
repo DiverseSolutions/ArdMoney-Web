@@ -1,26 +1,26 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export type NetworkState = {
-  isConfigured: boolean,
-  isTestNet: boolean,
-  isUnknown: boolean,
-  name: string,
-  chainId: number,
-  currency: string,
-  explorer: string,
-  logo: string,
-  faucet: string,
+  isConfigured: boolean;
+  isTestNet: boolean;
+  isUnknown: boolean;
+  name: string;
+  chainId: number;
+  currency: string;
+  explorer: string;
+  logo: string;
+  faucet: string;
 };
 
 export type Network = {
-  isConfigured: boolean,
-  isTestNet: boolean,
-  name: string,
-  chainId: number,
-  currency: string,
-  explorer: string,
-  logo: string,
-  faucet: string,
+  isConfigured: boolean;
+  isTestNet: boolean;
+  name: string;
+  chainId: number;
+  currency: string;
+  explorer: string;
+  logo: string;
+  faucet: string;
 };
 
 const networkSlice = createSlice({
@@ -56,6 +56,7 @@ const networkSlice = createSlice({
   },
 });
 
-export const { setNetwork,setNetworkConfigured,setNetworkUnknown } = networkSlice.actions;
+export const { setNetwork, setNetworkConfigured, setNetworkUnknown } =
+  networkSlice.actions;
 
 export const networkReducer = networkSlice.reducer;

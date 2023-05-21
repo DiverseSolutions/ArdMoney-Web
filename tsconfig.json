@@ -1,96 +1,48 @@
 {
-    "compilerOptions": {
-        "target": "ESNext",
-        "useDefineForClassFields": true,
-        "lib": [
-          "DOM",
-          "DOM.Iterable",
-          "ESNext"
-        ],
-        "baseUrl": "./",
-        "allowJs": false,
-        "skipLibCheck": true,
-        "esModuleInterop": false,
-        "allowSyntheticDefaultImports": true,
-        "strict": true,
-        "forceConsistentCasingInFileNames": true,
-        "module": "ESNext",
-        "moduleResolution": "Node",
-        "resolveJsonModule": true,
-        "isolatedModules": true,
-        "noEmit": true,
-        "jsx": "react-jsx",
-        "paths": {
-            "types/*": [
-                "src/types/*"
-            ],
-            "@enums/*": [
-                "src/enums/*"
-            ],
-            "@contexts/*": [
-                "src/contexts/*"
-            ],
-            "@sections/*": [
-                "src/sections/*"
-            ],
-            "@apis/*": [
-                "src/redux/apis/*"
-            ],
-            "@queries/*": [
-                "src/redux/queries/*"
-            ],
-            "@slices/*": [
-                "src/redux/slices/*"
-            ],
-            "@constants/*": [
-                "src/constants/*"
-            ],
-            "@assets/*": [
-                "src/assets/*"
-            ],
-            "@routes/*": [
-                "src/routes/*"
-            ],
-            "@/*": [
-                "src/*"
-            ],
-            "@abis/*": [
-                "src/abis/*"
-            ],
-            "@helpers/*": [
-                "src/helpers/*"
-            ],
-            "@hooks/*": [
-                "src/hooks/*"
-            ],
-            "@contracts/*": [
-                "src/contracts/*"
-            ],
-            "@locales/*": [
-                "src/locales/*"
-            ],
-            "@redux/*": [
-                "src/redux/*"
-            ],
-            "@components/*": [
-                "src/components/*"
-            ],
-            "@shared/*": [
-                "src/components/shared/*"
-            ],
-            "@layouts/*": [
-                "src/components/layouts/*"
-            ]
-        }
-    },
-    "include": [
-        "src",
-        "./main.tsx",
-        "declarations"
-    ],
-    "references": [
-        {
-            "path": "./tsconfig.node.json"
-        }
-    ]
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "baseUrl": "./",
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "paths": {
+      "types/*": ["src/types/*"],
+      "@enums/*": ["src/enums/*"],
+      "@contexts/*": ["src/contexts/*"],
+      "@sections/*": ["src/sections/*"],
+      "@apis/*": ["src/redux/apis/*"],
+      "@queries/*": ["src/redux/queries/*"],
+      "@slices/*": ["src/redux/slices/*"],
+      "@constants/*": ["src/constants/*"],
+      "@assets/*": ["src/assets/*"],
+      "@routes/*": ["src/routes/*"],
+      "@/*": ["src/*"],
+      "@abis/*": ["src/abis/*"],
+      "@helpers/*": ["src/helpers/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@contracts/*": ["src/contracts/*"],
+      "@locales/*": ["src/locales/*"],
+      "@redux/*": ["src/redux/*"],
+      "@components/*": ["src/components/*"],
+      "@shared/*": ["src/components/shared/*"],
+      "@layouts/*": ["src/components/layouts/*"]
+    }
+  },
+  "include": ["src", "./main.tsx", "declarations"],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }

@@ -1,8 +1,8 @@
-import { gql } from "graphql-request"
-import { SubgraphPairTokens } from "types/QueryTypes"
+import { gql } from "graphql-request";
+import { SubgraphPairTokens } from "types/QueryTypes";
 
 export interface DexApiTokenPairsResponse {
-  tokens: Array<SubgraphPairTokens>
+  tokens: Array<SubgraphPairTokens>;
 }
 
 export const tokenPairsQuery = gql`
@@ -36,4 +36,4 @@ export const tokenPairsQuery = gql`
       }
     }
   }
-`
+`;

@@ -1,11 +1,11 @@
 import { PageContainerType } from "types/ContainerTypes";
 
-export default function PageContainer({children} : PageContainerType) {
+export default function PageContainer({ children }: PageContainerType) {
   return (
-    <div className='relative flex overflow-hidden items-center flex-col w-full bg-black min-h-screen h-full'>
+    <div className="relative flex overflow-hidden items-center flex-col w-full bg-black min-h-screen h-full">
       <div className="flex flex-col justify-center w-full max-w-6xl h-auto md:my-16 text-white px-base">
         {children}
       </div>
     </div>
-  )
+  );
 }

@@ -10,7 +10,7 @@ import moment from "moment";
 export async function getTokenRate(
   token: Token,
   path: Array<String>,
-  web3: ProviderContextType | undefined,
+  web3: ProviderContextType | undefined
 ) {
   if (!web3) return;
   if (!web3.provider) return;
@@ -21,11 +21,11 @@ export async function getTokenRate(
     let contract = await getReadContract(
       web3,
       web3Slice.contracts.router[networkSlice.chainId],
-      RouterABI,
+      RouterABI
     );
     let [, fromTokenRateBN] = await contract.getAmountsOut(
       parse(1, token.decimals),
-      path,
+      path
     );
 
     return fromTokenRateBN;
@@ -37,18 +37,18 @@ export async function getTokenRate(
 export async function approveSwapToken(
   web3: ProviderContextType | undefined,
   tokenAddress: string,
-  amount: number,
+  amount: number
 ) {
   if (!web3) return;
   if (!web3.provider) return;
 
   let { web3: web3Slice, network: networkSlice }: RootState = store.getState();
 
-  let contract = await getWriteContract(web3,tokenAddress,TokenABI)
-  let routerAddress = web3Slice.contracts.router[networkSlice.chainId]
-  let amountBN = parse18(amount)
+  let contract = await getWriteContract(web3, tokenAddress, TokenABI);
+  let routerAddress = web3Slice.contracts.router[networkSlice.chainId];
+  let amountBN = parse18(amount);
 
-  let tx = await contract.approve(routerAddress,amountBN)
+  let tx = await contract.approve(routerAddress, amountBN);
 
   return tx;
 }
@@ -57,28 +57,40 @@ export async function swapTokens(
   web3: ProviderContextType | undefined,
   fromAmount: number,
   minAmount: number,
-  path: Array<string>,
+  path: Array<string>
 ) {
   if (!web3) return;
   if (!web3.provider) return;
 
-  let { web3: web3Slice, network: networkSlice, dex: dexSlice }: RootState = store.getState();
+  let {
+    web3: web3Slice,
+    network: networkSlice,
+    dex: dexSlice,
+  }: RootState = store.getState();
 
-  let routerAddress = web3Slice.contracts.router[networkSlice.chainId]
-  let router = await getWriteContract(web3,routerAddress,RouterABI)
+  let routerAddress = web3Slice.contracts.router[networkSlice.chainId];
+  let router = await getWriteContract(web3, routerAddress, RouterABI);
 
-  let currentBlock = await web3.provider.getBlockNumber()
-  let providerTx = await web3.provider.getBlock(currentBlock)
+  let currentBlock = await web3.provider.getBlockNumber();
+  let providerTx = await web3.provider.getBlock(currentBlock);
 
-  let currentBlockTimeStamp = providerTx?.timestamp ?? 0
-  let deadlineBlockTime = moment.unix(currentBlockTimeStamp).add(dexSlice.deadline.toString(), "m")
-  let deadline = deadlineBlockTime.unix()
+  let currentBlockTimeStamp = providerTx?.timestamp ?? 0;
+  let deadlineBlockTime = moment
+    .unix(currentBlockTimeStamp)
+    .add(dexSlice.deadline.toString(), "m");
+  let deadline = deadlineBlockTime.unix();
 
-  let minAmountWei = parse18(minAmount)
-  let fromAmountWei = parse18(fromAmount)
-  let account = web3Slice.account
+  let minAmountWei = parse18(minAmount);
+  let fromAmountWei = parse18(fromAmount);
+  let account = web3Slice.account;
 
-  const tx = await router.swapExactTokensForTokens(fromAmountWei, minAmountWei, path, account, deadline)
+  const tx = await router.swapExactTokensForTokens(
+    fromAmountWei,
+    minAmountWei,
+    path,
+    account,
+    deadline
+  );
 
-  return tx
+  return tx;
 }

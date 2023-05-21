@@ -12,9 +12,12 @@ type PriceImpactSectionProp = {
   toInput: string | number;
 };
 
-export default function PriceImpactSection(
-  { fromToken, toToken, toInput, fromInput }: PriceImpactSectionProp,
-) {
+export default function PriceImpactSection({
+  fromToken,
+  toToken,
+  toInput,
+  fromInput,
+}: PriceImpactSectionProp) {
   if (!fromToken || !toToken || isEmpty(toInput) || isEmpty(fromInput)) {
     return (
       <span>
@@ -23,12 +26,12 @@ export default function PriceImpactSection(
     );
   }
 
-  const { data: pair,isLoading: pairIsFinding } = dexApi.useFindPairQuery({
+  const { data: pair, isLoading: pairIsFinding } = dexApi.useFindPairQuery({
     fromTokenSymbol: fromToken.symbol,
     toTokenSymbol: toToken.symbol,
   });
 
-  const priceImpact = useMemo<number>(calculatePriceImpact, [ pair, toInput]);
+  const priceImpact = useMemo<number>(calculatePriceImpact, [pair, toInput]);
 
   return (
     <span>
@@ -44,8 +47,10 @@ export default function PriceImpactSection(
     if (!fromToken || !toToken) return 0;
     if (isString(toInput) || isString(fromInput)) return 0;
 
-    let baseTokenReserve = pair.token0.symbol == fromToken.symbol ? pair.reserve0 : pair.reserve1
-    let quoteTokenReserve = pair.token0.symbol == toToken.symbol ? pair.reserve0 : pair.reserve1
+    let baseTokenReserve =
+      pair.token0.symbol == fromToken.symbol ? pair.reserve0 : pair.reserve1;
+    let quoteTokenReserve =
+      pair.token0.symbol == toToken.symbol ? pair.reserve0 : pair.reserve1;
 
     let nowBaseReserve = parseFloat(baseTokenReserve);
     let nowQuoteReserve = parseFloat(quoteTokenReserve);
@@ -54,12 +59,15 @@ export default function PriceImpactSection(
     let newBaseReserve = nowBaseReserve + fromInput;
     let newQuoteReserve = constant / newBaseReserve;
 
-    let baseTokenPrice = pair.token0.symbol == toToken.symbol ? pair.token0Price : pair.token1Price
+    let baseTokenPrice =
+      pair.token0.symbol == toToken.symbol
+        ? pair.token0Price
+        : pair.token1Price;
 
     let oldPrice = parseFloat(baseTokenPrice);
     let newPrice = newQuoteReserve / newBaseReserve;
 
-    let result = 1 - (oldPrice / newPrice);
+    let result = 1 - oldPrice / newPrice;
 
     return result;
   }

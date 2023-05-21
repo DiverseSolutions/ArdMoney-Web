@@ -3,18 +3,18 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 export type ProviderType = "metamask" | "web" | "default";
 
 interface ContractsIndexType<TValue> {
-    [id: number]: TValue;
+  [id: number]: TValue;
 }
 
 export type Web3State = {
   hasWallet: boolean;
   isConnected: boolean;
   account: string | undefined;
-  defaultRpc: string,
+  defaultRpc: string;
   contracts: {
-    router: ContractsIndexType<string>,
-  },
-  providerType: ProviderType,
+    router: ContractsIndexType<string>;
+  };
+  providerType: ProviderType;
 };
 
 const web3Slice = createSlice({
@@ -23,12 +23,12 @@ const web3Slice = createSlice({
     hasWallet: false,
     isConnected: false,
     account: undefined,
-    defaultRpc : "https://bscrpc.com",
+    defaultRpc: "https://bscrpc.com",
     providerType: "default",
     contracts: {
       router: {
-        56 : "0x21710E02f466ee8a83B4467Bd7b0f42bdaEF7452",
-        97 : "",
+        56: "0x21710E02f466ee8a83B4467Bd7b0f42bdaEF7452",
+        97: "",
       },
     },
   } as Web3State,
@@ -48,6 +48,11 @@ const web3Slice = createSlice({
   },
 });
 
-export const { setWeb3Connection,setWeb3Account,setHasWeb3Wallet,setProviderType } = web3Slice.actions;
+export const {
+  setWeb3Connection,
+  setWeb3Account,
+  setHasWeb3Wallet,
+  setProviderType,
+} = web3Slice.actions;
 
 export const web3Reducer = web3Slice.reducer;

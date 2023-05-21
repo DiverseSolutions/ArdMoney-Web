@@ -1,11 +1,11 @@
 export interface window {
   ethereum: any;
-  metamaskWallet? : any;
+  metamaskWallet?: any;
 }
 
 declare global {
-  interface Window{
+  interface Window {
     ethereum?: any;
-    metamaskWallet? : any;
+    metamaskWallet?: any;
   }
 }

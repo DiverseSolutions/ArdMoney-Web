@@ -1,10 +1,10 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit"
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface ModalState {
-  connectWalletModalState: boolean,
-  networkModalState: boolean,
-  walletModalState: boolean,
-  swapSettingsModalState: boolean,
+  connectWalletModalState: boolean;
+  networkModalState: boolean;
+  walletModalState: boolean;
+  swapSettingsModalState: boolean;
 }
 
 const modalSlice = createSlice({
@@ -17,26 +17,25 @@ const modalSlice = createSlice({
   } as ModalState,
   reducers: {
     setConnectWalletModal: (state, action: PayloadAction<boolean>) => {
-      state.connectWalletModalState = action.payload
+      state.connectWalletModalState = action.payload;
     },
     setNetworkModal: (state, action: PayloadAction<boolean>) => {
-      state.networkModalState = action.payload
+      state.networkModalState = action.payload;
     },
     setWalletModal: (state, action: PayloadAction<boolean>) => {
-      state.walletModalState = action.payload
+      state.walletModalState = action.payload;
     },
     setSwapSettingsModal: (state, action: PayloadAction<boolean>) => {
-      state.swapSettingsModalState = action.payload
-    }
+      state.swapSettingsModalState = action.payload;
+    },
   },
-})
-
+});
 
 export const {
   setConnectWalletModal,
   setNetworkModal,
   setWalletModal,
   setSwapSettingsModal,
-} = modalSlice.actions
+} = modalSlice.actions;
 
-export const modalReducer = modalSlice.reducer
+export const modalReducer = modalSlice.reducer;

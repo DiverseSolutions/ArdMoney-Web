@@ -8,7 +8,12 @@ import WalletModal from "@components/modals/WalletModal";
 import SwapSettingsModal from "../modals/SwapSettingsModal";
 
 export default function ModalCheck({ children }: DefaultCheckProp) {
-  const { connectWalletModalState, networkModalState,walletModalState,swapSettingsModalState } = useSelector(( state: RootState,) => state.modal);
+  const {
+    connectWalletModalState,
+    networkModalState,
+    walletModalState,
+    swapSettingsModalState,
+  } = useSelector((state: RootState) => state.modal);
 
   return (
     <>

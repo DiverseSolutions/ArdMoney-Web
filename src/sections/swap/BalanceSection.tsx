@@ -1,4 +1,4 @@
-import { Token } from "@constants/TokenList"
+import { Token } from "@constants/TokenList";
 import { useContext, useEffect, useState } from "react";
 import { formatAndParse18 } from "@/helpers/web3";
 import { formatNumber } from "@/helpers/numbers";
@@ -9,43 +9,43 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 
 type SectionProp = {
-  token: Token | undefined
-}
+  token: Token | undefined;
+};
 
 export default function BalanceSection({ token }: SectionProp) {
   const web3 = useContext(ProviderContext);
   const web3Slice = useSelector((state: RootState) => state.web3);
-  const [balance,setBalance] = useState(0)
-  const [balanceLoading,setBalanceLoading] = useState(false)
+  const [balance, setBalance] = useState(0);
+  const [balanceLoading, setBalanceLoading] = useState(false);
 
-  useEffect(()=>{ 
-    fetchBalance() 
-  },[token,web3])
+  useEffect(() => {
+    fetchBalance();
+  }, [token, web3]);
 
-  async function fetchBalance(){
-    if(!token || !web3){
-      setBalance(0)
+  async function fetchBalance() {
+    if (!token || !web3) {
+      setBalance(0);
       return;
     }
 
-    setBalanceLoading(true)
+    setBalanceLoading(true);
     try {
-      let balanceBN = await getUserTokenBalance(web3,token.address)
-      if(balanceBN) setBalance(formatAndParse18(balanceBN))
+      let balanceBN = await getUserTokenBalance(web3, token.address);
+      if (balanceBN) setBalance(formatAndParse18(balanceBN));
     } catch (e) {
-      console.log(e) 
+      console.log(e);
     }
-    setBalanceLoading(false)
+    setBalanceLoading(false);
   }
 
   return (
-    <TextLoader isLoading={balanceLoading} style="icon-size-5 mr-2" >
-      { web3Slice.providerType != "default" && (
+    <TextLoader isLoading={balanceLoading} style="icon-size-5 mr-2">
+      {web3Slice.providerType != "default" && (
         <div className="flex gap-1 text-white items-center mr-2">
           <div className="i-ic-outline-account-balance-wallet icon-size-4" />
           <span className="relative top-0.5">{formatNumber(balance)}</span>
         </div>
       )}
     </TextLoader>
-  )
+  );
 }

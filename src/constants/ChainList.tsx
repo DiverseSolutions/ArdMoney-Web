@@ -14,9 +14,7 @@ export const SupportedChainList: Array<Chain> = [
   {
     name: ["BNB Chain", "BSC", "BSC Mainnet"],
     chainId: 56,
-    rpc: [
-      "https://bsc-dataseed1.ninicoin.io",
-    ],
+    rpc: ["https://bsc-dataseed1.ninicoin.io"],
     faucets: [],
     currency: "BNB",
     explorers: ["https://bscscan.com"],
@@ -26,16 +24,11 @@ export const SupportedChainList: Array<Chain> = [
   {
     name: ["BNB Testnet", "BSC Testnet"],
     chainId: 97,
-    rpc: [
-      "https://data-seed-prebsc-1-s1.binance.org:8545",
-    ],
-    faucets: [
-      "https://testnet.binance.org/faucet-smart",
-    ],
+    rpc: ["https://data-seed-prebsc-1-s1.binance.org:8545"],
+    faucets: ["https://testnet.binance.org/faucet-smart"],
     currency: "BNB",
     explorers: ["https://testnet.bscscan.com"],
     logos: ["https://cryptologos.cc/logos/bnb-bnb-logo.png?v=022"],
     isTestNet: true,
   },
-
-]
+];

@@ -12,7 +12,7 @@ export type SwapPageState = {
   fromInput: number | string;
 
   rate: number;
-  pair: SubgraphDexPair | undefined,
+  pair: SubgraphDexPair | undefined;
 
   isMoreInfoOpen: boolean;
 };
@@ -38,32 +38,32 @@ const swapPageSlice = createSlice({
   } as SwapPageState,
   reducers: {
     setFromToken: (state, action: PayloadAction<Token | undefined>) => {
-      state.fromToken = action.payload
+      state.fromToken = action.payload;
     },
     setToToken: (state, action: PayloadAction<Token | undefined>) => {
-      state.toToken = action.payload
+      state.toToken = action.payload;
     },
     setFromModal: (state, action: PayloadAction<boolean>) => {
-      state.fromModal = action.payload
+      state.fromModal = action.payload;
     },
     setToModal: (state, action: PayloadAction<boolean>) => {
-      state.toModal = action.payload
+      state.toModal = action.payload;
     },
     setFromInput: (state, action: PayloadAction<string | number>) => {
-      state.fromInput = action.payload
+      state.fromInput = action.payload;
     },
     setRate: (state, action: PayloadAction<number>) => {
-      state.rate = action.payload
+      state.rate = action.payload;
     },
     setSwapMoreInfoCollapsible: (state, action: PayloadAction<boolean>) => {
-      state.isMoreInfoOpen = action.payload
+      state.isMoreInfoOpen = action.payload;
     },
     setPair: (state, action: PayloadAction<SubgraphDexPair | undefined>) => {
-      state.pair = action.payload
+      state.pair = action.payload;
     },
   },
-})
+});
 
-export const swapReducer = swapPageSlice.reducer
-export const swapInitialState = swapPageSlice.getInitialState()
-export const SwapPageActions = { ...swapPageSlice.actions }
+export const swapReducer = swapPageSlice.reducer;
+export const swapInitialState = swapPageSlice.getInitialState();
+export const SwapPageActions = { ...swapPageSlice.actions };

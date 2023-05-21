@@ -44,7 +44,6 @@ import { Eip1193Bridge } from "@ethersproject/experimental";
 //   window.ardMoneyWallet = ardMoneyObject;
 // }
 
-export async function injectQuickDemo() {
-}
+export async function injectQuickDemo() {}
 
-export { };
+export {};

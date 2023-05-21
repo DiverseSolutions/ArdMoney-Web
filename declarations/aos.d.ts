@@ -1,3 +1,3 @@
-declare module 'aos' {
-    export function init();
-} 
+declare module "aos" {
+  export function init();
+}

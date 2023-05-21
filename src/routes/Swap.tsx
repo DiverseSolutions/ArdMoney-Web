@@ -41,7 +41,7 @@ import ButtonsSection from "@sections/swap/ButtonsSection";
 import { setSwapSettingsModal } from "@slices/modalSlice";
 
 export default function Swap() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const {
     data: pairs,
@@ -62,15 +62,7 @@ export default function Swap() {
   const { isUnknown } = useSelector((state: RootState) => state.network);
 
   const [
-    {
-      fromToken,
-      fromInput,
-      toToken,
-      fromModal,
-      toModal,
-      rate,
-      isMoreInfoOpen,
-    },
+    { fromToken, fromInput, toToken, fromModal, toModal, rate, isMoreInfoOpen },
     dispatcher,
   ] = useReducer(swapReducer, swapInitialState);
 
@@ -130,7 +122,12 @@ export default function Swap() {
               <span className="font-lg">Swap</span>
             </div>
             <div>
-              <button className="btn-animation p-2 border border-white/10 rounded-md" onClick={() => { dispatch(setSwapSettingsModal(true)) }}>
+              <button
+                className="btn-animation p-2 border border-white/10 rounded-md"
+                onClick={() => {
+                  dispatch(setSwapSettingsModal(true));
+                }}
+              >
                 <div className="i-ic-outline-settings icon-size-5" />
               </button>
             </div>
@@ -200,7 +197,8 @@ export default function Swap() {
           <Collapsible
             open={isMoreInfoOpen}
             onOpenChange={(state) =>
-              dispatcher(Actions.setSwapMoreInfoCollapsible(state))}
+              dispatcher(Actions.setSwapMoreInfoCollapsible(state))
+            }
           >
             <div className="flex justify-between w-full mb-lg">
               <div className="flex items-center text-sm gap-xs">
@@ -217,17 +215,15 @@ export default function Swap() {
               </div>
               <CollapsibleTrigger>
                 <div className="btn-animation p-2 border border-white/10 rounded-md">
-                  {isMoreInfoOpen
-                    ? (
-                      <div
-                        className={`i-ic-outline-keyboard-arrow-up text-white icon-size-5`}
-                      />
-                    )
-                    : (
-                      <div
-                        className={`i-ic-outline-keyboard-arrow-down text-white icon-size-5`}
-                      />
-                    )}
+                  {isMoreInfoOpen ? (
+                    <div
+                      className={`i-ic-outline-keyboard-arrow-up text-white icon-size-5`}
+                    />
+                  ) : (
+                    <div
+                      className={`i-ic-outline-keyboard-arrow-down text-white icon-size-5`}
+                    />
+                  )}
                 </div>
               </CollapsibleTrigger>
             </div>
@@ -368,8 +364,7 @@ export default function Swap() {
     if (fromInput != "" && toInput != "") {
       let amountOut = parseFloat(toInput.toString());
       let slippageTolerancePercentage = slippage;
-      let result = amountOut -
-        ((amountOut * slippageTolerancePercentage) / 100);
+      let result = amountOut - (amountOut * slippageTolerancePercentage) / 100;
       return result;
     }
 

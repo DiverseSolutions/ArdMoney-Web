@@ -1,3 +1,3 @@
 export type DefaultCheckProp = {
-  children?: React.ReactNode,
+  children?: React.ReactNode;
 };

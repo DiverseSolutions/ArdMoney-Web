@@ -36,11 +36,14 @@ export default function NetworkModal() {
   }
 
   return (
-    <ModalLayout alignment="right" handleModalClose={handleModalClose} >
+    <ModalLayout alignment="right" handleModalClose={handleModalClose}>
       <div className="flex flex-col gap-xl w-full">
         <div className="flex items-center justify-between gap-0">
           <h5>Choose Chain</h5>
-          <div className="i-ic-outline-close icon-size-5 btn-animation" onClick={handleModalClose} />
+          <div
+            className="i-ic-outline-close icon-size-5 btn-animation"
+            onClick={handleModalClose}
+          />
         </div>
         <Divider />
         <div className="grid gap-3xs grid-cols-1">

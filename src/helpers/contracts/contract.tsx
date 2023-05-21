@@ -4,7 +4,7 @@ import { ProviderContextType } from "@contexts/ProviderContext";
 export async function getReadContract(
   web3: ProviderContextType,
   address: string,
-  abi: Array<string>,
+  abi: Array<string>
 ) {
   let readContract = new Contract(address, abi, web3.provider);
 
@@ -14,7 +14,7 @@ export async function getReadContract(
 export async function getWriteContract(
   web3: ProviderContextType,
   address: string,
-  abi: Array<string>,
+  abi: Array<string>
 ) {
   let readContract = new Contract(address, abi, web3.signer);
 
