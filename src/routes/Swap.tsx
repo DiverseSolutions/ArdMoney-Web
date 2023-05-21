@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 import { RootState } from "@redux/store";
 import { FormEvent, useEffect, useMemo, useReducer } from "react";
 
@@ -42,6 +43,7 @@ import { setSwapSettingsModal } from "@slices/modalSlice";
 
 export default function Swap() {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const {
     data: pairs,
@@ -119,7 +121,7 @@ export default function Swap() {
               >
                 <div className="i-ic-outline-refresh icon-size-5" />
               </button>
-              <span className="font-lg">Swap</span>
+              <span className="font-lg">{t("swap:swap")}</span>
             </div>
             <div>
               <button
@@ -133,7 +135,7 @@ export default function Swap() {
             </div>
           </div>
           <div className="flex justify-between w-full text-white/60 text-sm mb-base">
-            <span>You send</span>
+            <span>{t("swap:send")}</span>
             <BalanceSection token={fromToken} />
           </div>
           <div className="flex justify-between items-center w-full border border-primary/20 rounded-lg text-white p-sm mb-sm">
@@ -171,7 +173,7 @@ export default function Swap() {
           </div>
 
           <div className="flex justify-between w-full text-white/60 text-sm mb-base">
-            <span>You recieve</span>
+            <span>{t("swap:receive")}</span>
           </div>
 
           <div className="flex justify-between items-center w-full border border-primary/20 rounded-lg text-white p-sm mb-sm">
@@ -233,14 +235,14 @@ export default function Swap() {
                 <div className="flex gap-3xs py-3xs px-base items-center text-sm border-b border-primary/20">
                   <div className="i-ic-outline-info icon-size-4 text-light-secondary" />
                   <p className="grow text-xs text-light-secondary">
-                    Minimum Receive
+                    {t("swap:minReceive")}
                   </p>
                   <span>{formatNumber(minAmount ?? 0, 3, 0)}</span>
                 </div>
                 <div className="flex gap-3xs py-3xs px-base items-center text-sm border-b border-primary/20">
                   <div className="i-ic-outline-info icon-size-4 text-light-secondary" />
                   <p className="grow text-xs text-light-secondary">
-                    Price Impact
+                    {t("swap:priceImpact")}
                   </p>
                   <PriceImpactSection
                     fromInput={fromInput}
@@ -252,7 +254,7 @@ export default function Swap() {
                 <div className="flex gap-3xs py-3xs px-base items-center text-sm border-b border-primary/20">
                   <div className="i-ic-outline-info icon-size-4 text-light-secondary" />
                   <p className="grow text-xs text-light-secondary">
-                    Slippage Tolerance
+                    {t("swap:slippageTolarance")}
                   </p>
                   <span>
                     10<span className="text-2xs pl-1 relative top-0.5">%</span>
@@ -260,7 +262,9 @@ export default function Swap() {
                 </div>
                 <div className="flex gap-3xs py-3xs px-base items-center text-sm">
                   <div className="i-ic-outline-info icon-size-4 text-light-secondary" />
-                  <p className="grow text-xs text-light-secondary">Swap Fee</p>
+                  <p className="grow text-xs text-light-secondary">
+                    {t("swap:fee")}
+                  </p>
                   <span>
                     0.3<span className="text-2xs pl-1 relative top-0.5">%</span>
                   </span>

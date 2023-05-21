@@ -1,4 +1,5 @@
 import TextLoader from "@/components/shared/TextLoader";
+import { useTranslation } from "react-i18next";
 import { RootState } from "@/redux/store";
 import { ProviderContext } from "@contexts/ProviderContext";
 import { isEmpty } from "radash";
@@ -26,6 +27,7 @@ export default function ButtonsSection({
   minAmount,
   dispatcher,
 }: ButtonsSectionProp) {
+  const { t } = useTranslation();
   const web3 = useContext(ProviderContext);
   const { isConnected } = useSelector((state: RootState) => state.web3);
   const { isConfigured } = useSelector((state: RootState) => state.network);
@@ -94,13 +96,17 @@ export default function ButtonsSection({
         className={`btn ${isApproveDisabled && "btn-disabled"}`}
         onClick={handleApprove}
       >
-        <TextLoader isLoading={isApproveLoading}>Approve</TextLoader>
+        <TextLoader isLoading={isApproveLoading}>
+          {t("swap:approveButton")}
+        </TextLoader>
       </div>
       <div
         className={`btn ${isSwapDisabled && "btn-disabled"}`}
         onClick={handleSwap}
       >
-        <TextLoader isLoading={isSwapLoading}>Swap</TextLoader>
+        <TextLoader isLoading={isSwapLoading}>
+          {t("swap:swapButton")}
+        </TextLoader>
       </div>
     </div>
   );

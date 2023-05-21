@@ -1,0 +1,11 @@
+{
+  "swap": "Swap",
+  "send": "You send",
+  "receive": "You receive",
+  "minReceive": "Minimum Receive",
+  "priceImpact": "Price Impact",
+  "slippageTolarance": "Slippage Tolerance",
+  "fee": "Swap Fee",
+  "approveButton": "Approve",
+  "swapButton": "Swap"
+}
