@@ -57,7 +57,7 @@ export default function SwapSettingsModal() {
 
   return (
     <ModalLayout handleModalClose={handleModalClose}>
-      <div className="mt-5xl min-w-[423px] max-w-[423px] flex flex-col gap-base">
+      <div className="md:mt-5xl min-w-[300px] md:min-w-[423px] max-w-[423px] flex flex-col gap-base">
         <div className="flex justify-between items-center">
           <h5>Swap Settings</h5>
           <button
