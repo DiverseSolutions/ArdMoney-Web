@@ -4,10 +4,6 @@ import LogoIcon from "@assets/icons/LogoIcon";
 import Menu from "@assets/home/menu.png";
 import Cancel from "@assets/icons/cancel.svg";
 import Copyright from "@assets/home/dark_copyright.svg";
-import Discord from "@assets/social/dark_discord.svg";
-import Facebook from "@assets/social/dark_facebook.svg";
-import Medium from "@assets/social/dark_medium.svg";
-import Instagram from "@assets/social/dark_instagram.svg";
 import MobileClouds from "@assets/home/mobile_clouds.svg";
 
 import ConnectWalletButton from "@components/web3/ConnectWalletButton";
@@ -119,28 +115,28 @@ export default function AppNavbar() {
                 target={"_blank"}
                 className="w-6 h-6"
               >
-                <img src={Medium} alt="image" className="object-cover" />
+                <div className="i-fa-brands-medium icon-size-6" />
               </a>
               <a
                 href="https://www.instagram.com/ard.money/?next=%2F"
                 target={"_blank"}
                 className="w-6 h-6"
               >
-                <img src={Instagram} className="object-cover" alt="image" />
+                <div className="i-fa-brands-instagram icon-size-6" />
               </a>
               <a
                 href="https://www.facebook.com/search/top?q=ardmoney"
                 target={"_blank"}
                 className="w-6 h-6"
               >
-                <img src={Facebook} className="object-cover" alt="image" />
+                <div className="i-fa-brands-facebook icon-size-6" />
               </a>
               <a
                 href="https://discord.com/invite/xNWX76eg"
                 target={"_blank"}
                 className="w-6 h-6"
               >
-                <img src={Discord} className="object-cover" alt="image" />
+                <div className="i-fa-brands-discord icon-size-7" />
               </a>
             </div>
             <div className="flex gap-sm p-base w-full">
