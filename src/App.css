@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
   font-family: PP Neue Machina;
   src: url("/fonts/PPNeueMachina-PlainLight.otf");
   font-weight: 300;
@@ -17,25 +17,25 @@
   src: url("/fonts/PPNeueMachina-PlainUltrabold.otf");
   font-weight: 600;
   font-style: normal;
-}
+} */
 
 @font-face {
-  font-family: Toroka;
-  src: url("/fonts/Toroka-Light.otf");
+  font-family: Averta;
+  src: url("/fonts/Averta Cyrillic Light.otf");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
-  font-family: Toroka;
-  src: url("/fonts/Toroka-Regular.otf");
+  font-family: Averta;
+  src: url("/fonts/Averta Cyrillic Regular.otf");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: Toroka;
-  src: url("/fonts/Toroka-Black.otf");
+  font-family: Averta;
+  src: url("/fonts/Averta Cyrillic Black.otf");
   font-weight: 600;
   font-style: normal;
 }

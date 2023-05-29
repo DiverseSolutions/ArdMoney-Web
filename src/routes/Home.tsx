@@ -33,7 +33,8 @@ export default function Home() {
           {t("home:miniTitle")}
         </div>
         <div className="flex flex-col text-xl md:text-4xl font-extrabold">
-          <span>{t("home:title")}</span>
+          <span>{t("home:titleRow1")}</span>
+          <span>{t("home:titleRow2")}</span>
           {/* <span>Without Boundaries</span> */}
         </div>
         <div className="flex items-center justify-center w-full gap-base">
@@ -68,7 +69,7 @@ export default function Home() {
       <Section style="md:mt-layout-xl">
         <div
           data-aos="fade-up"
-          data-aos-delay="800"
+          data-aos-delay="100"
           className="grid grid-cols-2 md:grid-cols-4 z-30"
         >
           <div className="flex flex-col text-center p-base font-extrabold">
@@ -492,7 +493,7 @@ const faqs = [
     subtitle: "By the people. For the people.",
     description:
       "Ardmoney is fully democratized and is governed by its token holders which ensures the protocol serves the best interest of the people.",
-    url: "https://www.youtube.com/embed/Wfc6AJVA8O4",
+    url: "https://www.youtube.com/embed/LunQ1Z_VCC8",
   },
   {
     id: 2,
@@ -500,7 +501,7 @@ const faqs = [
     subtitle: "By the people. For the people.",
     description:
       "Ardmoney is fully democratized and is governed by its token holders which ensures the protocol serves the best interest of the people.",
-    url: "https://www.youtube.com/embed/3HESogLqS2Q",
+    url: "https://www.youtube.com/embed/fhoppX1HZBY",
   },
   {
     id: 3,
@@ -508,6 +509,6 @@ const faqs = [
     subtitle: "By the people. For the people.",
     description:
       "Ardmoney is fully democratized and is governed by its token holders which ensures the protocol serves the best interest of the people.",
-    url: "https://www.youtube.com/embed/0HMA_y4V_Qo",
+    url: "https://www.youtube.com/embed/1mZfGApXaUM",
   },
 ];

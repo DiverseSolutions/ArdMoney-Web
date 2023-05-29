@@ -3,7 +3,7 @@ const footers = [
   { text: "Testnet", link: "https://faucet.dsolutions.mn/" },
   {
     text: "What is ARDM?",
-    link: "https://www.youtube.com/watch?v=Wfc6AJVA8O4",
+    link: "https://www.youtube.com/@ArdMoney-Official",
   },
   { text: "Apply for Listing", link: "mailto:info@ardmoney.com" },
   {
@@ -29,10 +29,10 @@ export default function Footer() {
           <div className="flex whitespace-nowrap gap-2 text-white text-sm sm:text-xs lg:text-sm">
             <span className="text-light-secondary">For inquiries: </span>
             <a
-              href="mailto:info@ardmoney.com"
+              href="mailto:info@dsolutions.mn"
               className="underline cursor-pointer"
             >
-              info@ardmoney.com
+              info@dsolutions.mn
             </a>
           </div>
         </div>
@@ -62,8 +62,11 @@ export default function Footer() {
             >
               <div className="i-fa-brands-facebook icon-size-6" />
             </a>
-            <a href="https://discord.com/invite/xNWX76eg" target={"_blank"}>
-              <div className="i-fa-brands-discord icon-size-7" />
+            <a
+              href="https://www.youtube.com/@ArdMoney-Official"
+              target={"_blank"}
+            >
+              <div className="i-fa-brands-youtube icon-size-7" />
             </a>
           </div>
         </div>
