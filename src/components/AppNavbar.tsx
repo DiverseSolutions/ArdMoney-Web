@@ -58,7 +58,7 @@ export default function AppNavbar() {
                   </Link>
                 ))}
 
-                <AdditionalDropdownMenu />
+                {/* <AdditionalDropdownMenu /> */}
               </div>
             </div>
             {isConnected && account !== null && (
