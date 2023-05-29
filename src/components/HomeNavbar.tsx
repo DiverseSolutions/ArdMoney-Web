@@ -6,6 +6,7 @@ import Copyright from "@assets/home/dark_copyright.svg";
 import MobileClouds from "@assets/home/mobile_clouds.svg";
 import OutlineButton from "@components/shared/OutlineButton";
 import LogoIcon from "@assets/icons/LogoIcon";
+import AdditionalDropdownMenu from "@components/nav/Dropdown";
 
 const navigations = [
   {
@@ -34,7 +35,7 @@ const mobileNavigations = [
 
 export default function HomeNavBar() {
   const [open, setOpen] = useState(false);
-  const transitionProperties = open ? "left-0" : "-left-250";
+  const transitionProperties = open ? "translate-x-0" : "translate-x-full";
 
   const openSidebar = () => {
     setOpen(!open);
@@ -82,128 +83,69 @@ export default function HomeNavBar() {
           </div>
         </div>
       </div>
-      {open && (
-        <div
-          className={`sidebar slide fixed top-0 bottom-0 p-5 w-full bg-primary z-50 h-screen overscroll-none duration-500 transition-transform ${transitionProperties}`}
-        >
-          <div className="relative flex flex-col h-full">
-            <button
-              className="flex w-full justify-end py-sm"
-              onClick={() => openSidebar()}
-            >
-              <img src={Cancel} alt="" />
-            </button>
-            <div className="flex flex-col gap-base mt-2xl p-base">
-              {mobileNavigations.map((item, index) => (
-                <a
-                  href={item.link}
-                  key={index}
-                  target={"_blank"}
-                  className="flex flex-col text-xl font-normal"
-                >
-                  <span>{item.text}</span>
-                </a>
-              ))}
-            </div>
-            <div className="flex sm:justify-start gap-lg p-base ">
+      <div
+        className={`sidebar slide fixed top-0 bottom-0 p-5 w-full bg-primary z-50 h-screen overscroll-none duration-300 ${transitionProperties}`}
+      >
+        <div className="relative flex flex-col h-full">
+          <button
+            className="flex w-full justify-end"
+            onClick={() => openSidebar()}
+          >
+            <img src={Cancel} alt="" />
+          </button>
+          <div className="flex flex-col gap-base mt-2xl p-base">
+            {mobileNavigations.map((item, index) => (
               <a
-                href="https://medium.com/@ardmoney/monthly-developer-report-3-5c0e4362dae"
+                href={item.link}
+                key={index}
                 target={"_blank"}
-                className="w-6 h-6"
+                className="flex flex-col text-xl font-normal"
               >
-                <div className="i-fa-brands-medium icon-size-6" />
+                <span>{item.text}</span>
               </a>
-              <a
-                href="https://www.instagram.com/ard.money/?next=%2F"
-                target={"_blank"}
-                className="w-6 h-6"
-              >
-                <div className="i-fa-brands-instagram icon-size-6" />
-              </a>
-              <a
-                href="https://www.facebook.com/search/top?q=ardmoney"
-                target={"_blank"}
-                className="w-6 h-6"
-              >
-                <div className="i-fa-brands-facebook icon-size-6" />
-              </a>
-              <a
-                href="https://discord.com/invite/xNWX76eg"
-                target={"_blank"}
-                className="w-6 h-6"
-              >
-                <div className="i-fa-brands-discord icon-size-7" />
-              </a>
-            </div>
-            <div className="flex gap-sm p-base w-full">
-              <img src={Copyright} className="" alt="image" />
-              <span>2023 Diverse Solution LLC. All rights reserved</span>
-            </div>
+            ))}
           </div>
-          <img
-            src={MobileClouds}
-            alt=""
-            className="absolute w-full left-0 bottom-0 z-50"
-          />
+          <div className="flex sm:justify-start gap-lg p-base ">
+            <a
+              href="https://medium.com/@ardmoney/monthly-developer-report-3-5c0e4362dae"
+              target={"_blank"}
+              className="w-6 h-6"
+            >
+              <div className="i-fa-brands-medium icon-size-6" />
+            </a>
+            <a
+              href="https://www.instagram.com/ard.money/?next=%2F"
+              target={"_blank"}
+              className="w-6 h-6"
+            >
+              <div className="i-fa-brands-instagram icon-size-6" />
+            </a>
+            <a
+              href="https://www.facebook.com/search/top?q=ardmoney"
+              target={"_blank"}
+              className="w-6 h-6"
+            >
+              <div className="i-fa-brands-facebook icon-size-6" />
+            </a>
+            <a
+              href="https://discord.com/invite/xNWX76eg"
+              target={"_blank"}
+              className="w-6 h-6"
+            >
+              <div className="i-fa-brands-discord icon-size-7" />
+            </a>
+          </div>
+          <div className="flex gap-sm p-base w-full">
+            <img src={Copyright} className="" alt="image" />
+            <span>2023 Diverse Solution LLC. All rights reserved</span>
+          </div>
         </div>
-      )}
+        <img
+          src={MobileClouds}
+          alt=""
+          className="absolute w-full left-0 bottom-0 z-50"
+        />
+      </div>
     </div>
   );
 }
-
-import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
-import { useTranslation } from "react-i18next";
-
-const AdditionalDropdownMenu = () => {
-  const { i18n } = useTranslation();
-
-  console.log(i18n);
-
-  function handleChangeLanguage(lan: string) {
-    i18n.changeLanguage(lan);
-  }
-
-  return (
-    <DropdownMenu.Root>
-      <DropdownMenu.Trigger asChild>
-        <button className="w-8 h-8 rounded-full">
-          <div className="flex justify-center items-center space-x-0.5  h-full">
-            <div className="w-1 h-1 bg-white rounded-full"></div>
-            <div className="w-1 h-1 bg-white rounded-full"></div>
-            <div className="w-1 h-1 bg-white rounded-full"></div>
-          </div>
-        </button>
-      </DropdownMenu.Trigger>
-
-      <DropdownMenu.Portal>
-        <DropdownMenu.Content
-          className="DropdownMenuContent z-50"
-          sideOffset={5}
-        >
-          <DropdownMenu.Item className="DropdownMenuItem hover:bg-red-100">
-            <div className="flex justify-center w-full space-x-1">
-              <div
-                onClick={() => handleChangeLanguage("mn")}
-                className={`${
-                  i18n.language === "mn" && "underline"
-                } hover:underline cursor-pointer`}
-              >
-                mn
-              </div>
-              <div>/</div>
-              <div
-                onClick={() => handleChangeLanguage("en")}
-                className={`${
-                  i18n.language === "en" && "underline"
-                } hover:underline cursor-pointer`}
-              >
-                en
-              </div>
-            </div>
-          </DropdownMenu.Item>
-          <DropdownMenu.Arrow className="fill-white" />
-        </DropdownMenu.Content>
-      </DropdownMenu.Portal>
-    </DropdownMenu.Root>
-  );
-};

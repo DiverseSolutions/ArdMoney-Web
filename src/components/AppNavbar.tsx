@@ -10,6 +10,7 @@ import ConnectWalletButton from "@components/web3/ConnectWalletButton";
 
 import { useSelector } from "react-redux";
 import { RootState } from "@redux/store";
+import AdditionalDropdownMenu from "@components/nav/Dropdown";
 import AccountButton from "@components/nav/AccountButton";
 import NetworkButton from "@components/nav/NetworkButton";
 import OutlineButton from "./shared/OutlineButton";
@@ -56,6 +57,8 @@ export default function AppNavbar() {
                     <span className="text-md">{item.text}</span>
                   </Link>
                 ))}
+
+                <AdditionalDropdownMenu />
               </div>
             </div>
             {isConnected && account !== null && (
