@@ -20,7 +20,7 @@ const bscTestNetTokenList: Array<Token> = [
     isDex: true,
     isWallet: true,
     decimals: 18,
-    logo: "https://cryptologos.cc/logos/binance-usd-busd-logo.png?v=022",
+    logo: "/tokens/busd.png",
   },
   {
     address: "0xc50c6773761090742bb321112A38dEe684e41118",
@@ -29,7 +29,7 @@ const bscTestNetTokenList: Array<Token> = [
     isDex: true,
     isWallet: true,
     decimals: 18,
-    logo: "https://cryptologos.cc/logos/tether-usdt-logo.png?v=022",
+    logo: "/tokens/tether.png",
   },
 
   {
@@ -39,7 +39,7 @@ const bscTestNetTokenList: Array<Token> = [
     isDex: true,
     isWallet: false,
     decimals: 2,
-    logo: "https://tokenimg.dsolutions.mn/tokens/ardx.png",
+    logo: "/tokens/ardx.png",
   },
 
   {
@@ -49,7 +49,7 @@ const bscTestNetTokenList: Array<Token> = [
     isDex: true,
     isWallet: true,
     decimals: 18,
-    logo: "https://tokenimg.dsolutions.mn/tokens/mont.png",
+    logo: "/tokens/mont.png",
   },
   {
     address: "0x2D9ee688D46FD1D39Eb3507BB58dCE3A3cab64D0",
@@ -58,7 +58,7 @@ const bscTestNetTokenList: Array<Token> = [
     isDex: true,
     isWallet: true,
     decimals: 18,
-    logo: "https://tokenimg.dsolutions.mn/tokens/ardm.png",
+    logo: "/tokens/ardm.png",
   },
   {
     address: "0x2D9ee688D46FD1D39Eb3507BB58dCE3A3cab64D0",
@@ -67,7 +67,7 @@ const bscTestNetTokenList: Array<Token> = [
     isDex: false,
     isWallet: true,
     decimals: 18,
-    logo: "https://tokenimg.dsolutions.mn/tokens/xardm.png",
+    logo: "/tokens/xardm.png",
   },
   {
     address: "0x25A5C86b6CB03D2e5413810Ba5b62cC86473bE70",
@@ -76,7 +76,7 @@ const bscTestNetTokenList: Array<Token> = [
     isDex: true,
     isWallet: true,
     decimals: 18,
-    logo: "https://tokenimg.dsolutions.mn/tokens/ihc.png",
+    logo: "/tokens/ihc.png",
   },
 ];
 
@@ -88,7 +88,7 @@ const bscMainNetTokenList: Array<Token> = [
     isDex: true,
     isWallet: true,
     decimals: 18,
-    logo: "https://tokenimg.dsolutions.mn/tokens/mont.png",
+    logo: "/tokens/mont.png",
   },
   {
     address: "0x55d398326f99059fF775485246999027B3197955",
@@ -97,7 +97,7 @@ const bscMainNetTokenList: Array<Token> = [
     isDex: true,
     isWallet: true,
     decimals: 18,
-    logo: "https://cryptologos.cc/logos/tether-usdt-logo.png?v=022",
+    logo: "/tokens/tether.png",
   },
   {
     address: "0xE849188F76c0dA93b5eD310a1F72127914b3A7b9",
@@ -106,7 +106,7 @@ const bscMainNetTokenList: Array<Token> = [
     isDex: true,
     isWallet: true,
     decimals: 18,
-    logo: "https://tokenimg.dsolutions.mn/tokens/ardm.png",
+    logo: "/tokens/ardm.png",
   },
   {
     address: "0x1b911938C3aD76De1DFaACcF508f9018b93FfB93",
@@ -115,7 +115,7 @@ const bscMainNetTokenList: Array<Token> = [
     isDex: false,
     isWallet: true,
     decimals: 18,
-    logo: "https://tokenimg.dsolutions.mn/tokens/xardm.png",
+    logo: "/tokens/xardm.png",
   },
   {
     address: "0x86a53fcd199212FEa44FA7e16EB1f28812be911D",
@@ -124,7 +124,7 @@ const bscMainNetTokenList: Array<Token> = [
     decimals: 18,
     isDex: true,
     isWallet: true,
-    logo: "https://tokenimg.dsolutions.mn/tokens/ihc.png",
+    logo: "/tokens/ihc.png",
   },
 ];
 
