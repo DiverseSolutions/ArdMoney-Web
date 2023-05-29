@@ -61,7 +61,7 @@ export default function HomeNavBar() {
                     <span className="text-md">{item.text}</span>
                   </a>
                 ))}
-                <AdditionalDropdownMenu />
+                {/* <AdditionalDropdownMenu /> */}
               </div>
             </div>
             <a
