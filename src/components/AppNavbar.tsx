@@ -10,6 +10,7 @@ import ConnectWalletButton from "@components/web3/ConnectWalletButton";
 
 import { useSelector } from "react-redux";
 import { RootState } from "@redux/store";
+import AdditionalDropdownMenu from "@components/nav/Dropdown";
 import AccountButton from "@components/nav/AccountButton";
 import NetworkButton from "@components/nav/NetworkButton";
 import OutlineButton from "./shared/OutlineButton";
@@ -35,7 +36,7 @@ export default function AppNavbar() {
     (state: RootState) => state.web3
   );
   const [open, setOpen] = useState(false);
-  const transitionProperties = open ? "left-0" : "-left-250";
+  const transitionProperties = open ? "translate-x-0" : "translate-x-full";
 
   const openSidebar = () => {
     setOpen(!open);
@@ -56,6 +57,8 @@ export default function AppNavbar() {
                     <span className="text-md">{item.text}</span>
                   </Link>
                 ))}
+
+                {/* <AdditionalDropdownMenu /> */}
               </div>
             </div>
             {isConnected && account !== null && (
@@ -87,70 +90,70 @@ export default function AppNavbar() {
           </div>
         </div>
       </div>
-      {open && (
-        <div
-          className={`sidebar slide fixed top-0 bottom-0 p-5 w-full bg-primary z-50 h-screen overscroll-none duration-500 transition-transform ${transitionProperties}`}
-        >
-          <div className="relative flex flex-col h-full">
-            <button
-              className="flex w-full justify-end py-sm"
-              onClick={() => openSidebar()}
-            >
-              <img src={Cancel} alt="" />
-            </button>
-            <div className="flex flex-col gap-base mt-2xl p-base">
-              {MobileLinks.map((item) => (
-                <a
-                  href={item.link}
-                  target={"_blank"}
-                  className="flex flex-col text-xl font-normal"
-                >
-                  <span>{item.text}</span>
-                </a>
-              ))}
-            </div>
-            <div className="flex sm:justify-start gap-lg p-base ">
+      {/* {open && ( */}
+      <div
+        className={`sidebar slide fixed top-0 bottom-0 p-5 w-full bg-primary z-50 h-screen overscroll-none duration-300 ${transitionProperties}`}
+      >
+        <div className="relative flex flex-col h-full z-10">
+          <button
+            className="flex w-full justify-end"
+            onClick={() => openSidebar()}
+          >
+            <img src={Cancel} alt="" />
+          </button>
+          <div className="flex flex-col gap-base mt-2xl p-base">
+            {MobileLinks.map((item) => (
               <a
-                href="https://medium.com/@ardmoney/monthly-developer-report-3-5c0e4362dae"
+                href={item.link}
                 target={"_blank"}
-                className="w-6 h-6"
+                className="flex flex-col text-xl font-normal"
               >
-                <div className="i-fa-brands-medium icon-size-6" />
+                <span>{item.text}</span>
               </a>
-              <a
-                href="https://www.instagram.com/ard.money/?next=%2F"
-                target={"_blank"}
-                className="w-6 h-6"
-              >
-                <div className="i-fa-brands-instagram icon-size-6" />
-              </a>
-              <a
-                href="https://www.facebook.com/search/top?q=ardmoney"
-                target={"_blank"}
-                className="w-6 h-6"
-              >
-                <div className="i-fa-brands-facebook icon-size-6" />
-              </a>
-              <a
-                href="https://discord.com/invite/xNWX76eg"
-                target={"_blank"}
-                className="w-6 h-6"
-              >
-                <div className="i-fa-brands-discord icon-size-7" />
-              </a>
-            </div>
-            <div className="flex gap-sm p-base w-full">
-              <img src={Copyright} className="" alt="image" />
-              <span>2023 Diverse Solution LLC. All rights reserved</span>
-            </div>
+            ))}
           </div>
-          <img
-            src={MobileClouds}
-            alt=""
-            className="absolute w-full left-0 bottom-0 z-50"
-          />
+          <div className="flex sm:justify-start gap-lg p-base ">
+            <a
+              href="https://medium.com/@ardmoney/monthly-developer-report-3-5c0e4362dae"
+              target={"_blank"}
+              className="w-6 h-6"
+            >
+              <div className="i-fa-brands-medium icon-size-6" />
+            </a>
+            <a
+              href="https://www.instagram.com/ard.money/?next=%2F"
+              target={"_blank"}
+              className="w-6 h-6"
+            >
+              <div className="i-fa-brands-instagram icon-size-6" />
+            </a>
+            <a
+              href="https://www.facebook.com/search/top?q=ardmoney"
+              target={"_blank"}
+              className="w-6 h-6"
+            >
+              <div className="i-fa-brands-facebook icon-size-6" />
+            </a>
+            <a
+              href="https://discord.com/invite/xNWX76eg"
+              target={"_blank"}
+              className="w-6 h-6"
+            >
+              <div className="i-fa-brands-discord icon-size-7" />
+            </a>
+          </div>
+          <div className="flex gap-sm p-base w-full">
+            <img src={Copyright} className="" alt="image" />
+            <span>2023 Diverse Solution LLC. All rights reserved</span>
+          </div>
         </div>
-      )}
+        <img
+          src={MobileClouds}
+          alt=""
+          className="absolute w-full left-0 bottom-0 "
+        />
+      </div>
+      {/* )} */}
     </div>
   );
 }

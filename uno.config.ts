@@ -234,7 +234,7 @@ export default defineConfig({
       xl: "1300px",
     },
     fontFamily: {
-      sans: "PP Neue Machina",
+      sans: "Averta",
       serif: "Merriweather",
     },
     colors: {
@@ -379,7 +379,7 @@ export default defineConfig({
         }
 
         body {
-          font-family: Toroka;
+          font-family: Averta;
           color: inherit;
           font-weight: 400;
         }

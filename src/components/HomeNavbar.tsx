@@ -6,6 +6,7 @@ import Copyright from "@assets/home/dark_copyright.svg";
 import MobileClouds from "@assets/home/mobile_clouds.svg";
 import OutlineButton from "@components/shared/OutlineButton";
 import LogoIcon from "@assets/icons/LogoIcon";
+import AdditionalDropdownMenu from "@components/nav/Dropdown";
 
 const navigations = [
   {
@@ -34,7 +35,7 @@ const mobileNavigations = [
 
 export default function HomeNavBar() {
   const [open, setOpen] = useState(false);
-  const transitionProperties = open ? "left-0" : "-left-250";
+  const transitionProperties = open ? "translate-x-0" : "translate-x-full";
 
   const openSidebar = () => {
     setOpen(!open);
@@ -60,6 +61,7 @@ export default function HomeNavBar() {
                     <span className="text-md">{item.text}</span>
                   </a>
                 ))}
+                {/* <AdditionalDropdownMenu /> */}
               </div>
             </div>
             <a
@@ -81,71 +83,69 @@ export default function HomeNavBar() {
           </div>
         </div>
       </div>
-      {open && (
-        <div
-          className={`sidebar slide fixed top-0 bottom-0 p-5 w-full bg-primary z-50 h-screen overscroll-none duration-500 transition-transform ${transitionProperties}`}
-        >
-          <div className="relative flex flex-col h-full">
-            <button
-              className="flex w-full justify-end py-sm"
-              onClick={() => openSidebar()}
-            >
-              <img src={Cancel} alt="" />
-            </button>
-            <div className="flex flex-col gap-base mt-2xl p-base">
-              {mobileNavigations.map((item, index) => (
-                <a
-                  href={item.link}
-                  key={index}
-                  target={"_blank"}
-                  className="flex flex-col text-xl font-normal"
-                >
-                  <span>{item.text}</span>
-                </a>
-              ))}
-            </div>
-            <div className="flex sm:justify-start gap-lg p-base ">
+      <div
+        className={`sidebar slide fixed top-0 bottom-0 p-5 w-full bg-primary z-50 h-screen overscroll-none duration-300 ${transitionProperties}`}
+      >
+        <div className="relative flex flex-col h-full">
+          <button
+            className="flex w-full justify-end"
+            onClick={() => openSidebar()}
+          >
+            <img src={Cancel} alt="" />
+          </button>
+          <div className="flex flex-col gap-base mt-2xl p-base">
+            {mobileNavigations.map((item, index) => (
               <a
-                href="https://medium.com/@ardmoney/monthly-developer-report-3-5c0e4362dae"
+                href={item.link}
+                key={index}
                 target={"_blank"}
-                className="w-6 h-6"
+                className="flex flex-col text-xl font-normal"
               >
-                <div className="i-fa-brands-medium icon-size-6" />
+                <span>{item.text}</span>
               </a>
-              <a
-                href="https://www.instagram.com/ard.money/?next=%2F"
-                target={"_blank"}
-                className="w-6 h-6"
-              >
-                <div className="i-fa-brands-instagram icon-size-6" />
-              </a>
-              <a
-                href="https://www.facebook.com/search/top?q=ardmoney"
-                target={"_blank"}
-                className="w-6 h-6"
-              >
-                <div className="i-fa-brands-facebook icon-size-6" />
-              </a>
-              <a
-                href="https://discord.com/invite/xNWX76eg"
-                target={"_blank"}
-                className="w-6 h-6"
-              >
-                <div className="i-fa-brands-discord icon-size-7" />
-              </a>
-            </div>
-            <div className="flex gap-sm p-base w-full">
-              <img src={Copyright} className="" alt="image" />
-              <span>2023 Diverse Solution LLC. All rights reserved</span>
-            </div>
+            ))}
           </div>
-          <img
-            src={MobileClouds}
-            alt=""
-            className="absolute w-full left-0 bottom-0 z-50"
-          />
+          <div className="flex sm:justify-start gap-lg p-base ">
+            <a
+              href="https://medium.com/@ardmoney/monthly-developer-report-3-5c0e4362dae"
+              target={"_blank"}
+              className="w-6 h-6"
+            >
+              <div className="i-fa-brands-medium icon-size-6" />
+            </a>
+            <a
+              href="https://www.instagram.com/ard.money/?next=%2F"
+              target={"_blank"}
+              className="w-6 h-6"
+            >
+              <div className="i-fa-brands-instagram icon-size-6" />
+            </a>
+            <a
+              href="https://www.facebook.com/search/top?q=ardmoney"
+              target={"_blank"}
+              className="w-6 h-6"
+            >
+              <div className="i-fa-brands-facebook icon-size-6" />
+            </a>
+            <a
+              href="https://discord.com/invite/xNWX76eg"
+              target={"_blank"}
+              className="w-6 h-6"
+            >
+              <div className="i-fa-brands-discord icon-size-7" />
+            </a>
+          </div>
+          <div className="flex gap-sm p-base w-full">
+            <img src={Copyright} className="" alt="image" />
+            <span>2023 Diverse Solution LLC. All rights reserved</span>
+          </div>
         </div>
-      )}
+        <img
+          src={MobileClouds}
+          alt=""
+          className="absolute w-full left-0 bottom-0 z-50"
+        />
+      </div>
     </div>
   );
 }
