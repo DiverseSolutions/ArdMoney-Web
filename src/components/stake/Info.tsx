@@ -8,7 +8,7 @@ import Staking_head3 from "@assets/images/staking/Staking_head3.svg";
 
 export default function Info() {
   return (
-    <div className="relative flex flex-col staking-header-gradient p-lg w-full border border-primary rounded-lg mb-2xl">
+    <div className="relative flex flex-col  staking-header-gradient p-lg w-full border border-primary rounded-3xs mb-2xl">
       <div className="flex flex-col w-full z-10 lg:w-5/12 text-light/60 text-sm gap-lg">
         <div className="flex gap-base">
           <div className="i-ic-round-warning-amber icon-size-5 flex-shrink-0" />
@@ -46,7 +46,7 @@ export default function Info() {
           </span>
         </div>
       </div>
-      <div className="hidden lg:flex">
+      <div className="hidden lg:flex ">
         <img
           src={Staking_head1}
           alt=""
@@ -56,12 +56,28 @@ export default function Info() {
         <img
           src={Staking_head3}
           alt=""
-          className="absolute right-0 bottom-0 z-20"
+          className="absolute right-0 bottom-0  z-20"
         />
-        <img src={Cloud1} alt="" className="absolute right-0 bottom-0" />
-        <img src={Cloud2} alt="" className="absolute right-0 bottom-0" />
-        <img src={Cloud3} alt="" className="absolute right-0 bottom-0" />
-        <img src={Cloud4} alt="" className="absolute right-0 bottom-0" />
+        <img
+          src={Cloud1}
+          alt=""
+          className="absolute rounded-br-3xs right-0 bottom-0"
+        />
+        <img
+          src={Cloud2}
+          alt=""
+          className="absolute rounded-br-3xs right-0 bottom-0"
+        />
+        <img
+          src={Cloud3}
+          alt=""
+          className="absolute rounded-br-3xs right-0 bottom-0"
+        />
+        <img
+          src={Cloud4}
+          alt=""
+          className="absolute rounded-br-3xs right-0 bottom-0"
+        />
       </div>
     </div>
   );

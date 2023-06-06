@@ -296,12 +296,12 @@ input {
 .TabsRoot {
   display: flex;
   flex-direction: column;
-  width: 300px;
 }
 
 .TabsList {
   flex-shrink: 0;
   display: flex;
+  width: 300px;
   /* border-bottom: 1px solid var(--mauve6); */
 }
 

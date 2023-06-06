@@ -1,9 +1,9 @@
 import Background1 from "@assets/images/swap/background1.svg";
 import Background2 from "@assets/images/swap/background2.svg";
-import * as Tabs from "@radix-ui/react-tabs";
 
 import PageContainer from "@/components/layouts/PageContainer";
-import Info from "../../components/stake/Info";
+import Info from "@/components/stake/Info";
+import StakingTabs from "@/components/stake/StakingTabs";
 
 export default function Stake() {
   return (
@@ -13,30 +13,10 @@ export default function Stake() {
           Staking
         </span>
         <Info />
-
-        <TabsDemo />
+        <StakingTabs />
       </PageContainer>
       <img src={Background1} alt="" className="absolute left-0 top-1/2" />
       <img src={Background2} alt="" className="absolute right-0 top-1/2" />
     </>
   );
 }
-
-const TabsDemo = () => (
-  <Tabs.Root className="TabsRoot" defaultValue="tab1">
-    <Tabs.List className="TabsList" aria-label="Manage your account">
-      <Tabs.Trigger className="TabsTrigger" value="tab1">
-        Active
-      </Tabs.Trigger>
-      <Tabs.Trigger className="TabsTrigger" value="tab2">
-        Closed
-      </Tabs.Trigger>
-    </Tabs.List>
-    <Tabs.Content className="TabsContentmt mt-10" value="tab1">
-      <div>tab1</div>
-    </Tabs.Content>
-    <Tabs.Content className="TabsContentmt mt-10" value="tab2">
-      <div>tab2</div>
-    </Tabs.Content>
-  </Tabs.Root>
-);
