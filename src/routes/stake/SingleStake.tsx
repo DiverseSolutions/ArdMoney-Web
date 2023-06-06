@@ -1,79 +1,21 @@
-import React from "react";
-import Cero_staking1 from "../assets/images/staking/Cero_staking1.svg";
-import Cero_staking2 from "../assets/images/staking/Cero_staking2.svg";
-import Cero_staking3 from "../assets/images/staking/Cero_staking3.svg";
-import Staking_head1 from "../assets/images/staking/Staking_head1.svg";
-import Staking_head2 from "../assets/images/staking/Staking_head2.svg";
-import Staking_head3 from "../assets/images/staking/Staking_head3.svg";
-import Cloud1 from "../assets/images/staking/Cloud1.svg";
-import Cloud2 from "../assets/images/staking/Cloud2.svg";
-import Cloud3 from "../assets/images/staking/Cloud3.svg";
-import Cloud4 from "../assets/images/staking/Cloud4.svg";
-import Background1 from "../assets/images/swap/background1.svg";
-import Background2 from "../assets/images/swap/background2.svg";
+import Cero_staking1 from "@assets/images/staking/Cero_staking1.svg";
+import Cero_staking2 from "@assets/images/staking/Cero_staking2.svg";
+import Cero_staking3 from "@assets/images/staking/Cero_staking3.svg";
+import Background1 from "@assets/images/swap/background1.svg";
+import Background2 from "@assets/images/swap/background2.svg";
 
-export default function Stake() {
+import PageContainer from "@/components/layouts/PageContainer";
+import Info from "@components/stake/Info";
+import { useParams } from "react-router-dom";
+
+export default function SingleStake() {
   return (
-    <div className="flex justify-center min-h-screen w-full ">
-      <div className="flex flex-col w-full max-w-6xl sm:mb-4xl md:mb-2xl z-10 p-6 lg:p-0">
+    <>
+      <PageContainer>
         <span className="text-2xl lg:text-4xl text-light font-extrabold lg:mt-xl mb-sm lg:mb-lg">
-          Cero Staking
+          singleStake
         </span>
-
-        <div className="relative flex flex-col staking-header-gradient p-lg w-full border border-primary rounded-lg mb-2xl">
-          <div className="flex flex-col w-full z-10 lg:w-5/12 text-light/60 text-sm gap-lg">
-            <div className="flex gap-base">
-              <div className="i-ic-round-warning-amber icon-size-5" />
-              <span>
-                By staking CERO tokens, they will be converted into an equal
-                amount of xCERO tokens and placed in your wallet.
-              </span>
-            </div>
-            <div className="flex gap-base">
-              <div className="i-ic-round-warning-amber icon-size-5" />
-              <span>
-                By staking CERO tokens, they will be converted into an equal
-                amount of xCERO tokens and placed in your wallet.
-              </span>
-            </div>
-            <div className="flex gap-base">
-              <div className="i-ic-round-warning-amber icon-size-5" />
-              <span>
-                By staking CERO tokens, they will be converted into an equal
-                amount of xCERO tokens and placed in your wallet.
-              </span>
-            </div>
-            <div className="flex gap-base">
-              <div className="i-ic-round-warning-amber icon-size-5" />
-              <span>
-                By staking CERO tokens, they will be converted into an equal
-                amount of xCERO tokens and placed in your wallet.
-              </span>
-            </div>
-          </div>
-          <div className="hidden lg:flex">
-            <img
-              src={Staking_head1}
-              alt=""
-              className="absolute right-1/4 bottom-0"
-            />
-            <img
-              src={Staking_head2}
-              alt=""
-              className="absolute right-0 top-0 "
-            />
-            <img
-              src={Staking_head3}
-              alt=""
-              className="absolute right-0 bottom-0 z-20"
-            />
-
-            <img src={Cloud1} alt="" className="absolute right-0 bottom-0" />
-            <img src={Cloud2} alt="" className="absolute right-0 bottom-0" />
-            <img src={Cloud3} alt="" className="absolute right-0 bottom-0" />
-            <img src={Cloud4} alt="" className="absolute right-0 bottom-0" />
-          </div>
-        </div>
+        <Info />
 
         <div className="flex flex-col lg:flex-row gap-lg text-light w-full h-full">
           <div className="relative flex flex-col p-lg w-full lg:w-1/2 rounded-lg border border-[#ABFC86] h-full">
@@ -261,9 +203,9 @@ export default function Stake() {
             </div>
           </div>
         </div>
-      </div>
+      </PageContainer>
       <img src={Background1} alt="" className="absolute left-0 top-1/2" />
       <img src={Background2} alt="" className="absolute right-0 top-1/2" />
-    </div>
+    </>
   );
 }

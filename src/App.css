@@ -19,6 +19,11 @@
   font-style: normal;
 } */
 
+:root {
+  --main: rgba(131, 98, 253, 1);
+  --mainTransparent: rgba(131, 98, 253, 0.5);
+}
+
 @font-face {
   font-family: Averta;
   src: url("/fonts/Averta Cyrillic Light.otf");
@@ -280,3 +285,70 @@ input[type="number"] {
     transform: translateX(0);
   }
 }
+
+/* reset */
+/* button, */
+fieldset,
+input {
+  all: unset;
+}
+
+.TabsRoot {
+  display: flex;
+  flex-direction: column;
+}
+
+.TabsList {
+  flex-shrink: 0;
+  display: flex;
+  width: 300px;
+  /* border-bottom: 1px solid var(--mauve6); */
+}
+
+.TabsTrigger {
+  font-family: inherit;
+  background-color: var(--mainTransparent);
+  padding: 0 20px;
+  height: 45px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  line-height: 1;
+  user-select: none;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+}
+.TabsTrigger:first-child {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+.TabsTrigger:last-child {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+.TabsTrigger:hover {
+  color: white;
+}
+.TabsTrigger[data-state="active"] {
+  color: white;
+  background: var(--main);
+  /* box-shadow: inset 0 -1px 0 0 currentColor, 0 1px 0 0 currentColor; */
+}
+.TabsTrigger:focus {
+  position: relative;
+  /* box-shadow: 0 0 0 2px black; */
+}
+
+.TabsContent {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: white;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  outline: none;
+}
+/* .TabsContent:focus {
+  box-shadow: 0 0 0 2px black;
+} */
