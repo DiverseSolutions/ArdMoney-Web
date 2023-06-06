@@ -280,7 +280,7 @@ export default function Swap() {
 
           {!web3Slice.isConnected && <ConnectWalletButton style="py-sm" />}
           {web3Slice.isConnected && isUnknown && (
-            <ConnectToSupportedNetworkButton style="py-sm" />
+            <ConnectToSupportedNetworkButton style="w-full py-sm" />
           )}
         </div>
 
