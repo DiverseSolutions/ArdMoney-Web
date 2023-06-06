@@ -28,7 +28,7 @@ export default function Home() {
 
   return (
     <PageContainer>
-      <Section style="mb-layout-xl text-center">
+      <Section style="mb-layout-xl text-center pt-10">
         <div className="text-light-secondary md:text-xl">
           {t("home:miniTitle")}
         </div>

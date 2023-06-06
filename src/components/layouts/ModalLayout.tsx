@@ -13,7 +13,7 @@ export default function ModalLayout({
     >
       <div
         data-aos="fade-down"
-        className={`${width} h-auto relative z-10 bg-black flex flex-col gap-xl my-xl p-xl card-gradient-dark rounded-lg`}
+        className={`${width} h-auto relative z-50 bg-black flex flex-col gap-xl my-xl p-xl card-gradient-dark rounded-lg`}
       >
         {children}
       </div>

@@ -14,6 +14,7 @@ import AdditionalDropdownMenu from "@components/nav/Dropdown";
 import AccountButton from "@components/nav/AccountButton";
 import NetworkButton from "@components/nav/NetworkButton";
 import OutlineButton from "./shared/OutlineButton";
+import { useTranslation } from "react-i18next";
 
 const DesktopLinks = [
   { text: "Swap", link: "/swap" },
@@ -38,6 +39,13 @@ export default function AppNavbar() {
   const [open, setOpen] = useState(false);
   const transitionProperties = open ? "translate-x-0" : "translate-x-full";
 
+  const { i18n } = useTranslation();
+
+  function handleChangeLanguage() {
+    let selectedLanguage = i18n.language === "mn" ? "en" : "mn";
+    i18n.changeLanguage(selectedLanguage);
+  }
+
   const openSidebar = () => {
     setOpen(!open);
   };
@@ -61,22 +69,29 @@ export default function AppNavbar() {
                 {/* <AdditionalDropdownMenu /> */}
               </div>
             </div>
-            {isConnected && account !== null && (
-              <div className="flex items-center gap-xs h-full">
-                <div className="hidden lg:block w-[12rem]">
-                  <NetworkButton />
+            <div className="flex items-center md:space-x-7">
+              <button
+                className="uppercase text-white hidden md:block"
+                onClick={handleChangeLanguage}
+              >
+                {i18n.language}
+              </button>
+              {isConnected && account !== null && (
+                <div className="flex items-center gap-xs h-full">
+                  <div className="hidden lg:block w-[12rem]">
+                    <NetworkButton />
+                  </div>
+                  <div className="w-[12rem]">
+                    <AccountButton />
+                  </div>
                 </div>
-                <div className="w-[12rem]">
-                  <AccountButton />
+              )}
+              {!isConnected && (
+                <div>
+                  <ConnectWalletButton style="px-xl" />
                 </div>
-              </div>
-            )}
-
-            {!isConnected && (
-              <div>
-                <ConnectWalletButton style="px-xl" />
-              </div>
-            )}
+              )}
+            </div>
 
             <button onClick={() => openSidebar()} className="md:hidden">
               <img
@@ -95,12 +110,17 @@ export default function AppNavbar() {
         className={`sidebar slide fixed top-0 bottom-0 p-5 w-full bg-primary z-50 h-screen overscroll-none duration-300 ${transitionProperties}`}
       >
         <div className="relative flex flex-col h-full z-10">
-          <button
-            className="flex w-full justify-end"
-            onClick={() => openSidebar()}
-          >
-            <img src={Cancel} alt="" />
-          </button>
+          <div className="flex justify-between items-center pl-4">
+            <button
+              className="uppercase text-white"
+              onClick={handleChangeLanguage}
+            >
+              {i18n.language}
+            </button>
+            <button className="flex justify-end" onClick={() => openSidebar()}>
+              <img src={Cancel} alt="" />
+            </button>
+          </div>
           <div className="flex flex-col gap-base mt-2xl p-base">
             {MobileLinks.map((item) => (
               <a

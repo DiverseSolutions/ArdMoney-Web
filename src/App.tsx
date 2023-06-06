@@ -11,11 +11,11 @@ import "aos/dist/aos.css";
 
 import Home from "@routes/Home";
 import Swap from "@routes/Swap";
-import Stake from "@routes/Stake";
+import Stake from "@routes/stake";
+import SingleStake from "@routes/stake/SingleStake";
 import Governance from "@routes/Governance";
 import Pools from "@routes/Pools";
 import Analytics from "@routes/Analytics";
-
 import HomeLayout from "@layouts/HomeLayout";
 import AppLayout from "@layouts/AppLayout";
 
@@ -32,6 +32,7 @@ export default function App() {
           <Route path="/" element={<AppLayout />}>
             <Route path="/swap" element={<Swap />} />
             <Route path="/stake" element={<Stake />} />
+            <Route path="/stake/:id" element={<SingleStake />} />
             <Route path="/governance" element={<Governance />} />
             <Route path="/pools" element={<Pools />} />
             <Route path="/analytics" element={<Analytics />} />
