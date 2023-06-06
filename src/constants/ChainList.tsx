@@ -18,7 +18,7 @@ export const SupportedChainList: Array<Chain> = [
     faucets: [],
     currency: "BNB",
     explorers: ["https://bscscan.com"],
-    logos: ["https://cryptologos.cc/logos/bnb-bnb-logo.png?v=022"],
+    logos: ["/tokens/bnb.png"],
     isTestNet: false,
   },
   {
@@ -28,7 +28,7 @@ export const SupportedChainList: Array<Chain> = [
     faucets: ["https://testnet.binance.org/faucet-smart"],
     currency: "BNB",
     explorers: ["https://testnet.bscscan.com"],
-    logos: ["https://cryptologos.cc/logos/bnb-bnb-logo.png?v=022"],
+    logos: ["/tokens/bnb.png"],
     isTestNet: true,
   },
 ];
