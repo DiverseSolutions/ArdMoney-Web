@@ -24,7 +24,7 @@ export default function NetworkButton() {
   }
 
   return (
-    <OutlineButton style="gap-xs w-max" clickHandler={handleModalOpen}>
+    <OutlineButton style="gap-xs" clickHandler={handleModalOpen}>
       Connect To Chain
     </OutlineButton>
   );

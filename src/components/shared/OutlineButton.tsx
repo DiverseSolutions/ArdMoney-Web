@@ -7,7 +7,7 @@ export default function OutlineButton({
   parentStyle = "",
   clickHandler,
 }: DefaultOutlineButtonProp) {
-  const baseStyle = `flex bg-black justify-center p-xs items-center h-full w-full rounded-3xs text-white`;
+  const baseStyle = `flex grow bg-black justify-center p-xs items-center h-full w-full rounded-3xs text-white`;
   const parentBaseStyle = `${handleDisableStyle()} w-full h-full p-[1px] rounded-3xs btn-animation`;
 
   const resultStyle = `${baseStyle} ${style}`;
