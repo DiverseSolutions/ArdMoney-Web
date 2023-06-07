@@ -15,6 +15,7 @@
     "@metamask/detect-provider": "^2.0.0",
     "@radix-ui/react-dropdown-menu": "^2.0.4",
     "@radix-ui/react-tabs": "^1.0.4",
+    "@radix-ui/react-toggle-group": "^1.0.4",
     "@reduxjs/toolkit": "^1.9.5",
     "@unocss/reset": "^0.51.8",
     "crypto-js": "^4.1.1",
