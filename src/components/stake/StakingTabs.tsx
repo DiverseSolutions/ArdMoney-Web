@@ -54,15 +54,15 @@ const dummyTabsContents = [
       rows: [
         {
           texts: ["xARDM", "101,204,195", "7.9%", "Active"],
-          link: "/xARDM",
+          link: "/stake/xARDM",
         },
         {
           texts: ["xARDM", "101,204,195", "7.9%", "Active"],
-          link: "/xARDM",
+          link: "/stake/xARDM",
         },
         {
           texts: ["xARDM", "101,204,195", "7.9%", "Active"],
-          link: "/xARDM",
+          link: "/stake/xARDM",
         },
       ],
     },
@@ -74,7 +74,7 @@ const dummyTabsContents = [
       rows: [
         {
           texts: ["xARDM", "101,204,195", "7.9%", "Closed"],
-          link: "/xARDM",
+          link: "/stake/xARDM",
         },
       ],
     },
