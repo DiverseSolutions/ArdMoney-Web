@@ -69,6 +69,10 @@ export default function PriceImpactSection({
 
     let result = 1 - oldPrice / newPrice;
 
+    if (result < -100) {
+      return -100;
+    }
+
     return result;
   }
 }
