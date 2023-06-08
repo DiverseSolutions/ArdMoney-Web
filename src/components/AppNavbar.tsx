@@ -16,20 +16,22 @@ import NetworkButton from "@components/nav/NetworkButton";
 import OutlineButton from "./shared/OutlineButton";
 import { useTranslation } from "react-i18next";
 
-const DesktopLinks = [
-  { text: "Swap", link: "/swap" },
-  { text: "Pool", link: "/pool" },
-  { text: "Staking", link: "/staking" },
-  { text: "Governance", link: "/governance" },
-  { text: "Analytics", link: "/analytics" },
+const DesktopLinks: any[] = [
+  { text: "Home", link: "/" },
+  // { text: "Swap", link: "/swap" },
+  // { text: "Pool", link: "/pool" },
+  // { text: "Staking", link: "/staking" },
+  // { text: "Governance", link: "/governance" },
+  // { text: "Analytics", link: "/analytics" },
 ];
 
-const MobileLinks = [
-  { text: "Swap", link: "/swap" },
-  { text: "Pool", link: "/pool" },
-  { text: "Staking", link: "/staking" },
-  { text: "Governance", link: "/governance" },
-  { text: "Analytics", link: "/analytics" },
+const MobileLinks: any[] = [
+  { text: "Home", link: "/" },
+  // { text: "Swap", link: "/swap" },
+  // { text: "Pool", link: "/pool" },
+  // { text: "Staking", link: "/staking" },
+  // { text: "Governance", link: "/governance" },
+  // { text: "Analytics", link: "/analytics" },
 ];
 
 export default function AppNavbar() {

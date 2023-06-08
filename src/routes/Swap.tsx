@@ -104,6 +104,11 @@ export default function Swap() {
       return;
     }
 
+    if (parseFloat(inputValue) > 10 ** 18) {
+      alert("error", "Reached max cap");
+      return;
+    }
+
     dispatcher(Actions.setFromInput(parseFloat(inputValue)));
   }
 
@@ -142,11 +147,12 @@ export default function Swap() {
                 <TokenSelectButton
                   token={fromToken}
                   clickHandler={() => {
+                    dispatcher(Actions.setFromInput(""));
                     dispatcher(Actions.setFromModal(true));
                   }}
                 />
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col pr-2">
                 <input
                   type="number"
                   className="input text-lg pl-2xs"
