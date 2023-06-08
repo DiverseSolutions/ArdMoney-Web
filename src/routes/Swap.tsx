@@ -147,6 +147,7 @@ export default function Swap() {
                 <TokenSelectButton
                   token={fromToken}
                   clickHandler={() => {
+                    dispatcher(Actions.setFromInput(""));
                     dispatcher(Actions.setFromModal(true));
                   }}
                 />
