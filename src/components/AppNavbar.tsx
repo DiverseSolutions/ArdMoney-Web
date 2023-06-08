@@ -17,7 +17,7 @@ import OutlineButton from "./shared/OutlineButton";
 import { useTranslation } from "react-i18next";
 
 const DesktopLinks: any[] = [
-  { text: "Home", link: "/" },
+  { text: "home", link: "/" },
   // { text: "Swap", link: "/swap" },
   // { text: "Pool", link: "/pool" },
   // { text: "Staking", link: "/staking" },
@@ -26,7 +26,7 @@ const DesktopLinks: any[] = [
 ];
 
 const MobileLinks: any[] = [
-  { text: "Home", link: "/" },
+  { text: "home", link: "/" },
   // { text: "Swap", link: "/swap" },
   // { text: "Pool", link: "/pool" },
   // { text: "Staking", link: "/staking" },
@@ -41,10 +41,10 @@ export default function AppNavbar() {
   const [open, setOpen] = useState(false);
   const transitionProperties = open ? "translate-x-0" : "translate-x-full";
 
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
 
+  let selectedLanguage = i18n.language === "mn" ? "en" : "mn";
   function handleChangeLanguage() {
-    let selectedLanguage = i18n.language === "mn" ? "en" : "mn";
     i18n.changeLanguage(selectedLanguage);
   }
 
@@ -64,7 +64,7 @@ export default function AppNavbar() {
               <div className="hidden md:flex items-center text-white/60 text-base gap-5 cursor-pointer py-sm">
                 {DesktopLinks.map((item, index) => (
                   <Link key={index} to={item.link}>
-                    <span className="text-md">{item.text}</span>
+                    <span className="text-md">{t(`navBar:${item.text}`)}</span>
                   </Link>
                 ))}
 
@@ -76,7 +76,7 @@ export default function AppNavbar() {
                 className="uppercase text-white hidden md:block"
                 onClick={handleChangeLanguage}
               >
-                {i18n.language}
+                {selectedLanguage}
               </button>
               {isConnected && account !== null && (
                 <div className="flex items-center gap-xs h-full">
@@ -117,7 +117,7 @@ export default function AppNavbar() {
               className="uppercase text-white"
               onClick={handleChangeLanguage}
             >
-              {i18n.language}
+              {selectedLanguage}
             </button>
             <button className="flex justify-end" onClick={() => openSidebar()}>
               <img src={Cancel} alt="" />
@@ -130,7 +130,7 @@ export default function AppNavbar() {
                 target={"_blank"}
                 className="flex flex-col text-xl font-normal"
               >
-                <span>{item.text}</span>
+                <span>{t(`navBar:${item.text}`)}</span>
               </a>
             ))}
           </div>
@@ -166,7 +166,7 @@ export default function AppNavbar() {
           </div>
           <div className="flex gap-sm p-base w-full">
             <img src={Copyright} className="" alt="image" />
-            <span>2023 Diverse Solution LLC. All rights reserved</span>
+            <span>{t("navBar:rights")}</span>
           </div>
         </div>
         <img

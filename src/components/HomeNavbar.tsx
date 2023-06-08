@@ -22,7 +22,7 @@ const navigations = [
 ];
 
 const mobileNavigations = [
-  { text: "Launch App", link: "https://app.ardmoney.com/" },
+  { text: "launchApp", link: "https://app.ardmoney.com/" },
   {
     text: "BscScan",
     link: "https://bscscan.com/token/0xe849188f76c0da93b5ed310a1f72127914b3a7b9",
@@ -38,10 +38,10 @@ export default function HomeNavBar() {
   const [open, setOpen] = useState(false);
   const transitionProperties = open ? "translate-x-0" : "translate-x-full";
 
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
 
+  let selectedLanguage = i18n.language === "mn" ? "en" : "mn";
   function handleChangeLanguage() {
-    let selectedLanguage = i18n.language === "mn" ? "en" : "mn";
     i18n.changeLanguage(selectedLanguage);
   }
 
@@ -77,14 +77,16 @@ export default function HomeNavBar() {
                 className="uppercase hidden md:block text-white"
                 onClick={handleChangeLanguage}
               >
-                {i18n.language}
+                {selectedLanguage}
               </button>
               <a
                 href="https://app.ardmoney.com/"
                 target={"_blank"}
                 className="hidden md:block"
               >
-                <OutlineButton style="px-xl">Launch App</OutlineButton>
+                <OutlineButton style="px-xl">
+                  {t("navBar:launchApp")}
+                </OutlineButton>
               </a>
 
               <button onClick={() => openSidebar()} className="md:hidden">
@@ -109,7 +111,7 @@ export default function HomeNavBar() {
               className="uppercase text-white"
               onClick={handleChangeLanguage}
             >
-              {i18n.language}
+              {selectedLanguage}
             </button>
             <button className="flex justify-end" onClick={() => openSidebar()}>
               <img src={Cancel} alt="" />
@@ -123,7 +125,7 @@ export default function HomeNavBar() {
                 target={"_blank"}
                 className="flex flex-col text-xl font-normal"
               >
-                <span>{item.text}</span>
+                <span>{t(`navBar:${item.text}`)}</span>
               </a>
             ))}
           </div>
@@ -159,7 +161,8 @@ export default function HomeNavBar() {
           </div>
           <div className="flex gap-sm p-base w-full">
             <img src={Copyright} className="" alt="image" />
-            <span>2023 Diverse Solution LLC. All rights reserved</span>
+            {/* <span>2023 Diverse Solution LLC. All rights reserved</span> */}
+            <span>{t("navBar:rights")}</span>
           </div>
         </div>
         <img
