@@ -146,7 +146,7 @@ export default function Swap() {
                   }}
                 />
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col pr-2">
                 <input
                   type="number"
                   className="input text-lg pl-2xs"
