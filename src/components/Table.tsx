@@ -6,7 +6,7 @@ export default function Table({ header, rows }: TableProp) {
 
   function handleRowClick(link: string) {
     if (!link) return;
-    navigate(`/stake${link}`);
+    navigate(link);
   }
 
   return (

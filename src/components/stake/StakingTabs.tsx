@@ -11,17 +11,19 @@ export default function StakingTabs() {
 
   return (
     <Tabs.Root className="TabsRoot " defaultValue="tab1">
-      <Tabs.List className="TabsList">
-        {tabs.map((tab) => (
-          <Tabs.Trigger
-            key={tab.value}
-            className="TabsTrigger"
-            value={tab.value}
-          >
-            {tab.text}
-          </Tabs.Trigger>
-        ))}
-      </Tabs.List>
+      <div className="w-[300px]">
+        <Tabs.List className="TabsList">
+          {tabs.map((tab) => (
+            <Tabs.Trigger
+              key={tab.value}
+              className="TabsTrigger"
+              value={tab.value}
+            >
+              {tab.text}
+            </Tabs.Trigger>
+          ))}
+        </Tabs.List>
+      </div>
       {contents.map((content) => (
         <Tabs.Content
           key={content.tabValue}
@@ -54,15 +56,15 @@ const dummyTabsContents = [
       rows: [
         {
           texts: ["xARDM", "101,204,195", "7.9%", "Active"],
-          link: "/xARDM",
+          link: "/stake/xARDM",
         },
         {
           texts: ["xARDM", "101,204,195", "7.9%", "Active"],
-          link: "/xARDM",
+          link: "/stake/xARDM",
         },
         {
           texts: ["xARDM", "101,204,195", "7.9%", "Active"],
-          link: "/xARDM",
+          link: "/stake/xARDM",
         },
       ],
     },
@@ -74,7 +76,7 @@ const dummyTabsContents = [
       rows: [
         {
           texts: ["xARDM", "101,204,195", "7.9%", "Closed"],
-          link: "/xARDM",
+          link: "/stake/xARDM",
         },
       ],
     },
