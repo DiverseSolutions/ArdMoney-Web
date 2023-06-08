@@ -104,6 +104,11 @@ export default function Swap() {
       return;
     }
 
+    if (parseFloat(inputValue) > 10 ** 18) {
+      alert("error", "Reached max cap");
+      return;
+    }
+
     dispatcher(Actions.setFromInput(parseFloat(inputValue)));
   }
 
