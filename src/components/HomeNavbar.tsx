@@ -161,7 +161,6 @@ export default function HomeNavBar() {
           </div>
           <div className="flex gap-sm p-base w-full">
             <img src={Copyright} className="" alt="image" />
-            {/* <span>2023 Diverse Solution LLC. All rights reserved</span> */}
             <span>{t("navBar:rights")}</span>
           </div>
         </div>

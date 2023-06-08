@@ -1,20 +1,23 @@
+import { useTranslation } from "react-i18next";
 const footers = [
-  { text: "DEX", link: "https://app.ardmoney.com/" },
-  { text: "Testnet", link: "https://faucet.dsolutions.mn/" },
+  { text: "dex", link: "https://app.ardmoney.com/" },
+  { text: "testnet", link: "https://faucet.dsolutions.mn/" },
   {
-    text: "What is ARDM?",
+    text: "whatIsArdm",
     link: "https://www.youtube.com/@ArdMoney-Official",
   },
-  { text: "Apply for Listing", link: "mailto:info@ardmoney.com" },
+  { text: "apply", link: "mailto:info@ardmoney.com" },
   {
-    text: "Buy ARDM",
+    text: "buy",
     link: "https://www.idax.exchange/mn_MN/newTrade/ARDM_MONT",
   },
-  { text: "Forum", link: "https://t.me/ArdMoney" },
-  { text: "Snapshot", link: "https://snapshot.org/#/ardmoneydao.eth" },
+  { text: "forum", link: "https://t.me/ArdMoney" },
+  { text: "snapshot", link: "https://snapshot.org/#/ardmoneydao.eth" },
 ];
 
 export default function Footer() {
+  const { i18n, t } = useTranslation();
+
   return (
     <div className="flex flex-col sm:flex-row sm:justify-center p-lg lg:h-28 w-full">
       <div className="flex flex-col sm:max-w-6xl justify-between sm:items-center w-full gap-6 lg:gap-0">
@@ -22,12 +25,14 @@ export default function Footer() {
           <div className="flex flex-col lg:flex-row gap-4 lg:gap-lg lg:items-center w-full text-white text-sm sm:text-xs lg:text-sm">
             {footers.map((item, index) => (
               <a key={index} href={item.link} target={"_blank"}>
-                <span className="text-md">{item.text}</span>
+                <span className="text-md">{t(`footer:${item.text}`)}</span>
               </a>
             ))}
           </div>
           <div className="flex whitespace-nowrap gap-2 text-white text-sm sm:text-xs lg:text-sm">
-            <span className="text-light-secondary">For inquiries: </span>
+            <span className="text-light-secondary">
+              {t("footer:inquiries")}
+            </span>
             <a
               href="mailto:info@dsolutions.mn"
               className="underline cursor-pointer"
@@ -39,9 +44,7 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row justify-between w-full gap-6">
           <div className="flex items-center gap-2 text-light-secondary">
             <div className="i-ic-round-copyright icon-size-4 relative bottom-0.5" />
-            <span className="sm:text-xs lg:text-sm">
-              2023 Diverse Solution LLC. All rights reserved
-            </span>
+            <span className="sm:text-xs lg:text-sm">{t("navBar:rights")}</span>
           </div>
           <div className="flex sm:justify-end items-center gap-lg text-white">
             <a
