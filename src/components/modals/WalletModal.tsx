@@ -66,7 +66,9 @@ export default function WalletModal() {
               </h5>
             </div>
             <div className="flex gap-3xs">
-              <div className="i-ic-outline-settings icon-size-5 btn-animation" />
+              {
+                // <div className="i-ic-outline-settings icon-size-5 btn-animation" />
+              }
               <div
                 className="i-ic-outline-refresh icon-size-5 btn-animation"
                 onClick={handleRefresh}
