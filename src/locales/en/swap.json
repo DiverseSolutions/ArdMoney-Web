@@ -7,5 +7,8 @@
   "slippageTolarance": "Slippage Tolerance",
   "fee": "Swap Fee",
   "approveButton": "Approve",
-  "swapButton": "Swap"
+  "swapButton": "Swap",
+  "successfullyReloaded": "Successfully Reloaded",
+  "reloadFailed": "Reload Failed",
+  "reachedMaxCap": "Reached max cap"
 }

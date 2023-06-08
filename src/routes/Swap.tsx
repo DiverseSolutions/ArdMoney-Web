@@ -93,9 +93,9 @@ export default function Swap() {
     try {
       await fetchPairs();
       dispatcher(Actions.setFromToken(tokenList[0]));
-      alert("success", "Successfully Reloaded");
+      alert("success", t("swap:successfullyReloaded"));
     } catch (e) {
-      alert("error", "Reload Failed");
+      alert("error", t("swap:reloadFailed"));
     }
   }
 
@@ -107,7 +107,7 @@ export default function Swap() {
     }
 
     if (parseFloat(inputValue) > 10 ** 18) {
-      alert("error", "Reached max cap");
+      alert("error", t("swap:reachedMaxCap"));
       return;
     }
 
