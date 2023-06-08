@@ -17,6 +17,7 @@ import OutlineButton from "./shared/OutlineButton";
 import { useTranslation } from "react-i18next";
 
 const DesktopLinks: any[] = [
+  { text: "Home", link: "/" },
   // { text: "Swap", link: "/swap" },
   // { text: "Pool", link: "/pool" },
   // { text: "Staking", link: "/staking" },
@@ -25,6 +26,7 @@ const DesktopLinks: any[] = [
 ];
 
 const MobileLinks: any[] = [
+  { text: "Home", link: "/" },
   // { text: "Swap", link: "/swap" },
   // { text: "Pool", link: "/pool" },
   // { text: "Staking", link: "/staking" },
