@@ -16,7 +16,7 @@ const footers = [
 ];
 
 export default function Footer() {
-  const { i18n, t } = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <div className="flex flex-col sm:flex-row sm:justify-center p-lg lg:h-28 w-full">
