@@ -4,10 +4,12 @@ import { setConnectWalletModal } from "@slices/modalSlice";
 import { RootState } from "@redux/store";
 import { alert } from "@helpers/alert";
 import OutlineButton from "@components/shared/OutlineButton";
+import { useTranslation } from "react-i18next";
 
 export default function ConnectWalletButton({
   style = "",
 }: ConnectWalletButtonProp) {
+  const { t } = useTranslation();
   const { connectWalletModalState } = useSelector(
     (state: RootState) => state.modal
   );
@@ -28,7 +30,7 @@ export default function ConnectWalletButton({
 
   return (
     <OutlineButton style={style} clickHandler={connectWalletHandler}>
-      Connect Wallet
+      {t("common:connectWallet")}
     </OutlineButton>
   );
 }

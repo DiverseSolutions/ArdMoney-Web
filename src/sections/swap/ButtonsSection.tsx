@@ -61,6 +61,7 @@ export default function ButtonsSection({
       setIsApproveDisabled(true);
       setIsSwapDisabled(false);
       alert("success", "Successfully Approved");
+      alert("success", t("alert:swapSuccessful"));
     } catch (e: any) {
       alert("error", e.message);
     }
@@ -80,7 +81,7 @@ export default function ButtonsSection({
 
       setIsApproveDisabled(false);
       setIsSwapDisabled(true);
-      alert("success", "Successfully Swapped");
+      alert("success", t("alert:swapSuccessful"));
       dispatcher(Actions.setFromInput(""));
     } catch (e: any) {
       alert("error", e.message);
