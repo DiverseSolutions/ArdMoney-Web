@@ -1,5 +1,6 @@
 {
   "connectWalletSuccess": "Wallet successfully connected",
   "noAccountFoundError": "No wallet accounts found",
-  "swapSuccessful": "Successfully swapped"
+  "swapSuccessful": "Successfully swapped",
+  "approveSuccessful": "Successfully approved"
 }
