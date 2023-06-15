@@ -86,17 +86,6 @@ function TabContentTemplate({ tabValue, onSubmit }: TemplateProp) {
             MAX
           </ToggleGroup.Item>
         </ToggleGroup.Root>
-        {/* <div className="flex gap-xs">
-          <button className="flex items-center px-[12px] py-xs text-2xs border border-light/10 rounded-3xl">
-            1/4
-          </button>
-          <button className="flex items-center px-[12px] py-xs text-2xs border border-light/10 rounded-3xl">
-            1/2
-          </button>
-          <button className="flex items-center px-[12px] py-xs text-2xs bg-primary text-black rounded-3xl">
-            MAX
-          </button>
-        </div> */}
       </div>
 
       <div className="flex px-base py-sm border border-primary/10 rounded-lg mb-sm">
@@ -133,7 +122,9 @@ function TabContentTemplate({ tabValue, onSubmit }: TemplateProp) {
           </div>
         ))}
       </div>
-      <Button children={content.button} />
+      <div className="h-auto">
+        <Button children={content.button} />
+      </div>
     </Tabs.Content>
   );
 }

@@ -31,8 +31,8 @@ export default function App() {
           </Route>
           <Route path="/" element={<AppLayout />}>
             <Route path="/swap" element={<Swap />} />
-            <Route path="/stake" element={<Stake />} />
-            <Route path="/stake/:id" element={<SingleStake />} />
+            <Route path="/stake" element={<SingleStake />} />
+            {/* <Route path="/stake/:id" element={<SingleStake />} /> */}
             <Route path="/governance" element={<Governance />} />
             <Route path="/pools" element={<Pools />} />
             <Route path="/analytics" element={<Analytics />} />
