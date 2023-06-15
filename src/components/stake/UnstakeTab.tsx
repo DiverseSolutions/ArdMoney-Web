@@ -1,5 +1,4 @@
 import { RootState } from "@/redux/store";
-import * as ToggleGroup from "@radix-ui/react-toggle-group";
 import { useSelector } from "react-redux";
 import Button from "../shared/Button";
 import ConnectToSupportedNetworkButton from "../web3/ConnectToSupportedNetworkButton";
@@ -13,69 +12,40 @@ export default function UnStakeTab() {
     <div className="mt-7">
       <div className="flex justify-between text-light/60 text-sm w-full mb-base">
         <span>sARDM Unstake</span>
-        <div>
-          <span>Balance:</span>
+        <div className="flex gap-1 items-center">
+          <span>Balance</span>
+          <span>:</span>
           <span className="text-light">0.000</span>
         </div>
       </div>
 
-      <div className="flex px-base py-sm border border-primary/10 rounded-lg mb-sm">
+      <div className="flex px-base items-center gap-2 py-sm border border-primary/10 rounded-lg mb-sm">
+        <span className="text-light text-xl">sARDM</span>
         <input
-          type="tel"
-          placeholder="0.000 CERO"
+          type="number"
+          placeholder="0.000"
           name=""
-          id=""
-          className="flex w-full bg-transparent outline-none md:text-xl appearance-none"
+          className="flex disabled text-right w-full bg-transparent outline-none md:text-xl appearance-none"
         />
       </div>
 
-      <div className="flex justify-between items-center w-full mb-2xl">
+      <div className="flex justify-end items-center w-full mb-2xl">
         <span className="text-light/60 text-xs sm:text-sm">
-          1 xCero = 1.000000 Cero
+          1 sARDM = 1.000000 ARDM
         </span>
-        <ToggleGroup.Root
-          className="ToggleGroup"
-          type="single"
-          aria-label="Text alignment"
-          //   onValueChange={(e) => {
-          //       console.log(!e)
-          //     console.log(parseFloat(e));
-          //   }}
-        >
-          <ToggleGroup.Item
-            className="ToggleGroupItem"
-            value={"0.25"}
-            aria-label="Left aligned"
-          >
-            1/4
-          </ToggleGroup.Item>
-          <ToggleGroup.Item
-            className="ToggleGroupItem"
-            value={"0.5"}
-            aria-label="Center aligned"
-          >
-            1/2
-          </ToggleGroup.Item>
-          <ToggleGroup.Item
-            className="ToggleGroupItem"
-            value={"1"}
-            aria-label="Right aligned"
-          >
-            MAX
-          </ToggleGroup.Item>
-        </ToggleGroup.Root>
       </div>
 
-      <div className="flex px-base py-sm border border-primary/10 rounded-lg mb-sm">
+      <div className="flex px-base items-center gap-2 py-sm border border-primary/10 rounded-lg mb-sm">
+        <span className="text-light/60 text-xl">ARDM</span>
         <input
-          type="tel"
-          placeholder="0.000 CERO"
+          type="number"
+          placeholder="0.000"
+          disabled
           name=""
-          id=""
-          className="flex w-full bg-transparent outline-none md:text-xl appearance-none"
+          className="flex disabled text-right w-full bg-transparent outline-none md:text-xl appearance-none"
         />
       </div>
-      <span className="text-light/60 text-sm mb-lg">0.00</span>
+      <h5 className="text-light/60 text-right text-sm mb-lg">0.00</h5>
 
       <div className="flex items-center justify-between w-full mb-xl gap-1">
         <div className="flex items-center text-sm gap-xs">
@@ -103,11 +73,10 @@ export default function UnStakeTab() {
       </div>
       <div className="h-auto">
         {!web3Slice.isConnected && <ConnectWalletButton style="py-sm" />}
-        {web3Slice.isConnected && isUnknown ? (
+        {web3Slice.isConnected && isUnknown && (
           <ConnectToSupportedNetworkButton style="w-full py-sm" />
-        ) : (
-          <Button children={"Unstake"} />
         )}
+        {web3Slice.isConnected && <Button children={"Stake"} />}
       </div>
     </div>
   );

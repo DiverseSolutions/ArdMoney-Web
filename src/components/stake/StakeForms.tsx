@@ -13,7 +13,7 @@ export default function StakingForms({
   setTab: (val: TabState) => void;
 }) {
   return (
-    <div className="flex flex-col p-lg w-full border border-primary rounded-3xs">
+    <div className="flex flex-col p-lg h-full w-full border border-primary rounded-3xs">
       <Tabs.Root
         className="TabsRoot "
         value={tab}

@@ -34,24 +34,24 @@ export default function SingleStake() {
               <div className="flex items-center gap-xs mb-sm p-sm border border-primary/10 rounded-lg">
                 <span>100,000</span>
                 <span className="flex items-end text-xs text-light/60">
-                  CERO
+                  ARDM
                 </span>
               </div>
               <div className="flex items-center gap-xs mb-2xl p-sm border border-primary/10 rounded-lg">
                 <span>0</span>
                 <span className="flex items-end text-xs text-light/60">
-                  xCERO
+                  sARDM
                 </span>
               </div>
               <span className="text-base mb-2xl">Amount of Stake</span>
               <div className="flex items-center gap-xs mb-lg p-sm border border-primary/10 rounded-lg">
                 <span>0</span>
                 <span className="flex items-end text-xs text-light/60">
-                  xCERO
+                  ARDM
                 </span>
               </div>
             </div>
-            <div className="flex flex-col gap-lg w-full lg:w-1/2">
+            <div className="flex flex-col gap-lg h-full w-full lg:w-1/2">
               <StakingInfo />
               <StakingForms tab={tab} setTab={setTab}>
                 <Tabs.Content value={"stake"}>
@@ -77,16 +77,14 @@ function StakingInfo() {
   return (
     <div className="flex flex-col border border-primary rounded-3xs p-lg gap-lg">
       <div className="flex w-full justify-between text-xl">
-        <span className="font-extrabold">Total CERO</span>
+        <span className="font-extrabold">Total ARDM</span>
         <span>22,311</span>
       </div>
       <div className="flex w-full justify-between text-xl">
-        <span className="font-extrabold">Staking fee</span>
+        <span className="font-extrabold">APY</span>
         <div className="flex items-center gap-xs">
           <span>7,9%</span>
-          <span className="flex items-end text-xs text-light/60">
-            1 year APY
-          </span>
+          <span className="flex items-end text-xs text-light/60">1 year</span>
         </div>
       </div>
     </div>

@@ -6,25 +6,25 @@ import Cloud4 from "@assets/images/staking/Cloud4.svg";
 export default function Info() {
   return (
     <div className="relative flex flex-col  staking-header-gradient p-lg w-full border border-primary rounded-3xs mb-2xl">
-      <div className="flex flex-col w-full z-10 lg:w-5/12 text-light/60 text-sm gap-lg">
+      <div className="flex flex-col w-full z-10 lg:w-7/12 text-light/60 text-sm gap-lg">
         <div className="flex gap-base">
           <div className="i-ic-round-warning-amber icon-size-5 flex-shrink-0" />
           <span>
-            By staking CERO tokens, they will be converted into an equal amount
-            of xCERO tokens and placed in your wallet.
+            By staking ARDM tokens, they will be converted into an equal amount
+            of sARDM tokens and placed in your wallet.
           </span>
         </div>
         <div className="flex gap-base">
           <div className="i-ic-round-warning-amber icon-size-5 flex-shrink-0" />
           <span>
-            Each CERO tokens are added to the staking pool, the value of xARDM
+            Each ARDM tokens are added to the staking pool, the value of sARDM
             will increase.
           </span>
         </div>
         <div className="flex gap-base">
           <div className="i-ic-round-warning-amber icon-size-5 flex-shrink-0" />
           <span>
-            When you unstake xCERO tokens from staking, you will be awarded CERO
+            When you unstake sARDM tokens from staking, you will be awarded ARDM
             + (interest return) previously supplied.
           </span>
         </div>
@@ -32,14 +32,6 @@ export default function Info() {
           <div className="i-ic-round-warning-amber icon-size-5 flex-shrink-0" />
           <span>
             Your interest rate depends on the duration of your staking.
-          </span>
-        </div>
-        <div className="flex gap-base">
-          <div className="i-ic-round-warning-amber icon-size-5 flex-shrink-0" />
-          <span>
-            A certain percentage of the CERO DeFi project's reward resources and
-            transaction fees on the DEX will be invested in the Cero staking
-            smart contract.
           </span>
         </div>
       </div>
