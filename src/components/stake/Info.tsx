@@ -2,9 +2,6 @@ import Cloud1 from "@assets/images/staking/Cloud1.svg";
 import Cloud2 from "@assets/images/staking/Cloud2.svg";
 import Cloud3 from "@assets/images/staking/Cloud3.svg";
 import Cloud4 from "@assets/images/staking/Cloud4.svg";
-import Staking_head1 from "@assets/images/staking/Staking_head1.svg";
-import Staking_head2 from "@assets/images/staking/Staking_head2.svg";
-import Staking_head3 from "@assets/images/staking/Staking_head3.svg";
 
 export default function Info() {
   return (
@@ -47,17 +44,6 @@ export default function Info() {
         </div>
       </div>
       <div className="hidden lg:flex ">
-        <img
-          src={Staking_head1}
-          alt=""
-          className="absolute right-1/4 bottom-0"
-        />
-        <img src={Staking_head2} alt="" className="absolute right-0 top-0 " />
-        <img
-          src={Staking_head3}
-          alt=""
-          className="absolute right-0 bottom-0  z-20"
-        />
         <img
           src={Cloud1}
           alt=""
