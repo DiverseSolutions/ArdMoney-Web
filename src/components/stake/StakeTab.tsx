@@ -31,7 +31,7 @@ export default function StakeTab() {
 
       <div className="flex justify-end items-center w-full mb-2xl">
         <span className="text-light/60 text-xs sm:text-sm">
-          1 ARDM = 1.000000 sARDM
+          1 ARDM = 1.000 sARDM
         </span>
       </div>
 
@@ -39,7 +39,7 @@ export default function StakeTab() {
         <span className="text-light/60 text-xl">sARDM</span>
         <input
           type="number"
-          placeholder="0.000"
+          placeholder="0"
           disabled
           name=""
           className="flex disabled text-right w-full bg-transparent outline-none md:text-xl appearance-none"
