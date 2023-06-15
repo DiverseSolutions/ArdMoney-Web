@@ -5,7 +5,7 @@ import Cloud4 from "@assets/images/staking/Cloud4.svg";
 
 export default function Info() {
   return (
-    <div className="relative flex flex-col  staking-header-gradient p-lg w-full border border-primary rounded-3xs mb-2xl">
+    <div className="relative flex flex-col staking-header-gradient p-lg w-full border border-primary rounded-3xs">
       <div className="flex flex-col w-full z-10 lg:w-7/12 text-light/60 text-sm gap-lg">
         <div className="flex gap-base">
           <div className="i-ic-round-warning-amber icon-size-5 flex-shrink-0" />

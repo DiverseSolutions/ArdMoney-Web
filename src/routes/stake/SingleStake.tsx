@@ -21,8 +21,8 @@ export default function SingleStake() {
   return (
     <>
       <ProviderContext.Provider value={web3}>
-        <PageContainer>
-          <span className="text-2xl lg:text-4xl text-light font-extrabold lg:mt-xl mb-sm lg:mb-lg">
+        <div className="flex flex-col gap-xl">
+          <span className="text-2xl lg:text-4xl text-light font-extrabold">
             sARDM Staking
           </span>
           <Info />
@@ -51,7 +51,7 @@ export default function SingleStake() {
                 </span>
               </div>
             </div>
-            <div className="flex flex-col gap-lg h-full w-full lg:w-1/2">
+            <div className="flex flex-col grow gap-lg w-full lg:w-1/2">
               <StakingInfo />
               <StakingForms tab={tab} setTab={setTab}>
                 <Tabs.Content value={"stake"}>
@@ -64,7 +64,7 @@ export default function SingleStake() {
               </StakingForms>
             </div>
           </div>
-        </PageContainer>
+        </div>
         <img src={Background1} alt="" className="absolute left-0 top-1/2" />
         <img src={Background2} alt="" className="absolute right-0 top-1/2" />
       </ProviderContext.Provider>
