@@ -14,8 +14,10 @@ import CloseIcon from "@assets/icons/CloseIcon";
 import OutlineButton from "../shared/OutlineButton";
 import { Wallet } from "ethers";
 import ModalLayout from "../layouts/ModalLayout";
+import { useTranslation } from "react-i18next";
 
 export default function ConnectWalletModal() {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
 
   async function handleMetamaskConnection() {
@@ -31,9 +33,9 @@ export default function ConnectWalletModal() {
           dispatch(setWeb3Account(accounts[0]));
           dispatch(setWeb3Connection(true));
           dispatch(setProviderType("metamask"));
-          alert("success", "Successfully Connected To Metamask");
+          alert("success", t("alert:connectWalletSuccess"));
         } else {
-          alert("error", "No Metamask Accounts Found");
+          alert("error", t("alert:noAccountFoundError"));
         }
       } catch (e: any) {
         alert("error", e.message);
@@ -51,7 +53,7 @@ export default function ConnectWalletModal() {
       dispatch(setWeb3Account(wallet.address));
       dispatch(setWeb3Connection(true));
       dispatch(setProviderType("web"));
-      alert("success", "Successfully Connected To Metamask");
+      alert("success", t("alert:connectWalletSuccess"));
     } catch (e: any) {
       alert("error", e.message);
     }
@@ -65,7 +67,7 @@ export default function ConnectWalletModal() {
     <ModalLayout handleModalClose={handleModalClose}>
       <div className="mt-xl min-w-[200px] max-w-[423px] flex flex-col gap-base">
         <div className="flex justify-between items-center">
-          <h5>Connect Wallet</h5>
+          <h5>{t("common:connectWallet")}</h5>
           <button
             className="btn-animation p-2xs rounded-4xs border border-light-back"
             onClick={handleModalClose}
@@ -74,7 +76,9 @@ export default function ConnectWalletModal() {
           </button>
         </div>
 
-        <span className="text-light-terteriary">Available Wallet</span>
+        <span className="text-light-terteriary">
+          {t("connectWalletModal:walletAvailablity")}
+        </span>
         <OutlineButton clickHandler={handleMetamaskConnection}>
           <MetamaskIcon style="h-2xl w-auto" />
           <h5>Metamask</h5>
@@ -83,16 +87,8 @@ export default function ConnectWalletModal() {
           <LogoIcon />
           <h5>ArdMoney Wallet</h5>
         </OutlineButton>
-        <p>
-          By connecting a wallet, you agree to ArdMoney Swap’s{" "}
-          <a href="#" className="document-link">
-            Terms of Service
-          </a>{" "}
-          and consent to its{" "}
-          <a className="document-link" href="#">
-            Privacy Policy
-          </a>{" "}
-          .
+        <p className="text-sm text-center">
+          {t("connectWalletModal:termsAndPrivacy")}
         </p>
       </div>
     </ModalLayout>

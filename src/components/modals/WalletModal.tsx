@@ -83,7 +83,6 @@ export default function WalletModal() {
           <div className="flex gap-3xs text-sm">
             <span className="uppercase">Tokens</span>
             <span className="text-light-secondary uppercase">Nfts</span>
-            <span className="text-light-secondary uppercase">Activity</span>
           </div>
           <ComponentLoader isLoading={isRefreshing}>
             <div className="flex flex-col gap-3xs">

@@ -7,8 +7,10 @@ import { alert } from "@helpers/alert";
 import { setNetworkConfigured, setNetworkUnknown } from "@slices/networkSlice";
 import ModalLayout from "../layouts/ModalLayout";
 import Divider from "@components/shared/Divider";
+import { useTranslation } from "react-i18next";
 
 export default function NetworkModal() {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
 
   function handleModalClose() {
@@ -39,7 +41,7 @@ export default function NetworkModal() {
     <ModalLayout alignment="right" handleModalClose={handleModalClose}>
       <div className="flex flex-col gap-xl w-full">
         <div className="flex items-center justify-between gap-0">
-          <h5>Choose Chain</h5>
+          <h5>{t("common:chooseChain")}</h5>
           <div
             className="i-ic-outline-close icon-size-5 btn-animation"
             onClick={handleModalClose}

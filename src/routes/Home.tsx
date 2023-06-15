@@ -20,6 +20,7 @@ import Card from "@/components/shared/Card";
 import Section from "@/components/layouts/Section";
 import PageContainer from "@/components/layouts/PageContainer";
 import OutlineButton from "@/components/shared/OutlineButton";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const [faqAccordionState, setFaqAccordionState] = useState(1);
@@ -56,6 +57,15 @@ export default function Home() {
               <span className="text-xs lg:text-base">{t("home:learn")}</span>
             </OutlineButton>
           </a>
+        </div>
+        <div className="flex items-center justify-center w-full gap-base z-10">
+          <Link to={"/swap"}>
+            <OutlineButton style={"w-[151px] md:w-[219px]"}>
+              <span className="text-xs lg:text-base">
+                {t("home:swapButton")}
+              </span>
+            </OutlineButton>
+          </Link>
         </div>
         <img
           src={Background}
