@@ -158,7 +158,9 @@ export default function UnStakeTab() {
           <div className="flex gap-1 items-center">
             <span>{t("stake:balance")}</span>
             <span>:</span>
-            <span className="text-light">{formatNumber(sArdmBalance)}</span>
+            <span className="text-light">
+              {formatNumber(sArdmBalance, 3, 0)}
+            </span>
           </div>
         )}
       </div>
