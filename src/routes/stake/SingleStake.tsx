@@ -97,8 +97,17 @@ export default function SingleStake() {
             </div>
           </div>
         </div>
-        <img src={Background1} alt="" className="absolute left-0 top-1/2" />
-        <img src={Background2} alt="" className="absolute right-0 top-1/2" />
+
+        <img
+          src={Background1}
+          alt=""
+          className="absolute hidden md:block left-0 top-1/2"
+        />
+        <img
+          src={Background2}
+          alt=""
+          className="absolute hidden md:block right-0 top-1/2"
+        />
       </ProviderContext.Provider>
     </>
   );
