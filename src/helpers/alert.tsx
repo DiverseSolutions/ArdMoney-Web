@@ -68,7 +68,7 @@ function getAlertDefaultOptions() {
     timer: 3000,
     customClass: {
       popup:
-        "flex! items-center! bg-black! w-2/12! border-2! rounded-3xs! border-solid! py-0! m-0! px-xl! mb-5!" +
+        "flex! items-center! bg-black! min-w-4/12 max-w-11/12 md:min-w-2/12! md:max-w-5/12! border-2! rounded-3xs! border-solid! py-0! m-0! px-xl! mb-5!" +
         " ",
       icon: "hidden!",
       title: "hidden!",
