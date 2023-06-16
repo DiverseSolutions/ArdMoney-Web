@@ -39,15 +39,11 @@ export default function Home() {
           {/* <span>Without Boundaries</span> */}
         </div>
         <div className="flex items-center justify-center w-full gap-base">
-          <a
-            href="https://app.ardmoney.com/"
-            target={"_blank"}
-            className="btn w-[151px] md:w-[219px]"
-          >
+          <Link to="/swap" className="btn w-[151px] md:w-[219px]">
             <span className="text-xs lg:text-base font-light">
               {t("home:launchApp")}
             </span>
-          </a>
+          </Link>
           <a
             href="https://docs.ardmoney.com/"
             target={"_blank"}
@@ -57,23 +53,6 @@ export default function Home() {
               <span className="text-xs lg:text-base">{t("home:learn")}</span>
             </OutlineButton>
           </a>
-        </div>
-        <div className="flex items-center justify-center w-full gap-base z-10">
-          <Link to={"/swap"}>
-            <OutlineButton style={"w-[151px] md:w-[219px]"}>
-              <span className="text-xs lg:text-base">
-                {t("home:swapButton")}
-              </span>
-            </OutlineButton>
-          </Link>
-
-          <Link to={"/stake"}>
-            <OutlineButton style={"w-[151px] md:w-[219px]"}>
-              <span className="text-xs lg:text-base">
-                {t("home:stakeButton")}
-              </span>
-            </OutlineButton>
-          </Link>
         </div>
         <img
           src={Background}
