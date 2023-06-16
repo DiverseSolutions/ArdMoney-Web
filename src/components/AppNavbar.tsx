@@ -125,14 +125,13 @@ export default function AppNavbar() {
           </div>
           <div className="flex flex-col gap-base mt-2xl p-base">
             {MobileLinks.map((item, index) => (
-              <a
+              <Link
+                to={item.link}
                 key={index}
-                href={item.link}
-                target={"_blank"}
                 className="flex flex-col text-xl font-normal"
               >
                 <span>{t(`navBar:${item.text}`)}</span>
-              </a>
+              </Link>
             ))}
           </div>
           <div className="flex sm:justify-start gap-lg p-base ">
