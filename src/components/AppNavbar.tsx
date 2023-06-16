@@ -29,7 +29,7 @@ const MobileLinks: any[] = [
   { text: "home", link: "/" },
   { text: "swap", link: "/swap" },
   // { text: "Pool", link: "/pool" },
-  { text: "staking", link: "/staking" },
+  { text: "staking", link: "/stake" },
   // { text: "Governance", link: "/governance" },
   // { text: "Analytics", link: "/analytics" },
 ];
