@@ -48,5 +48,6 @@
   "blogThreeParagraph": "АрдМааний токен эзэмшигч таны амар амгаланг айлтгая. Төслийн багийн хувьд 3-р сар бидний хамгийн бүтээмжтэй саруудын нэг байлаа. Өнгөрсөн сард: .....",
   "joinCommunity": "Join our community",
   "joinCommunityParagraph": "Join us on this exciting journey. Experience ArdMoney and embrace a new era of financial services. Discover the power of blockchain innovation for yourself. The future is here.",
-  "swapButton": "New swap page"
+  "swapButton": "New swap page",
+  "stakeButton": "New staking page"
 }

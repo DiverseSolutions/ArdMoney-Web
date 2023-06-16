@@ -66,6 +66,14 @@ export default function Home() {
               </span>
             </OutlineButton>
           </Link>
+
+          <Link to={"/stake"}>
+            <OutlineButton style={"w-[151px] md:w-[219px]"}>
+              <span className="text-xs lg:text-base">
+                {t("home:stakeButton")}
+              </span>
+            </OutlineButton>
+          </Link>
         </div>
         <img
           src={Background}

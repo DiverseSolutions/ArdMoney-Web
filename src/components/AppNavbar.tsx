@@ -18,18 +18,18 @@ import { useTranslation } from "react-i18next";
 
 const DesktopLinks: any[] = [
   { text: "home", link: "/" },
-  // { text: "Swap", link: "/swap" },
+  { text: "swap", link: "/swap" },
   // { text: "Pool", link: "/pool" },
-  // { text: "Staking", link: "/staking" },
+  { text: "staking", link: "/stake" },
   // { text: "Governance", link: "/governance" },
   // { text: "Analytics", link: "/analytics" },
 ];
 
 const MobileLinks: any[] = [
   { text: "home", link: "/" },
-  // { text: "Swap", link: "/swap" },
+  { text: "swap", link: "/swap" },
   // { text: "Pool", link: "/pool" },
-  // { text: "Staking", link: "/staking" },
+  { text: "staking", link: "/staking" },
   // { text: "Governance", link: "/governance" },
   // { text: "Analytics", link: "/analytics" },
 ];

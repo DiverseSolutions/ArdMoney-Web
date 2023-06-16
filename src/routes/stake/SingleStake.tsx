@@ -127,7 +127,7 @@ function StakingInfo() {
       <div className="flex w-full justify-between text-xl">
         <span className="font-extrabold">{t("stake:apy")}</span>
         <div className="flex items-center gap-xs">
-          <span>7,9%</span>
+          <span>7,2%</span>
           <span className="flex items-end text-xs text-light/60">
             1 {t("stake:year")}
           </span>

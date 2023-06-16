@@ -10,7 +10,8 @@ import AdditionalDropdownMenu from "@components/nav/Dropdown";
 import { useTranslation } from "react-i18next";
 
 const navigations = [
-  { text: "Swap", link: "/swap" },
+  // { text: "swap", link: "/swap" },
+  // { text: "staking", link: "/stake" },
   {
     text: "BscScan",
     link: "https://bscscan.com/token/0xe849188f76c0da93b5ed310a1f72127914b3a7b9",
@@ -23,8 +24,9 @@ const navigations = [
 ];
 
 const mobileNavigations = [
-  { text: "Swap", link: "/swap" },
-  { text: "launchApp", link: "https://app.ardmoney.com/" },
+  // { text: "swap", link: "/swap" },
+  // { text: "staking", link: "/stake" },
+  // { text: "launchApp", link: "https://app.ardmoney.com/" },
   {
     text: "BscScan",
     link: "https://bscscan.com/token/0xe849188f76c0da93b5ed310a1f72127914b3a7b9",
@@ -68,7 +70,7 @@ export default function HomeNavBar() {
                     target={"_blank"}
                     className="flex items-center"
                   >
-                    <span className="text-md">{item.text}</span>
+                    <span className="text-md">{t(`navBar:${item.text}`)}</span>
                   </a>
                 ))}
                 {/* <AdditionalDropdownMenu /> */}
