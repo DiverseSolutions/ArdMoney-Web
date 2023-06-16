@@ -21,7 +21,9 @@ export default function StakeTab() {
   const { account } = useSelector((state: RootState) => state.web3);
   const { chainId } = useSelector((state: RootState) => state.network);
   const web3Slice = useSelector((state: RootState) => state.web3);
-  const { isUnknown } = useSelector((state: RootState) => state.network);
+  const { isUnknown, isConfigured } = useSelector(
+    (state: RootState) => state.network
+  );
 
   const web3 = useProvider();
 
@@ -151,7 +153,7 @@ export default function StakeTab() {
     <div className="mt-7">
       <div className="flex justify-between text-light/60 text-sm w-full mb-base">
         <span>sARDM Stake</span>
-        {account != undefined && (
+        {isConfigured && web3Slice.isConnected && account != undefined && (
           <div className="flex gap-1 items-center">
             <span>Balance</span>
             <span>:</span>
@@ -211,7 +213,7 @@ export default function StakeTab() {
         {web3Slice.isConnected && isUnknown && (
           <ConnectToSupportedNetworkButton style="w-full py-sm" />
         )}
-        {web3Slice.isConnected && (
+        {isConfigured && web3Slice.isConnected && account != undefined && (
           <div className="flex flex-col gap-3xs">
             <div
               className={`btn ${isApproveDisabled && "btn-disabled"}`}

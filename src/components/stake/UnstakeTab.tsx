@@ -24,7 +24,9 @@ export default function UnStakeTab() {
   const [sArdmBalance, setSArdmBalance] = useState(0);
   const [rate, setRate] = useState(1);
   const web3Slice = useSelector((state: RootState) => state.web3);
-  const { isUnknown } = useSelector((state: RootState) => state.network);
+  const { isUnknown, isConfigured } = useSelector(
+    (state: RootState) => state.network
+  );
 
   const [isApproveDisabled, setIsApproveDisabled] = useState(true);
   const [isContractActionDisabled, setIsContractActionDisabled] =
@@ -149,7 +151,7 @@ export default function UnStakeTab() {
     <div className="mt-7">
       <div className="flex justify-between text-light/60 text-sm w-full mb-base">
         <span>sARDM Unstake</span>
-        {account != undefined && (
+        {isConfigured && account != undefined && (
           <div className="flex gap-1 items-center">
             <span>Balance</span>
             <span>:</span>
@@ -209,7 +211,8 @@ export default function UnStakeTab() {
         {web3Slice.isConnected && isUnknown && (
           <ConnectToSupportedNetworkButton style="w-full py-sm" />
         )}
-        {web3Slice.isConnected && (
+
+        {isConfigured && web3Slice.isConnected && account != undefined && (
           <div className="flex flex-col gap-3xs">
             <div
               className={`btn ${isApproveDisabled && "btn-disabled"}`}
