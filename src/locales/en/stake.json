@@ -12,5 +12,8 @@
   "stake": "Stake",
   "unstake": "Unstake",
   "accordion1": "Please be aware that this action is executed via a blockchain smart contract and is recorded permanently. Therefore, it cannot be undone",
-  "approve": "Approve"
+  "approve": "Approve",
+  "aboveBalance": "Above Balance",
+  "reachedMax": "Reached Max",
+  "successfullyApproved": "Successfully Approved"
 }
