@@ -64,12 +64,12 @@ export default function UnStakeTab() {
     }
 
     if (parseFloat(inputValue) > sArdmBalance) {
-      alert("error", "Above Balance");
+      alert("error", t("stake:aboveBalance"));
       return;
     }
 
     if (parseFloat(inputValue) > 10 ** 18) {
-      alert("error", "Reached Max");
+      alert("error", t("stake:reachedMax"));
       return;
     }
 
@@ -91,7 +91,7 @@ export default function UnStakeTab() {
       setIsApproveDisabled(true);
       setIsContractActionDisabled(false);
 
-      alert("success", "Successfully Approved");
+      alert("success", t("stake:successfullyApproved"));
     } catch (e: any) {
       alert("error", e.message);
     }
