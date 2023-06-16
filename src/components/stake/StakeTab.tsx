@@ -1,22 +1,60 @@
+import useProvider from "@/hooks/useProvider";
 import { RootState } from "@/redux/store";
 import { useSelector } from "react-redux";
 import Button from "../shared/Button";
 import ConnectToSupportedNetworkButton from "../web3/ConnectToSupportedNetworkButton";
 import ConnectWalletButton from "../web3/ConnectWalletButton";
+import { WalletTokenList } from "@constants/TokenList";
+import { useEffect, useState } from "react";
+import { getTokenBalance } from "@/helpers/contracts/token";
+import { format18 } from "@/helpers/web3";
+import { formatNumber } from "@/helpers/numbers";
+import { getSARDMRate } from "@/helpers/contracts/sStaking";
 
 export default function StakeTab() {
+  const { account } = useSelector((state: RootState) => state.web3);
+  const web3 = useProvider();
+  const { chainId } = useSelector((state: RootState) => state.network);
+  const [ardmBalance, setArdmBalance] = useState("0");
+  const [rate, setRate] = useState(1);
   const web3Slice = useSelector((state: RootState) => state.web3);
   const { isUnknown } = useSelector((state: RootState) => state.network);
+
+  useEffect(() => {
+    setUpArdmBalance();
+    setUpRate();
+  }, [web3]);
+
+  async function setUpArdmBalance() {
+    let ardmToken = WalletTokenList[chainId].find(
+      (token) => token.symbol === "ARDM"
+    );
+    if (!ardmToken || !account) return;
+
+    const result = await getTokenBalance(web3, ardmToken?.address, account);
+    if (result) setArdmBalance(format18(result));
+  }
+
+  async function setUpRate() {
+    const result = await getSARDMRate(web3);
+    if (!result) return;
+
+    if (parseFloat(result) > 0) {
+      setRate(parseFloat(result));
+    }
+  }
 
   return (
     <div className="mt-7">
       <div className="flex justify-between text-light/60 text-sm w-full mb-base">
         <span>sARDM Stake</span>
-        <div className="flex gap-1 items-center">
-          <span>Balance</span>
-          <span>:</span>
-          <span className="text-light">0.000</span>
-        </div>
+        {!isUnknown && (
+          <div className="flex gap-1 items-center">
+            <span>Balance</span>
+            <span>:</span>
+            <span className="text-light">{formatNumber(ardmBalance)}</span>
+          </div>
+        )}
       </div>
 
       <div className="flex px-base items-center gap-2 py-sm border border-primary/10 rounded-lg mb-sm">
@@ -27,12 +65,6 @@ export default function StakeTab() {
           name=""
           className="flex disabled text-right w-full bg-transparent outline-none md:text-xl appearance-none"
         />
-      </div>
-
-      <div className="flex justify-end items-center w-full mb-2xl">
-        <span className="text-light/60 text-xs sm:text-sm">
-          1 ARDM = 1.000 sARDM
-        </span>
       </div>
 
       <div className="flex px-base items-center gap-2 py-sm border border-primary/10 rounded-lg mb-sm">
@@ -53,9 +85,8 @@ export default function StakeTab() {
             <div className="i-ic-round-warning-amber icon-size-5" />
           </div>
           <span className="text-xs sm:text-sm text-white">
-            1 USDT = 3,407.00 MONT
+            1 ARDM = {1 / rate} sARDM
           </span>
-          <span className="text-white/60">(₮1.00)</span>
         </div>
         <div className="p-2 border border-primary/10 rounded-md cursor-pointer">
           <div className="i-ic-round-keyboard-arrow-down icon-size-5" />

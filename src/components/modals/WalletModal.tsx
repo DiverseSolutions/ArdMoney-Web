@@ -24,10 +24,11 @@ export default function WalletModal() {
   const web3 = useProvider();
 
   useEffect(() => {
-    if (isRefreshing)
+    if (isRefreshing) {
       setTimeout(() => {
         setIsRefreshing(false);
       }, 250);
+    }
   }, [isRefreshing]);
 
   function handleModalClose() {
@@ -121,7 +122,7 @@ function WalletToken({ token }: { token: Token }) {
       <span className="text-sm grow">{token.name}</span>
       <TextLoader isLoading={balanceLoading}>
         <div className="flex items-center gap-3xs">
-          <span className="text-lg">{formatNumber(balance, 0)}</span>
+          <span className="text-lg">{formatNumber(balance, 0, 0)}</span>
           <span className="text-2xs self-end">({token.symbol})</span>
         </div>
       </TextLoader>

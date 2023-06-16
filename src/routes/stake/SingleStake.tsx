@@ -3,20 +3,55 @@ import Background2 from "@assets/images/swap/background2.svg";
 
 import * as Tabs from "@radix-ui/react-tabs";
 
-import PageContainer from "@/components/layouts/PageContainer";
 import Info from "@components/stake/Info";
 import StakingForms from "@/components/stake/StakeForms";
 import { ProviderContext } from "@contexts/ProviderContext";
 import useProvider from "@/hooks/useProvider";
 import StakeTab from "@/components/stake/StakeTab";
 import UnStakeTab from "@/components/stake/UnstakeTab";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { getTotalLockedARDM } from "@/helpers/contracts/sStaking";
+import { getTokenBalance } from "@/helpers/contracts/token";
+import { useSelector } from "react-redux";
+import { WalletTokenList } from "@constants/TokenList";
+import { RootState } from "@/redux/store";
+import { format18, parse18 } from "@/helpers/web3";
+import { formatNumber } from "@/helpers/numbers";
 
 type TabState = "unstake" | "stake";
 
 export default function SingleStake() {
+  const { account } = useSelector((state: RootState) => state.web3);
+  const { chainId } = useSelector((state: RootState) => state.network);
   const [tab, setTab] = useState<TabState>("stake");
+  const [ardmBalance, setArdmBalance] = useState("0");
+  const [sArdmBalance, setSArdmBalance] = useState("0");
   const web3 = useProvider();
+
+  useEffect(() => {
+    setUpArdmBalance();
+    setUpsArdmBalance();
+  }, [web3]);
+
+  async function setUpArdmBalance() {
+    let ardmToken = WalletTokenList[chainId].find(
+      (token) => token.symbol === "ARDM"
+    );
+    if (!ardmToken || !account) return;
+
+    const result = await getTokenBalance(web3, ardmToken?.address, account);
+    if (result) setArdmBalance(format18(result));
+  }
+
+  async function setUpsArdmBalance() {
+    let sArdmToken = WalletTokenList[chainId].find(
+      (token) => token.symbol === "sARDM"
+    );
+    if (!sArdmToken || !account) return;
+
+    const result = await getTokenBalance(web3, sArdmToken?.address, account);
+    if (result) setSArdmBalance(format18(result));
+  }
 
   return (
     <>
@@ -32,22 +67,15 @@ export default function SingleStake() {
               <span className="text-xl mb-lg font-extrabold">MY ASSETS</span>
               <span className="text-base mb-2xl">Balance</span>
               <div className="flex items-center gap-xs mb-sm p-sm border border-primary/10 rounded-lg">
-                <span>100,000</span>
+                <span>{formatNumber(ardmBalance)}</span>
                 <span className="flex items-end text-xs text-light/60">
                   ARDM
                 </span>
               </div>
               <div className="flex items-center gap-xs mb-2xl p-sm border border-primary/10 rounded-lg">
-                <span>0</span>
+                <span>{formatNumber(sArdmBalance, 3, 0)}</span>
                 <span className="flex items-end text-xs text-light/60">
                   sARDM
-                </span>
-              </div>
-              <span className="text-base mb-2xl">Amount of Stake</span>
-              <div className="flex items-center gap-xs mb-lg p-sm border border-primary/10 rounded-lg">
-                <span>0</span>
-                <span className="flex items-end text-xs text-light/60">
-                  ARDM
                 </span>
               </div>
             </div>
@@ -73,12 +101,23 @@ export default function SingleStake() {
 }
 
 function StakingInfo() {
-  // const web3 = useContext(ProviderContext);
+  const web3 = useContext(ProviderContext);
+  const [totalLockedARDM, setTotalLockedARDM] = useState(0);
+
+  useEffect(() => {
+    setUpTotalLockedARDM();
+  }, []);
+
+  async function setUpTotalLockedARDM() {
+    const result = await getTotalLockedARDM(web3);
+    if (result) setTotalLockedARDM(parseFloat(result));
+  }
+
   return (
     <div className="flex flex-col border border-primary rounded-3xs p-lg gap-lg">
       <div className="flex w-full justify-between text-xl">
         <span className="font-extrabold">Total ARDM</span>
-        <span>22,311</span>
+        <span>{totalLockedARDM}</span>
       </div>
       <div className="flex w-full justify-between text-xl">
         <span className="font-extrabold">APY</span>

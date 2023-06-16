@@ -109,6 +109,15 @@ const bscMainNetTokenList: Array<Token> = [
     logo: "/tokens/ardm.png",
   },
   {
+    address: "0x1aae7Fc607092A12812a97DDf51D4f679f951679",
+    name: "sArdMoney",
+    symbol: "sARDM",
+    isDex: true,
+    isWallet: true,
+    decimals: 18,
+    logo: "/tokens/xardm.png",
+  },
+  {
     address: "0x1b911938C3aD76De1DFaACcF508f9018b93FfB93",
     name: "xArdMoney",
     symbol: "xARDM",

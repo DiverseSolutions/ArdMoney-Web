@@ -65,7 +65,7 @@ export default function ConnectWalletModal() {
 
   return (
     <ModalLayout handleModalClose={handleModalClose}>
-      <div className="mt-xl min-w-[200px] max-w-[423px] flex flex-col gap-base">
+      <div className="min-w-[200px] max-w-[423px] flex flex-col gap-base">
         <div className="flex justify-between items-center">
           <h5>{t("common:connectWallet")}</h5>
           <button

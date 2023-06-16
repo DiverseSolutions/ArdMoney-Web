@@ -124,8 +124,9 @@ export default function AppNavbar() {
             </button>
           </div>
           <div className="flex flex-col gap-base mt-2xl p-base">
-            {MobileLinks.map((item) => (
+            {MobileLinks.map((item, index) => (
               <a
+                key={index}
                 href={item.link}
                 target={"_blank"}
                 className="flex flex-col text-xl font-normal"

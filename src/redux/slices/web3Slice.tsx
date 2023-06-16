@@ -13,7 +13,8 @@ export type Web3State = {
   defaultRpc: string;
   contracts: {
     router: ContractsIndexType<string>;
-    staking: ContractsIndexType<string>;
+    xStaking: ContractsIndexType<string>;
+    sStaking: ContractsIndexType<string>;
   };
   providerType: ProviderType;
 };
@@ -31,8 +32,12 @@ const web3Slice = createSlice({
         56: "0x21710E02f466ee8a83B4467Bd7b0f42bdaEF7452",
         97: "",
       },
-      staking: {
+      xStaking: {
         56: "0x29100E56924CD94816747478486e7b592001cFEc",
+        97: "",
+      },
+      sStaking: {
+        56: "0x1410dACb719Cbd809f79b10CE82170f2407FdBC3",
         97: "",
       },
     },

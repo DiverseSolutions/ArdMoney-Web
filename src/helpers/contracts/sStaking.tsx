@@ -1,4 +1,4 @@
-import StakingABI from "@abis/XARDMStaking.json";
+import StakingABI from "@abis/SARDMStaking.json";
 import store, { RootState } from "@/redux/store";
 import { ProviderContextType } from "@contexts/ProviderContext";
 import { getReadContract } from "./contract";
@@ -15,7 +15,7 @@ export async function getTotalLockedARDM(
   try {
     let contract = await getReadContract(
       web3,
-      web3Slice.contracts.staking[networkSlice.chainId],
+      web3Slice.contracts.sStaking[networkSlice.chainId],
       StakingABI
     );
     const totalLocked = await contract.getTotalLockedARDM();
@@ -25,21 +25,20 @@ export async function getTotalLockedARDM(
   }
 }
 
-export async function getStakedBalance(web3: ProviderContextType | undefined) {
+export async function getSARDMRate(web3: ProviderContextType | undefined) {
   if (!web3) return;
   if (!web3.provider) return;
 
   let { web3: web3Slice, network: networkSlice }: RootState = store.getState();
-  if (!web3Slice.account) return;
 
   try {
     let contract = await getReadContract(
       web3,
-      web3Slice.contracts.staking[networkSlice.chainId],
+      web3Slice.contracts.sStaking[networkSlice.chainId],
       StakingABI
     );
-    const stakedBalance = await contract.ardmBalanceOf(web3Slice.account);
-    return stakedBalance;
+    const rate = await contract.getSARDMRate();
+    return format18(rate);
   } catch (e) {
     console.log(e);
   }
