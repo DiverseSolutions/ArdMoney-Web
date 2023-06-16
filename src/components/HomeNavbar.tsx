@@ -7,11 +7,12 @@ import MobileClouds from "@assets/home/mobile_clouds.svg";
 import OutlineButton from "@components/shared/OutlineButton";
 import LogoIcon from "@assets/icons/LogoIcon";
 import AdditionalDropdownMenu from "@components/nav/Dropdown";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 const navigations = [
-  // { text: "swap", link: "/swap" },
-  // { text: "staking", link: "/stake" },
+  { text: "swap", link: "/swap", isSpa: true },
+  { text: "staking", link: "/stake", isSpa: true },
   {
     text: "BscScan",
     link: "https://bscscan.com/token/0xe849188f76c0da93b5ed310a1f72127914b3a7b9",
@@ -24,8 +25,8 @@ const navigations = [
 ];
 
 const mobileNavigations = [
-  // { text: "swap", link: "/swap" },
-  // { text: "staking", link: "/stake" },
+  { text: "swap", link: "/swap", isSpa: true },
+  { text: "staking", link: "/stake", isSpa: true },
   // { text: "launchApp", link: "https://app.ardmoney.com/" },
   {
     text: "BscScan",
@@ -63,16 +64,30 @@ export default function HomeNavBar() {
                 <LogoIcon />
               </a>
               <div className="hidden md:flex items-center text-white/60 text-md gap-5 cursor-pointer pt-1">
-                {navigations.map((item, index) => (
-                  <a
-                    key={index}
-                    href={item.link}
-                    target={"_blank"}
-                    className="flex items-center"
-                  >
-                    <span className="text-md">{t(`navBar:${item.text}`)}</span>
-                  </a>
-                ))}
+                {navigations.map((item, index) =>
+                  item.isSpa ? (
+                    <Link
+                      key={index}
+                      to={item.link}
+                      className="flex items-center"
+                    >
+                      <span className="text-md">
+                        {t(`navBar:${item.text}`)}
+                      </span>
+                    </Link>
+                  ) : (
+                    <a
+                      key={index}
+                      href={item.link}
+                      target={"_blank"}
+                      className="flex items-center"
+                    >
+                      <span className="text-md">
+                        {t(`navBar:${item.text}`)}
+                      </span>
+                    </a>
+                  )
+                )}
                 {/* <AdditionalDropdownMenu /> */}
               </div>
             </div>
