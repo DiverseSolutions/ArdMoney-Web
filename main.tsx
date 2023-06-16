@@ -18,6 +18,9 @@ import HomeMN from "@locales/mn/home.json";
 import SwapEN from "@locales/en/swap.json";
 import SwapMN from "@locales/mn/swap.json";
 
+import StakeEN from "@locales/en/stake.json";
+import StakeMN from "@locales/mn/stake.json";
+
 import CommonEN from "@locales/en/common.json";
 import CommonMN from "@locales/mn/common.json";
 
@@ -48,6 +51,9 @@ i18next.addResourceBundle("mn", "home", HomeMN);
 
 i18next.addResourceBundle("en", "swap", SwapEN);
 i18next.addResourceBundle("mn", "swap", SwapMN);
+
+i18next.addResourceBundle("en", "stake", StakeEN);
+i18next.addResourceBundle("mn", "stake", StakeMN);
 
 i18next.addResourceBundle("en", "common", CommonEN);
 i18next.addResourceBundle("mn", "common", CommonMN);

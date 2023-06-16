@@ -17,8 +17,10 @@ import TextLoader from "../shared/TextLoader";
 import { isEmpty } from "radash";
 import { alert } from "@helpers/alert";
 import * as Accordion from "@radix-ui/react-accordion";
+import { useTranslation } from "react-i18next";
 
 export default function UnStakeTab() {
+  const { t } = useTranslation();
   const { account } = useSelector((state: RootState) => state.web3);
   const web3 = useProvider();
   const { chainId } = useSelector((state: RootState) => state.network);
@@ -151,10 +153,10 @@ export default function UnStakeTab() {
   return (
     <div className="mt-7">
       <div className="flex justify-between text-light/60 text-sm w-full mb-base">
-        <span>sARDM Unstake</span>
+        <span>sARDM {t("stake:unstake")}</span>
         {isConfigured && account != undefined && (
           <div className="flex gap-1 items-center">
-            <span>Balance</span>
+            <span>{t("stake:balance")}</span>
             <span>:</span>
             <span className="text-light">{formatNumber(sArdmBalance)}</span>
           </div>
@@ -206,11 +208,7 @@ export default function UnStakeTab() {
             <div className="flex flex-col text-[#EB8100] text-sm mb-lg space-y-2">
               <div className="flex gap-base items-center">
                 <div className="flex self-start mt-1 w-2 h-2 flex-shrink-0 bg-[#EB8100] rounded-full whitespace-nowrap"></div>
-                <span>
-                  Please be aware that this action is executed via a blockchain
-                  smart contract and is recorded permanently. Therefore, it
-                  cannot be undone
-                </span>
+                <span>{t("stake:accordion1")}</span>
               </div>
             </div>
           </Accordion.Content>
@@ -228,14 +226,16 @@ export default function UnStakeTab() {
               className={`btn ${isApproveDisabled && "btn-disabled"}`}
               onClick={handleApprove}
             >
-              <TextLoader isLoading={isApproveLoading}>Approve</TextLoader>
+              <TextLoader isLoading={isApproveLoading}>
+                {t("stake:approve")}
+              </TextLoader>
             </div>
             <div
               className={`btn ${isContractActionDisabled && "btn-disabled"}`}
               onClick={handleContractAction}
             >
               <TextLoader isLoading={isContractActionLoading}>
-                Unstake
+                {t("stake:unstake")}
               </TextLoader>
             </div>
           </div>

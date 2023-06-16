@@ -1,5 +1,6 @@
 import * as Tabs from "@radix-ui/react-tabs";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 type TabState = "unstake" | "stake";
 
@@ -12,6 +13,7 @@ export default function StakingForms({
   tab: TabState;
   setTab: (val: TabState) => void;
 }) {
+  const { t } = useTranslation();
   return (
     <div className="flex flex-col p-lg h-full w-full border border-primary rounded-3xs">
       <Tabs.Root
@@ -25,10 +27,10 @@ export default function StakingForms({
       >
         <Tabs.List className="TabsList">
           <Tabs.Trigger className="TabsTrigger" value={"stake"}>
-            Stake
+            {t("stake:stake")}
           </Tabs.Trigger>
           <Tabs.Trigger className="TabsTrigger" value={"unstake"}>
-            Unstake
+            {t("stake:unstake")}
           </Tabs.Trigger>
         </Tabs.List>
 

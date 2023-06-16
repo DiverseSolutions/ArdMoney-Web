@@ -1,0 +1,16 @@
+{
+  "title": "sARDM Staking",
+  "infoWarning1": "By staking ARDM tokens, they will be converted into an equal amount of sARDM tokens and placed in your wallet.",
+  "infoWarning2": "Each ARDM tokens are added to the staking pool, the value of sARDM will increase.",
+  "infoWarning3": "When you unstake sARDM tokens from staking, you will be awarded ARDM + (interest return) previously supplied.",
+  "infoWarning4": "Your interest rate depends on the duration of your staking.",
+  "myAssets": "MY ASSETS",
+  "balance": "Balance",
+  "total": "Total",
+  "apy": "APY",
+  "year": "year",
+  "stake": "Stake",
+  "unstake": "Unstake",
+  "accordion1": "Please be aware that this action is executed via a blockchain smart contract and is recorded permanently. Therefore, it cannot be undone",
+  "approve": "Approve"
+}
