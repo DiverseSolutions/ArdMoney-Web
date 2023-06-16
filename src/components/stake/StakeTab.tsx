@@ -16,6 +16,7 @@ import {
 import { isEmpty } from "radash";
 import { alert } from "@helpers/alert";
 import TextLoader from "../shared/TextLoader";
+import * as Accordion from "@radix-ui/react-accordion";
 
 export default function StakeTab() {
   const { account } = useSelector((state: RootState) => state.web3);
@@ -184,30 +185,39 @@ export default function StakeTab() {
         />
       </div>
       <h5 className="text-light/60 text-right text-sm mb-lg">0.00</h5>
-
-      <div className="flex items-center justify-between w-full mb-xl gap-1">
-        <div className="flex items-center text-sm gap-xs">
-          <div className="p-2 border border-primary/10 rounded-md cursor-pointer">
-            <div className="i-ic-round-warning-amber icon-size-5" />
-          </div>
-          <span className="text-xs sm:text-sm text-white">
-            1 ARDM = {1 / rate} sARDM
-          </span>
-        </div>
-        <div className="p-2 border border-primary/10 rounded-md cursor-pointer">
-          <div className="i-ic-round-keyboard-arrow-down icon-size-5" />
-        </div>
-      </div>
-
-      <div className="flex flex-col text-[#EB8100] text-sm mb-lg space-y-2">
-        <div className="flex gap-base items-center">
-          <div className="flex self-start mt-1 w-2 h-2 flex-shrink-0 bg-[#EB8100] rounded-full whitespace-nowrap"></div>
-          <span>
-            Please be aware that this action is executed via a blockchain smart
-            contract and is recorded permanently. Therefore, it cannot be undone
-          </span>
-        </div>
-      </div>
+      <Accordion.Root type="single" defaultValue="item-1" collapsible>
+        <Accordion.Item className="AccordionItem" value="item-1">
+          <Accordion.Header className="AccordionHeader">
+            <Accordion.Trigger className="w-full">
+              <div className="flex items-center justify-between w-full mb-xl gap-1">
+                <div className="flex items-center text-sm gap-xs">
+                  <div className="p-2 border border-primary/10 rounded-md cursor-pointer">
+                    <div className="i-ic-round-warning-amber icon-size-5" />
+                  </div>
+                  <span className="text-xs sm:text-sm text-white">
+                    1 ARDM = {1 / rate} sARDM
+                  </span>
+                </div>
+                <div className="p-2 border  border-primary/10 rounded-md cursor-pointer">
+                  <div className="i-ic-round-keyboard-arrow-down relative icon-size-5" />
+                </div>
+              </div>
+            </Accordion.Trigger>
+          </Accordion.Header>
+          <Accordion.Content className="AccordionContent">
+            <div className="flex flex-col text-[#EB8100] text-sm mb-lg space-y-2">
+              <div className="flex gap-base items-center">
+                <div className="flex self-start mt-1 w-2 h-2 flex-shrink-0 bg-[#EB8100] rounded-full whitespace-nowrap"></div>
+                <span>
+                  Please be aware that this action is executed via a blockchain
+                  smart contract and is recorded permanently. Therefore, it
+                  cannot be undone
+                </span>
+              </div>
+            </div>
+          </Accordion.Content>
+        </Accordion.Item>
+      </Accordion.Root>
       <div className="h-auto">
         {!web3Slice.isConnected && <ConnectWalletButton style="py-sm" />}
         {web3Slice.isConnected && isUnknown && (
