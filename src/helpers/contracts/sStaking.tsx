@@ -1,8 +1,10 @@
 import StakingABI from "@abis/SARDMStaking.json";
 import store, { RootState } from "@/redux/store";
 import { ProviderContextType } from "@contexts/ProviderContext";
-import { getReadContract } from "./contract";
-import { format18 } from "@helpers/web3";
+import { getReadContract, getWriteContract } from "./contract";
+import { format18, parse18 } from "@helpers/web3";
+import TokenABI from "@abis/ERC20.json";
+import { WalletTokenList } from "@constants/TokenList";
 
 export async function getTotalLockedARDM(
   web3: ProviderContextType | undefined
@@ -42,4 +44,88 @@ export async function getSARDMRate(web3: ProviderContextType | undefined) {
   } catch (e) {
     console.log(e);
   }
+}
+
+export async function stakingApproveArdmToken(
+  web3: ProviderContextType | undefined,
+  amount: number
+) {
+  let { web3: web3Slice, network: networkSlice }: RootState = store.getState();
+
+  let ardmToken = WalletTokenList[networkSlice.chainId].find(
+    (token) => token.symbol === "ARDM"
+  );
+
+  if (!web3) return;
+  if (!web3.provider) return;
+  if (!ardmToken) return;
+
+  let contract = await getWriteContract(web3, ardmToken.address, TokenABI);
+  let stakingAddress = web3Slice.contracts.sStaking[networkSlice.chainId];
+  let amountBN = parse18(amount);
+
+  let tx = await contract.approve(stakingAddress, amountBN);
+
+  return tx;
+}
+
+export async function stakingApprovesArdmToken(
+  web3: ProviderContextType | undefined,
+  amount: number
+) {
+  let { web3: web3Slice, network: networkSlice }: RootState = store.getState();
+
+  let sArdmToken = WalletTokenList[networkSlice.chainId].find(
+    (token) => token.symbol === "sARDM"
+  );
+
+  if (!web3) return;
+  if (!web3.provider) return;
+  if (!sArdmToken) return;
+
+  let contract = await getWriteContract(web3, sArdmToken.address, TokenABI);
+  let stakingAddress = web3Slice.contracts.sStaking[networkSlice.chainId];
+  let amountBN = parse18(amount);
+
+  let tx = await contract.approve(stakingAddress, amountBN);
+
+  return tx;
+}
+
+export async function stakingStakeToken(
+  web3: ProviderContextType | undefined,
+  amount: number
+) {
+  if (!web3) return;
+  if (!web3.provider) return;
+
+  let { web3: web3Slice, network: networkSlice }: RootState = store.getState();
+
+  let stakingAddress = web3Slice.contracts.sStaking[networkSlice.chainId];
+  let staking = await getWriteContract(web3, stakingAddress, StakingABI);
+
+  let amountBN = parse18(amount);
+
+  const tx = await staking.deposit(amountBN);
+
+  return tx;
+}
+
+export async function stakingUnStakeToken(
+  web3: ProviderContextType | undefined,
+  amount: number
+) {
+  if (!web3) return;
+  if (!web3.provider) return;
+
+  let { web3: web3Slice, network: networkSlice }: RootState = store.getState();
+
+  let stakingAddress = web3Slice.contracts.sStaking[networkSlice.chainId];
+  let staking = await getWriteContract(web3, stakingAddress, StakingABI);
+
+  let amountBN = parse18(amount);
+
+  const tx = await staking.withdraw(amountBN);
+
+  return tx;
 }

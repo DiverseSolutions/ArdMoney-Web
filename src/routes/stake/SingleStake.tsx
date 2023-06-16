@@ -106,7 +106,7 @@ function StakingInfo() {
 
   useEffect(() => {
     setUpTotalLockedARDM();
-  }, []);
+  }, [web3]);
 
   async function setUpTotalLockedARDM() {
     const result = await getTotalLockedARDM(web3);

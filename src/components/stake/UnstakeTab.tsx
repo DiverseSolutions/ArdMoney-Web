@@ -1,29 +1,130 @@
 import useProvider from "@/hooks/useProvider";
 import { RootState } from "@/redux/store";
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useMemo, useState } from "react";
 import { useSelector } from "react-redux";
-import Button from "../shared/Button";
 import { WalletTokenList } from "@constants/TokenList";
 import ConnectToSupportedNetworkButton from "../web3/ConnectToSupportedNetworkButton";
 import ConnectWalletButton from "../web3/ConnectWalletButton";
 import { getTokenBalance } from "@/helpers/contracts/token";
-import { format18 } from "@/helpers/web3";
+import { format18, parse18 } from "@/helpers/web3";
 import { formatNumber } from "@/helpers/numbers";
-import { getSARDMRate } from "@/helpers/contracts/sStaking";
+import {
+  getSARDMRate,
+  stakingApprovesArdmToken,
+  stakingUnStakeToken,
+} from "@/helpers/contracts/sStaking";
+import TextLoader from "../shared/TextLoader";
+import { isEmpty } from "radash";
+import { alert } from "@helpers/alert";
 
 export default function UnStakeTab() {
   const { account } = useSelector((state: RootState) => state.web3);
   const web3 = useProvider();
   const { chainId } = useSelector((state: RootState) => state.network);
-  const [sArdmBalance, setSArdmBalance] = useState("0");
+  const [sArdmBalance, setSArdmBalance] = useState(0);
   const [rate, setRate] = useState(1);
   const web3Slice = useSelector((state: RootState) => state.web3);
   const { isUnknown } = useSelector((state: RootState) => state.network);
+
+  const [isApproveDisabled, setIsApproveDisabled] = useState(true);
+  const [isContractActionDisabled, setIsContractActionDisabled] =
+    useState(true);
+
+  const [isApproveLoading, setIsApproveLoading] = useState(false);
+  const [isContractActionLoading, setIsContractActionLoading] = useState(false);
+
+  const [fromInput, setFromInput] = useState(0);
+  const toInput = useMemo<number>(calculateToTokenAmont, [fromInput]);
+
+  function calculateToTokenAmont() {
+    if (rate == 1) return fromInput * 1;
+
+    return fromInput * rate;
+  }
 
   useEffect(() => {
     setUpsArdmBalance();
     setUpRate();
   }, [web3]);
+
+  useEffect(() => {
+    setIsApproveDisabled(fromInput != 0 && toInput != 0 ? false : true);
+  }, [toInput]);
+
+  function handleFromInput(e: FormEvent<HTMLInputElement>) {
+    const inputValue = e.currentTarget.value;
+    if (isEmpty(inputValue)) {
+      setFromInput(0);
+      return;
+    }
+
+    if (parseFloat(inputValue) > sArdmBalance) {
+      alert("error", "Above Balance");
+      return;
+    }
+
+    if (parseFloat(inputValue) > 10 ** 18) {
+      alert("error", "Reached Max");
+      return;
+    }
+
+    setFromInput(parseFloat(inputValue));
+  }
+
+  async function handleApprove() {
+    if (isApproveDisabled || isApproveLoading || fromInput == 0 || toInput == 0)
+      return;
+
+    setIsApproveLoading(true);
+    try {
+      const transaction = await stakingApprovesArdmToken(
+        web3,
+        parseFloat(fromInput.toString())
+      );
+
+      await transaction.wait();
+      setIsApproveDisabled(true);
+      setIsContractActionDisabled(false);
+
+      alert("success", "Successfully Approved");
+    } catch (e: any) {
+      alert("error", e.message);
+    }
+    setIsApproveLoading(false);
+  }
+
+  async function handleContractAction() {
+    if (
+      isContractActionDisabled ||
+      isContractActionLoading ||
+      fromInput == 0 ||
+      toInput == 0
+    )
+      return;
+
+    setIsContractActionLoading(true);
+
+    try {
+      const transaction = await stakingUnStakeToken(
+        web3,
+        parseFloat(fromInput.toString())
+      );
+
+      await transaction.wait();
+
+      setIsApproveDisabled(true);
+      setIsContractActionDisabled(true);
+
+      alert("success", "Successfully Staked");
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
+    } catch (e: any) {
+      alert("error", e.message);
+    }
+
+    setIsContractActionLoading(false);
+  }
 
   async function setUpRate() {
     const result = await getSARDMRate(web3);
@@ -41,14 +142,14 @@ export default function UnStakeTab() {
     if (!sArdmToken || !account) return;
 
     const result = await getTokenBalance(web3, sArdmToken?.address, account);
-    if (result) setSArdmBalance(format18(result));
+    if (result) setSArdmBalance(parseFloat(format18(result)));
   }
 
   return (
     <div className="mt-7">
       <div className="flex justify-between text-light/60 text-sm w-full mb-base">
         <span>sARDM Unstake</span>
-        {!isUnknown && (
+        {account != undefined && (
           <div className="flex gap-1 items-center">
             <span>Balance</span>
             <span>:</span>
@@ -62,7 +163,8 @@ export default function UnStakeTab() {
         <input
           type="number"
           placeholder="0.000"
-          name=""
+          value={fromInput == 0 ? "" : fromInput}
+          onChange={handleFromInput}
           className="flex disabled text-right w-full bg-transparent outline-none md:text-xl appearance-none"
         />
       </div>
@@ -73,7 +175,7 @@ export default function UnStakeTab() {
           type="number"
           placeholder="0"
           disabled
-          name=""
+          value={toInput == 0 ? "" : toInput}
           className="flex disabled text-right w-full bg-transparent outline-none md:text-xl appearance-none"
         />
       </div>
@@ -107,7 +209,24 @@ export default function UnStakeTab() {
         {web3Slice.isConnected && isUnknown && (
           <ConnectToSupportedNetworkButton style="w-full py-sm" />
         )}
-        {web3Slice.isConnected && <Button children={"Stake"} />}
+        {web3Slice.isConnected && (
+          <div className="flex flex-col gap-3xs">
+            <div
+              className={`btn ${isApproveDisabled && "btn-disabled"}`}
+              onClick={handleApprove}
+            >
+              <TextLoader isLoading={isApproveLoading}>Approve</TextLoader>
+            </div>
+            <div
+              className={`btn ${isContractActionDisabled && "btn-disabled"}`}
+              onClick={handleContractAction}
+            >
+              <TextLoader isLoading={isContractActionLoading}>
+                Unstake
+              </TextLoader>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
