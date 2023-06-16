@@ -171,6 +171,7 @@ export default function StakeTab() {
           type="number"
           placeholder="0.000"
           value={fromInput == 0 ? "" : fromInput}
+          disabled={!isConfigured && true}
           onChange={handleFromInput}
           className="flex disabled text-right w-full bg-transparent outline-none md:text-xl appearance-none"
         />

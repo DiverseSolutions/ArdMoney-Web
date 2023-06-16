@@ -170,6 +170,7 @@ export default function UnStakeTab() {
         <input
           type="number"
           placeholder="0.000"
+          disabled={!isConfigured && true}
           value={fromInput == 0 ? "" : fromInput}
           onChange={handleFromInput}
           className="flex disabled text-right w-full bg-transparent outline-none md:text-xl appearance-none"
