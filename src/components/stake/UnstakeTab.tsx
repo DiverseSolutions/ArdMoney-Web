@@ -176,18 +176,19 @@ export default function UnStakeTab() {
           className="flex disabled text-right w-full bg-transparent outline-none md:text-xl appearance-none"
         />
       </div>
+      <h5 className="text-light/60 text-right text-sm mb-lg">
+        {formatNumber(fromInput)}
+      </h5>
 
       <div className="flex px-base items-center gap-2 py-sm border border-primary/10 rounded-lg mb-sm">
         <span className="text-light/60 text-xl">ARDM</span>
         <input
-          type="number"
           placeholder="0"
           disabled
-          value={toInput == 0 ? "" : toInput}
+          value={toInput == 0 ? "" : formatNumber(toInput, 3)}
           className="flex disabled text-right w-full bg-transparent outline-none md:text-xl appearance-none"
         />
       </div>
-      <h5 className="text-light/60 text-right text-sm mb-lg">0.00</h5>
       <Accordion.Root type="single" defaultValue="item-1" collapsible>
         <Accordion.Item className="AccordionItem" value="item-1">
           <Accordion.Header className="AccordionHeader">
