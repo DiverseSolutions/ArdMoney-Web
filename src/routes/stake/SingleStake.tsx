@@ -131,7 +131,7 @@ function StakingInfo() {
     <div className="flex flex-col border border-primary rounded-3xs p-lg gap-lg">
       <div className="flex w-full justify-between text-xl">
         <span className="font-extrabold">{t("stake:total")} ARDM</span>
-        <span>{totalLockedARDM}</span>
+        <span>{formatNumber(totalLockedARDM, 0)}</span>
       </div>
       <div className="flex w-full justify-between text-xl">
         <span className="font-extrabold">{t("stake:apy")}</span>
