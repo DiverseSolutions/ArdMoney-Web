@@ -190,7 +190,7 @@ export default function StakeTab() {
       <Accordion.Root type="single" defaultValue="item-1" collapsible>
         <Accordion.Item className="AccordionItem" value="item-1">
           <Accordion.Header className="AccordionHeader">
-            <Accordion.Trigger className="w-full">
+            <Accordion.Trigger className="AccordionTrigger w-full">
               <div className="flex items-center justify-between w-full mb-xl gap-1">
                 <div className="flex items-center text-sm gap-xs">
                   <div className="p-2 border border-primary/10 rounded-md cursor-pointer">
@@ -200,8 +200,8 @@ export default function StakeTab() {
                     1 ARDM = {1 / rate} sARDM
                   </span>
                 </div>
-                <div className="p-2 border  border-primary/10 rounded-md cursor-pointer">
-                  <div className="i-ic-round-keyboard-arrow-down relative icon-size-5" />
+                <div className="p-2 border border-primary/10  rounded-md cursor-pointer">
+                  <div className="i-ic-round-keyboard-arrow-down AccordionChevron transform  relative icon-size-5" />
                 </div>
               </div>
             </Accordion.Trigger>
