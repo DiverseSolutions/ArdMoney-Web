@@ -120,7 +120,7 @@ export default function UnStakeTab() {
       setIsApproveDisabled(true);
       setIsContractActionDisabled(true);
 
-      alert("success", "Successfully Staked");
+      alert("success", "Successfully Unstaked");
       setTimeout(() => {
         window.location.reload();
       }, 2000);
