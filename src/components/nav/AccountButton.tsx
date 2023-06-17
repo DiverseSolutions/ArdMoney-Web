@@ -5,21 +5,16 @@ import { setWalletModal } from "@slices/modalSlice";
 
 export default function AccountButton() {
   const { account } = useSelector((state: RootState) => state.web3);
-  const network = useSelector((state: RootState) => state.network);
-
   const dispatch = useDispatch();
 
   return (
     <OutlineButton
+      style={"gap-2"}
       clickHandler={() => {
         dispatch(setWalletModal(true));
       }}
     >
-      <img
-        src={network.logo}
-        className="w-lg h-auto lg:hidden"
-        alt="network_logo"
-      />
+      <div className="i-ic-outline-account-balance-wallet icon-size-5" />
       {accountNameShortener(account)}
     </OutlineButton>
   );

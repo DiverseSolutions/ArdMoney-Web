@@ -43,7 +43,7 @@ export default function BalanceSection({ token }: SectionProp) {
       {web3Slice.providerType != "default" && (
         <div className="flex gap-1 text-white items-center mr-2">
           <div className="i-ic-outline-account-balance-wallet icon-size-4" />
-          <span className="relative top-0.5">{formatNumber(balance)}</span>
+          <span className="relative">{formatNumber(balance)}</span>
         </div>
       )}
     </TextLoader>
