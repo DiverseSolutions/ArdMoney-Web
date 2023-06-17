@@ -1,5 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@redux/store";
+import { useDispatch } from "react-redux";
 import OutlineButton from "@components/shared/OutlineButton";
 import { setWalletModal } from "@slices/modalSlice";
 import { useTranslation } from "react-i18next";

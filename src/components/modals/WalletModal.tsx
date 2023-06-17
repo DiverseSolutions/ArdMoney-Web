@@ -13,6 +13,7 @@ import TextLoader from "@components/shared/TextLoader";
 import { formatNumber } from "@/helpers/numbers";
 import ComponentLoader from "@components/shared/ComponentLoader";
 import Divider from "@components/shared/Divider";
+import OutlineButton from "../shared/OutlineButton";
 
 export default function WalletModal() {
   const { account } = useSelector((state: RootState) => state.web3);
@@ -57,25 +58,25 @@ export default function WalletModal() {
       <ProviderContext.Provider value={web3}>
         <div className="w-full flex flex-col gap-xl">
           <div className="flex items-center justify-between">
-            <div
-              className="flex items-center gap-3xs btn-animation"
-              onClick={handleExplorer}
-            >
-              <div className="i-ic-outline-person icon-size-7 text-secondary" />
-              <h5 className="relative top-0.5 text-secondary">
-                {accountNameShortener(account)}
-              </h5>
+            <div className="w-8/12 md:w-4.5/12">
+              <OutlineButton style={"gap-2"} clickHandler={handleExplorer}>
+                <div className="i-ic-outline-person icon-size-7 text-secondary" />
+                <h5 className="relative top-0.5 text-secondary">
+                  {accountNameShortener(account)}
+                </h5>
+              </OutlineButton>
             </div>
+
             <div className="flex gap-3xs">
               {
                 // <div className="i-ic-outline-settings icon-size-5 btn-animation" />
               }
               <div
-                className="i-ic-outline-refresh icon-size-5 btn-animation"
+                className="i-ic-outline-refresh icon-size-6 btn-animation"
                 onClick={handleRefresh}
               />
               <div
-                className="i-ic-outline-close icon-size-5 btn-animation"
+                className="i-ic-outline-close icon-size-6 btn-animation"
                 onClick={handleModalClose}
               />
             </div>
