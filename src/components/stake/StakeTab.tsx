@@ -160,7 +160,9 @@ export default function StakeTab() {
           <div className="flex gap-1 items-center">
             <span>{t("stake:balance")}</span>
             <span>:</span>
-            <span className="text-light">{formatNumber(ardmBalance)}</span>
+            <span className="text-light">
+              {formatNumber(ardmBalance, 3, 0)}
+            </span>
           </div>
         )}
       </div>
