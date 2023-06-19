@@ -64,7 +64,7 @@ export default function UnStakeTab() {
     }
 
     if (parseFloat(inputValue) > sArdmBalance) {
-      alert("error", t("stake:aboveBalance"));
+      alert("error", `sARDM ${t("stake:aboveBalance")}`);
       return;
     }
 
@@ -120,7 +120,7 @@ export default function UnStakeTab() {
       setIsApproveDisabled(true);
       setIsContractActionDisabled(true);
 
-      alert("success", "Successfully Unstaked");
+      alert("success", t("stake:successfullyUnstaked"));
       setTimeout(() => {
         window.location.reload();
       }, 2000);
