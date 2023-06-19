@@ -14,8 +14,11 @@ import { formatNumber } from "@/helpers/numbers";
 import ComponentLoader from "@components/shared/ComponentLoader";
 import Divider from "@components/shared/Divider";
 import OutlineButton from "../shared/OutlineButton";
+import { alert } from "@helpers/alert";
+import { useTranslation } from "react-i18next";
 
 export default function WalletModal() {
+  const { t } = useTranslation();
   const { account } = useSelector((state: RootState) => state.web3);
   const { chainId, explorer } = useSelector(
     (state: RootState) => state.network
@@ -48,6 +51,13 @@ export default function WalletModal() {
     window.open(explorerLink, "_blank")?.focus();
   }
 
+  function handleCopy() {
+    if (!account) return;
+
+    navigator.clipboard.writeText(account);
+    alert("success", t("alert:copy"));
+  }
+
   return (
     <ModalLayout
       width="w-[35rem]"
@@ -59,18 +69,27 @@ export default function WalletModal() {
         <div className="w-full flex flex-col gap-xl">
           <div className="flex items-center justify-between">
             <div className="w-8/12 md:w-4.5/12">
-              <OutlineButton style={"gap-2"} clickHandler={handleExplorer}>
-                <div className="i-ic-outline-person icon-size-7 text-secondary" />
+              <button
+                className="flex gap-0.5 items-center btn-animation"
+                onClick={handleCopy}
+              >
                 <h5 className="relative top-0.5 text-secondary">
                   {accountNameShortener(account)}
                 </h5>
-              </OutlineButton>
+                <div className="i-ic-baseline-content-copy relative top-1.5 icon-size-4 text-secondary" />
+              </button>
             </div>
 
             <div className="flex gap-3xs">
               {
                 // <div className="i-ic-outline-settings icon-size-5 btn-animation" />
               }
+              <div
+                className="i-ic-round-open-in-new icon-size-6 btn-animation"
+                onClick={() => {
+                  handleExplorer();
+                }}
+              />
               <div
                 className="i-ic-outline-refresh icon-size-6 btn-animation"
                 onClick={handleRefresh}
