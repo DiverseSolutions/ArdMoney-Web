@@ -15,5 +15,7 @@
   "approve": "Approve",
   "aboveBalance": "Above Balance",
   "reachedMax": "Reached Max",
-  "successfullyApproved": "Successfully Approved"
+  "successfullyApproved": "Successfully Approved",
+  "successfullyStaked": "Successfully Staked",
+  "successfullyUnstaked": "Successfully Unstaked"
 }

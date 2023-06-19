@@ -15,5 +15,7 @@
   "approve": "Баталгаажуулах",
   "aboveBalance": "Үлдэгдэл хүрэлцэхгүй байна",
   "reachedMax": "Хэмжээ буруу байна",
-  "successfullyApproved": "Үйлдэл амжилттай"
+  "successfullyApproved": "Токен баталгаажлаа",
+  "successfullyStaked": "Стэйкинг амжилттай хийгдлээ",
+  "successfullyUnstaked": "Стэйкинг амжилттай цуцлагдлаа"
 }
