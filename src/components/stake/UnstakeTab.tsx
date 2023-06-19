@@ -64,7 +64,7 @@ export default function UnStakeTab() {
     }
 
     if (parseFloat(inputValue) > sArdmBalance) {
-      alert("error", t("stake:aboveBalance"));
+      alert("error", `sARDM ${t("stake:aboveBalance")}`);
       return;
     }
 

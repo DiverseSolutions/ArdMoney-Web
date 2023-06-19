@@ -85,7 +85,7 @@ export default function StakeTab() {
     }
 
     if (parseFloat(inputValue) > ardmBalance) {
-      alert("error", t("stake:aboveBalance"));
+      alert("error", `ARDM ${t("stake:aboveBalance")}`);
       return;
     }
 
