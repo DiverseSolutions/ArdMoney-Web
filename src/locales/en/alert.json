@@ -3,5 +3,6 @@
   "noAccountFoundError": "No wallet accounts found",
   "swapSuccessful": "Successfully swapped",
   "approveSuccessful": "Successfully approved",
-  "copy": "Successfully copied address"
+  "copy": "Successfully copied address",
+  "noWeb3WalletDetected": "No Web 3.0 Wallet Detected"
 }

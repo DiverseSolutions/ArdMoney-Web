@@ -18,7 +18,7 @@ export default function ConnectWalletButton({
 
   function connectWalletHandler() {
     if (!hasWallet) {
-      alert("error", "No Web 3.0 Wallet Detected");
+      alert("error", t("alert:noWeb3WalletDetected"));
       return;
     }
 
