@@ -7,6 +7,8 @@ import { RootState } from "@redux/store";
 export default function ConnectToSupportedNetworkButton({
   style = "",
 }: DefaultButtonProp) {
+  const baseStyle = "text-base";
+  const resultStyle = `${baseStyle} ${style}`;
   const { networkModalState } = useSelector((state: RootState) => state.modal);
   const dispatch = useDispatch();
 
@@ -18,7 +20,7 @@ export default function ConnectToSupportedNetworkButton({
   }
 
   return (
-    <Button style={style} clickHandler={connectWalletHandler}>
+    <Button style={resultStyle} clickHandler={connectWalletHandler}>
       Connect To Chain
     </Button>
   );
