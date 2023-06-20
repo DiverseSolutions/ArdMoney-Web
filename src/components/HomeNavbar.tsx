@@ -101,9 +101,9 @@ export default function HomeNavBar() {
               <a
                 href="https://app.ardmoney.com/"
                 target={"_blank"}
-                className="hidden md:block"
+                className=""
               >
-                <OutlineButton style="px-xl">
+                <OutlineButton style="px-xl py-2 md:py-3">
                   {t("navBar:launchApp")}
                 </OutlineButton>
               </a>
