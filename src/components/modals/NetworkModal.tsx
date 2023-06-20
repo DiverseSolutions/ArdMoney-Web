@@ -8,9 +8,11 @@ import { setNetworkConfigured, setNetworkUnknown } from "@slices/networkSlice";
 import ModalLayout from "../layouts/ModalLayout";
 import Divider from "@components/shared/Divider";
 import { useTranslation } from "react-i18next";
+import useMobileDetect from "use-mobile-detect-hook";
 
 export default function NetworkModal() {
   const { t } = useTranslation();
+  const detectMobile = useMobileDetect();
   const dispatch = useDispatch();
 
   function handleModalClose() {
@@ -36,9 +38,11 @@ export default function NetworkModal() {
       }
     }
   }
-
   return (
-    <ModalLayout alignment="right" handleModalClose={handleModalClose}>
+    <ModalLayout
+      alignment={detectMobile.isMobile() ? "center" : "right"}
+      handleModalClose={handleModalClose}
+    >
       <div className="flex flex-col gap-xl w-full">
         <div className="flex items-center justify-between gap-0">
           <h5>{t("common:chooseChain")}</h5>
@@ -62,7 +66,7 @@ export default function NetworkModal() {
                 className="h-8 w-auto"
                 alt="chain_logo"
               />
-              <span>{chain.name[0]}</span>
+              <span className="text-base">{chain.name[0]}</span>
             </button>
           ))}
         </div>
