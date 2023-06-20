@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LogoIcon from "@assets/icons/LogoIcon";
 import Menu from "@assets/home/menu.png";
 import Cancel from "@assets/icons/cancel.svg";
@@ -35,6 +35,7 @@ const MobileLinks: any[] = [
 ];
 
 export default function AppNavbar() {
+  const navigate = useNavigate();
   const { isConnected, account } = useSelector(
     (state: RootState) => state.web3
   );
@@ -51,6 +52,11 @@ export default function AppNavbar() {
   const openSidebar = () => {
     setOpen(!open);
   };
+
+  function handleNavRouting(route: string) {
+    setOpen(false);
+    navigate(route);
+  }
 
   return (
     <div className={`relative flex slide-in`}>
@@ -125,13 +131,15 @@ export default function AppNavbar() {
           </div>
           <div className="flex flex-col gap-base mt-2xl p-base">
             {MobileLinks.map((item, index) => (
-              <a
-                href={item.link}
+              <button
+                onClick={() => {
+                  handleNavRouting(item.link);
+                }}
                 key={index}
                 className="flex flex-col text-xl font-normal"
               >
                 <span>{t(`navBar:${item.text}`)}</span>
-              </a>
+              </button>
             ))}
           </div>
           <div className="flex sm:justify-start gap-lg p-base ">
