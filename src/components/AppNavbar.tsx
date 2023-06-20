@@ -39,6 +39,8 @@ export default function AppNavbar() {
   const { isConnected, account } = useSelector(
     (state: RootState) => state.web3
   );
+
+  const { isUnknown } = useSelector((state: RootState) => state.network);
   const [open, setOpen] = useState(false);
   const transitionProperties = open ? "translate-x-0" : "translate-x-full";
 
@@ -89,9 +91,11 @@ export default function AppNavbar() {
                   <div className="hidden lg:block w-[12rem]">
                     <NetworkButton />
                   </div>
-                  <div className="w-[12rem]">
-                    <AccountButton />
-                  </div>
+                  {!isUnknown && (
+                    <div className="w-[12rem]">
+                      <AccountButton />
+                    </div>
+                  )}
                 </div>
               )}
               {!isConnected && (
