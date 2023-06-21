@@ -8,7 +8,7 @@ import { setNetworkConfigured, setNetworkUnknown } from "@slices/networkSlice";
 import ModalLayout from "../layouts/ModalLayout";
 import Divider from "@components/shared/Divider";
 import { useTranslation } from "react-i18next";
-import useMobileDetect from "use-mobile-detect-hook";
+import { useMobileDetect } from "use-mobile-detect-hook";
 
 export default function NetworkModal() {
   const { t } = useTranslation();
