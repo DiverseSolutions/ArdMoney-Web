@@ -33,9 +33,9 @@
     "react-i18next": "^12.2.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.10.0",
+    "react-screentype-hook": "^1.0.18",
     "sort-by": "^1.2.0",
-    "sweetalert2": "^11.7.3",
-    "use-mobile-detect-hook": "^1.0.5"
+    "sweetalert2": "^11.7.3"
   },
   "devDependencies": {
     "@iconify-json/fa-brands": "^1.1.4",

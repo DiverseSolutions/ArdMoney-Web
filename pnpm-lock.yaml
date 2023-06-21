@@ -71,15 +71,15 @@ dependencies:
   react-router-dom:
     specifier: ^6.10.0
     version: 6.11.0(react-dom@18.2.0)(react@18.2.0)
+  react-screentype-hook:
+    specifier: ^1.0.18
+    version: 1.0.18(react-dom@18.2.0)(react@18.2.0)
   sort-by:
     specifier: ^1.2.0
     version: 1.2.0
   sweetalert2:
     specifier: ^11.7.3
     version: 11.7.3
-  use-mobile-detect-hook:
-    specifier: ^1.0.5
-    version: 1.0.5(react@18.2.0)
 
 devDependencies:
   "@iconify-json/fa-brands":
@@ -3979,6 +3979,20 @@ packages:
       react: 18.2.0
     dev: false
 
+  /react-screentype-hook@1.0.18(react-dom@18.2.0)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-YljZeszHKvTmwGtOCg+GnA8mB6GR58FQ+PLvIQnMLwiip+Gndno4vvREaK1YNnDfOsy8OzXd+wxs9eyhVD8umw==,
+      }
+    engines: { node: ">=8.15.1", npm: ">=5" }
+    peerDependencies:
+      react: ">=16.8.6 || <18.1.0"
+      react-dom: ">=16.8.6 || <18.1.0"
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
   /react-style-singleton@2.2.1(@types/react@18.2.0)(react@18.2.0):
     resolution:
       {
@@ -4330,18 +4344,6 @@ packages:
         optional: true
     dependencies:
       "@types/react": 18.2.0
-      react: 18.2.0
-    dev: false
-
-  /use-mobile-detect-hook@1.0.5(react@18.2.0):
-    resolution:
-      {
-        integrity: sha512-8Uu69l2DTsPahD+j+ZefzV3IRHWcN2vbQmdlTshTnoHIS8MDvgr2IC3dgaNNpPCUbr8EhKH06c0KB3ViYNSnAQ==,
-      }
-    engines: { node: ">=8", npm: ">=5" }
-    peerDependencies:
-      react: ^16.7.0-alpha.0
-    dependencies:
       react: 18.2.0
     dev: false
 
