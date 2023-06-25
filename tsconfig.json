@@ -44,5 +44,6 @@
     {
       "path": "./tsconfig.node.json"
     }
-  ]
+  ],
+  "extends": "expo/tsconfig.base"
 }

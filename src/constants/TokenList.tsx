@@ -8,9 +8,9 @@ export type Token = {
   logo: string;
 };
 
-interface ITokenList<TValue> {
-  [id: string]: TValue;
-}
+type TokenList = {
+  [id: number]: Array<Token>;
+};
 
 const bscTestNetTokenList: Array<Token> = [
   {
@@ -137,12 +137,12 @@ const bscMainNetTokenList: Array<Token> = [
   },
 ];
 
-const DexTokenList: ITokenList<Array<Token>> = {
+const DexTokenList: TokenList = {
   97: bscTestNetTokenList.filter((token) => token.isDex),
   56: bscMainNetTokenList.filter((token) => token.isDex),
 };
 
-const WalletTokenList: ITokenList<Array<Token>> = {
+const WalletTokenList: TokenList = {
   97: bscTestNetTokenList.filter((token) => token.isWallet),
   56: bscMainNetTokenList.filter((token) => token.isWallet),
 };
