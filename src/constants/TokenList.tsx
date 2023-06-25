@@ -9,10 +9,10 @@ export type Token = {
 };
 
 type TokenList = {
-  [id: number]: Array<Token>;
+  [id: number]: Token[];
 };
 
-const bscTestNetTokenList: Array<Token> = [
+const bscTestNetTokenList: Token[] = [
   {
     address: "0x42E66bA8D80B098F75554b061288a41d083C6348",
     name: "BinanceUSD",
@@ -80,7 +80,7 @@ const bscTestNetTokenList: Array<Token> = [
   },
 ];
 
-const bscMainNetTokenList: Array<Token> = [
+const bscMainNetTokenList: Token[] = [
   {
     address: "0x2D279FDECdf7f5705F5ff0bD80F8D9a305Ea87F4",
     name: "Mongol Tether",
