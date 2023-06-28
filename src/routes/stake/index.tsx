@@ -8,13 +8,13 @@ import StakingTabs from "@/components/stake/StakingTabs";
 export default function Stake() {
   return (
     <>
-      <PageContainer>
+      <div className="space-y-6">
         <span className="text-2xl lg:text-4xl text-light font-extrabold lg:mt-xl mb-sm lg:mb-lg">
           Staking
         </span>
         <Info />
         <StakingTabs />
-      </PageContainer>
+      </div>
       <img src={Background1} alt="" className="absolute left-0 top-1/2" />
       <img src={Background2} alt="" className="absolute right-0 top-1/2" />
     </>

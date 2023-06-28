@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 export default function Info() {
   const { t } = useTranslation();
   return (
-    <div className="relative flex flex-col staking-header-gradient p-lg w-full border border-primary rounded-3xs">
+    <div className="relative overflow-hidden flex flex-col staking-header-gradient p-lg w-full border border-primary rounded-3xs">
       <div className="flex flex-col w-full z-10 lg:w-7/12 text-light/60 text-sm gap-lg">
         <div className="flex gap-base">
           <div className="i-ic-round-warning-amber icon-size-5 flex-shrink-0" />

@@ -12,7 +12,7 @@ import "aos/dist/aos.css";
 import Home from "@routes/Home";
 import Swap from "@routes/Swap";
 import Stake from "@routes/stake";
-import SingleStake from "@routes/stake/SingleStake";
+import SingleStake from "@routes/stake";
 import Governance from "@routes/Governance";
 import Pools from "@routes/Pools";
 import Analytics from "@routes/Analytics";
