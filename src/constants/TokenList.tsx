@@ -115,7 +115,7 @@ const bscMainNetTokenList: Token[] = [
     isDex: false,
     isWallet: true,
     decimals: 18,
-    logo: "/tokens/xardm.png",
+    logo: "/tokens/sardm.png",
   },
   {
     address: "0x1b911938C3aD76De1DFaACcF508f9018b93FfB93",
