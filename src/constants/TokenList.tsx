@@ -12,6 +12,72 @@ type TokenList = {
   [id: number]: Token[];
 };
 
+const bscMainNetTokenList: Token[] = [
+  {
+    address: "0x2D279FDECdf7f5705F5ff0bD80F8D9a305Ea87F4",
+    name: "Mongol Tether",
+    symbol: "MONT",
+    isDex: true,
+    isWallet: true,
+    decimals: 18,
+    logo: "/tokens/mont.png",
+  },
+  {
+    address: "0x55d398326f99059fF775485246999027B3197955",
+    name: "Tether(USD)",
+    symbol: "USDT",
+    isDex: true,
+    isWallet: true,
+    decimals: 18,
+    logo: "/tokens/tether.png",
+  },
+  {
+    address: "0xE849188F76c0dA93b5eD310a1F72127914b3A7b9",
+    name: "ArdMoney",
+    symbol: "ARDM",
+    isDex: true,
+    isWallet: true,
+    decimals: 18,
+    logo: "/tokens/ardm.png",
+  },
+  {
+    address: "0x1aae7Fc607092A12812a97DDf51D4f679f951679",
+    name: "sArdMoney",
+    symbol: "sARDM",
+    isDex: false,
+    isWallet: true,
+    decimals: 18,
+    logo: "/tokens/sardm.png",
+  },
+  {
+    address: "0x1b911938C3aD76De1DFaACcF508f9018b93FfB93",
+    name: "xArdMoney",
+    symbol: "xARDM",
+    isDex: false,
+    isWallet: true,
+    decimals: 18,
+    logo: "/tokens/xardm.png",
+  },
+  {
+    address: "0x86a53fcd199212FEa44FA7e16EB1f28812be911D",
+    name: "Inflation Hedging Coin",
+    symbol: "IHC",
+    decimals: 18,
+    isDex: true,
+    isWallet: true,
+    logo: "/tokens/ihc.png",
+  },
+  {
+    address: "0xf4aBa4BcC413f38E4d8Fc195a1D3BF560570Bcab",
+    name: "Zes Coin",
+    symbol: "ZESC",
+    isDex: true,
+    isWallet: true,
+    decimals: 18,
+    logo: "/tokens/zesc.png",
+  },
+];
+
 const bscTestNetTokenList: Token[] = [
   {
     address: "0x42E66bA8D80B098F75554b061288a41d083C6348",
@@ -76,63 +142,6 @@ const bscTestNetTokenList: Token[] = [
     isDex: true,
     isWallet: true,
     decimals: 18,
-    logo: "/tokens/ihc.png",
-  },
-];
-
-const bscMainNetTokenList: Token[] = [
-  {
-    address: "0x2D279FDECdf7f5705F5ff0bD80F8D9a305Ea87F4",
-    name: "Mongol Tether",
-    symbol: "MONT",
-    isDex: true,
-    isWallet: true,
-    decimals: 18,
-    logo: "/tokens/mont.png",
-  },
-  {
-    address: "0x55d398326f99059fF775485246999027B3197955",
-    name: "Tether(USD)",
-    symbol: "USDT",
-    isDex: true,
-    isWallet: true,
-    decimals: 18,
-    logo: "/tokens/tether.png",
-  },
-  {
-    address: "0xE849188F76c0dA93b5eD310a1F72127914b3A7b9",
-    name: "ArdMoney",
-    symbol: "ARDM",
-    isDex: true,
-    isWallet: true,
-    decimals: 18,
-    logo: "/tokens/ardm.png",
-  },
-  {
-    address: "0x1aae7Fc607092A12812a97DDf51D4f679f951679",
-    name: "sArdMoney",
-    symbol: "sARDM",
-    isDex: false,
-    isWallet: true,
-    decimals: 18,
-    logo: "/tokens/sardm.png",
-  },
-  {
-    address: "0x1b911938C3aD76De1DFaACcF508f9018b93FfB93",
-    name: "xArdMoney",
-    symbol: "xARDM",
-    isDex: false,
-    isWallet: true,
-    decimals: 18,
-    logo: "/tokens/xardm.png",
-  },
-  {
-    address: "0x86a53fcd199212FEa44FA7e16EB1f28812be911D",
-    name: "Inflation Hedging Coin",
-    symbol: "IHC",
-    decimals: 18,
-    isDex: true,
-    isWallet: true,
     logo: "/tokens/ihc.png",
   },
 ];
