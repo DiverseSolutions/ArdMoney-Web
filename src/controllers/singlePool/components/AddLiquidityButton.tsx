@@ -38,8 +38,20 @@ export default function AddLiquidityButton({
     return parse18(BigNumber(BigNumber(fromInput).toFixed(10)).toNumber());
   }, [fromInput]);
   const toAmount = useMemo(() => {
-    if (fromInput == "") return 0;
+    if (toInput == "") return 0;
     return parse18(BigNumber(BigNumber(toInput).toFixed(10)).toNumber());
+  }, [toInput]);
+
+  const fromMinAmount = useMemo(() => {
+    if (fromInput == "") return 1;
+    let amount = BigNumber(fromInput).multipliedBy(10).dividedBy(100);
+    return parse18(BigNumber(amount.toFixed(10)).toNumber());
+  }, [fromInput]);
+
+  const toMinAmount = useMemo(() => {
+    if (toInput == "") return 1;
+    let amount = BigNumber(toInput).multipliedBy(10).dividedBy(100);
+    return parse18(BigNumber(BigNumber(amount).toFixed(10)).toNumber());
   }, [toInput]);
 
   const { contracts } = useSelector((state: GlobalAppState) => state.web3);
@@ -56,8 +68,8 @@ export default function AddLiquidityButton({
       quoteToken.address,
       fromAmount ?? 0,
       toAmount ?? 0,
-      1,
-      1,
+      fromMinAmount,
+      toMinAmount,
       userAccount,
       deadline,
     ],
