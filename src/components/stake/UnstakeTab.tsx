@@ -1,5 +1,5 @@
 import useProvider from "@/hooks/useProvider";
-import { RootState } from "@/redux/store";
+import { GlobalAppState } from "@/redux/store";
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import { WalletTokenList } from "@constants/TokenList";
@@ -21,14 +21,14 @@ import { useTranslation } from "react-i18next";
 
 export default function UnStakeTab() {
   const { t } = useTranslation();
-  const { account } = useSelector((state: RootState) => state.web3);
+  const { account } = useSelector((state: GlobalAppState) => state.web3);
   const web3 = useProvider();
-  const { chainId } = useSelector((state: RootState) => state.network);
+  const { chainId } = useSelector((state: GlobalAppState) => state.network);
   const [sArdmBalance, setSArdmBalance] = useState(0);
   const [rate, setRate] = useState(1);
-  const web3Slice = useSelector((state: RootState) => state.web3);
+  const web3Slice = useSelector((state: GlobalAppState) => state.web3);
   const { isUnknown, isConfigured } = useSelector(
-    (state: RootState) => state.network
+    (state: GlobalAppState) => state.network
   );
 
   const [isApproveDisabled, setIsApproveDisabled] = useState(true);

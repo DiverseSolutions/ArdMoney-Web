@@ -1,4 +1,4 @@
-import { RootState } from "@/redux/store";
+import { GlobalAppState } from "@/redux/store";
 import { ProviderContextType } from "@contexts/ProviderContext";
 import { ethers, Wallet } from "ethers";
 import { useEffect, useState } from "react";
@@ -12,10 +12,10 @@ export default function useProvider() {
   );
 
   const { isConnected, providerType, defaultRpc } = useSelector(
-    (state: RootState) => state.web3
+    (state: GlobalAppState) => state.web3
   );
   const { isConfigured, isUnknown } = useSelector(
-    (state: RootState) => state.network
+    (state: GlobalAppState) => state.network
   );
 
   useEffect(() => {

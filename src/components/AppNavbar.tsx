@@ -9,18 +9,17 @@ import MobileClouds from "@assets/home/mobile_clouds.svg";
 import ConnectWalletButton from "@components/web3/ConnectWalletButton";
 
 import { useSelector } from "react-redux";
-import { RootState } from "@redux/store";
-import AdditionalDropdownMenu from "@components/nav/Dropdown";
+import { GlobalAppState } from "@redux/store";
 import AccountButton from "@components/nav/AccountButton";
 import NetworkButton from "@components/nav/NetworkButton";
-import OutlineButton from "./shared/OutlineButton";
 import { useTranslation } from "react-i18next";
 
 const DesktopLinks: any[] = [
   { text: "home", link: "/" },
   { text: "swap", link: "/swap" },
-  // { text: "Pool", link: "/pool" },
   { text: "staking", link: "/stake" },
+  { text: "pools", link: "/pools" },
+  // { text: "Aggregator", link: "/aggregator" },
   // { text: "Governance", link: "/governance" },
   // { text: "Analytics", link: "/analytics" },
 ];
@@ -37,10 +36,10 @@ const MobileLinks: any[] = [
 export default function AppNavbar() {
   const navigate = useNavigate();
   const { isConnected, account } = useSelector(
-    (state: RootState) => state.web3
+    (state: GlobalAppState) => state.web3
   );
 
-  const { isUnknown } = useSelector((state: RootState) => state.network);
+  const { isUnknown } = useSelector((state: GlobalAppState) => state.network);
   const [open, setOpen] = useState(false);
   const transitionProperties = open ? "translate-x-0" : "translate-x-full";
 

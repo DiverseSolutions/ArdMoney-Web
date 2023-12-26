@@ -17,12 +17,13 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "paths": {
+      "@controllers/*": ["src/controllers/*"],
       "types/*": ["src/types/*"],
       "@enums/*": ["src/enums/*"],
       "@contexts/*": ["src/contexts/*"],
       "@sections/*": ["src/sections/*"],
       "@apis/*": ["src/redux/apis/*"],
-      "@queries/*": ["src/redux/queries/*"],
+      "@redux/queries/*": ["src/redux/queries/*"],
       "@slices/*": ["src/redux/slices/*"],
       "@constants/*": ["src/constants/*"],
       "@assets/*": ["src/assets/*"],
@@ -36,6 +37,7 @@
       "@redux/*": ["src/redux/*"],
       "@components/*": ["src/components/*"],
       "@shared/*": ["src/components/shared/*"],
+      "@queries/*": ["src/queries/*"],
       "@layouts/*": ["src/components/layouts/*"]
     }
   },

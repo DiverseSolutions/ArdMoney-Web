@@ -1,5 +1,5 @@
 import RouterABI from "@abis/ArdMoneyRouter.json";
-import store, { RootState } from "@/redux/store";
+import store, { GlobalAppState } from "@/redux/store";
 import { Token } from "@constants/TokenList";
 import TokenABI from "@abis/ERC20.json";
 import { ProviderContextType } from "@contexts/ProviderContext";
@@ -15,7 +15,8 @@ export async function getTokenRate(
   if (!web3) return;
   if (!web3.provider) return;
 
-  let { web3: web3Slice, network: networkSlice }: RootState = store.getState();
+  let { web3: web3Slice, network: networkSlice }: GlobalAppState =
+    store.getState();
 
   try {
     let contract = await getReadContract(
@@ -42,7 +43,8 @@ export async function approveSwapToken(
   if (!web3) return;
   if (!web3.provider) return;
 
-  let { web3: web3Slice, network: networkSlice }: RootState = store.getState();
+  let { web3: web3Slice, network: networkSlice }: GlobalAppState =
+    store.getState();
 
   let contract = await getWriteContract(web3, tokenAddress, TokenABI);
   let routerAddress = web3Slice.contracts.router[networkSlice.chainId];
@@ -66,7 +68,7 @@ export async function swapTokens(
     web3: web3Slice,
     network: networkSlice,
     dex: dexSlice,
-  }: RootState = store.getState();
+  }: GlobalAppState = store.getState();
 
   let routerAddress = web3Slice.contracts.router[networkSlice.chainId];
   let router = await getWriteContract(web3, routerAddress, RouterABI);

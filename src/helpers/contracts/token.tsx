@@ -1,4 +1,4 @@
-import store, { RootState } from "@/redux/store";
+import store, { GlobalAppState } from "@/redux/store";
 import TokenABI from "@abis/ERC20.json";
 import { ProviderContextType } from "@contexts/ProviderContext";
 import { getWriteContract } from "./contract";
@@ -10,7 +10,7 @@ export async function getUserTokenBalance(
   if (!web3) return;
   if (!web3.provider) return;
 
-  let { web3: web3Slice }: RootState = store.getState();
+  let { web3: web3Slice }: GlobalAppState = store.getState();
 
   if (web3Slice.providerType == "default") return;
   if (!web3Slice.account) return;

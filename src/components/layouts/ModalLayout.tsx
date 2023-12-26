@@ -1,7 +1,7 @@
 import { DefaultLayoutProp } from "types/LayoutTypes";
 
 export default function ModalLayout({
-  width = "min-w-[300px]",
+  width = "w-[90vw] md:w-[500px]",
   fullHeight = false,
   alignment = "center",
   children,
@@ -9,7 +9,7 @@ export default function ModalLayout({
 }: DefaultLayoutProp) {
   return (
     <div
-      className={`absolute top-0 left-0 px-base md:px-0 flex ${configFullHeight()} ${configAlignment()} w-full h-full`}
+      className={`absolute top-0 left-0 px-base md:px-0 flex ${configFullHeight()} ${configAlignment()} overflow-hidden h-full w-full`}
     >
       <div
         data-aos="fade-down"

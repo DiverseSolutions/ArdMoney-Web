@@ -1,4 +1,4 @@
-import { RootState } from "@/redux/store";
+import { GlobalAppState } from "@/redux/store";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { DefaultCheckProp } from "types/CheckTypes";
@@ -7,7 +7,7 @@ import { setDexList, setWalletList } from "@slices/tokenSlice";
 
 export default function TokenListCheck({ children }: DefaultCheckProp) {
   const { isConfigured, chainId } = useSelector(
-    (state: RootState) => state.network
+    (state: GlobalAppState) => state.network
   );
   const dispatch = useDispatch();
 

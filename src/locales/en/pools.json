@@ -1,0 +1,16 @@
+{
+  "pageTitle": "Token Pools",
+  "tabAll": "All Pools",
+  "tabUser": "My Pools",
+  "transfer": "Transfer",
+  "searchNotFound": "No Pools Found",
+  "tableName": "Name",
+  "tableTotalValueLocked": "TVL",
+  "tableBaseToken": "Base Token",
+  "tableQuoteToken": "Paired Token",
+  "tableDayVolume": "24h Volume",
+  "tableSwap": "Swap Transaction",
+  "tableMint": "Mint Transaction",
+  "tableBurn": "Burned Transaction",
+  "searchInput": "Search tokens by symbols"
+}

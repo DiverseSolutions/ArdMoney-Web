@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { setWalletModal } from "@slices/modalSlice";
 import ModalLayout from "@components/layouts/ModalLayout";
-import { RootState } from "@/redux/store";
+import { GlobalAppState } from "@/redux/store";
 import { Token, WalletTokenList } from "@constants/TokenList";
 import { useContext, useEffect, useState } from "react";
 import useProvider from "@/hooks/useProvider";
@@ -19,9 +19,9 @@ import { useTranslation } from "react-i18next";
 
 export default function WalletModal() {
   const { t } = useTranslation();
-  const { account } = useSelector((state: RootState) => state.web3);
+  const { account } = useSelector((state: GlobalAppState) => state.web3);
   const { chainId, explorer } = useSelector(
-    (state: RootState) => state.network
+    (state: GlobalAppState) => state.network
   );
   const [isRefreshing, setIsRefreshing] = useState(false);
   const dispatch = useDispatch();

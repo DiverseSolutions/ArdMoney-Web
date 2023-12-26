@@ -1,0 +1,16 @@
+{
+  "pageTitle": "Токен Хослолууд",
+  "tabAll": "Бүгд",
+  "tabUser": "Миний хослолууд",
+  "searchNotFound": "Хослолууд олдсонгүй",
+  "tableName": "Нэр",
+  "tableTotalValueLocked": "Ниит түгжигдсэн дүн",
+  "tableBaseToken": "Суурь Токен",
+  "tableQuoteToken": "Хослох Токен",
+  "tableDayVolume": "Хэмжээ (24ц)",
+  "tableSwap": "Солилцох Гүйлгээ",
+  "tableMint": "Нийлүүлэгдсэн Гүйлгээ",
+  "tableBurn": "Шатаагдсан Гүйлгээ",
+  "transfer": "Гүйлгээ",
+  "searchInput": "Токены тикер хайх"
+}

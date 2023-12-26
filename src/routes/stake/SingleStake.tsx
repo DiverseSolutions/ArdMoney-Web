@@ -14,7 +14,7 @@ import { getTotalLockedARDM } from "@/helpers/contracts/sStaking";
 import { getTokenBalance } from "@/helpers/contracts/token";
 import { useSelector } from "react-redux";
 import { WalletTokenList } from "@constants/TokenList";
-import { RootState } from "@/redux/store";
+import { GlobalAppState } from "@/redux/store";
 import { format18, parse18 } from "@/helpers/web3";
 import { formatNumber } from "@/helpers/numbers";
 import { useTranslation } from "react-i18next";
@@ -23,8 +23,8 @@ type TabState = "unstake" | "stake";
 
 export default function SingleStake() {
   const { t } = useTranslation();
-  const { account } = useSelector((state: RootState) => state.web3);
-  const { chainId } = useSelector((state: RootState) => state.network);
+  const { account } = useSelector((state: GlobalAppState) => state.web3);
+  const { chainId } = useSelector((state: GlobalAppState) => state.network);
   const [tab, setTab] = useState<TabState>("stake");
   const [ardmBalance, setArdmBalance] = useState("0");
   const [sArdmBalance, setSArdmBalance] = useState("0");

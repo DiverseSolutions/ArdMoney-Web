@@ -4,5 +4,9 @@
   "swapSuccessful": "Successfully swapped",
   "approveSuccessful": "Successfully approved",
   "copy": "Successfully copied address",
+  "successLpAdded": "Tokens has been added to pool",
+  "successLpRemoved": "Tokens has been removed to pool",
+  "errorNotEnoughBalance": "Not enough balance",
+  "errorAmountBelowZero": "Amount below zero",
   "noWeb3WalletDetected": "No Web 3.0 Wallet Detected"
 }

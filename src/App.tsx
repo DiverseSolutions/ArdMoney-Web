@@ -14,10 +14,12 @@ import Swap from "@routes/Swap";
 import Stake from "@routes/stake";
 import SingleStake from "@routes/stake/SingleStake";
 import Governance from "@routes/Governance";
-import Pools from "@routes/Pools";
+import Pools from "@routes/pool/Pools";
 import Analytics from "@routes/Analytics";
 import HomeLayout from "@layouts/HomeLayout";
 import AppLayout from "@layouts/AppLayout";
+import Aggregator from "@routes/Aggregater";
+import SinglePool from "@routes/pool/SinglePool";
 
 export default function App() {
   AOS.init();
@@ -35,7 +37,9 @@ export default function App() {
             {/* <Route path="/stake/:id" element={<SingleStake />} /> */}
             <Route path="/governance" element={<Governance />} />
             <Route path="/pools" element={<Pools />} />
+            <Route path="/pool/:poolId" element={<SinglePool />} />
             <Route path="/analytics" element={<Analytics />} />
+            <Route path="/aggregator" element={<Aggregator />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -33,7 +33,7 @@ export default function Search({
           onChange={(e) => {
             inputChangeHandler(e.target.value);
           }}
-          className="bg-transparent w-full outline-0"
+          className="text-left bg-transparent w-full outline-0"
         />
       </div>
     </button>

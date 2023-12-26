@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { DefaultCheckProp } from "types/CheckTypes";
-import { RootState } from "@redux/store";
+import { GlobalAppState } from "@redux/store";
 
 import ConnectWalletModal from "@components/modals/ConnectWalletModal";
 import NetworkModal from "@components/modals/NetworkModal";
@@ -13,7 +13,7 @@ export default function ModalCheck({ children }: DefaultCheckProp) {
     networkModalState,
     walletModalState,
     swapSettingsModalState,
-  } = useSelector((state: RootState) => state.modal);
+  } = useSelector((state: GlobalAppState) => state.modal);
 
   return (
     <>

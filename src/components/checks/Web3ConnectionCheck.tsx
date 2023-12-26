@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "@redux/store";
+import { GlobalAppState } from "@redux/store";
 import { DefaultCheckProp } from "types/CheckTypes";
 
 import detectEthereumProvider from "@metamask/detect-provider";
@@ -13,9 +13,9 @@ import {
 import { alert } from "@helpers/alert";
 
 export default function Web3ConnectionCheck({ children }: DefaultCheckProp) {
-  const {} = useSelector((state: RootState) => state.web3);
+  const {} = useSelector((state: GlobalAppState) => state.web3);
   const { isConfigured, isUnknown } = useSelector(
-    (state: RootState) => state.network
+    (state: GlobalAppState) => state.network
   );
   const dispatch = useDispatch();
 

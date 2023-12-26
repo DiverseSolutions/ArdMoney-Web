@@ -1,0 +1,21 @@
+{
+  "about": "Ardmoney DEX operates on an Automated Market Maker (AMM) system, wherein token conversions occur without the need for an order board. In contrast to centralized exchanges that match orders between two parties and generate revenue through commissions, our decentralized exchange (DEX) establishes markets for token trading. In this decentralized model, the token liquidity pool is formed organically, and users who contribute tokens to the pool are entitled to a pro-rata share of the trading commissions.",
+  "summary1": "The liquidity pool serves as the reservoir of funds responsible for facilitating token conversions on the DEX.",
+  "summary2": "A liquidity provider, in the context of the DEX, functions as a fund manager.",
+  "summary3": "To become a liquidity provider for the ARDX/MONT fund, you are required to supply ARDX and MONT tokens in equal value proportions (50%:50%) to this fund.",
+  "amount": "Amount",
+  "price": "Price",
+  "my": "My",
+  "totalInPool": "Total Amount in a Pool",
+  "add": "Add",
+  "remove": "Remove",
+  "balance": "Balance",
+  "connectWallet": "Connect Wallet",
+  "recieveAmount": "Recieve Amount",
+  "confirm": "Confirm",
+  "addTokenPairs": "Add Token Pairs",
+  "confirmLP": "Confirm LP Token",
+  "removeLP": "Remove LP Token",
+  "warning": "You accept full responsibility for any losses or negative consequences that might arise from your actions on the DEX.",
+  "TVL": "Total Locked Amount"
+}

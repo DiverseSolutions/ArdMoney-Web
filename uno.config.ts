@@ -15,6 +15,8 @@ export default defineConfig({
       }),
     ],
 
+    ["subtext", { color: "rgba(255, 255, 255, 0.65) !important" }],
+
     ["text-light-secondary", { color: "rgba(255, 255, 255, 0.65) !important" }],
     ["text-light-back", { color: "rgba(255, 255, 255, 0.1) !important" }],
     ["text-light-disabled", { color: "rgba(255, 255, 255, 0.2) !important" }],

@@ -1,7 +1,7 @@
 import { ConnectWalletButtonProp } from "types/ButtonTypes";
 import { useDispatch, useSelector } from "react-redux";
 import { setConnectWalletModal } from "@slices/modalSlice";
-import { RootState } from "@redux/store";
+import { GlobalAppState } from "@redux/store";
 import { alert } from "@helpers/alert";
 import OutlineButton from "@components/shared/OutlineButton";
 import { useTranslation } from "react-i18next";
@@ -11,9 +11,9 @@ export default function ConnectWalletButton({
 }: ConnectWalletButtonProp) {
   const { t } = useTranslation();
   const { connectWalletModalState } = useSelector(
-    (state: RootState) => state.modal
+    (state: GlobalAppState) => state.modal
   );
-  const { hasWallet } = useSelector((state: RootState) => state.web3);
+  const { hasWallet } = useSelector((state: GlobalAppState) => state.web3);
   const dispatch = useDispatch();
 
   function connectWalletHandler() {

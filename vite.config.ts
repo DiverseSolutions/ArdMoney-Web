@@ -14,7 +14,7 @@ export default defineConfig({
       depth: 2,
       prefix: "@",
       useConfig: false,
-      useTypescript: false,
+      useTypescript: true,
     }),
   ],
 });

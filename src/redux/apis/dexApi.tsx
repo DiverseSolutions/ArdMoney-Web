@@ -1,18 +1,18 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
 import { dexApiBaseQuery } from "./baseQueries";
 
-import { DexApiPairsResponse, pairsQuery } from "@queries/dex/pairsQuery";
+import { DexApiPairsResponse, pairsQuery } from "@redux/queries/dex/pairsQuery";
 
 import {
   DexApiTokenPairsResponse,
   tokenPairsQuery,
-} from "@queries/dex/tokenPairsQuery";
+} from "@redux/queries/dex/tokenPairsQuery";
 
 import {
   DexApiFindPairParameter,
   DexApiFindPairResponse,
   findPairQuery,
-} from "@queries/dex/findPairQuery";
+} from "@redux/queries/dex/findPairQuery";
 
 export const dexApi = createApi({
   reducerPath: "dexApi",

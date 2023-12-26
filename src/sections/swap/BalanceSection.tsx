@@ -6,7 +6,7 @@ import TextLoader from "@components/shared/TextLoader";
 import { getUserTokenBalance } from "@/helpers/contracts/token";
 import { ProviderContext } from "@contexts/ProviderContext";
 import { useSelector } from "react-redux";
-import { RootState } from "@/redux/store";
+import { GlobalAppState } from "@/redux/store";
 
 type SectionProp = {
   token: Token | undefined;
@@ -14,7 +14,7 @@ type SectionProp = {
 
 export default function BalanceSection({ token }: SectionProp) {
   const web3 = useContext(ProviderContext);
-  const web3Slice = useSelector((state: RootState) => state.web3);
+  const web3Slice = useSelector((state: GlobalAppState) => state.web3);
   const [balance, setBalance] = useState(0);
   const [balanceLoading, setBalanceLoading] = useState(false);
 

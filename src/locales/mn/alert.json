@@ -2,7 +2,11 @@
   "connectWalletSuccess": "Түрийвч амжилттай холбогдсон",
   "noAccountFoundError": "Түрийвчний данс олдсонгүй",
   "swapSuccessful": "Токенууд амжилттай арилжаалагдсан",
-  "approveSuccessful": "Токенууд амжилттай зөвшөөрөгдсөн",
+  "approveSuccessful": "Токен амжилттай зөвшөөрөгдсөн",
   "copy": "Данс амжилттай хуулагдлаа",
+  "successLpAdded": "Таны токен хослолд нэмэгдлээ",
+  "successLpRemoved": "Таны токенууд хослолоос хасагдлаа",
+  "errorNotEnoughBalance": "Үлдэгдэл хүрэхгүй байна",
+  "errorAmountBelowZero": "Дүн 0-ээр бага байна",
   "noWeb3WalletDetected": "Крипто хэтэвч олдсонгүй. Ухаалаг төхөөрөмжөөс нэвтэрч байвал Метамаск browser ашиглана уу."
 }

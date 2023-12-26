@@ -4,14 +4,16 @@ import { setSwapSettingsModal } from "@slices/modalSlice";
 import CloseIcon from "@assets/icons/CloseIcon";
 import ModalLayout from "../layouts/ModalLayout";
 import { FormEvent, useState } from "react";
-import { RootState } from "@/redux/store";
+import { GlobalAppState } from "@/redux/store";
 import { isEmpty } from "radash";
 import { setDeadline, setSlippage } from "@slices/dexSlice";
 import { alert } from "@helpers/alert";
 import { useTranslation } from "react-i18next";
 
 export default function SwapSettingsModal() {
-  const { slippage, deadline } = useSelector((state: RootState) => state.dex);
+  const { slippage, deadline } = useSelector(
+    (state: GlobalAppState) => state.dex
+  );
   const [localSlippage, setLocalSlippage] = useState(slippage);
   const [localDeadline, setLocalDeadline] = useState(deadline);
   const dispatch = useDispatch();

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@redux/store";
+import { GlobalAppState } from "@redux/store";
 import { FormEvent, useEffect, useMemo, useReducer } from "react";
 
 import Background1 from "../assets/images/swap/background1.svg";
@@ -58,10 +58,12 @@ export default function Swap() {
   });
 
   const web3 = useProvider();
-  const web3Slice = useSelector((state: RootState) => state.web3);
-  const { slippage } = useSelector((state: RootState) => state.dex);
-  const { dexList: tokenList } = useSelector((state: RootState) => state.token);
-  const { isUnknown } = useSelector((state: RootState) => state.network);
+  const web3Slice = useSelector((state: GlobalAppState) => state.web3);
+  const { slippage } = useSelector((state: GlobalAppState) => state.dex);
+  const { dexList: tokenList } = useSelector(
+    (state: GlobalAppState) => state.token
+  );
+  const { isUnknown } = useSelector((state: GlobalAppState) => state.network);
 
   const [
     { fromToken, fromInput, toToken, fromModal, toModal, rate, isMoreInfoOpen },

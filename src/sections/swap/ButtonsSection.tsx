@@ -1,5 +1,5 @@
 import TextLoader from "@/components/shared/TextLoader";
-import { RootState } from "@/redux/store";
+import { GlobalAppState } from "@/redux/store";
 import { ProviderContext } from "@contexts/ProviderContext";
 import { isEmpty } from "radash";
 import { useContext, useEffect, useState } from "react";
@@ -29,8 +29,10 @@ export default function ButtonsSection({
 }: ButtonsSectionProp) {
   const { t } = useTranslation();
   const web3 = useContext(ProviderContext);
-  const { isConnected } = useSelector((state: RootState) => state.web3);
-  const { isConfigured } = useSelector((state: RootState) => state.network);
+  const { isConnected } = useSelector((state: GlobalAppState) => state.web3);
+  const { isConfigured } = useSelector(
+    (state: GlobalAppState) => state.network
+  );
 
   const [isApproveDisabled, setIsApproveDisabled] = useState(true);
   const [isSwapDisabled, setIsSwapDisabled] = useState(true);

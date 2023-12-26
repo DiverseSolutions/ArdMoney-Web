@@ -21,6 +21,12 @@ import SwapMN from "@locales/mn/swap.json";
 import StakeEN from "@locales/en/stake.json";
 import StakeMN from "@locales/mn/stake.json";
 
+import PoolsEN from "@locales/en/pools.json";
+import PoolsMN from "@locales/mn/pools.json";
+
+import SinglePoolEN from "@locales/en/singlePool.json";
+import SinglePoolMN from "@locales/mn/singlePool.json";
+
 import CommonEN from "@locales/en/common.json";
 import CommonMN from "@locales/mn/common.json";
 
@@ -60,6 +66,12 @@ i18next.addResourceBundle("mn", "common", CommonMN);
 
 i18next.addResourceBundle("en", "connectWalletModal", ConnectWalletEN);
 i18next.addResourceBundle("mn", "connectWalletModal", ConnectWalletMN);
+
+i18next.addResourceBundle("en", "pools", PoolsEN);
+i18next.addResourceBundle("mn", "pools", PoolsMN);
+
+i18next.addResourceBundle("en", "singlePool", SinglePoolEN);
+i18next.addResourceBundle("mn", "singlePool", SinglePoolMN);
 
 i18next.addResourceBundle("en", "alert", AlertEN);
 i18next.addResourceBundle("mn", "alert", AlertMN);

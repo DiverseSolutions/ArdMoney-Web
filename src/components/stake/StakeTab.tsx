@@ -1,5 +1,5 @@
 import useProvider from "@/hooks/useProvider";
-import { RootState } from "@/redux/store";
+import { GlobalAppState } from "@/redux/store";
 import { useSelector } from "react-redux";
 import ConnectToSupportedNetworkButton from "../web3/ConnectToSupportedNetworkButton";
 import ConnectWalletButton from "../web3/ConnectWalletButton";
@@ -21,11 +21,11 @@ import { useTranslation } from "react-i18next";
 
 export default function StakeTab() {
   const { t } = useTranslation();
-  const { account } = useSelector((state: RootState) => state.web3);
-  const { chainId } = useSelector((state: RootState) => state.network);
-  const web3Slice = useSelector((state: RootState) => state.web3);
+  const { account } = useSelector((state: GlobalAppState) => state.web3);
+  const { chainId } = useSelector((state: GlobalAppState) => state.network);
+  const web3Slice = useSelector((state: GlobalAppState) => state.web3);
   const { isUnknown, isConfigured } = useSelector(
-    (state: RootState) => state.network
+    (state: GlobalAppState) => state.network
   );
 
   const web3 = useProvider();

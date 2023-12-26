@@ -1,11 +1,13 @@
 import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "@redux/store";
+import { GlobalAppState } from "@redux/store";
 import { setNetworkModal } from "@slices/modalSlice";
 import OutlineButton from "@components/shared/OutlineButton";
 
 export default function NetworkButton() {
-  const { networkModalState } = useSelector((state: RootState) => state.modal);
-  const network = useSelector((state: RootState) => state.network);
+  const { networkModalState } = useSelector(
+    (state: GlobalAppState) => state.modal
+  );
+  const network = useSelector((state: GlobalAppState) => state.network);
   const dispatch = useDispatch();
 
   function handleModalOpen() {

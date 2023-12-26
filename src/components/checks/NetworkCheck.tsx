@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "@redux/store";
+import { GlobalAppState } from "@redux/store";
 import { DefaultCheckProp } from "types/CheckTypes";
 import { SupportedChainList } from "@constants/ChainList";
 import { alert } from "@helpers/alert";
@@ -20,8 +20,10 @@ import detectEthereumProvider from "@metamask/detect-provider";
 import { setProviderType } from "@slices/web3Slice";
 
 export default function NetworkCheck({ children }: DefaultCheckProp) {
-  const { isConnected } = useSelector((state: RootState) => state.web3);
-  const { isConfigured } = useSelector((state: RootState) => state.network);
+  const { isConnected } = useSelector((state: GlobalAppState) => state.web3);
+  const { isConfigured } = useSelector(
+    (state: GlobalAppState) => state.network
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {

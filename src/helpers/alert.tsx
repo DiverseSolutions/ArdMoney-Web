@@ -5,6 +5,16 @@ import AlertLayout from "@layouts/AlertLayout";
 
 type AlertType = "success" | "error" | "info";
 
+export function successAlert(content: string) {
+  alertSuccess(content);
+}
+export function errorAlert(content: string) {
+  alertError(content);
+}
+export function infoAlert(content: string) {
+  alertInfo(content);
+}
+
 export function alert(alertStyle: AlertType, content: string) {
   switch (alertStyle) {
     case "success":

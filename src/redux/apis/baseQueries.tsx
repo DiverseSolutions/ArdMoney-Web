@@ -1,7 +1,7 @@
 import { request, ClientError } from "graphql-request";
 // import { RootState } from "@redux/store"
 import { BaseQueryFn } from "@reduxjs/toolkit/dist/query";
-import { RootState } from "@redux/store";
+import { GlobalAppState } from "@redux/store";
 
 export const dexApiBaseQuery: BaseQueryFn<any, unknown, unknown> = async (
   args,
@@ -10,8 +10,8 @@ export const dexApiBaseQuery: BaseQueryFn<any, unknown, unknown> = async (
 ) => {
   try {
     let state = api.getState();
-    let network = (state as RootState).network;
-    let dex = (state as RootState).dex;
+    let network = (state as GlobalAppState).network;
+    let dex = (state as GlobalAppState).dex;
     const { chainId } = network;
 
     let baseUrl = chainId == -1 ? dex.subgraph[97] : dex.subgraph[chainId];
