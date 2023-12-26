@@ -147,7 +147,7 @@ export default function RemoveTab() {
             <p className="font-bold text-xl">{baseToken.symbol}</p>
           </div>
           <div className="flex flex-col items-center lg:items-end gap-y-2">
-            <p className="text-lg">{baseLpTokenBalance}</p>
+            <p className="text-lg">{formatNumber(baseLpTokenBalance, 0, 0)}</p>
             <p className="subtext">{t("recieveAmount")}</p>
           </div>
         </div>
@@ -157,7 +157,7 @@ export default function RemoveTab() {
             <p className="font-bold text-xl">{quoteToken.symbol}</p>
           </div>
           <div className="flex flex-col items-center lg:items-end gap-y-2">
-            <p className="text-lg">{quoteLpTokenBalance}</p>
+            <p className="text-lg">{formatNumber(quoteLpTokenBalance, 0, 0)}</p>
             <p className="subtext">{t("recieveAmount")}</p>
           </div>
         </div>
