@@ -8,9 +8,9 @@
   "tableBaseToken": "Суурь Токен",
   "tableQuoteToken": "Хослох Токен",
   "tableDayVolume": "Хэмжээ (24ц)",
-  "tableSwap": "Солилцох Гүйлгээ",
-  "tableMint": "Нийлүүлэгдсэн Гүйлгээ",
-  "tableBurn": "Шатаагдсан Гүйлгээ",
+  "tableSwap": "Арилжааны гүйлгээ",
+  "tableMint": "Хадгалуулах гүйлгээ ",
+  "tableBurn": "Татан авалтын гүйлгээ",
   "transfer": "Гүйлгээ",
   "searchInput": "Токены тикер хайх"
 }
