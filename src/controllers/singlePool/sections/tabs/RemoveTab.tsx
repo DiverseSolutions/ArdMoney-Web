@@ -15,6 +15,7 @@ import { useTranslation } from "react-i18next";
 import ConnectWallet from "@controllers/singlePool/components/ConnectWallet";
 
 export default function RemoveTab() {
+  const underMaintenance = true;
   const { t } = useTranslation("singlePool");
   const { poolId: poolAddress } = useParams();
   const { baseToken, quoteToken } = useContext(TokensContext);
@@ -163,7 +164,17 @@ export default function RemoveTab() {
         </div>
       </div>
 
-      {baseToken.symbol != "USDT" && quoteToken.symbol != "USDT" && (
+      {underMaintenance == true ? (
+        <div className="flex flex-col justify-end gap-y-2 mt-4 lg:mt-0 grow">
+          <div className="h-auto border border-primary/20 rounded-2xs w-full">
+            <div className="flex gap-3xs py-3xs px-base text-sm border-b border-primary/20">
+              <span className="grow text-base text-center text-light-secondary">
+                Under Maintenance
+              </span>
+            </div>
+          </div>
+        </div>
+      ) : (
         <ConnectWallet>
           <div className="flex flex-col justify-end gap-y-2 mt-4 lg:mt-0 grow">
             <RemovePoolButtonsContext.Provider value={isLpTokenApproved}>
