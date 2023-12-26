@@ -13,6 +13,7 @@ import { useTranslation } from "react-i18next";
 const navigations = [
   { text: "swap", link: "/swap", isSpa: true },
   { text: "staking", link: "/stake", isSpa: true },
+  { text: "pools", link: "/pools", isSpa: true },
   {
     text: "BscScan",
     link: "https://bscscan.com/token/0xe849188f76c0da93b5ed310a1f72127914b3a7b9",
@@ -27,6 +28,7 @@ const navigations = [
 const mobileNavigations = [
   { text: "swap", link: "/swap", isSpa: true },
   { text: "staking", link: "/stake", isSpa: true },
+  { text: "pools", link: "/pools", isSpa: true },
   // { text: "launchApp", link: "https://app.ardmoney.com/" },
   {
     text: "BscScan",
