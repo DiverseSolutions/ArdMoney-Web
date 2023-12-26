@@ -204,51 +204,53 @@ export default function AddTab() {
         </div>
       </div>
 
-      <ConnectWallet>
-        <div className="flex flex-col justify-end gap-y-2 grow">
-          <AddPoolButtonsContext.Provider
-            value={{ isBaseTokenApproved, isQuoteTokenApproved }}
-          >
-            <TokensContext.Provider
-              value={{ baseToken: fromToken, quoteToken: toToken }}
+      {baseToken.symbol != "MONT" && quoteToken != "USDT" && (
+        <ConnectWallet>
+          <div className="flex flex-col justify-end gap-y-2 grow">
+            <AddPoolButtonsContext.Provider
+              value={{ isBaseTokenApproved, isQuoteTokenApproved }}
             >
-              <TokenInputsContext.Provider
-                value={{
-                  fromInput: fromInput == "" ? 0 : fromInput,
-                  toInput: toInput == "" ? 0 : toInput,
-                }}
+              <TokensContext.Provider
+                value={{ baseToken: fromToken, quoteToken: toToken }}
               >
-                <div className="h-auto border border-primary/20 rounded-2xs w-full">
-                  <div className="flex gap-3xs py-3xs px-base items-center text-sm border-b border-primary/20">
-                    <div className="i-ic-outline-warning w-10 h-10 lg:w-3 lg:h-3 text-light-secondary" />
-                    <p className="grow text-xs text-light-secondary">
-                      {t("warning")}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-2 gap-y-2">
-                  <BaseTokenApproveButton
-                    approveState={setIsBaseTokenApproved}
-                    balance={baseTokenBalance?.formatted ?? "0"}
-                  />
-                  <QuoteTokenApproveButton
-                    approveState={setIsQuoteTokenApproved}
-                    balance={quoteTokenBalance?.formatted ?? "0"}
-                  />
-                </div>
-
-                <AddLiquidityButton
-                  resetButtonState={() => {
-                    setIsBaseTokenApproved(false);
-                    setIsQuoteTokenApproved(false);
+                <TokenInputsContext.Provider
+                  value={{
+                    fromInput: fromInput == "" ? 0 : fromInput,
+                    toInput: toInput == "" ? 0 : toInput,
                   }}
-                />
-              </TokenInputsContext.Provider>
-            </TokensContext.Provider>
-          </AddPoolButtonsContext.Provider>
-        </div>
-      </ConnectWallet>
+                >
+                  <div className="h-auto border border-primary/20 rounded-2xs w-full">
+                    <div className="flex gap-3xs py-3xs px-base items-center text-sm border-b border-primary/20">
+                      <div className="i-ic-outline-warning w-10 h-10 lg:w-3 lg:h-3 text-light-secondary" />
+                      <p className="grow text-xs text-light-secondary">
+                        {t("warning")}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-2 gap-y-2">
+                    <BaseTokenApproveButton
+                      approveState={setIsBaseTokenApproved}
+                      balance={baseTokenBalance?.formatted ?? "0"}
+                    />
+                    <QuoteTokenApproveButton
+                      approveState={setIsQuoteTokenApproved}
+                      balance={quoteTokenBalance?.formatted ?? "0"}
+                    />
+                  </div>
+
+                  <AddLiquidityButton
+                    resetButtonState={() => {
+                      setIsBaseTokenApproved(false);
+                      setIsQuoteTokenApproved(false);
+                    }}
+                  />
+                </TokenInputsContext.Provider>
+              </TokensContext.Provider>
+            </AddPoolButtonsContext.Provider>
+          </div>
+        </ConnectWallet>
+      )}
     </div>
   );
 }
