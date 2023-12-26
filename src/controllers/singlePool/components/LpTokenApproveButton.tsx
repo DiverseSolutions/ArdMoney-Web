@@ -66,7 +66,7 @@ export default function LpTokenApproveButton({
 
   async function handleTokenApprove() {
     if (lpInput == "") return;
-    if (BigNumber(lpInput).toNumber() < BigNumber(balance).toNumber()) {
+    if (BigNumber(lpInput).toNumber() > BigNumber(balance).toNumber()) {
       errorAlert(t("alert:errorNotEnoughBalance"));
       return;
     }
