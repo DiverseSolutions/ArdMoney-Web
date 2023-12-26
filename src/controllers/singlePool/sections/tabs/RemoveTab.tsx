@@ -163,7 +163,7 @@ export default function RemoveTab() {
         </div>
       </div>
 
-      {baseToken.symbol != "MONT" && quoteToken != "USDT" && (
+      {baseToken.symbol != "MONT" && quoteToken.symbol != "USDT" && (
         <ConnectWallet>
           <div className="flex flex-col justify-end gap-y-2 mt-4 lg:mt-0 grow">
             <RemovePoolButtonsContext.Provider value={isLpTokenApproved}>

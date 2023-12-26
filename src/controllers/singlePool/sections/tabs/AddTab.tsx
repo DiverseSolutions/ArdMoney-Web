@@ -204,7 +204,7 @@ export default function AddTab() {
         </div>
       </div>
 
-      {baseToken.symbol != "MONT" && quoteToken != "USDT" && (
+      {baseToken.symbol != "MONT" && quoteToken.symbol != "USDT" && (
         <ConnectWallet>
           <div className="flex flex-col justify-end gap-y-2 grow">
             <AddPoolButtonsContext.Provider
