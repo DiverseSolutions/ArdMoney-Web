@@ -1,4 +1,4 @@
-import store, { GlobalAppState } from "@/redux/store";
+import store, { GlobalAppState } from "@/redux/globalStore";
 import TokenABI from "@abis/ERC20.json";
 import { ProviderContextType } from "@contexts/ProviderContext";
 import { getWriteContract } from "./contract";

@@ -1,6 +1,6 @@
 import TextLoader from "@/components/shared/TextLoader";
 import { useSelector } from "react-redux";
-import { GlobalAppState } from "@/redux/store";
+import { GlobalAppState } from "@/redux/globalStore";
 import {
   Address,
   useAccount,

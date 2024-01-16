@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { GlobalAppState } from "@redux/store";
+import { GlobalAppState } from "@/redux/globalStore";
 import { DefaultCheckProp } from "types/CheckTypes";
 
 import detectEthereumProvider from "@metamask/detect-provider";

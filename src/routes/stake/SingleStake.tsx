@@ -14,7 +14,7 @@ import { getTotalLockedARDM } from "@/helpers/contracts/sStaking";
 import { getTokenBalance } from "@/helpers/contracts/token";
 import { useSelector } from "react-redux";
 import { WalletTokenList } from "@constants/TokenList";
-import { GlobalAppState } from "@/redux/store";
+import { GlobalAppState } from "@/redux/globalStore";
 import { format18, parse18 } from "@/helpers/web3";
 import { formatNumber } from "@/helpers/numbers";
 import { useTranslation } from "react-i18next";

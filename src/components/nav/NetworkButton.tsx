@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { GlobalAppState } from "@redux/store";
+import { GlobalAppState } from "@/redux/globalStore";
 import { setNetworkModal } from "@slices/modalSlice";
 import OutlineButton from "@components/shared/OutlineButton";
 

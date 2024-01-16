@@ -1,5 +1,5 @@
 import TextLoader from "@/components/shared/TextLoader";
-import { GlobalAppState } from "@/redux/store";
+import { GlobalAppState } from "@/redux/globalStore";
 import { ProviderContext } from "@contexts/ProviderContext";
 import { isEmpty } from "radash";
 import { useContext, useEffect, useState } from "react";

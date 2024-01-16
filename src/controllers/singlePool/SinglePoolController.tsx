@@ -1,4 +1,4 @@
-import { GlobalAppState } from "@/redux/store";
+import { GlobalAppState } from "@/redux/globalStore";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams, useSearchParams } from "react-router-dom";

@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { setWalletModal } from "@slices/modalSlice";
 import ModalLayout from "@components/layouts/ModalLayout";
-import { GlobalAppState } from "@/redux/store";
+import { GlobalAppState } from "@/redux/globalStore";
 import { Token, WalletTokenList } from "@constants/TokenList";
 import { useContext, useEffect, useState } from "react";
 import useProvider from "@/hooks/useProvider";

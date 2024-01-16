@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import useAllPoolsQuery from "@controllers/pools/queries/useAllPoolsQuery";
 import { formatNumber } from "@/helpers/numbers";
 import { useSelector } from "react-redux";
-import { GlobalAppState } from "@/redux/store";
+import { GlobalAppState } from "@/redux/globalStore";
 import PoolTable from "../components/PoolTable";
 import PoolTableLoader from "../components/PoolTableLoader";
 import { useTranslation } from "react-i18next";

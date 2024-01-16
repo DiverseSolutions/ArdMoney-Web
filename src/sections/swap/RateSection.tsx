@@ -1,9 +1,11 @@
 import TextLoader from "@/components/shared/TextLoader";
 import { getTokenRate } from "@/helpers/contracts/router";
+import { getTokenBalance } from "@/helpers/contracts/token";
 import { formatNumber } from "@/helpers/numbers";
 import { formatAndParse } from "@/helpers/web3";
 import { Token } from "@constants/TokenList";
 import { ProviderContext } from "@contexts/ProviderContext";
+import BigNumber from "bignumber.js";
 import { useContext, useEffect, useState } from "react";
 
 type SectionProp = {

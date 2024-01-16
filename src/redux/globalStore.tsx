@@ -8,14 +8,18 @@ import { subgraphSlice } from "./slices/subgraphSlice";
 
 import { dexApi } from "@redux/apis/dexApi";
 import { setupListeners } from "@reduxjs/toolkit/dist/query";
+import { maintenanceReducer } from "@slices/maintenanceSlice";
+import { whiteListReducer } from "@slices/whiteListSlice";
 
-const store = configureStore({
+const globalStore = configureStore({
   reducer: {
     web3: web3Reducer,
     modal: modalReducer,
     network: networkReducer,
     dex: dexReducer,
     token: tokenReducer,
+    maintenace: maintenanceReducer,
+    whitelist: whiteListReducer,
 
     [dexApi.reducerPath]: dexApi.reducer,
     [subgraphSlice.reducerPath]: subgraphSlice.reducer,
@@ -26,7 +30,7 @@ const store = configureStore({
       .concat(subgraphSlice.middleware),
 });
 
-setupListeners(store.dispatch);
+setupListeners(globalStore.dispatch);
 
-export type GlobalAppState = ReturnType<typeof store.getState>;
-export default store;
+export type GlobalAppState = ReturnType<typeof globalStore.getState>;
+export default globalStore;

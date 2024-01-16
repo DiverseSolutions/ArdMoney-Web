@@ -6,7 +6,7 @@ import TextLoader from "@components/shared/TextLoader";
 import { getUserTokenBalance } from "@/helpers/contracts/token";
 import { ProviderContext } from "@contexts/ProviderContext";
 import { useSelector } from "react-redux";
-import { GlobalAppState } from "@/redux/store";
+import { GlobalAppState } from "@/redux/globalStore";
 
 type SectionProp = {
   token: Token | undefined;

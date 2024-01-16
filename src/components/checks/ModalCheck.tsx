@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { DefaultCheckProp } from "types/CheckTypes";
-import { GlobalAppState } from "@redux/store";
+import { GlobalAppState } from "@/redux/globalStore";
 
 import ConnectWalletModal from "@components/modals/ConnectWalletModal";
 import NetworkModal from "@components/modals/NetworkModal";

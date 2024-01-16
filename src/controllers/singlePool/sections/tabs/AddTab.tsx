@@ -2,7 +2,7 @@ import TextLoader from "@/components/shared/TextLoader";
 import { formatNumber } from "@/helpers/numbers";
 import { Address, useAccount, useBalance, useConnect } from "wagmi";
 import { bsc } from "wagmi/chains";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import BigNumber from "bignumber.js";
 import QuoteTokenApproveButton from "../../components/QuoteTokenApproveButton";
 import BaseTokenApproveButton from "../../components/BaseTokenApproveButton";
@@ -16,9 +16,23 @@ import { MetaMaskConnector } from "@wagmi/core/connectors/metaMask";
 import { ethers, ZeroAddress } from "ethers";
 import { useTranslation } from "react-i18next";
 import ConnectWallet from "@controllers/singlePool/components/ConnectWallet";
+import { useSelector } from "react-redux";
+import { GlobalAppState } from "@/redux/globalStore";
+import { useParams } from "react-router-dom";
 
 export default function AddTab() {
-  const underMaintenance = true;
+  const { pools: underMaintenance } = useSelector(
+    (state: GlobalAppState) => state.maintenace
+  );
+  const { pools: poolWhiteList } = useSelector(
+    (state: GlobalAppState) => state.whitelist
+  );
+  const { poolId } = useParams();
+  const isWhiteListed = useMemo(() => {
+    return poolWhiteList.filter((item) => item === poolId).length > 0
+      ? true
+      : false;
+  }, []);
   const { t } = useTranslation("singlePool");
   const { baseToken, quoteToken } = useContext(TokensContext);
   const { resetState } = useContext(ResetStatesContext);
@@ -205,7 +219,7 @@ export default function AddTab() {
         </div>
       </div>
 
-      {underMaintenance == true ? (
+      {underMaintenance == true || isWhiteListed == false ? (
         <div className="flex flex-col justify-end gap-y-2 mt-4 lg:mt-0 grow">
           <div className="h-auto border border-primary/20 rounded-2xs w-full">
             <div className="flex gap-3xs py-3xs px-base text-sm border-b border-primary/20">

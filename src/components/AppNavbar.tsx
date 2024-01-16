@@ -9,7 +9,7 @@ import MobileClouds from "@assets/home/mobile_clouds.svg";
 import ConnectWalletButton from "@components/web3/ConnectWalletButton";
 
 import { useSelector } from "react-redux";
-import { GlobalAppState } from "@redux/store";
+import { GlobalAppState } from "@/redux/globalStore";
 import AccountButton from "@components/nav/AccountButton";
 import NetworkButton from "@components/nav/NetworkButton";
 import { useTranslation } from "react-i18next";

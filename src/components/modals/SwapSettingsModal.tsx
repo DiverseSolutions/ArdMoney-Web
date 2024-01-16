@@ -4,7 +4,7 @@ import { setSwapSettingsModal } from "@slices/modalSlice";
 import CloseIcon from "@assets/icons/CloseIcon";
 import ModalLayout from "../layouts/ModalLayout";
 import { FormEvent, useState } from "react";
-import { GlobalAppState } from "@/redux/store";
+import { GlobalAppState } from "@/redux/globalStore";
 import { isEmpty } from "radash";
 import { setDeadline, setSlippage } from "@slices/dexSlice";
 import { alert } from "@helpers/alert";

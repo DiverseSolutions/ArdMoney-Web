@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { GlobalAppState } from "@redux/store";
+import { GlobalAppState } from "@/redux/globalStore";
 import { DefaultCheckProp } from "types/CheckTypes";
 import { SupportedChainList } from "@constants/ChainList";
 import { alert } from "@helpers/alert";

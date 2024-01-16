@@ -1,7 +1,7 @@
 import { ConnectWalletButtonProp } from "types/ButtonTypes";
 import { useDispatch, useSelector } from "react-redux";
 import { setConnectWalletModal } from "@slices/modalSlice";
-import { GlobalAppState } from "@redux/store";
+import { GlobalAppState } from "@/redux/globalStore";
 import { alert } from "@helpers/alert";
 import OutlineButton from "@components/shared/OutlineButton";
 import { useTranslation } from "react-i18next";

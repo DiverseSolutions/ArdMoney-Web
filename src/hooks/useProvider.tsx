@@ -1,4 +1,4 @@
-import { GlobalAppState } from "@/redux/store";
+import { GlobalAppState } from "@/redux/globalStore";
 import { ProviderContextType } from "@contexts/ProviderContext";
 import { ethers, Wallet } from "ethers";
 import { useEffect, useState } from "react";

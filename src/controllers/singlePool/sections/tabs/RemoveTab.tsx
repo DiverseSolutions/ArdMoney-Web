@@ -13,9 +13,22 @@ import RemoveLiquidityButton from "../../components/RemoveLiquidityButton";
 import ResetStatesContext from "../../context/ResetStatesContext";
 import { useTranslation } from "react-i18next";
 import ConnectWallet from "@controllers/singlePool/components/ConnectWallet";
+import { useSelector } from "react-redux";
+import { GlobalAppState } from "@/redux/globalStore";
 
 export default function RemoveTab() {
-  const underMaintenance = true;
+  const { pools: underMaintenance } = useSelector(
+    (state: GlobalAppState) => state.maintenace
+  );
+  const { pools: poolWhiteList } = useSelector(
+    (state: GlobalAppState) => state.whitelist
+  );
+  const { poolId } = useParams();
+  const isWhiteListed = useMemo(() => {
+    return poolWhiteList.filter((item) => item === poolId).length > 0
+      ? true
+      : false;
+  }, []);
   const { t } = useTranslation("singlePool");
   const { poolId: poolAddress } = useParams();
   const { baseToken, quoteToken } = useContext(TokensContext);
@@ -164,7 +177,7 @@ export default function RemoveTab() {
         </div>
       </div>
 
-      {underMaintenance == true ? (
+      {underMaintenance == true || isWhiteListed == false ? (
         <div className="flex flex-col justify-end gap-y-2 mt-4 lg:mt-0 grow">
           <div className="h-auto border border-primary/20 rounded-2xs w-full">
             <div className="flex gap-3xs py-3xs px-base text-sm border-b border-primary/20">

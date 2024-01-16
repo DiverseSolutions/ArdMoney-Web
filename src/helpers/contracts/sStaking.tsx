@@ -1,5 +1,5 @@
 import StakingABI from "@abis/SARDMStaking.json";
-import store, { GlobalAppState } from "@/redux/store";
+import store, { GlobalAppState } from "@/redux/globalStore";
 import { ProviderContextType } from "@contexts/ProviderContext";
 import { getReadContract, getWriteContract } from "./contract";
 import { format18, parse18 } from "@helpers/web3";

@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { request, ClientError, gql } from "graphql-request";
 import { useSelector } from "react-redux";
-import { GlobalAppState } from "@/redux/store";
+import { GlobalAppState } from "@/redux/globalStore";
 import pairsQuery from "../graphql/pairQuery";
 import { ZeroAddress } from "ethers";
 

@@ -5,7 +5,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { Provider } from "react-redux";
-import store from "@redux/store";
+import globalStore from "@/redux/globalStore";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -25,7 +25,7 @@ export default function App() {
   AOS.init();
 
   return (
-    <Provider store={store}>
+    <Provider store={globalStore}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomeLayout />}>

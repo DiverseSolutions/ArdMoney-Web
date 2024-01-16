@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { GlobalAppState } from "@redux/store";
+import { GlobalAppState } from "@/redux/globalStore";
 import { FormEvent, useEffect, useMemo, useReducer } from "react";
 
 import Background1 from "../assets/images/swap/background1.svg";

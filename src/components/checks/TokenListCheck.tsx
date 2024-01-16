@@ -1,4 +1,4 @@
-import { GlobalAppState } from "@/redux/store";
+import { GlobalAppState } from "@/redux/globalStore";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { DefaultCheckProp } from "types/CheckTypes";

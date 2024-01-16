@@ -1,5 +1,5 @@
 import useProvider from "@/hooks/useProvider";
-import { GlobalAppState } from "@/redux/store";
+import { GlobalAppState } from "@/redux/globalStore";
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import { WalletTokenList } from "@constants/TokenList";

@@ -1,7 +1,7 @@
 import { request, ClientError } from "graphql-request";
 // import { RootState } from "@redux/store"
 import { BaseQueryFn } from "@reduxjs/toolkit/dist/query";
-import { GlobalAppState } from "@redux/store";
+import { GlobalAppState } from "@/redux/globalStore";
 
 export const dexApiBaseQuery: BaseQueryFn<any, unknown, unknown> = async (
   args,

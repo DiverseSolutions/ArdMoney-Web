@@ -2,7 +2,7 @@ import Button from "@components/shared/Button";
 import { DefaultButtonProp } from "types/ButtonTypes";
 import { useDispatch, useSelector } from "react-redux";
 import { setNetworkModal } from "@slices/modalSlice";
-import { GlobalAppState } from "@redux/store";
+import { GlobalAppState } from "@/redux/globalStore";
 
 export default function ConnectToSupportedNetworkButton({
   style = "",

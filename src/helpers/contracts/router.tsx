@@ -1,5 +1,5 @@
 import RouterABI from "@abis/ArdMoneyRouter.json";
-import store, { GlobalAppState } from "@/redux/store";
+import store, { GlobalAppState } from "@/redux/globalStore";
 import { Token } from "@constants/TokenList";
 import TokenABI from "@abis/ERC20.json";
 import { ProviderContextType } from "@contexts/ProviderContext";

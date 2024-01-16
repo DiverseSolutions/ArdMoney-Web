@@ -1,4 +1,4 @@
-import { GlobalAppState } from "@/redux/store";
+import { GlobalAppState } from "@/redux/globalStore";
 import { useSelector } from "react-redux";
 import useGetUserPoolsQuery from "../queries/useGetUserPoolsQuery";
 import { useMemo } from "react";

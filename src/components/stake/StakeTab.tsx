@@ -1,5 +1,5 @@
 import useProvider from "@/hooks/useProvider";
-import { GlobalAppState } from "@/redux/store";
+import { GlobalAppState } from "@/redux/globalStore";
 import { useSelector } from "react-redux";
 import ConnectToSupportedNetworkButton from "../web3/ConnectToSupportedNetworkButton";
 import ConnectWalletButton from "../web3/ConnectWalletButton";

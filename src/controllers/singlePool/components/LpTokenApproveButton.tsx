@@ -1,6 +1,6 @@
 import TextLoader from "@/components/shared/TextLoader";
 import { parse18 } from "@/helpers/web3";
-import { GlobalAppState } from "@/redux/store";
+import { GlobalAppState } from "@/redux/globalStore";
 import BigNumber from "bignumber.js";
 import React, { useContext, useMemo } from "react";
 import { useSelector } from "react-redux";
