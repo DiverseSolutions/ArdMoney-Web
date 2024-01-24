@@ -20,8 +20,12 @@ import { useTranslation } from "react-i18next";
 
 export default function RemoveLiquidityButton({
   resetButtonState,
+  baseLpTokenBalance,
+  quoteLpTokenBalance,
 }: {
   resetButtonState: Function;
+  baseLpTokenBalance: number;
+  quoteLpTokenBalance: number;
 }) {
   const { t } = useTranslation("singlePool");
   const { baseToken, quoteToken } = useContext(TokensContext);
@@ -33,7 +37,7 @@ export default function RemoveLiquidityButton({
 
   const removeInput = useMemo(() => {
     if (lpInput == "") return 0;
-    return parse18(BigNumber(BigNumber(lpInput).toFixed(10)).toNumber());
+    return parse18(BigNumber(BigNumber(lpInput).toFixed(2)).toNumber());
   }, [lpInput]);
 
   const { contracts } = useSelector((state: GlobalAppState) => state.web3);
@@ -50,8 +54,8 @@ export default function RemoveLiquidityButton({
       baseToken.address,
       quoteToken.address,
       removeInput,
-      1,
-      1,
+      parse18(parseInt(BigNumber(baseLpTokenBalance).toFixed(2))) ?? 0,
+      parse18(parseInt(BigNumber(quoteLpTokenBalance).toFixed(2))) ?? 0,
       userAccount,
       deadline,
     ],

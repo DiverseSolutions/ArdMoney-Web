@@ -207,6 +207,8 @@ export default function RemoveTab() {
                   approveState={setIsLpTokenApproved}
                 />
                 <RemoveLiquidityButton
+                  baseLpTokenBalance={baseLpTokenBalance}
+                  quoteLpTokenBalance={quoteLpTokenBalance}
                   resetButtonState={() => {
                     setIsLpTokenApproved(false);
                   }}
