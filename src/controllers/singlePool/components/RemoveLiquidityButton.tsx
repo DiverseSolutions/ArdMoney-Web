@@ -15,7 +15,7 @@ import TokensContext from "../context/TokensContext";
 import RemovePoolButtonsContext from "../context/RemovePoolButtonsContext";
 import LpInputsContext from "../context/LpInputsContext";
 import ResetStatesContext from "../context/ResetStatesContext";
-import { successAlert } from "@/helpers/alert";
+import { successAlert, errorAlert } from "@/helpers/alert";
 import { useTranslation } from "react-i18next";
 
 export default function RemoveLiquidityButton({
@@ -68,6 +68,9 @@ export default function RemoveLiquidityButton({
       successAlert(t("alert:successLpRemoved"));
       resetButtonState();
       reset();
+    },
+    onError(e: any) {
+      errorAlert(e.toString());
     },
   });
 
