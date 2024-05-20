@@ -75,7 +75,7 @@ export default function RemoveLiquidityButton({
   });
 
   function handleAddLiquidity() {
-    if (!isLpTokenApproved) return;
+    // if (!isLpTokenApproved) return;
     if (lpInput == "") return;
 
     removeLiquidity();
