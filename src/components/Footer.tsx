@@ -16,7 +16,7 @@ const footers = [
 ];
 
 export default function Footer() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <div className="flex flex-col sm:flex-row sm:justify-center p-lg lg:h-28 w-full">
@@ -40,11 +40,28 @@ export default function Footer() {
               info@dsolutions.mn
             </a>
           </div>
+          <div className="ml-4 flex whitespace-nowrap gap-2 text-white text-sm sm:text-xs lg:text-sm">
+            <span className="text-light-secondary">
+              {i18n.language === "mn" ? "Утас" : "Phone"}:
+            </span>
+            <span className="underline cursor-pointer">+976 91951199</span>
+          </div>
         </div>
         <div className="flex flex-col sm:flex-row justify-between w-full gap-6">
-          <div className="flex items-center gap-2 text-light-secondary">
-            <div className="i-ic-round-copyright icon-size-4 relative bottom-0.5" />
-            <span className="sm:text-xs lg:text-sm">{t("navBar:rights")}</span>
+          <div className="flex flex-col">
+            <div className="flex items-center gap-2 text-light-secondary">
+              <div className="i-ic-round-copyright icon-size-4 relative bottom-0.5" />
+              <span className="sm:text-xs lg:text-sm">
+                {t("navBar:rights")} 6575013
+              </span>
+            </div>
+            <div className="flex flex-col text-light-secondary">
+              <span className="sm:text-xs lg:text-sm">
+                {i18n.language === "mn"
+                  ? "Сүхбаатар дүүргийн 8-р хороо, Сүхбаатарын талбай, Цэнтрал тауэр, 14200 Улаанбаатар хот"
+                  : "Central tower, Sukhbaatar Square, Khoroo 8, Sukhbaatar District 14200 Ulaanbaatar, Mongolia"}
+              </span>
+            </div>
           </div>
           <div className="flex sm:justify-end items-center gap-lg text-white">
             <a
