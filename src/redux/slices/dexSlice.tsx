@@ -14,8 +14,8 @@ const dexSlice = createSlice({
   name: "dex",
   initialState: {
     subgraph: {
-      56: "https://api.thegraph.com/subgraphs/name/mnkhod/ardmoney-bnb-v1-subgraph",
-      97: "https://api.thegraph.com/subgraphs/name/mnkhod/ardmoney-chapel-v4-subgraph",
+      56: "https://gateway-arbitrum.network.thegraph.com/api/080d31710dd736277124ba511a64bc3f/subgraphs/id/8ENhWK8XBipkPvN1vXrqcaBs7vTffurRb7x8nPGVbtic",
+      97: "https://gateway-arbitrum.network.thegraph.com/api/080d31710dd736277124ba511a64bc3f/subgraphs/id/HMyxZYKVfn9hcGFcVbgmiMAVmxxnCzHugago76WcUrpH",
     },
     slippage: 0.5,
     deadline: 30,
