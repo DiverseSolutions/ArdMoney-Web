@@ -136,7 +136,7 @@ export default function RemoveTab() {
           <div className="flex flex-col lg:flex-row items-center justify-between">
             <input
               value={lpInput}
-              disabled={isWalletDisconnected}
+              // disabled={isWalletDisconnected}
               type="number"
               placeholder="0.000"
               className="text-xl text-center lg:text-left w-full placeholder:text-gray-500"
