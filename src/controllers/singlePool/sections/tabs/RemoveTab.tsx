@@ -177,7 +177,7 @@ export default function RemoveTab() {
         </div>
       </div>
 
-      {underMaintenance == true || isWhiteListed == false ? (
+      {/* {underMaintenance == true || isWhiteListed == false ? (
         <div className="flex flex-col justify-end gap-y-2 mt-4 lg:mt-0 grow">
           <div className="h-auto border border-primary/20 rounded-2xs w-full">
             <div className="flex gap-3xs py-3xs px-base text-sm border-b border-primary/20">
@@ -187,37 +187,37 @@ export default function RemoveTab() {
             </div>
           </div>
         </div>
-      ) : (
-        <ConnectWallet>
-          <div className="flex flex-col justify-end gap-y-2 mt-4 lg:mt-0 grow">
-            <RemovePoolButtonsContext.Provider value={isLpTokenApproved}>
-              <LpInputsContext.Provider value={lpInput == "" ? 0 : lpInput}>
-                <div className="h-auto border border-primary/20 rounded-2xs w-full">
-                  <div className="flex gap-3xs py-3xs px-base items-center text-sm border-b border-primary/20">
-                    <div className="i-ic-outline-warning w-10 h-10 lg:w-3 lg:h-3 text-light-secondary" />
-                    <p className="grow text-xs text-light-secondary">
-                      {t("warning")}
-                    </p>
-                  </div>
+      ) : ( */}
+      <ConnectWallet>
+        <div className="flex flex-col justify-end gap-y-2 mt-4 lg:mt-0 grow">
+          <RemovePoolButtonsContext.Provider value={isLpTokenApproved}>
+            <LpInputsContext.Provider value={lpInput == "" ? 0 : lpInput}>
+              <div className="h-auto border border-primary/20 rounded-2xs w-full">
+                <div className="flex gap-3xs py-3xs px-base items-center text-sm border-b border-primary/20">
+                  <div className="i-ic-outline-warning w-10 h-10 lg:w-3 lg:h-3 text-light-secondary" />
+                  <p className="grow text-xs text-light-secondary">
+                    {t("warning")}
+                  </p>
                 </div>
+              </div>
 
-                <LpTokenApproveButton
-                  balance={lpTokenBalance?.formatted ?? "0"}
-                  text={`${baseToken.symbol}/${quoteToken.symbol}`}
-                  approveState={setIsLpTokenApproved}
-                />
-                <RemoveLiquidityButton
-                  baseLpTokenBalance={baseLpTokenBalance}
-                  quoteLpTokenBalance={quoteLpTokenBalance}
-                  resetButtonState={() => {
-                    setIsLpTokenApproved(false);
-                  }}
-                />
-              </LpInputsContext.Provider>
-            </RemovePoolButtonsContext.Provider>
-          </div>
-        </ConnectWallet>
-      )}
+              <LpTokenApproveButton
+                balance={lpTokenBalance?.formatted ?? "0"}
+                text={`${baseToken.symbol}/${quoteToken.symbol}`}
+                approveState={setIsLpTokenApproved}
+              />
+              <RemoveLiquidityButton
+                baseLpTokenBalance={baseLpTokenBalance}
+                quoteLpTokenBalance={quoteLpTokenBalance}
+                resetButtonState={() => {
+                  setIsLpTokenApproved(false);
+                }}
+              />
+            </LpInputsContext.Provider>
+          </RemovePoolButtonsContext.Provider>
+        </div>
+      </ConnectWallet>
+      {/* )} */}
     </div>
   );
 
